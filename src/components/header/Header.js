@@ -8,8 +8,8 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo-container">
-          <Logo className="logo-image" /> 
-          <div className="logo-text">RAKU</div>
+        <Link to='/'><Logo className="logo-image" /> </Link>
+        <div className="logo-text">RAKU</div>
         </div>
         <nav>
           <ul className="menu">
