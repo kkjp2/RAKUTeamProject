@@ -1,20 +1,8 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
-import Main from './components/index'
-import Review from './components/review/Review';
+import MoveHomePage from './components/routes/Router'
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Routes>  
-          <Route path="/" element={<Main />} />  
-          <Route path="/리뷰" element={<Review />} />
-        </Routes>
-      </div>
-    </Router>
-
+    <MoveHomePage/>
   );
 }
 
