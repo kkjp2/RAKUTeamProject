@@ -1,0 +1,144 @@
+.comList_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* 确保间距均匀 */
+    align-items: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.comList_backgroun{
+    background-size: cover;
+    top: 0;
+    background-image: url('../img/beijing.png');
+    padding: 10px 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.comList_backgroun::before {
+    content: ''; /* 伪元素需要content属性才能显示 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 248.5px;
+    background-color: rgba(125, 153, 125, 0.5); /* 绿色背景，透明度为0.2 */
+    z-index: 0; /* 确保伪元素位于内容之下 */
+  }
+
+.comList_title {
+    position: relative;
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 35px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    /* padding-top: 60px; */
+}
+
+.comList_card {
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.comList_logo {
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 10px;
+}
+
+/* 动态为每个公司设置logo路径 */
+.comList_logo_1 {
+    background-image: url('../img/logo/logo1.png');
+}
+
+.comList_logo_2 {
+    background-image: url('../img/logo/logo2.jpg');
+}
+
+.comList_logo_3 {
+    background-image: url('../img/logo/logo3.png');
+}
+
+.comList_info {
+    text-align: center;
+}
+
+.comList_name {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.comList_tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.comList_tag {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 14px;
+}
+
+.comList_regionSelector {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.comList_regionButton {
+    background-color: transparent; /* 移除背景色 */
+    border: none; /* 移除边框 */
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative; /* 为伪元素定位做准备 */
+    font-size: 16px;
+    color: #ffffff;
+    /* font-family: 'Georgia', serif; */
+}
+
+.comList_regionButton::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    bottom: -10px; /* 根据按钮的具体padding调整 */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s;
+}
+
+.comList_regionButton:hover {
+    color: #9ce0a8e0; /* 悬停时的文字颜色变化 */
+    z-index: 1001;
+}
+
+.comList_regionButton.active {
+    color: #18602afb; /* 激活状态的文字颜色 */
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+.comList_regionButton.active::after {
+    width: 100%; /* 伪元素宽度变为100%，形成下划线 */
+    background-color: #18602afb; /* 激活状态的下划线颜色 */
+    z-index: 1001;
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './main.css';
 import CompanyShowcase from './CompanyShowcase.js';
+import { Link} from 'react-router-dom';
 
 function App() {
 
@@ -50,7 +51,7 @@ function App() {
 
         <div className="main_container">
           <form className="availability-form" onSubmit={handleSubmit}>
-            <h2>引越しサービス</h2>
+            <h2 className='main_h2'>引越しサービス</h2>
             <div className="form-group">
               <label>引越し予定日</label>
               <input
@@ -100,7 +101,7 @@ function App() {
                 min="0"
                 required />
             </div>
-            <button type="submit">当たりの運搬会社探す</button>
+            <button type="submit" className='main_submit'><Link to='/MovingCompanyList' className='submit_text'>当たりの運搬会社探す</Link></button>
           </form>
         </div>
       </div>
