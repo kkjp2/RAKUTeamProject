@@ -1,0 +1,24 @@
+.footer {
+    padding: 8px 12px 30px;
+    /* height: 100px; */
+    margin-top: auto;
+    background-color: #462679;
+}
+
+.contents {
+    width:96%;
+    max-width: 1100px;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+}
