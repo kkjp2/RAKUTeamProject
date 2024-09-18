@@ -14,7 +14,7 @@ const RegisterAuth =() => {
     <form className="Auth_Form">
     <p className="Auth_Write">인증코드(6자리)</p>
     <input type='text' className="Auth_Input"></input>
-    <button className="Register_Email__Btn" onClick={goTOArea}>인증 코드 확인</button>
+    <button className="Register_Auth__Btn" onClick={goTOArea}>인증 코드 확인</button>
     <p className="Auth_Resend_Write">인증코드 재발송</p>
     </form>
     </>

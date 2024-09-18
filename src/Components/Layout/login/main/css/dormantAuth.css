@@ -1,4 +1,4 @@
-/*  ./Components/Layout/login/main/css/registerAuth.css */
+/*  ./Components/Layout/login/main/css/dormantAuth.css */
 
 .title{
     margin: 0 auto;
@@ -9,7 +9,7 @@
     text-align: center;
     margin-bottom: 20px;
 }
-.Auth_Message{
+.Dormant_Message{
     margin-top: 50px;
     font-size: 25px;
     text-align: center;
@@ -17,7 +17,7 @@
     display: block;
 }
 
-.Auth_Form{
+.Dormant_Form{
     /* height: 400px; */
     margin-top: 100px;
     width: 100%;
@@ -26,14 +26,14 @@
 }
 
 
-.Auth_Write{
+.Dormant_Write{
     margin: 0;
     font-size: 20px;
     font-weight: 700;
     display: block;
 }
 
-.Auth_Input{
+.Dormant_Input{
     padding: 10px; /* 내부 패딩을 10px로 설정 */
     font-size: 16px; /* 글꼴 크기를 20px로 설정 */
     box-sizing: border-box;
@@ -42,7 +42,7 @@
     border: 1px solid #d8d8d8;
 }
 
-.Register_Auth__Btn{
+.Dormant_Email__Btn{
     width: 100%;
     padding: 20px 5px;
     font-size: 30px;
@@ -55,7 +55,7 @@
   
 }
 
-.Auth_Resend_Write{
+.Dormant_Resend_Write{
     margin-top: 40px;
     font-size: 20px;
     text-align: center;

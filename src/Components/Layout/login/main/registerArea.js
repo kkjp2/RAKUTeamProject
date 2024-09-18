@@ -8,7 +8,7 @@ const RegisterArea = () => {
     }
     return<>
     <p className="title">거주 지역 선택</p>
-    <p className="Auth_Message">거주 중인 지역을 선택하여<br/>지역 게시판 혜택을 누려보세요.</p>
+    <p className="Area_Message">거주 중인 지역을 선택하여<br/>지역 게시판 혜택을 누려보세요.</p>
     <form className="Area_Form">
         <select name="area" className="area_select" >
             <option value="Kyushu" className="area_option" >큐슈</option>

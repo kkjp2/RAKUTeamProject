@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate();
-    const goToCompany = () => {
-        navigate('/company');
+    const goToDormant = () => {
+        navigate('/Dormant_Auth');
       };
     const goTORegister = () => {
         navigate('/Register_Email')
@@ -21,7 +21,7 @@ const Login = () => {
                     <input type='text' className="Id__Input"></input>
                     <p className="Pass__Write">비밀번호</p>
                     <input type="password" className="Pass__Input"></input>
-                    <button className="Signin__Btn" id="company" onClick={goToCompany}>로그인</button>
+                    <button className="Signin__Btn" id="company" onClick={goToDormant}>로그인</button>
                 </form>
             </section>
             <div className="Register__Form">
