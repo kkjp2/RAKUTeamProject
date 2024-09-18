@@ -19,7 +19,7 @@ const RegisterEmail = () => {
                     <input type="password" className="Register_Pass__Input"></input>
                     <input type="checkbox" className="Register_Email_checkbox" id='Register_Email_checkbox' />
                     <label for="Register_Email_checkbox"><span>이메일 알람 허용</span></label>
-                    <button className="Register_Email__Btn" onClick={goToAuth}>로그인</button>
+                    <button className="Register_Email__Btn" onClick={goToAuth}>이메일 등록</button>
                 </form>
             </section>
     </div>
