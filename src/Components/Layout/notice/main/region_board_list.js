@@ -1,10 +1,11 @@
 // region_board_list.js
 import React from 'react';
 import './region_board_list.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 
 const RegionBoardList=()=>{
-  const move="지역 축제 게시판 보러가기";
+  // const move="지역 축제 게시판 보러가기";
+  const { region } = useParams();  // URL에서 지역 정보를 받아옴
   const navigate = useNavigate();
 //   const handleButtonClick = (festival) => {
 //     setSelectedBoard(festival);  
@@ -12,12 +13,12 @@ const RegionBoardList=()=>{
 return (
   <div className="container">      
   <div className="toolbar">
-    <button className="blue-btn">도호쿠</button>
+    <button className="blue-btn">{region}</button>
     <input type="text" placeholder="키워드를 입력하세요" className="search-bar" />
     <button className='search'>검색</button>    
     <button className="purple-btn"
     onClick={()=>{
-      navigate("/festival_board_list")
+      navigate(`/festival_board_list/${region}`);
     }}
     >지역 축제 게시판 보러가기</button>
   </div>
@@ -34,7 +35,11 @@ return (
     </div>
   </div>
   <div className='toolbar1'>
-  <button className='write'>
+  <button className='write'
+   onClick={()=>{
+      navigate("/WritingPage")
+    }}
+  >
     글쓰기
   </button>
   </div>
@@ -64,7 +69,7 @@ return (
         </tr>
         <tr>
           <td>14</td>
-          <td>자녀와 함께 갈만한...</td>
+          <td>동네에서 같이 산책...</td>
           <td>작성자2</td>
           <td>2024-05-21</td>
           <td>8</td>

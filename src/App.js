@@ -5,20 +5,23 @@ import Layout from './Components/Layout/notice/layout.js';
 import MainBoard from './Components/Layout/notice/main/mainboard.js';
 import RegionBoardList from './Components/Layout/notice/main/region_board_list.js';
 import FestivalBoardList from './Components/Layout/notice/main/festival_board_list.js';
+import MyPage from './Components/Layout/notice/main/MyPage.js';
+import WritingPage from './Components/Layout/notice/main/WritingPage.js';
 
 
 
 function App() {
   return (
-    <Layout>
+    <Layout>      
     <BrowserRouter>
-    <Routes>      
-    <Route path="/" element={<MainBoard/>}/>                     
-         <Route path="/region_board_list" element={<RegionBoardList/>}/>
-         <Route path="/festival_board_list" element={<FestivalBoardList/>}/>         
-         
+    <Routes>                
+    <Route path="/" element={<MainBoard/>}/>          
+    <Route path="/MyPage" element={<MyPage/>}/>          
+    <Route path="/region_board_list/:region" element={<RegionBoardList />} />         
+         <Route path="/festival_board_list/:region" element={<FestivalBoardList/>}/>                 
+         <Route path="/WritingPage" element={<WritingPage/>}/>         
          </Routes>
-        </BrowserRouter>
+        </BrowserRouter>        
     </Layout>
 
   

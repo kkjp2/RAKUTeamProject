@@ -1,9 +1,15 @@
 /* 메인보드 스타일 */
 
+
+.back-color{
+  background-color: #ffffff;
+}
 .map-container {
   position: relative; /* 자식 요소들의 기준을 설정하기 위해 relative */
   width: 100%;
   height: 600px;
+  background-color: #ffffff;
+  margin-bottom: 50px;
   
 }
 
@@ -13,7 +19,7 @@
   height: 100%;
   
 }
-.main-board {
+.main-board {    
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
@@ -52,12 +58,12 @@
 }
 
 .region-4 {
-  top: 330px;
-  left: 400px;    
+  top: 370px;
+  left: 200px;    
 }
 .region-5 {
   top: 330px;
-  left: 500px;    
+  left: 400px;    
 }
 .region-6 {
   top: 230px;
@@ -95,27 +101,34 @@
   }
   
   .recommendation-section {
+    
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    
   }
   
   .recommendation-list {
+    
     width: 48%;
   }
   
+  
+  
   .recommendation-list h2 {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
   }
   
   .recommendation-item {
+    border: 1px solid black;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
     background-color: #ffffff;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 18px;
   }
   
   .recommendation-item .rank {
@@ -126,9 +139,13 @@
   
   .recommendation-item .content {
     flex: 1;
-    background-color: #cccccc;
-    height: 50px;
-    border-radius: 5px;
+    background-color: white;
+    border-color: 10px solid black;    
+    height: 50px;    
+    text-align: center;
+    line-height: 50px;
   }
+  
+  
   
   

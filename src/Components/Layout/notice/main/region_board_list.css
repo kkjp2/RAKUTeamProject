@@ -1,4 +1,7 @@
 
+*{
+  background-color: white;
+}
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -35,7 +38,7 @@ body {
   }
   
   .purple-btn {
-    background-color: #6e5daf;
+    background-color: #e81bb5;
   }
   
   .search-bar {
@@ -97,6 +100,10 @@ body {
   }
   .side-section {
     
+    position: relative;
+  }
+  .side-section H3 {
+    background-color: #a63fa6;
     position: relative;
   }
   

@@ -1,19 +1,22 @@
 import React from 'react';
 import './festival_board_list.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useParams } from "react-router-dom";
 
 const RegionFestivalBoard = () => {
   const navigate = useNavigate();
+  const { region } = useParams();  
+
+  
   return (
     <div className="festival-board">
       {/* 상단 툴바 */}
       <div className="toolbar">
-        <button className="blue-btn">도호쿠 지방</button>
+        <button className="blue-btn">{region}</button>
         <input type="text" placeholder="키워드를 입력하세요" className="search-bar" />
         <button className="search">검색</button>
         <button className="purple-btn"
           onClick={()=>{
-            navigate("/region_board_list")
+            navigate(`/region_board_list/${region}`);  // 해당 지역으로 이동
           }}>지역 커뮤니티 게시판 보러가기</button>
       </div>
 

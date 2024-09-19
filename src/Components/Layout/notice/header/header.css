@@ -1,63 +1,74 @@
 /* Header 스타일 */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color:#ffffff;
-    border-bottom: 1px solid #000;
-    position: relative;
-    
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color:#A611CB;
+  border-bottom: 1px solid #000;
+  position: relative;
   
-  .header h1 {
-    font-size: 24px;
-    color: #ee3aeb;
-  }
+}
+.header .main_header{
+  margin-left: 350px;
+  background-color:#ffffff;
+  border-bottom: 1px solid #000;
+  position: relative;
   
-  .header .user-id {
-    font-size: 18px;
-    color: #ee3aeb;
-  }
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #000;
   
-  .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: #ee3aeb;
-  }
-  /* 드롭다운 메뉴 */
+}
+
+.header .user-id {
+  font-size: 18px;
+  
+  
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  
+  margin-right: 350px;
+}
+/* 드롭다운 메뉴 */
 .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 10px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  z-index: 1000;
+position: absolute;
+top: 100%;
+right: 10px;
+background-color: white;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+overflow: hidden;
+z-index: 1000;
+margin-right: 350px;
 }
 
 .dropdown-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+list-style: none;
+margin: 0;
+padding: 0;
 }
 
 .dropdown-menu li {
-  padding: 10px 20px;
-  border-bottom: 1px solid #ccc;
+padding: 10px 20px;
+border-bottom: 1px solid #ccc;
 }
 
 .dropdown-menu li:last-child {
-  border-bottom: none;
+border-bottom: none;
 }
 
 .dropdown-menu li a {
-  text-decoration: none;
-  color: black;
-  display: block;
+text-decoration: none;
+color: black;
+display: block;
 }
 
 .dropdown-menu li a:hover {
-  background-color: #f0f0f0;
+background-color: #f0f0f0;
 }
