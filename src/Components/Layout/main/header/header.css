@@ -1,0 +1,188 @@
+.header{
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 89px;
+    position: relative;
+    border-top: 8px solid #462679;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.content{
+    display: flex;
+    width: 1010px;
+    max-width: 1100px;
+    height: 100%;
+    overflow: hidden;
+    /* margin: 0 auto; */
+    align-items: center;
+    margin: 0 auto;
+    /* position: relative; */
+    position: relative;
+
+}
+
+.navigation {
+    ul{
+        display: flex;
+        list-style: none;
+
+        li + li {
+            margin-left: 30px;
+        }
+    }
+}
+.Logo{
+    color: #462679c7;
+    font-size: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+    /* position: absolute; */
+}
+.Realty_Menu{
+    height: 100%;
+    display: flex;           
+    justify-content: flex-start;
+    margin-left: 10px;
+    
+}
+
+.Category_Menu{
+    width: 200px;
+    cursor: pointer;
+    display:table;
+    border-right: 1px solid #d2d2d2;
+}
+
+.Category_Menu:hover{
+    background-color:#f4f4f4 ;
+}
+
+
+.Category_Menu p {
+    font-weight: bold;
+    font-size: 18px;
+    display:table-cell;
+    vertical-align:middle
+}
+
+.Map_Menu{
+    width: 200px;
+    cursor: pointer;
+    display:table;
+    border-right: 1px solid #d2d2d2;
+}
+
+.Map_Menu:hover{
+    background-color:#f4f4f4 ;
+}
+
+.Map_Menu p {
+    font-weight: bold;
+    font-size: 18px;
+    display:table-cell;
+    vertical-align:middle
+}
+
+.Sell_Menu{
+    width: 200px;   
+    cursor: pointer;
+    display:table;
+}
+
+.Sell_Menu:hover{
+    background-color:#f4f4f4 ;
+}
+
+.Sell_Menu p {
+    font-weight: bold;
+    font-size: 18px;
+    display:table-cell;
+    vertical-align:middle
+}
+.My_Menu{
+    height: 100%;
+    display: flex;           
+    justify-content: flex-start;
+    margin-left: 10px;
+    position: absolute;
+    right: 0;
+}
+
+.Recent_Menu{
+    width: 70px;
+    padding-top:15px;
+    cursor: pointer;
+    margin-right:20px;
+}
+
+.Recent_Menu:hover{
+    background-color:#f4f4f4 ;
+}
+
+.Recent_Menu p {
+    font-size:12px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+.Recent_Img{
+    
+   width: 35px;
+   height:35px;
+    background: url("../png/Recent_Menu.png");
+    background-size: cover;
+    margin: auto;
+    background-repeat: no-repeat;
+}
+
+.Favorite_Menu{
+    width: 70px;
+    padding-top:15px;
+    cursor: pointer;
+    margin-right:20px;
+}
+
+.Favorite_Menu:hover{
+    background-color:#f4f4f4 ;
+}
+
+.Favorite_Menu p {
+    font-size:12px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.Favorite_Img{
+    width:35px;
+    height:35px;
+     background: url("../png/Favorite_Menu.png");
+     background-size: auto;
+     margin: auto;
+ }
+
+ .Mypage_Menu{
+    width: 70px;
+    padding-top:15px;
+    cursor: pointer;
+    margin-right:20px;
+}
+
+.Mypage_Menu:hover{
+    background-color:#f4f4f4 ;
+}
+
+.Mypage_Menu p {
+    font-size:12px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.Mypage_Img{
+    width:35px;
+    height:35px;
+     background: url("../png/Mypage_Menu.png");
+     background-size: auto;
+     margin: auto;
+ }
