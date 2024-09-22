@@ -5,26 +5,27 @@
   align-items: center;
   padding: 10px;
   background-color:#A611CB;
-  border-bottom: 1px solid #000;
+  /* border-bottom: 1px solid #000; */
   position: relative;
   
 }
 .header .main_header{
   margin-left: 350px;
-  background-color:#ffffff;
-  border-bottom: 1px solid #000;
   position: relative;
+  color: white;    
   
 }
 
 .header h1 {
+  background-color: #A611CB;
   font-size: 24px;
-  color: #000;
   
 }
 
 .header .user-id {
+  background-color: #A611CB;
   font-size: 18px;
+  color: white;
   
   
 }
@@ -32,8 +33,9 @@
 .menu-icon {
   font-size: 24px;
   cursor: pointer;
-  
+  background-color: #A611CB;
   margin-right: 350px;
+  color: white;
 }
 /* 드롭다운 메뉴 */
 .dropdown-menu {

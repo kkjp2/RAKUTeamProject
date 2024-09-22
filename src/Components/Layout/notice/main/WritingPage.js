@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import './WritingPage.css';
 
 const WritingPage = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [imgFile, setImgFile]=useState("");
+  const imgRef=useRef();
+  const saveImg=()=>{
+    const file=imgRef.current.files[0];
+    const reader= new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend=()=>{
+      setImgFile(reader.result);
+    }
+  }
 
   const handleSave = () => {
     // 임시 저장 기능 (콘솔로 출력 또는 로컬 스토리지에 저장 가능)
@@ -34,9 +44,21 @@ const WritingPage = () => {
           placeholder="대충 내용" 
           className="content-input"
           value={content}
-          onChange={(e) => setContent(e.target.value)}
+          onChange={(e) => setContent(e.target.value)}          
         />
+        <img
+            src={imgFile ? imgFile :`/images/icon/user.png`}
+            alt="프로필 이미지"
+        />
+
+
+     
         <div className="button-group">
+        <input type="file"
+        accept='image/*'
+        id="contentImg"
+        onChange={saveImg}
+        ref={imgRef}/>
           <button className="save-btn" onClick={handleSave}>임시 저장</button>
           <button className="submit-btn" onClick={handleSubmit}>등록</button>
         </div>
