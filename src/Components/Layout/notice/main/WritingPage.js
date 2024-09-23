@@ -27,10 +27,7 @@ const WritingPage = () => {
 
   return (
     <div className="writing-container">
-      <header className="header">
-        <h1>RAKU</h1>
-    
-      </header>
+      
       
       <div className="writing-form">
         <input 

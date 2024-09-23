@@ -48,7 +48,9 @@ const RegionFestivalBoard = () => {
           <tbody>
             <tr>
               <td>15</td>
-              <td>센다이 네부타 축제</td>
+              <td onClick={()=>{
+                navigate(`/view_festival`)
+              }}>센다이 네부타 축제</td>
               <td>관리자</td>
               <td>2024-05-22</td>
               <td>44</td>

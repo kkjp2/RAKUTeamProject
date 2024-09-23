@@ -69,7 +69,11 @@ return (
         </tr>
         <tr>
           <td>14</td>
-          <td>동네에서 같이 산책...</td>
+          <td onClick={()=>{
+            navigate(`/view_board`);
+          }
+
+          }>동네에서 같이 산책...</td>
           <td>작성자2</td>
           <td>2024-05-21</td>
           <td>8</td>
