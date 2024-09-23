@@ -1,12 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import MainPage from './Components/Layout/main/page/index.js';
+import MainIndex from './Components/Layout/main/page/mainIndex.js';
 
 function App() {
   return (
     <div className="App">
-     <MainPage/>
-
+    <MainIndex/>
     </div>
   );
 }

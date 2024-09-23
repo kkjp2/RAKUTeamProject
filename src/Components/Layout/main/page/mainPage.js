@@ -25,7 +25,9 @@ const MainPage =() => {
             input.removeEventListener('blur', handleBlur);
         };
     }, []);
-
+    const goToFavorites = () => {
+        navigate(`/MyPage/Favorites`);
+    }
     return<>
     <div className="Mainpage_Realty">
     <div className="Mainpage_filiter">

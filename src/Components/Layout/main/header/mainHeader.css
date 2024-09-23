@@ -1,14 +1,14 @@
-.header{
+.mainHeader{
     left: 0;
     top: 0;
     width: 100%;
     height: 89px;
     position: relative;
-    border-top: 8px solid #462679;
+    border-top: 8px solid  #7F056E;
     border-bottom: 1px solid #d2d2d2;
 }
 
-.content{
+.mainContent{
     display: flex;
     width: 1010px;
     max-width: 1100px;
@@ -22,7 +22,7 @@
 
 }
 
-.navigation {
+.mainNavigation {
     ul{
         display: flex;
         list-style: none;
@@ -32,8 +32,8 @@
         }
     }
 }
-.Logo{
-    color: #462679c7;
+.mainLogo{
+    color: #7F056E;
     font-size: 50px;
     font-family: 'Inter';
     font-style: normal;
@@ -41,7 +41,7 @@
     cursor: pointer;
     /* position: absolute; */
 }
-.Realty_Menu{
+.mainRealty_Menu{
     height: 100%;
     display: flex;           
     justify-content: flex-start;
@@ -49,60 +49,60 @@
     
 }
 
-.Category_Menu{
+.mainCategory_Menu{
     width: 200px;
     cursor: pointer;
     display:table;
     border-right: 1px solid #d2d2d2;
 }
 
-.Category_Menu:hover{
+.mainCategory_Menu:hover{
     background-color:#f4f4f4 ;
 }
 
 
-.Category_Menu p {
+.mainCategory_Menu p {
     font-weight: bold;
     font-size: 18px;
     display:table-cell;
     vertical-align:middle
 }
 
-.Map_Menu{
+.mainMap_Menu{
     width: 200px;
     cursor: pointer;
     display:table;
     border-right: 1px solid #d2d2d2;
 }
 
-.Map_Menu:hover{
+.mainMap_Menu:hover{
     background-color:#f4f4f4 ;
 }
 
-.Map_Menu p {
+.mainMap_Menu p {
     font-weight: bold;
     font-size: 18px;
     display:table-cell;
     vertical-align:middle
 }
 
-.Sell_Menu{
+.mainSell_Menu{
     width: 200px;   
     cursor: pointer;
     display:table;
 }
 
-.Sell_Menu:hover{
+.mainSell_Menu:hover{
     background-color:#f4f4f4 ;
 }
 
-.Sell_Menu p {
+.mainSell_Menu p {
     font-weight: bold;
     font-size: 18px;
     display:table-cell;
     vertical-align:middle
 }
-.My_Menu{
+.mainMy_Menu{
     height: 100%;
     display: flex;           
     justify-content: flex-start;
@@ -111,23 +111,23 @@
     right: 0;
 }
 
-.Recent_Menu{
+.mainRecent_Menu{
     width: 70px;
     padding-top:15px;
     cursor: pointer;
     margin-right:20px;
 }
 
-.Recent_Menu:hover{
+.mainRecent_Menu:hover{
     background-color:#f4f4f4 ;
 }
 
-.Recent_Menu p {
+.mainRecent_Menu p {
     font-size:12px;
     margin: 0 auto;
     margin-bottom: 5px;
 }
-.Recent_Img{
+.mainRecent_Img{
     
    width: 35px;
    height:35px;
@@ -137,24 +137,24 @@
     background-repeat: no-repeat;
 }
 
-.Favorite_Menu{
+.mainFavorite_Menu{
     width: 70px;
     padding-top:15px;
     cursor: pointer;
     margin-right:20px;
 }
 
-.Favorite_Menu:hover{
+.mainFavorite_Menu:hover{
     background-color:#f4f4f4 ;
 }
 
-.Favorite_Menu p {
+.mainFavorite_Menu p {
     font-size:12px;
     margin: 0 auto;
     margin-bottom: 5px;
 }
 
-.Favorite_Img{
+.mainFavorite_Img{
     width:35px;
     height:35px;
      background: url("../png/Favorite_Menu.png");
@@ -162,24 +162,24 @@
      margin: auto;
  }
 
- .Mypage_Menu{
+ .mainMypage_Menu{
     width: 70px;
     padding-top:15px;
     cursor: pointer;
     margin-right:20px;
 }
 
-.Mypage_Menu:hover{
+.mainMypage_Menu:hover{
     background-color:#f4f4f4 ;
 }
 
-.Mypage_Menu p {
+.mainMypage_Menu p {
     font-size:12px;
     margin: 0 auto;
     margin-bottom: 5px;
 }
 
-.Mypage_Img{
+.mainMypage_Img{
     width:35px;
     height:35px;
      background: url("../png/Mypage_Menu.png");
