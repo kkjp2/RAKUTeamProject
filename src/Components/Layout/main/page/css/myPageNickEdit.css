@@ -1,0 +1,68 @@
+.NicknameEdit{
+    width:728px;
+    margin: 0 auto;
+}
+.NicknameEdit_Title{
+    margin: 0 auto;
+    font-size: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.NicknameEdit_Content{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 70%;
+}
+
+.NicknameEdit_Content_Title{
+    text-align: left;
+    font-size: 20px;
+}
+
+.NicknameEdit_Content_Text{
+    width: 100%;
+    font-size: 40px;
+}
+
+.NicknameEdit_Btn{
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 70%;
+}
+
+.NicknameEdit_Btn_submit{
+    width: 100%;
+    padding: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #462679;
+    cursor: pointer;
+}
+
+.NicknameEdit_Btn_submit:hover{
+
+}
+
+.NicknameEdit_Btn_cancel{
+    width: 100%;
+    padding: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.NicknameEdit_Btn_cancel:hover{
+
+}

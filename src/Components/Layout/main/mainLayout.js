@@ -15,6 +15,8 @@ const Layout = (props) => {
       headerContent = <MainHeader/>;
       break;
     case '/MyPage/Edit':
+    case '/MyPage/Edit/Nickname':
+    case '/MyPage/Edit/Email':
       headerContent = <EditHeader/>;
       footerContent = <Footer/>;
       break;

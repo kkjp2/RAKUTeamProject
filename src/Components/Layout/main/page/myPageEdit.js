@@ -1,5 +1,5 @@
 import './css/myPageEdit.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MyPageEdit =() => {
     const navigate = useNavigate();
@@ -22,7 +22,9 @@ const MyPageEdit =() => {
                             <p>test</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
+                        <Link to='/MyPage/Edit/Nickname'>
                             <button>변경</button>
+                            </Link>
                         </span>
                     </div>
                 <div className="MyPage_Edit_Data_Main">
@@ -32,7 +34,9 @@ const MyPageEdit =() => {
                             <p>test@gmail.com</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
+                        <Link to='/MyPage/Edit/Email'>
                             <button>변경</button>
+                            </Link>
                         </span>
                     </div>
                 </div>

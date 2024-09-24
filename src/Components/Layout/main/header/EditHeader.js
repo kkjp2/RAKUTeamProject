@@ -12,7 +12,7 @@ const EditHeader = () => {
     <header className="header">
         <div className="content">
         <div>
-            <p className="Logo" onClcick={goToMainPage}>RAKU</p>
+            <p className="Logo" onClick={goToMainPage}>RAKU</p>
             </div>
 
         {/* <nav className="navigation">
