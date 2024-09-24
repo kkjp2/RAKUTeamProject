@@ -43,10 +43,7 @@ const WritingPage = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}          
         />
-        <img
-            src={imgFile ? imgFile :`/images/icon/user.png`}
-            alt="프로필 이미지"
-        />
+        
 
 
      

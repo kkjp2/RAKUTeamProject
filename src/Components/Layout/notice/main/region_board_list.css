@@ -27,7 +27,26 @@ body {
     margin-bottom: 20px;
   }
   
+  .toolbar .search{
+    position: relative;
+    border: 0;    
+    display: inline-block;
+    text-align: center;
+    color: white;  
+    background-color: #BA8CB5;    
+    margin-right: 5px;
+  }
+  .toolbar .purple-btn{
+    position: relative;
+    border: 0;    
+    display: inline-block;
+    text-align: center;
+    color: white;  
+    background-color: #BA8CB5;
+
+  }
   .blue-btn, .purple-btn {
+    
     background-color: #5dafff;
     color: white;
     border: none;
@@ -36,10 +55,7 @@ body {
     border-radius: 5px;
     font-size: 14px;
   }
-  
-  .purple-btn {
-    background-color: #e81bb5;
-  }
+
   
   .search-bar {
     flex-grow: 1;

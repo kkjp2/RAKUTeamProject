@@ -1,5 +1,7 @@
 .festival-board {
   font-family: Arial, sans-serif;
+  margin: 0 auto;
+  width: 80%;
   padding: 20px;
 }
 

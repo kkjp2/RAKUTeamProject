@@ -91,6 +91,12 @@ const RegionFestivalBoard = () => {
           </tbody>
         </table>
       </div>
+            {/* 페이지네이션 */}
+            <div className="pagination">
+        <button className="page-btn">1</button>
+        <button className="page-btn">2</button>
+        <button className="page-btn">3</button>
+      </div>
 
       {/* 사이드 섹션 */}
       <div className="side-section">
@@ -116,12 +122,7 @@ const RegionFestivalBoard = () => {
         </div>
       </div>
 
-      {/* 페이지네이션 */}
-      <div className="pagination">
-        <button className="page-btn">1</button>
-        <button className="page-btn">2</button>
-        <button className="page-btn">3</button>
-      </div>
+
     </div>
   );
 };

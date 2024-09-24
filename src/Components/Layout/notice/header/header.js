@@ -6,6 +6,7 @@ import React,{useState} from 'react';
 
 
 
+
   
 
 
@@ -15,7 +16,7 @@ import React,{useState} from 'react';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // 메뉴의 열림
 
-
+    
     // 메뉴 열고 닫기 함수
     const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen); // 현재 상태의 반대로 변경
@@ -30,7 +31,7 @@ const Header = () => {
   
   return (
     <header className="header">
-      <h1 className="main_header">RAKU</h1> 
+      <h1 className="main_header"><a href='/'>RAKU</a></h1> 
       <div className="user-id">유우키님! 안녕하세요!</div>            
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
@@ -39,8 +40,7 @@ const Header = () => {
             {isMenuOpen && (
         <div className="dropdown-menu">
           <ul>
-
-          <li><a href="/">메인 페이지</a></li>               
+                      
             <li><a href="/mypage">마이페이지</a></li>
             <li><a href="/edit-profile">개인정보 수정</a></li>
             <li><a href="/logout">로그아웃</a></li>

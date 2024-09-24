@@ -15,6 +15,12 @@
   color: white;    
   
 }
+.header .main_header a{
+  text-decoration: none;
+  background-color: #A611CB;
+  color: white;
+  
+}
 
 .header h1 {
   background-color: #A611CB;
