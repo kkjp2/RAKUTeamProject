@@ -1,7 +1,9 @@
 import React,{ useState } from 'react';
-import './ComList.css';
-import companies from './companies';  // 引入假数据集
-import Layout from '../layout/layout'
+import './MovingComList.css';
+import companies from './Movecompanies';  // 引入假数据集
+import Layout from '../move_layout/MoveLayout'
+import { Link } from 'react-router-dom';
+
 
 const MovingCompanyList = () => {
 
@@ -16,9 +18,9 @@ const MovingCompanyList = () => {
     //         .catch(error => console.error('Error fetching companies:', error));
     // }, []);
 
-    const [selectedRegion, setSelectedRegion] = useState('');
-
-    const regions = ["全地域", "東京", "大阪", "名古屋", "福岡", "札幌", "仙台", "広島", "高松", "金沢", "鹿児島"];  // 日语地区列表
+        const regions = ["全地域", "東京", "大阪", "名古屋", "福岡", "札幌", "仙台", "広島", "高松", "金沢", "鹿児島"];  // 日语地区列表
+        const [selectedRegion, setSelectedRegion] = useState(regions[0]);
+    
 
     return (
         <>
@@ -26,22 +28,20 @@ const MovingCompanyList = () => {
         <div className='comList_backgroun'>
         <h1 className="comList_title">引越し会社一覧</h1>
         <div className="comList_regionSelector">
-                {regions.map(region => (
-                    <button 
-                        key={region} 
-                        className={`comList_regionButton ${selectedRegion === region ? 'active' : ''}`}
-                        onClick={() => setSelectedRegion(region)}
-                    >
-                        {region}
-                    </button>
-                ))}
-            </div>
+            {regions.map(region => (
+                <button 
+                    key={region}
+                    className={`comList_regionButton ${selectedRegion === region ? 'active' : ''}`}
+                    onClick={() => setSelectedRegion(region)}>
+                    {region}
+                </button>
+            ))}
+        </div>
         </div>
         <div className="comList_container">
-        
             {companies.map(company => (
                 <div key={company.id} className="comList_card">
-                    <div className={`comList_logo comList_logo_${company.id}`}></div>
+                <Link to='/MoveMain/CompanyProfile'><div className={`comList_logo comList_logo_${company.id}`}></div></Link>
                     <div className="comList_info">
                         <h3 className="comList_name">{company.name}</h3>
                         <div className="comList_price">{company.priceRange}</div>

@@ -11,7 +11,7 @@ body,html {
   /* 去掉默认的填充 */
 }
 .container-back {
-  background-image: url('../img/mian_background.jpg'); /* 배경 이미지 경로 */
+  background-image: url('../move_img/mian_background.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; /* 배경 이미지가 반복되지 않도록 설정 */
@@ -207,16 +207,16 @@ text-decoration: none;
   width: 90%;
   grid-column: 1 / 3;
   grid-row: 1 / 2;
-  background-image: url('../img/move-3.jpg'); 
+  background-image: url('../move_img/move-3.jpg'); 
 }
 
 .gallery-item2 {
   width: 75%;
   margin: 10px 0px 20px 0px;
-  background-image: url('../img/move-4.jpg');
+  background-image: url('../move_img/move-4.jpg');
 }
 
 .gallery-item3 {
   margin-left: 30px;
-  background-image: url('../img/move-1.jpg'); 
+  background-image: url('../move_img/move-1.jpg'); 
 }

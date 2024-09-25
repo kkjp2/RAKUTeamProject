@@ -56,15 +56,15 @@ body, html {
 }
 
 .speed-moving {
-  background-image: url('../img/menmian1.jpg'); 
+  background-image: url('../move_img/menmian1.jpg'); 
 }
 
 .premium-moving {
-  background-image: url('../img/menmian2.jpg'); 
+  background-image: url('../move_img/menmian2.jpg'); 
 }
 
 .eco-moving {
-  background-image: url('../img/menmian4.jpg'); 
+  background-image: url('../move_img/menmian4.jpg'); 
 }
 
 .company-overlay {

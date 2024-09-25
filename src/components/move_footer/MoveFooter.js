@@ -1,4 +1,4 @@
-import './Footer.css';
+import './MoveFooter.css';
 const footer = () => {
     return <>
     <footer className="footer">

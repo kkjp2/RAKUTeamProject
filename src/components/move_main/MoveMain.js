@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './main.css';
-import CompanyShowcase from './CompanyShowcase.js';
+import './MoveMain.css';
+import CompanyShowcase from './MoveCompanyShowcase.js';
 import { Link} from 'react-router-dom';
 
 function App() {
@@ -101,7 +101,7 @@ function App() {
                 min="0"
                 required />
             </div>
-            <button type="submit" className='main_submit'><Link to='/MovingCompanyList' className='submit_text'>当たりの運搬会社探す</Link></button>
+            <button type="submit" className='main_submit'><Link to='/MoveMain/MovingCompanyList' className='submit_text'>当たりの運搬会社探す</Link></button>
           </form>
         </div>
       </div>

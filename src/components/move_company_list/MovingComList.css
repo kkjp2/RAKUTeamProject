@@ -10,7 +10,7 @@
 .comList_backgroun{
     background-size: cover;
     top: 0;
-    background-image: url('../img/beijing.png');
+    background-image: url('../move_img/beijing.png');
     padding: 10px 0;
     z-index: 1000;
     width: 100%;
@@ -60,15 +60,19 @@
 
 /* 动态为每个公司设置logo路径 */
 .comList_logo_1 {
-    background-image: url('../img/logo/logo1.png');
+    background-image: url('../move_img/logo/logo1.png');
 }
 
 .comList_logo_2 {
-    background-image: url('../img/logo/logo2.jpg');
+    background-image: url('../move_img/logo/logo2.jpg');
 }
 
 .comList_logo_3 {
-    background-image: url('../img/logo/logo3.png');
+    background-image: url('../move_img/logo/logo3.png');
+}
+
+.comList_logo_4 {
+    background-image: url('../move_img/logo/logo4.jpg');
 }
 
 .comList_info {

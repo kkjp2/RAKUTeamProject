@@ -1,6 +1,8 @@
 import React from 'react';
-import './Review.css';
+import './MoveReview.css';
+//import { PiNotePencilDuotone } from 'react-icons/fa';   fa 是 FontAwesome，对于其他图标库可能有所不同
 
+// import Layout from '../layout/layout'
 const Review = () => {
     const entries = [
         {
@@ -43,9 +45,13 @@ const Review = () => {
             label: '引越し準備',
             content: '事前に必要な準備がわかりやすく、安心して当日を迎えることができました。',
         },
+
     ];
 
     return (
+        <>
+
+        <div></div>
         <div className="timeline">
             {entries.map((entry, index) => (
                 <div className="timeline-item" key={index}>
@@ -57,6 +63,7 @@ const Review = () => {
                 </div>
             ))}
         </div>
+        </>
     );
 };
 

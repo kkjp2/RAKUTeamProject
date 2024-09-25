@@ -1,5 +1,5 @@
-import Main from './main/main'
-import Layout from '../components/layout/layout'
+import Main from '../components/move_main/MoveMain'
+import Layout from './move_layout/MoveLayout'
 const homepage = () => {
     return<>
     <Layout>

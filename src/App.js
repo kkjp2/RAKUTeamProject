@@ -1,4 +1,4 @@
-import MoveHomePage from './components/routes/Router'
+import MoveHomePage from './components/move_routes/MoveRouter'
 
 function App() {
   return (

@@ -1,0 +1,95 @@
+.profile-container {
+  width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.profile-container hr{
+  border: none;
+  height: 1px; /* 设置为1px以确保在所有设备上都能显示 */
+  background: #dddddd; /* 浅灰色，与白色背景接近 */
+}
+
+.profile-logo {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.profile-company-info h1 {
+  margin: 0;
+  color: #333;
+}
+
+.profile-company-info {
+  display: flex; /* 启用Flexbox */
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 元素间隔均匀分布 */
+}
+
+.profile-main {
+  padding-top: 20px; /* 添加上部边距以视觉上与横线分隔 */
+  display: inline;
+}
+
+.profile-main h2 {
+  color: #45a34e;
+  text-align: center;
+}
+
+.profile-main ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.profile-main li {
+  padding: 8px 0;
+  font-size: 18px;
+  color: #444;
+}
+
+.profile-main li span{
+  font-weight: bold;
+}
+
+.profile-footer {
+  padding-top: 20px; /* 添加上部边距以视觉上与横线分隔 */
+  border-top: 1px solid #dddddd; /* 添加顶部边框作为横线 */
+}
+
+.profile-footer p {
+  font-size: 16px;
+  color: #666;
+}
+
+.email-button {
+  position: absolute; /* 绝对定位 */
+  top: 25px; /* 距顶部10px */
+  right: 10px; /* 距右侧10px */
+  background-color: #45a34e; /* 蓝色背景 */
+  border: none; /* 无边框 */
+  color: white; 
+  padding: 10px 20px; /* 内边距 */
+  font-size: 16px; 
+  cursor: pointer; /* 鼠标悬停手形光标 */
+  border-radius: 5px; /* 边缘圆角 */
+  display: flex; /* 弹性盒模型 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+}
+
+.email-icon {
+  margin-right: 10px; /* 图标和文字间距 */
+  width: 40px; /* 图标宽度 */
+  height: auto; /* 图标高度 */
+}

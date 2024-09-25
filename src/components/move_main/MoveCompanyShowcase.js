@@ -1,5 +1,5 @@
 import React from 'react';
-import './CompanyShowcase.css';
+import './MoveCompanyShowcase.css';
 
 const companies = [
   {
