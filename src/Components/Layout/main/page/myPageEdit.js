@@ -47,7 +47,9 @@ const MyPageEdit =() => {
                             <p>*********</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
+                        <Link to='/MyPage/Edit/Password'>
                             <button>변경</button>
+                            </Link>
                         </span>
                     </div>
                 </div>
@@ -58,7 +60,9 @@ const MyPageEdit =() => {
                             <p>규슈</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
+                            <Link to='/MyPage/Edit/Area'>
                             <button>변경</button>
+                            </Link>
                         </span>
                     </div>
                 </div>
@@ -66,7 +70,9 @@ const MyPageEdit =() => {
             </div>
         </div>
         <div className="MyPage_Edit_MainPageBtn">
-            <button className="MyPage_Edit_MainPageBtn_Btn" onClick={goToMainPage}>메인페이지 돌아가기</button>
+            <Link to="/MyPage">
+            <button className="MyPage_Edit_MainPageBtn_Btn" >마이페이지 돌아가기</button>
+            </Link>
         </div>
         <div className="MyPage_Edit_Delete">
             <div className="MyPage_Edit_Data_Title">
@@ -74,7 +80,9 @@ const MyPageEdit =() => {
             </div>
             <div className="MyPage_Edit_Delete_Main">
                 <p className="MyPage_Edit_Delete_Content">계정을 삭제하면 저장된 데이터 등이 사라지고 일부 기능을 사용할 수 없게 됩니다. 삭제한 데이터는 되돌릴 수 없습니다.</p>
+                <Link to='/MyPage/Edit/Delete'>
                 <p className="MyPage_Edit_Delete_Click">계정 삭제</p>
+                </Link>
             </div>
         </div>
     </div>

@@ -170,7 +170,7 @@
 }
 
 .Realty_Main_Menu_Choice_MapImg:hover{
-    border: 2px solid #462679;
+    border: 2px solid white;
 }
 
 .Realty_Main_Menu_Choice_MapImg:hover + .Realty_Main_Menu_Choice_MapM {
@@ -187,7 +187,7 @@
 }
 
 .Realty_Main_Menu_Choice_TagImg:hover{
-    border: 2px solid #462679;
+    border: 2px solid white;
 }
 
 .Realty_Main_Menu_Choice_TagImg:hover + .Realty_Main_Menu_Choice_TagM {

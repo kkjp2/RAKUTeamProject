@@ -1,8 +1,10 @@
-.NicknameEdit{
+
+
+.EmailEdit{
     width:728px;
     margin: 0 auto;
 }
-.NicknameEdit_Title{
+.EmailEdit_Title{
     margin: 0 auto;
     font-size: 50px;
     font-family: 'Inter';
@@ -12,19 +14,28 @@
     margin-bottom: 20px;
     margin-top: 50px;
 }
+.EmailEdit_Content{
+    margin: 0 auto;
+    font-size: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
 
-.NicknameEdit_Content{
+.EmailEdit_Content{
     margin: 0 auto;
     margin-top: 50px;
     width: 70%;
 }
 
-.NicknameEdit_Content_Title{
+.EmailEdit_Content_Title{
     text-align: left;
     font-size: 20px;
 }
 
-.NicknameEdit_Content_Text{
+.EmailEdit_Content_Text{
     width: 100%;
     padding: 10px; /* 내부 패딩을 10px로 설정 */
     font-size: 16px; /* 글꼴 크기를 20px로 설정 */
@@ -34,13 +45,14 @@
     border: 1px solid #d8d8d8;
 }
 
-.NicknameEdit_Btn{
+.EmailEdit_Btn{
     margin: 0 auto;
     margin-top: 100px;
     width: 70%;
+    margin-bottom: 70px;
 }
 
-.NicknameEdit_Btn_submit{
+.EmailEdit_Btn_submit{
     width: 100%;
     padding: 20px 5px;
     font-size: 30px;
@@ -52,11 +64,11 @@
     cursor: pointer;
 }
 
-.NicknameEdit_Btn_submit:hover{
+.EmailEdit_Btn_submit:hover{
 
 }
 
-.NicknameEdit_Btn_cancel{
+.EmailEdit_Btn_cancel{
     width: 100%;
     padding: 20px 5px;
     font-size: 30px;
@@ -68,6 +80,10 @@
     cursor: pointer;
 }
 
-.NicknameEdit_Btn_cancel:hover{
+.EmailEdit_Btn_cancel:hover{
 
+}
+
+.EmailEdit_Btn_Content{
+    margin-top: 30px;
 }

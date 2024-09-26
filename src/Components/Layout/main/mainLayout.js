@@ -8,21 +8,14 @@ const Layout = (props) => {
     const location = useLocation();
     let headerContent;
     let footerContent;
-    switch (location.pathname) {
-    case '/':
-    case '/MyPage':
-    case '/MyPage/Favorites':
-      headerContent = <MainHeader/>;
-      break;
-    case '/MyPage/Edit':
-    case '/MyPage/Edit/Nickname':
-    case '/MyPage/Edit/Email':
-      headerContent = <EditHeader/>;
-      footerContent = <Footer/>;
-      break;
-    default:
-      headerContent = <h1>Default Header</h1>;
-    }
+    if (location.pathname === '/' || location.pathname === '/MyPage' || location.pathname === '/MyPage/Favorites') {
+        headerContent = <MainHeader/>;
+      } else if (location.pathname.startsWith('/MyPage/Edit')) {
+        headerContent = <EditHeader/>;
+        footerContent = <Footer/>;
+      } else {
+        headerContent = <h1>Default Header</h1>;
+      }
     const isTheMain = location.pathname === '/';
     
 

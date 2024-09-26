@@ -6,6 +6,10 @@ import Favorites from './favorites.js';
 import MyPageEdit from './myPageEdit.js';
 import MyPageNickEdit from './myPageNickEdit.js';
 import MyPageEmailEdit from './myPageEmailEdit.js';
+import MyPageEmailEditAuth from './myPageEmailEditAuth.js';
+import MyPagePasswordEdit from './myPagePasswordEdit.js';
+import MyPageAreaEdit from './myPageAreaEdit.js';
+import MyPageDeleteEdit from './myPageDelete.js'
 
 const Index = () => {
 
@@ -20,7 +24,10 @@ const Index = () => {
             <Route path='/MyPage/Edit' element={<MyPageEdit/>}/>
             <Route path='/MyPage/Edit/Nickname' element={<MyPageNickEdit/>}/>
             <Route path='/MyPage/Edit/Email' element={<MyPageEmailEdit/>}/>
-    
+            <Route path='/MyPage/Edit/Email/Auth' element={<MyPageEmailEditAuth/>}/>
+            <Route path='/MyPage/Edit/Password' element={<MyPagePasswordEdit/>}/>
+            <Route path='/MyPage/Edit/Area' element={<MyPageAreaEdit/>}/>
+            <Route path='/Mypage/Edit/Delete' element={<MyPageDeleteEdit/>}/>
     </Routes>
     </Layout>
     </Router>
