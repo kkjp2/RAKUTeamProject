@@ -1,0 +1,55 @@
+.footer {
+  padding: 5px; /* 세로 크기를 줄이기 위해 padding 값을 줄임 */
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recent-property {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 좌측 정렬 유지 */
+  flex: 1; /* footer의 나머지 공간을 차지 */
+}
+
+.recent-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 중앙 정렬 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  margin-bottom: 10px; /* 버튼과의 간격 추가 */
+}
+
+.recent-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-btn {
+  padding: 10px 20px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.footer-btn:hover {
+  background-color: #3700b3;
+}
+
+/* 비활성화된 버튼 스타일 */
+.footer-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
