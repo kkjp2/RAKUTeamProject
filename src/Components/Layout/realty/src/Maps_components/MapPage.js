@@ -11,7 +11,7 @@ const geocodeAddress = async (address) => {
   }
 
   const response = await fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=AIzaSyBJSMaDSq6mQaGfj9Z-yAzBORZoPeIMCbo`
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=xxxxxxx`
   );
   const data = await response.json();
 
@@ -94,7 +94,7 @@ const MapPage = () => {
           <>
             <h2>매물 위치</h2>
             <LoadScriptNext
-              googleMapsApiKey="AIzaSyBJSMaDSq6mQaGfj9Z-yAzBORZoPeIMCbo"
+              googleMapsApiKey="xxxxxxx"
               libraries={['places']}
               onLoad={onLoad}
             >
