@@ -58,6 +58,26 @@ hr{
     width: 120px;
   }
   
+  .CompanyUP_address-text{
+    border: 1px solid #d1cece; 
+    background-color: #ffffff; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 629px;
+    /* min-height: 22px; */
+  }
+  .error-message{
+    color: red;
+  }
+
+  .InvisibleText{
+    /* border: 1px solid #d1cece;  */
+    color: rgb(0, 0,0,1);
+  }
+  .InvisibleText1{
+    /* border: 1px solid #d1cece;  */
+    color: rgb(0, 0,0,0);
+  }
   .CompanyUP_input, .CompanyProfile_textarea {
     flex: 1;
     padding: 8px;
