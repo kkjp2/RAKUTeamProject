@@ -1,0 +1,341 @@
+/* 页面整体布局 */
+.reservation_top{
+    width: 50%;
+    margin: 60px auto;
+    border: 1px solid #a29b9b;
+}
+
+.reservation_container {
+    width: 90%;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .reservation_container header h1 {
+    color: #333;
+    text-align: center;
+    margin:40px 0px;
+  }
+  
+  .reservation_Stars{
+    color: red;
+    display: inline-block; /* 인라인 블록으로 표시 */
+    /* white-space:nowrap; */
+    /* vertical-align: middle; */
+  }
+
+  .reservation_formSection h2{
+    display: inline; /* 인라인으로 표시 */
+  }
+
+  .reservation_hint{
+    font-size: xx-small;
+    margin-left: 10px;
+    color: #848282;
+  }
+
+  .reservation_form_group {
+    display: flex;
+    margin-bottom: 10px;
+    /* margin-left: 30px; */
+    align-items: center;
+    justify-content: center;
+  }
+
+    /* 样式整体布局和字体 */
+    .reservation_form-group1 {
+        font-family: Arial, sans-serif; /* 使用Arial字体 */
+        margin: 20px; /* 外边距 */
+    }
+    
+  
+  /* .reservation_container label {
+    display: block;
+    margin-bottom: 5px;
+  } */
+  
+  .reservation_input {
+    flex-grow: 1;
+    width: 100px;
+    padding: 8px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+  }
+  
+  .reservation_button {
+    display: block;
+    width: 80px;
+    background-color: #eff6ed;
+    color: #467048;
+    border: none;
+    margin-left: 505px;
+    border-radius: 5px;
+    min-height: 35px;
+    font-weight: bold;
+  }
+
+  .reservation_button1 {
+    display: block;
+    width: 80px;
+    background-color: #66a968;
+    color: white;
+    border: none;
+    margin-left: 5px;
+    border-radius: 5px;
+    min-height: 35px;
+  }
+
+  .reservation_link_notunderline{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .reservation_button:hover {
+    background-color: #41533d;
+    color: #ffffff;
+  }
+  .reservation_button1:hover {
+    background-color: #556b52;
+    font-weight: bold;
+  }
+  
+
+/* 标签和星号样式 */
+.reservation_labeltext {
+    font-weight: bold; /* 字体加粗 */
+    margin-bottom: 18px; /* 下边距 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    /* border: 1px solid red; */
+    width: 300px;
+    /* align-items: center; */
+    min-height: 40px;
+}
+
+.reservation_Stars {
+    color: red; /* 星号颜色 */
+    margin-right: 5px; /* 星号和文字之间的间距 */
+}
+
+
+.reservation_formGroup label {
+    font-weight: bold;
+    width: 100px;
+    /* margin-top: 9px; */
+    display: inline-block;  
+    align-items: center;
+    margin-top: 9px;
+  }
+
+.reservation_search{
+    margin:0 20px 0 50px;
+
+}
+
+.reservation_formGroup{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    justify-content: flex-start; /* 水平左对齐 */
+    align-items: center;
+    /* margin-bottom: 10px; */
+    margin-right: 20px;
+}
+
+.reservation_formGroup1{
+    /* display: flex;
+    flex-wrap: wrap; */
+    justify-content: space-between;
+    justify-content: flex-start; /* 水平左对齐 */
+    align-items: center;
+    /* margin-bottom: 10px; */
+    margin-right: 20px;
+}
+
+.reservation_input1{
+    width: 501px;
+    margin-left: 53px;
+  }
+
+.reservation_address_text{
+    border: 1px solid #d1cece; 
+    background-color: #ffffff; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 501px;
+    min-height: 26px;
+    display: inline;
+    margin-left: 1px;
+}
+
+.reservation_search-btn {
+    background-color: #4CAF50; /* 按钮背景颜色 */
+    color: white; /* 文字颜色 */
+    padding: 10px 20px; /* 内填充 */
+    border: none; /* 无边框 */
+    border-radius: 4px; /* 圆角 */
+    cursor: pointer; /* 鼠标样式 */
+    margin-top: 5px; /* 顶部间距 */
+}
+
+.reservation_xiangqing{
+    margin-bottom: 10px;
+}
+
+/* 错误信息样式 */
+.reservation_error-message {
+    color: red; /* 字体颜色 */
+    font-size: 14px; /* 字体大小 */
+}
+
+
+/* 不可见文本样式 */
+.reservation_InvisibleText {
+    /* 文本不可见 */
+    color: rgb(0, 0,0,1);
+}
+
+.reservation_InvisibleText1{
+    visibility: hidden; 
+}
+
+.reservation_movingadd{
+  display: flex;
+  align-items: center;
+}
+
+.reservation_movingadd h4 {
+    margin-bottom: 35px;
+    /* text-align: center; */
+    align-items: center;
+}
+
+.reservation_moving_address {
+ width: 500px;
+ margin-left: 7px;
+ min-height: 18px;
+}
+
+.reservation_top hr{
+    border: none; /* 기본 테두리 제거 */
+    height: 1px; /* 선의 두께 */
+    background: none; /* 기본 배경 제거 */
+    border-top: 1px dotted #000000ea; /* 상단에 점선 테두리 적용 */
+}
+
+
+/* 引越し予定日表单组的整体样式 */
+.reservation_dateformgroup {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* 标签的样式 */
+.reservation_dateformgroup label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 16px;
+}
+
+/* 包含日期选择器的容器样式 */
+.reservation_datepicker {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* 日期输入框的样式 */
+.reservation_dateinput {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  max-width: 100px;
+  -webkit-appearance: none; /* 针对Chrome, Safari等 */
+    -moz-appearance: none; /* 针对Firefox */
+    appearance: none;
+    background: url('../move_img/QFkHEKOQfo.png') no-repeat, linear-gradient(to bottom, #ffffff 0%,#eeeeee 100%);
+    background-position: right 1px center;
+    background-size: 15px 18px;
+    border: 1px solid #ccc;
+}
+
+.reservation_dateinput::-webkit-calendar-picker-indicator {
+  color: transparent;
+    background: none;
+    z-index: 1;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* 日选择下拉菜单的样式 */
+.reservation_moveday {
+  width: 100px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 提示信息的样式 */
+.reservation_datenote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.reservation_roomType label{
+margin-right: 30px;
+}
+
+.reservationcheck_formgroup1{
+  display: flex;
+}
+.reservationcheck_formgroup{
+}
+
+.reservationcheck_input{
+  font-family: Arial, sans-serif;
+    color: #333;
+    padding: 8px;
+    background-color: #eeeeee;
+    border-radius: 4px;
+    width: 330px;
+    min-height: 20px;
+}
+
+.reservationcheck_gettext{
+  font-family: Arial, sans-serif;
+    color: #333;
+    padding: 8px;
+    background-color: #eeeeee;
+    border-radius: 4px;
+    width: 330px;
+    min-height: 20px;
+    /* margin-right: ; */
+}
+
+.reservationcheck_formgroup{
+  justify-content: space-between;
+  justify-content: flex-start; /* 水平左对齐 */
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+
+}
+.reservationcheck_formgroup label{
+min-width: 150px;
+}
+.reservationcheck_formgroup_button{
+  display: flex;
+margin-top: 50px;
+}
