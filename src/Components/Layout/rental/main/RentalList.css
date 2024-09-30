@@ -6,6 +6,7 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     
+    
   }
   
   /* 상단 헤더 */
@@ -23,13 +24,15 @@
   
   .search-container {
     display: flex;
+    margin-right: 26%;
+    
   }
   
   .search-input {
     padding: 8px;
     font-size: 16px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 4px;    
   }
   
   .search-btn {
@@ -93,10 +96,11 @@
   }
   
   .rental-image {
-    width: 150px;
+    width: 50%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;    
   }
+ 
   
   .rental-info {
     padding: 10px;
@@ -145,7 +149,7 @@
   }
   .user-text{
     position: absolute;    
-    right: 23%;
+    right: 16%;
     transform: translate(-50%, -50%);
     font-size: 15px;
     text-align: center;

@@ -14,6 +14,7 @@ const RentalList = () => {
       {/* 상단 검색 섹션 */}
       <header className="rental-header">
         <h1 className="rental-title">{region}</h1>
+
         <div className="search-container">
           <input
             type="text"
@@ -44,14 +45,14 @@ const RentalList = () => {
           <div className="rental-item">
             <img src="/img/daito1.png" alt="아파트 1" className="rental-image" />
             <div className="rental-info">
-              <h3 className="rental-name">도쿄 다이토 구 아파트</h3>
+              <h3 className="rental-name" onClick={()=>{
+                navigate(`/rental_details`);
+              }}>도쿄 다이토 구 아파트</h3>
               <span><FaRegEye color='blue'/> 552</span>
               <p>위치: 도쿄도 00구 00</p>
               <p>날짜: 2024-05-01 ~ 2024-05-09</p>
               <p>가격: 100,000</p>
-              <div className="rental-icons">                
-                
-              </div>
+    
             </div>
           </div>
 
@@ -63,9 +64,7 @@ const RentalList = () => {
               <p>위치: 도쿄도 00구 00</p>
               <p>날짜: 2024-05-01 ~ 2024-05-03</p>
               <p>가격: 45,000</p>
-              <div className="rental-icons">
-                
-              </div>
+        
             </div>
           </div>
 
@@ -77,10 +76,31 @@ const RentalList = () => {
               <p>위치: 도쿄도 00구 00</p>
               <p>날짜: 2024-06-01 ~ 2024-06-21</p>
               <p>가격: 299,000</p>
-              <div className="rental-icons">                
-              </div>
+     
             </div>
           </div>
+          <div className="rental-item">
+            <img src="/img/daito4.png" alt="아파트 3" className="rental-image" />
+            <div className="rental-info">
+              <h3 className="rental-name">도쿄 다이토 구 아파트</h3>
+              <span><FaRegEye color='blue'/> 155</span>
+              <p>위치: 도쿄도 00구 00</p>
+              <p>날짜: 2024-06-01 ~ 2024-06-11</p>
+              <p>가격: 199,000</p>
+          
+            </div>
+          </div>         
+          <div className="rental-item">
+            <img src="/img/shibuya.png" alt="아파트 3" className="rental-image" />
+            <div className="rental-info">
+              <h3 className="rental-name">도쿄 시부야 구 아파트</h3>
+              <span><FaRegEye color='blue'/> 78</span>
+              <p>위치: 도쿄도 00구 00</p>
+              <p>날짜: 2024-06-01 ~ 2024-06-5</p>
+              <p>가격: 100,000</p>
+          
+            </div>
+          </div>              
         </div>
 
         {/* 최근 본 게시글 */}

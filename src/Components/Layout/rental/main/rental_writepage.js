@@ -59,6 +59,12 @@ const RentalWritePage = () => {
           <button className="save-btn" 
           onClick=
           {()=>{
+            navigate(-1)
+          }}>취소</button>    
+        
+          <button className="save-btn" 
+          onClick=
+          {()=>{
             navigate("/rentalform")
           }}>다음</button>          
         </div>

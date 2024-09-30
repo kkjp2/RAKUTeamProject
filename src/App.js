@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import RentalList from './Components/Layout/rental/main/RentalList';
 import RentalWritePage from './Components/Layout/rental/main/rental_writepage';
 import RentalForm from './Components/Layout/rental/main/RentalForm';
+import RentalDetail from './Components/Layout/rental/main/rental_detail';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <Route path="/rental_list/:region" element={<RentalList/>}/>
     <Route path="/rental_write_page" element={<RentalWritePage/>}/>
     <Route path='/rentalform' element={<RentalForm/>}/>
+    <Route path='rental_details' element={<RentalDetail/>} />
       </Routes>
       </BrowserRouter>
    </Layout>
