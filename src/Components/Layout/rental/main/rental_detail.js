@@ -4,9 +4,11 @@ import { GiCharacter } from "react-icons/gi";
 import { FaHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { FaEye } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const RentalDetail = () => {
-  return (
+  const navigate=useNavigate();
+  return (    
     <div className="rental-detail-container">
     
 
@@ -53,7 +55,9 @@ const RentalDetail = () => {
         </div>
         
         <div className='reserve_box'>
-            <button className="reservation-btn">예약하기</button>
+            <button className="reservation-btn" onClick={()=>{
+                  navigate(`/rental_reservationform`)              
+            }}>예약하기</button>
             <button className="chat-btn">메시지 보내기</button>
             <p className='nedan'>가격:10,000 ¥</p>
           </div>        

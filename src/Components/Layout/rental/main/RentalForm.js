@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const RentalForm = () => {
   const navigate=useNavigate();
-  const [selectedResidence, setSelectedResidence] = useState('아파트');
+  const [selectedResidence, setSelectedResidence] = useState('맨션');
   const [address, setAddress] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -24,7 +24,7 @@ const RentalForm = () => {
         <div className="form-group">
           <label>거주 유형:</label>
           <div className="residence-types">
-            {['아파트', '주택', '별장', '원룸', '전통 주택'].map((type) => (
+            {['맨션', '주택', '별장', '원룸', '전통 주택'].map((type) => (
               <label key={type}>
                 <input
                   type="radio"
