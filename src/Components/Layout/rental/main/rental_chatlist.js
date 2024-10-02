@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ChatModal.css';
+import './rental_chatlist.css';
 
 const ChatModal = () => {
   const [isOpen, setIsOpen] = useState(false); // 모달 상태

@@ -1,11 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './rental_mypage.css'; // CSS 파일을 import 합니다.
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { MdPlace } from "react-icons/md";
 import { FaCalendar } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
+
 
 const RentalMyPage = () => {
+  const [isOpen, setIsOpen]=useState(false);
+  const toggleModal=()=>{
+    setIsOpen(!isOpen);
+  }
+
+  const navigate=useNavigate();
   return (
     <div className="mypage-container">
    
@@ -13,7 +21,9 @@ const RentalMyPage = () => {
       <div className="profile-section">
         <img src="img/ye.jpg" alt="프로필" className="profile-img" />
         <p className="greeting">ye님! 안녕하세요</p>
-        <button className="chat-btn2">나의 채팅</button>
+        <button className="chat-btn2" onClick={()=>{
+          navigate(`/rental_chatlist`)
+        }}>나의 채팅</button>
       </div>
 
       <div className="content-grid">
@@ -38,7 +48,26 @@ const RentalMyPage = () => {
           <h3><MdPlace />
           방문했던 home</h3>
           <p>도쿄 다이토구 1R</p>
-          <button className="review-btn">후기 남기기</button>
+          <button className="review-btn"
+          onClick={toggleModal}>후기 남기기</button>
+
+{isOpen && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <h2 className="modal-title">후기 남기기</h2>
+      <div className="review-location">
+        <span className="location-icon">📍</span> 도쿄 다이페 구 1R
+      </div>
+      <textarea
+        className="review-input"
+        placeholder="관심이 가셨던 점을 남겨주세요"
+      />
+      <button onClick={toggleModal} className="close-modal-btn">
+        닫기
+      </button>
+    </div>
+  </div>
+)}
         </div>
 
         {/* 렌탈 기록 */}
