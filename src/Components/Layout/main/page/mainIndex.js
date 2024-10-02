@@ -9,7 +9,9 @@ import MyPageEmailEdit from './myPageEmailEdit.js';
 import MyPageEmailEditAuth from './myPageEmailEditAuth.js';
 import MyPagePasswordEdit from './myPagePasswordEdit.js';
 import MyPageAreaEdit from './myPageAreaEdit.js';
-import MyPageDeleteEdit from './myPageDelete.js'
+import MyPageDeleteEdit from './myPageDelete.js';
+import RecentlyViewed from './recentlyViewed.js';
+import InquiryDetail from './inquiryDetail.js';
 
 const Index = () => {
 
@@ -27,7 +29,9 @@ const Index = () => {
             <Route path='/MyPage/Edit/Email/Auth' element={<MyPageEmailEditAuth/>}/>
             <Route path='/MyPage/Edit/Password' element={<MyPagePasswordEdit/>}/>
             <Route path='/MyPage/Edit/Area' element={<MyPageAreaEdit/>}/>
-            <Route path='/Mypage/Edit/Delete' element={<MyPageDeleteEdit/>}/>
+            <Route path='/MyPage/Edit/Delete' element={<MyPageDeleteEdit/>}/>
+            <Route path='/MyPage/RecentlyViewed' element={<RecentlyViewed/>}/>
+            <Route path='/MyPage/InquiryDetail' element={<InquiryDetail/>}/>
     </Routes>
     </Layout>
     </Router>

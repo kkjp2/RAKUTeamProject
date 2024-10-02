@@ -1,5 +1,5 @@
 import './mainHeader.css'
-import { useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 const MainHeader = () => {
     const navigate = useNavigate();
@@ -30,7 +30,9 @@ const MainHeader = () => {
             <div className="mainMy_Menu">
             <div className="mainRecent_Menu">
             <p>최근 본 물건</p>
+            <Link to="/MyPage/RecentlyViewed">
             <div className="mainRecent_Img"></div>
+            </Link>
             </div>
             <div className="mainFavorite_Menu">
             <p>즐겨찾기</p>
