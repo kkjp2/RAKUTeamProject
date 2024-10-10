@@ -277,65 +277,6 @@ input.InquiryDetail_Main_Btn_Chx:checked + label > span{
     border : 2px solid #9F4298;
 }
 
-.InquiryDetail_Main_Content_1_Star{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-
-}
-
-.InquiryDetail_Main_Content_1_Star1{
-    display: none;
-    color:#9F4298;
-    font-size: 40px;
-}
-
-.InquiryDetail_Main_Content_1_Star2{
-    color:#9F4298;
-    font-size: 40px;
-}
-
-.InquiryDetail_Main_Content_1_Star2:hover{
-    opacity: 0.7;
-}
-
-input.InquiryDetail_Main_Content_1_Checkbox_Chx{
-    
-    display:none;
-    
-    }
-
-input.InquiryDetail_Main_Content_1_Checkbox_Chx + label{
-        cursor:pointer;
-   }
-
-
-input.InquiryDetail_Main_Content_1_Checkbox_Chx + label:before{
-    position: absolute;
-    left: 20px;
-    top: 35%;
-    content:"";
-    display:inline-block;
-    width:30px;
-    height:30px;
-    border:2px solid #d2d2d2;
-    border-radius: 4px;
-    vertical-align:middle;
-}
-
-input.InquiryDetail_Main_Content_1_Checkbox_Chx + label:hover:before{
-    border:2px solid #9F4298;
-}
-
-input.InquiryDetail_Main_Content_1_Checkbox_Chx:checked  + label:before{
-    content:"";
-    background-color:#9F4298;
-    border-color:#9F4298;
-    background-image: url('../../png/check_btn.png');
-    background-repeat: no-repeat;
-    background-position: 50%;
-    }
-
 .InquiryDetail_Main_Content_1_Main_Title_1{
     position: absolute;
     top: 10%;

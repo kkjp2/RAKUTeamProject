@@ -5,8 +5,46 @@ import { IoStar } from "react-icons/io5";
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import InqComponents from './components/inquiry.js'
 
 const InquiryDetail = () => {
+    const todos = [
+        {
+          id: 1,
+          name: "가나다",
+          money: 200,
+          address: "도쿄",
+          content: "내용 1"
+        },
+        {
+          id: 2,
+          name: "가나나",
+          money: 200,
+          address: "후쿠오카",
+          content: "내용 2"
+        },
+        {
+          id: 3,
+          name: "가다다",
+          money: 200,
+          address: "훗카이도",
+          content: "내용 3"
+        }, 
+        {
+          id: 4,
+          name: "플래티 센본지 노우치 북쪽 302",
+          money: 400,
+          address: "교토시 카미쿄구 엔마마에초",
+          content: "1K"
+        },
+        {
+            id: 5,
+          name: "플래티 센본지 노우치 북쪽 302",
+          money: 400,
+          address: "교토시 카미쿄구 엔마마에초",
+          content: "1K"
+        },
+      ];
     return<>
     <div className="InquiryDetail">
     <div className="InquiryDetail_Header">
@@ -67,171 +105,17 @@ const InquiryDetail = () => {
         </div>
         </div> */}
         <div className="InquiryDetail_Main_Content">
-            <div className="InquiryDetail_Main_Content_1">
-                <div className="InquiryDetail_Main_Content_1_Box">
-                    {/* <div className="InquiryDetail_Main_Content_1_Star">
-                    <IoIosStarOutline className='InquiryDetail_Main_Content_1_Star1' id='InquiryDetail_Main_Content_1_Star1' onClick={BtnClick} />
-                    <IoStar className='InquiryDetail_Main_Content_1_Star2' id='InquiryDetail_Main_Content_1_Star2' onClick={BtnClick}/>
-                    </div> */}
-                    {/* <div className="InquiryDetail_Main_Content_1_Checkbox">
-                        <input type="checkbox" className="InquiryDetail_Main_Content_1_Checkbox_Chx" id='InquiryDetail_Main_Content_1_Checkbox_Chx' />
-                        <label for="InquiryDetail_Main_Content_1_Checkbox_Chx"/>
-                    </div> */}
-                    <div className="InquiryDetail_Main_Content_1_Main">
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_1">아파트</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_2">플래티 센본지 노우치 북쪽 302</p>
-                        {/* <img className="InquiryDetail_Main_Content_1_Main_Img"/>
-                         */}
-                         {<AiOutlinePicture  className="InquiryDetail_Main_Content_1_Main_Img"/>}
-
-                        <p className="InquiryDetail_Main_Content_1_Main_Rent">**만엔</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Location">교토시 카미쿄구 엔마마에초</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Text">
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_1">배치</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_2">1K</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_1">너비</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_2">24.9m</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">축년수</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">신축</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Btn">
-                        <p className="InquiryDetail_Main_Content_1_Btn1"><IoIosMail className="InquiryDetail_Main_Content_1_Btn1_Img" />메일문의</p>
-                    </div>
-                </div>
-            </div>
-            <div className="InquiryDetail_Main_Content_1">
-            <div className="InquiryDetail_Main_Content_1_Box">
-                    {/* <div className="InquiryDetail_Main_Content_1_Star">
-                    <IoIosStarOutline className='InquiryDetail_Main_Content_1_Star1' id='InquiryDetail_Main_Content_1_Star1' onClick={BtnClick} />
-                    <IoStar className='InquiryDetail_Main_Content_1_Star2' id='InquiryDetail_Main_Content_1_Star2' onClick={BtnClick}/>
-                    </div> */}
-                    {/* <div className="InquiryDetail_Main_Content_1_Checkbox">
-                        <input type="checkbox" className="InquiryDetail_Main_Content_1_Checkbox_Chx" id='InquiryDetail_Main_Content_1_Checkbox_Chx' />
-                        <label for="InquiryDetail_Main_Content_1_Checkbox_Chx"/>
-                    </div> */}
-                    <div className="InquiryDetail_Main_Content_1_Main">
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_1">아파트</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_2">플래티 센본지 노우치 북쪽 302</p>
-                        {/* <img className="InquiryDetail_Main_Content_1_Main_Img"/>
-                         */}
-                         {<AiOutlinePicture  className="InquiryDetail_Main_Content_1_Main_Img"/>}
-
-                        <p className="InquiryDetail_Main_Content_1_Main_Rent">**만엔</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Location">교토시 카미쿄구 엔마마에초</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Text">
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_1">배치</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_2">1K</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_1">너비</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_2">24.9m</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">축년수</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">신축</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Btn">
-                        <p className="InquiryDetail_Main_Content_1_Btn1"><IoIosMail className="InquiryDetail_Main_Content_1_Btn1_Img" />메일문의</p>
-                    </div>
-                </div>
-            </div>
-            <div className="InquiryDetail_Main_Content_1">
-            <div className="InquiryDetail_Main_Content_1_Box">
-                    {/* <div className="InquiryDetail_Main_Content_1_Star">
-                    <IoIosStarOutline className='InquiryDetail_Main_Content_1_Star1' id='InquiryDetail_Main_Content_1_Star1' onClick={BtnClick} />
-                    <IoStar className='InquiryDetail_Main_Content_1_Star2' id='InquiryDetail_Main_Content_1_Star2' onClick={BtnClick}/>
-                    </div> */}
-                    {/* <div className="InquiryDetail_Main_Content_1_Checkbox">
-                        <input type="checkbox" className="InquiryDetail_Main_Content_1_Checkbox_Chx" id='InquiryDetail_Main_Content_1_Checkbox_Chx' />
-                        <label for="InquiryDetail_Main_Content_1_Checkbox_Chx"/>
-                    </div> */}
-                    <div className="InquiryDetail_Main_Content_1_Main">
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_1">아파트</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_2">플래티 센본지 노우치 북쪽 302</p>
-                        {/* <img className="InquiryDetail_Main_Content_1_Main_Img"/>
-                         */}
-                         {<AiOutlinePicture  className="InquiryDetail_Main_Content_1_Main_Img"/>}
-
-                        <p className="InquiryDetail_Main_Content_1_Main_Rent">**만엔</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Location">교토시 카미쿄구 엔마마에초</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Text">
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_1">배치</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_2">1K</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_1">너비</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_2">24.9m</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">축년수</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">신축</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Btn">
-                        <p className="InquiryDetail_Main_Content_1_Btn1"><IoIosMail className="InquiryDetail_Main_Content_1_Btn1_Img" />메일문의</p>
-                    </div>
-                </div>
-            </div>
-            <div className="InquiryDetail_Main_Content_1">
-            <div className="InquiryDetail_Main_Content_1_Box">
-                    {/* <div className="InquiryDetail_Main_Content_1_Star">
-                    <IoIosStarOutline className='InquiryDetail_Main_Content_1_Star1' id='InquiryDetail_Main_Content_1_Star1' onClick={BtnClick} />
-                    <IoStar className='InquiryDetail_Main_Content_1_Star2' id='InquiryDetail_Main_Content_1_Star2' onClick={BtnClick}/>
-                    </div> */}
-                    {/* <div className="InquiryDetail_Main_Content_1_Checkbox">
-                        <input type="checkbox" className="InquiryDetail_Main_Content_1_Checkbox_Chx" id='InquiryDetail_Main_Content_1_Checkbox_Chx' />
-                        <label for="InquiryDetail_Main_Content_1_Checkbox_Chx"/>
-                    </div> */}
-                    <div className="InquiryDetail_Main_Content_1_Main">
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_1">아파트</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_2">플래티 센본지 노우치 북쪽 302</p>
-                        {/* <img className="InquiryDetail_Main_Content_1_Main_Img"/>
-                         */}
-                         {<AiOutlinePicture  className="InquiryDetail_Main_Content_1_Main_Img"/>}
-
-                        <p className="InquiryDetail_Main_Content_1_Main_Rent">**만엔</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Location">교토시 카미쿄구 엔마마에초</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Text">
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_1">배치</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_2">1K</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_1">너비</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_2">24.9m</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">축년수</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">신축</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Btn">
-                        <p className="InquiryDetail_Main_Content_1_Btn1"><IoIosMail className="InquiryDetail_Main_Content_1_Btn1_Img" />메일문의</p>
-                    </div>
-                </div>
-            </div>
-            <div className="InquiryDetail_Main_Content_1">
-            <div className="InquiryDetail_Main_Content_1_Box">
-                    {/* <div className="InquiryDetail_Main_Content_1_Star">
-                    <IoIosStarOutline className='InquiryDetail_Main_Content_1_Star1' id='InquiryDetail_Main_Content_1_Star1' onClick={BtnClick} />
-                    <IoStar className='InquiryDetail_Main_Content_1_Star2' id='InquiryDetail_Main_Content_1_Star2' onClick={BtnClick}/>
-                    </div> */}
-                    {/* <div className="InquiryDetail_Main_Content_1_Checkbox">
-                        <input type="checkbox" className="InquiryDetail_Main_Content_1_Checkbox_Chx" id='InquiryDetail_Main_Content_1_Checkbox_Chx' />
-                        <label for="InquiryDetail_Main_Content_1_Checkbox_Chx"/>
-                    </div> */}
-                    <div className="InquiryDetail_Main_Content_1_Main">
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_1">아파트</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Title_2">플래티 센본지 노우치 북쪽 302</p>
-                        {/* <img className="InquiryDetail_Main_Content_1_Main_Img"/>
-                         */}
-                         {<AiOutlinePicture  className="InquiryDetail_Main_Content_1_Main_Img"/>}
-
-                        <p className="InquiryDetail_Main_Content_1_Main_Rent">**만엔</p>
-                        <p className="InquiryDetail_Main_Content_1_Main_Location">교토시 카미쿄구 엔마마에초</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Text">
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_1">배치</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Arrangement_2">1K</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_1">너비</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Width_2">24.9m</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">축년수</p>
-                        <p className="InquiryDetail_Main_Content_1_Text_Years_1">신축</p>
-                    </div>
-                    <div className="InquiryDetail_Main_Content_1_Btn">
-                        <p className="InquiryDetail_Main_Content_1_Btn1"><IoIosMail className="InquiryDetail_Main_Content_1_Btn1_Img" />메일문의</p>
-                    </div>
-                </div>
-            </div>
+            {todos.map((v)=> {
+                return(
+                    <InqComponents
+                        name={v.name}
+                        money={v.money}
+                        address={v.address}
+                        content={v.content}
+                    />
+                )
+            })
+            }
         </div>
     </div>
     <div className="InquiryDetail_Number">

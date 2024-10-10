@@ -45,46 +45,6 @@
     margin-top: 20px;
     margin-left: 10px;
 }
-.RecentlyViewed_Header_Title_2{
-    position: relative;
-}
-
-.RecentlyViewed_Header_Title_2_Btn{
-    position: absolute;
-    width:30%;
-    bottom: 0;
-    right: 0;
-    margin: 0;
-}
-
-.RecentlyViewed_Header_Title_2_Btn{
-    background-color: white;
-    border: none;
-    box-shadow: 1px 1px 1px 1px #d2d2d2;
-    border : 1px solid #ebebeb;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 40%;
-    font-weight: bold;
-}
-
-.RecentlyViewed_Header_Title_2_Btn:hover{
-    box-shadow: none;
-    border: 1px solid #9F4298;
-}
-
-.RecentlyViewed_Header_Title_2_Btn_Img{
-    float:left;
-    font-size: 60px;
-    color: #9F4298;
-}
-
-.RecentlyViewed_Header_Title_2_Btn_Text{
-    text-align: left;
-    margin: 0;
-    color: #9F4298;
-    font-size: 25px;
-}
 
 .RecentlyViewed_Type{
     display: grid;

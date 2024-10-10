@@ -32,10 +32,12 @@ const MyPage = () => {
             </button>
         </span>
         <span className="MyPage_Main_Comparison">
+        <Link to="/MyPage/Comparison">
         <button className="MyPage_Main_Comparison_Btn">
             <div className="MyPage_Main_Comparison_Btn_Img"></div>
             <p className="MyPage_Main_Comparison_Btn_Text">비교표</p>
             </button>
+        </Link>
         </span>
         <span className="MyPage_Main_Recent">
         <Link to="/MyPage/RecentlyViewed">
