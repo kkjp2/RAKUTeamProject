@@ -1,0 +1,290 @@
+
+.app_container{
+    display: flex;
+}
+a {
+    text-decoration: none; /* 移除下划线 */
+    color: inherit;        /* 链接继承父元素的颜色 */
+}
+/* ======================================= AdminManagement.js ===================================*/
+/* ======================================= AdminManagement.js =================================== */
+.adminManagement_container {
+    border: red solid 1px;
+}
+
+.adminManagement_sidebar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100%;
+    color: #ffffff;
+    width: 200px;
+    background-color: #373737;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.805);
+    z-index: 1000;
+}
+
+.adminManagement_sidebar h1{
+    position: fixed; 
+    top: 0;
+    left: 10px;
+    width: 100%;
+    align-items: center;
+}
+
+.adminManagement_sidebar hr{
+    position: fixed; 
+    left: 0px;
+    width: 2000px;
+    margin-top: 55px;
+}
+
+.adminManagement_imgicon1{background-image: url('../admin//img/이동.png');}
+.adminManagement_imgicon2{background-image: url('../admin//img/대시보드.png');}
+.adminManagement_imgicon3{background-image: url('../admin//img/사용자.png');}
+.adminManagement_imgicon4{background-image: url('../admin//img/게시판.png');}
+.adminManagement_imgicon5{background-image: url('../admin//img/환경설정1.png');}
+
+.adminManagement_sidebar li div{
+    width: 24px;    /* 设置宽度，确保图片大小适当 */
+    height: 24px;   /* 设置高度 */
+    background-size: contain;   /* 确保图片按比例缩放并适应容器 */
+    background-repeat: no-repeat; /* 防止背景图片重复 */
+    display: inline-block;  /* 保持图片和文字在同一行 */
+    vertical-align: middle; /* 垂直对齐 */
+}
+
+.adminManagement_sidebar ul {
+    margin-top: 100px;
+    list-style: none;
+    padding: 0;
+}
+
+.adminManagement_sidebar li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.adminManagement_sidebar li:hover {
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(27, 23, 238);
+}
+
+.adminManagement_content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.adminManagement_dropdown_content {
+    background-color: #807e7e;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    z-index: 1;
+}
+
+.adminManagement_dropdown_content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.adminManagement_dropdown_content li {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.adminManagement_dropdown_content li:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* ============ AdminManagement.js테이블 부분 ============== */
+.adminManagement_table-wrapper {
+    position: fixed; 
+    top: 0;
+    left:17%;
+    width: 100%;
+    overflow-x: auto;
+}
+.adminManagement_out{
+    background-color: #ddd;
+    position: fixed; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80px; 
+}
+.adminManagement_out button{
+    margin-left: 95%;
+    margin-top: 25px;
+}
+
+.adminManagement_heder{
+    display: flex;
+    margin-top: 80px;
+}
+.adminManagement_heder h2{
+    margin-left: 20px;
+}
+.adminManagement_heder_button{
+    margin-left: 850px;
+    margin-top: 20px;
+}
+.adminManagement_heder_button button{
+    margin-left: 10px;
+}
+
+.adminManagement_search-filter-section {
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.adminManagement_search-box {
+    display: flex;
+    align-items: center;
+}
+
+.adminManagement_select,
+.adminManagement_input{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.adminManagement_button {
+    flex: 1;
+    margin: auto 10px;
+    margin-top: 20px;
+    min-height: 30px;
+    max-width: 60px;
+}
+.adminManagement_filters input{
+margin-left: 20px;
+margin-top: 20px;
+}
+.adminManagement_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #000;
+    margin: auto 30px;
+}
+
+.adminManagement_table th,
+.adminManagement_table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+    min-height: 20px;
+}
+
+.adminManagement_table thead th {
+    background-color: #f4f4f4;
+}
+
+.adminManagement_table tbody td {
+    background-color: #fff;
+}
+
+.adminManagement_table tbody:empty::after {
+    content: "No data available";
+    display: block;
+    text-align: center;
+    padding: 10px;
+    color: #999;
+}
+
+
+.adminManagement_content {
+    flex-grow: 1; /* 让右侧内容区域填充剩余空间 */
+    padding: 20px;
+    background-color: #f4f4f4;
+    overflow-y: auto; /* 允许内容区域滚动 */
+}
+
+
+/* ===================================================AdminSetting========================================================== */
+/* ===================================================AdminSetting========================================================== */
+.adminSetting_table_wrapper {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: rgb(182, 52, 52) solid 1px;
+  }
+
+  .adminSetting_title {
+    font-size: 24px;
+    color: #000;
+    margin: 80px 0 15px 245px;
+  }
+  
+  .adminSetting_form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 17%;
+    max-width: 400px;
+    /* border: red solid 1px; */
+  }
+  
+  .adminSetting_form-group {
+    margin-bottom: 20px;
+  }
+  
+  .adminSetting_label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .adminSetting_input, 
+  .adminSetting_select {
+width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .adminSetting_input1{
+    width: 20%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .adminSetting_input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .adminSetting_span {
+    margin-left: 10px;
+  }
+  
+  .adminSetting_button-group {
+    text-align: right;
+  }
+  
+  .adminSetting_button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #732f81;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .adminSetting_button:hover {
+    background-color: #373737;
+  }
+  
