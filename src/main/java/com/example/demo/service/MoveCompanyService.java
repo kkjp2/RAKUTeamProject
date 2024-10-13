@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -64,6 +66,11 @@ public class MoveCompanyService {
 
         // 如果公司存在，执行删除
         repository.delete(company);
+    }
+
+    //页面管理
+    public Page<MoveCompany> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
 //    public MoveCompany registerCompany(MoveCompany companyDetails) {

@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import com.example.demo.entity.MoveCompany;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.service.MoveCompanyService;
@@ -17,7 +19,6 @@ import java.util.Map;
 public class MoveCompanyController {
     @Autowired
     private MoveCompanyService moveCompanyService;
-
 
     @ResponseBody
     @GetMapping("/companies")
@@ -83,6 +84,11 @@ public class MoveCompanyController {
     }
 
 
+    //页面管理
+    @GetMapping("/companies/page")
+    public Page<MoveCompany> getAllCompanies(Pageable pageable) {
+        return moveCompanyService.findAll(pageable);
+    }
 
 //    @PostMapping("/register")
 //    public ResponseEntity<String> registerCompany(@RequestBody MoveCompany companyDetails) {
