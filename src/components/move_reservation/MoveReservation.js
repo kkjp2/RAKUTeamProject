@@ -1,7 +1,7 @@
 import React from 'react';
 import './MoveReservation.css';
 import Layout from '../move_layout/MoveLayout';
-import JapanAddressApi from '../move_api/move_add_api/move_japanAddressApi'
+import JapanAddressApi from '../move_api/move_japanAddressApi'
 import { Link } from 'react-router-dom';
 
 const Reservation = () => {
