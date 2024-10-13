@@ -45,7 +45,102 @@ public class MoveCompany {
     @Column(name = "move_city")
     private String moveCity;
 
-//    // 添加数据库列映射
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getCeo() {
+        return ceo;
+    }
+
+    public void setCeo(String ceo) {
+        this.ceo = ceo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDetailedAddress() {
+        return detailedAddress;
+    }
+
+    public void setDetailedAddress(String detailedAddress) {
+        this.detailedAddress = detailedAddress;
+    }
+
+    public String getBusinessNumber() {
+        return businessNumber;
+    }
+
+    public void setBusinessNumber(String businessNumber) {
+        this.businessNumber = businessNumber;
+    }
+
+    public String getImg_icon() {
+        return img_icon;
+    }
+
+    public void setImg_icon(String img_icon) {
+        this.img_icon = img_icon;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    public String getMoveCity() {
+        return moveCity;
+    }
+
+    public void setMoveCity(String moveCity) {
+        this.moveCity = moveCity;
+    }
+    //    // 添加数据库列映射
 //    @Column(name = "external_id")
 //    private String externalId;
 

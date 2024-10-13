@@ -4,11 +4,12 @@ import com.example.demo.entity.MoveCompany;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.MoveCompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -22,10 +23,16 @@ public class MoveCompanyService {
         return repository.findAll();
     }
 
-    public List<MoveCompany> getCompaniesByCity(String moveCity) {
-        // 使用数据库查询来动态获取公司列表
-        return repository.findByCityContaining(moveCity);
+//    public List<MoveCompany> getCompaniesByCity(String moveCity) {
+//        // 使用数据库查询来动态获取公司列表
+//        return repository.findByCityContaining(moveCity);
+//    }
+
+    public Page<MoveCompany> getCompaniesByCity(String moveCity, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return repository.findByCityContaining(moveCity, pageable);
     }
+
 
     //根据id 查找公司信息
     public MoveCompany getCompanyById(Integer id) {
@@ -68,17 +75,4 @@ public class MoveCompanyService {
         repository.delete(company);
     }
 
-    //页面管理
-    public Page<MoveCompany> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
-
-//    public MoveCompany registerCompany(MoveCompany companyDetails) {
-//        // 生成外部ID
-//        String randomDigits = String.format("%04d", new Random().nextInt(10000));  // 生成四位随机数
-//        companyDetails.setExternalId(companyDetails.getId() + randomDigits);  // 组合ID并设置
-//
-//        // 保存公司信息，包括externalId
-//        return moveCompanyRepository.save(companyDetails);
-//    }
 }

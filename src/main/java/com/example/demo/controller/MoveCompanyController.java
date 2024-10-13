@@ -1,11 +1,10 @@
 package com.example.demo.controller;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import com.example.demo.entity.MoveCompany;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.service.MoveCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,12 +26,22 @@ public class MoveCompanyController {
         return moveCompanyService.getAllCompanies();
     }
 
-    //根据地区获取公司
-    @GetMapping("/moveCity")
-    public ResponseEntity<List<MoveCompany>> getCompaniesByCity(@RequestParam("city") String city) {
-        List<MoveCompany> companyList = moveCompanyService.getCompaniesByCity(city);
+//    //根据地区获取公司
+//    @GetMapping("/companies/cityFind")
+//    public ResponseEntity<List<MoveCompany>> getCompaniesByCity(@RequestParam("city") String city) {
+//        List<MoveCompany> companyList = moveCompanyService.getCompaniesByCity(city);
+//        return new ResponseEntity<>(companyList, HttpStatus.OK);
+//    }
+
+    @GetMapping("/companies/cityFind")
+    public ResponseEntity<Page<MoveCompany>> getCompaniesByCity(
+            @RequestParam("city") String city,
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "5") int size) {
+        Page<MoveCompany> companyList = moveCompanyService.getCompaniesByCity(city, page, size);
         return new ResponseEntity<>(companyList, HttpStatus.OK);
     }
+
 
     @PostMapping("/companies/find")
     public ResponseEntity<MoveCompany> getCompanyByIdFromBody(@RequestBody Map<String, Integer> requestBody) {
@@ -41,12 +50,12 @@ public class MoveCompanyController {
         return new ResponseEntity<>(company, HttpStatus.OK);
     }
 
-    @PostMapping("/companies/cityFind")
-    public ResponseEntity<List<MoveCompany>> getCompaniesByCity(@RequestBody Map<String,String> requestBody){
-        String city = requestBody.get("city");
-        List<MoveCompany> companiesByCity = moveCompanyService.getCompaniesByCity(city);
-        return new ResponseEntity<>(companiesByCity,HttpStatus.OK);
-    }
+//    @PostMapping("/companies/cityFind")
+//    public ResponseEntity<List<MoveCompany>> getCompaniesByCity(@RequestBody Map<String,String> requestBody){
+//        String city = requestBody.get("city");
+//        List<MoveCompany> companiesByCity = moveCompanyService.getCompaniesByCity(city);
+//        return new ResponseEntity<>(companiesByCity,HttpStatus.OK);
+//    }
 
 
     @PostMapping("/companies")
@@ -81,13 +90,6 @@ public class MoveCompanyController {
         } catch (ResourceNotFoundException e) {
             return new ResponseEntity<>("削除する会社が見つかりません。", HttpStatus.NOT_FOUND);  // 404 Not Found
         }
-    }
-
-
-    //页面管理
-    @GetMapping("/companies/page")
-    public Page<MoveCompany> getAllCompanies(Pageable pageable) {
-        return moveCompanyService.findAll(pageable);
     }
 
 //    @PostMapping("/register")
