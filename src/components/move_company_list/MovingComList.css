@@ -2,9 +2,9 @@
     background-size: cover;
     top: 0;
     background-image: url('../move_img/beijing.png');
-    padding: 10px 0;
-    z-index: 1000;
     width: 100%;
+    border: #374a3f3c solid 1px;
+    min-height: 275px;
 }
 
 .comList_background::before {
@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 248.5px;
+    height: 340px;
     background-color: rgba(125, 153, 125, 0.5); /* 绿色背景，透明度为0.2 */
     z-index: 0; /* 确保伪元素位于内容之下 */
   }
@@ -23,6 +23,7 @@
     position: relative;
     font-size: 32px;
     color: #ffffff;
+    margin-top: 60px;
     margin-bottom: 35px;
     text-align: center;
     font-family: 'Georgia', serif;
@@ -33,7 +34,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .comList_tag {
@@ -45,16 +46,19 @@
 }
 
 .comList_regionSelector {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
-    margin: 20px 0;
+    /* border: #174d19 solid 1px; */
+    margin: 10px auto;
+    width: 80%;
+    align-items: center;
 }
 
 .comList_regionButton {
     background-color: transparent; /* 移除背景色 */
     border: none; /* 移除边框 */
-    padding: 10px 20px;
-    margin: 0 10px;
+    padding: 0px 20px;
+    margin: 15px 10px;
     cursor: pointer;
     transition: all 0.3s;
     position: relative; /* 为伪元素定位做准备 */
@@ -93,18 +97,28 @@
 }
 
 /* ======================================================= */
+.comList_container1{
+    width: 100%;
+    background-color: #e9edea;
+    height: 100%;
+    border: #00b30f00 solid 1px;
+}
 
 .comList_container {
+    width: 80%;
+    align-items: center;
+    margin: 0px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; /* 根据需要调整间距 */
     padding: 20px;
     gap: 20px; /* 卡片间隙 */
-    background-color: #e9edea; /* 背景颜色，根据需要调整 */
+    background-color: #e9edea;
 }
 
 .comList_card {
-    max-width: 370px;
+    margin-top: 30px;
+    max-width: 300px;
     flex: 1 1 800px; 
     background-color: #ffffff;
     border: 1px solid #174d19;
@@ -158,7 +172,7 @@
 .comList_link{
     text-decoration: none; /* 移除下划线 */
     color: rgb(255, 255, 255); /* 链接颜色与其父元素相同 */
-    margin-left: 300px;
+    margin-left: 200px;
     margin-top: 20px;
     padding: 5px;
     border: #a7b8a8 solid 1px;
@@ -174,22 +188,39 @@
 
 /* ================페이지 ============================== */
 
-.pagination {
+.comList_pagination {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
-  }
-  
-  .page-item {
-    border: 1px solid #ccc;
-    background-color: #f0f0f0;
-    margin: 0 5px;
-    padding: 10px 15px;
+    padding: 10px;
+    background-color: #e9edea;
+    border-radius: 5px;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.comList_pagination button {
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .page-item:hover {
-    background-color: #ddd;
-  }
-  
+}
+
+.comList_pagination button:hover {
+    background-color: #0056b3;
+}
+
+.comList_pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.comList_pagination span {
+    margin: 0 15px;
+    font-size: 16px;
+    color: #333;
+}

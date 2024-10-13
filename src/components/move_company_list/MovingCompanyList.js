@@ -5,7 +5,8 @@ import Layout from '../move_layout/MoveLayout';
 import { Link } from 'react-router-dom';
 
 const MovingCompanyList = () => {
-    const regions = ["全地域", "東京", "大阪", "中部", "福岡", "札幌", "仙台", "広島", "高松", "金沢", "鹿児島"];
+    const regions = ["全地域", "東京都", "大阪府", "愛知県", "埼玉県", "千葉県", "兵庫県", "北海道", "福岡県",
+        "静岡県", "茨城県", "広島県", "京都府", "宮城県", "新潟県", "長野県", "岐阜県", "群馬県", "栃木県", "岡山県", "神奈川県"];
     const [selectedRegion, setSelectedRegion] = useState('全地域');
     const [companies, setCompanies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -56,22 +57,25 @@ const MovingCompanyList = () => {
                         </button>
                     ))}
                 </div>
-                <div className="comList_container">
-                    {companies.length > 0 ? companies.map((company) => (
-                        <div className="comList_card" key={company.id}>
-                            <div className='comList_logoandname'>
-                                <img src={company.img_icon || 'default_icon.png'} alt="会社のロゴ" className="comList_profile_logo" />
-                                <h3 className="comList_name">{company.name}</h3>
+            </div>
+                <div className="comList_container1">
+                    <div className="comList_container">
+                        {companies.length > 0 ? companies.map((company) => (
+                            <div className="comList_card" key={company.id}>
+                                <div className='comList_logoandname'>
+                                    <img src={company.img_icon || 'default_icon.png'} alt="会社のロゴ" className="comList_profile_logo" />
+                                    <h3 className="comList_name">{company.name}</h3>
+                                </div>
+                                <div className="comList_info">
+                                    <p className='comList_companyService'>提供するサービス：<br />{company.service}</p>
+                                    <p className='comList_companyService'>可能の地域：<br />{company.moveCity}</p>
+                                </div>
+                                <Link to={`/MoveMain/CompanyProfile/${company.id}`} className='comList_link'>
+                                    詳細情報
+                                </Link>
                             </div>
-                            <div className="comList_info">
-                                <p className='comList_companyService'>提供するサービス：<br />{company.service}</p>
-                                <p className='comList_companyRegion'>可能の地域：<br />{company.moveCity}</p>
-                            </div>
-                            <Link to={`/MoveMain/CompanyProfile/${company.id}`} className='comList_link'>
-                                詳細情報
-                            </Link>
-                        </div>
-                    )) : <p className="comList_noData">選択した地域の会社は見つかりませんでした。</p>}
+                        )) : <p className="comList_noData">選択した地域の会社は見つかりませんでした。</p>}
+                    </div>
                     <div className="comList_pagination">
                         <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
                             前のページ
@@ -81,9 +85,9 @@ const MovingCompanyList = () => {
                             次のページ
                         </button>
                     </div>
+
                 </div>
-            </div>
-        </Layout>
+         </Layout>
     );
 };
 

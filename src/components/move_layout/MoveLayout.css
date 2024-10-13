@@ -1,4 +1,4 @@
-/* Layout.css */
+
 .layout {
     display: flex;
     flex-direction: column;
@@ -8,13 +8,4 @@
   .main {
     flex: 1; /* 让main部分填满页面的剩余空间 */
   }
-  
-  /* .footer {
-    background-color: #4b0082; 
-    color: white;
-    text-align: center;
-    padding: 20px;
-    position: relative; 
-    transform: translateY(0%);
-  } */
   

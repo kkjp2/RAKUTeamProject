@@ -8,7 +8,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="logo-container">
-        <Link to='/MoveMain'><Logo className="logo-image" /> </Link>
+        <Link to='/MoveMain'><Logo className="logo-image" /></Link>
         <div className="logo-text">RAKU</div>
         </div>
         <nav>
@@ -17,7 +17,7 @@ const Header = () => {
             <li><a href="#pricing">料金プラン</a></li>
             <li><a href="#testimonials">お客様の声</a></li>
             <li><a href="#contact">引越し会社ランキング</a></li>
-            <li><Link to='/MoveMain/CompanyUP'><a href="#services">企業登録</a></Link></li>
+            <li><Link to='/MoveMain/CompanyUP'>企業登録</Link></li>
           </ul>
         </nav>
       </div>

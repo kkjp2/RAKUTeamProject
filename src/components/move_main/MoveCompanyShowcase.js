@@ -30,26 +30,26 @@ const CompanyShowcase = () => {
     <div className="showcase-container">
       <h1 className="showcase-title">引越し会社の推薦</h1>
       <div className="company-grid">
-        {companies.map((company, index) => (
-          <><div key={index} className="company-card">
+        {companies.map((company, index1) => (
+          <div key={index1} className="company-card">
             <div className={`company-image ${company.imageClass}`}>
               <div className="company-overlay">
                 <h2>{company.name}</h2>
                 <p>{company.description}</p>
                 <ul>
-                  {company.features.map((feature, i) => (
-                    <li key={i}>{feature}</li>
+                  {company.features.map((feature, index2) => (
+                    <li key={index2}>{feature}</li> // 使用唯一的 key
                   ))}
                 </ul>
                 <p className="price">{company.price}</p>
                 <a href="#contact" className="browse-button">詳細を見る</a>
               </div>
             </div>
-          <h3 className="company-name">{company.name}</h3>
+            <h3 className="company-name">{company.name}</h3>
           </div>
-          </>
         ))}
       </div>
+
     </div>
   );
 };

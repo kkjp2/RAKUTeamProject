@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MoveMain.css';
 import CompanyShowcase from './MoveCompanyShowcase.js';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -101,20 +101,26 @@ function App() {
                 min="0"
                 required />
             </div>
-            <button type="submit" className='main_submit'><Link to='/MoveMain/MovingCompanyList' className='submit_text'>当たりの運搬会社探す</Link></button>
+            <button
+              type="button"
+              className='main_submit'
+              onClick={() => window.location.href = '/MoveMain/MovingCompanyList'}
+            >
+              当たりの運搬会社探す
+            </button>
           </form>
         </div>
       </div>
 
       <h1 className="hero-title">RAKU引越サービス</h1>
       <div className="mian-soge">
-      <div className="text-content">
+        <div className="text-content">
           <p className="intro-text">
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          RAKU引越サービス情報サイトへようこそ。忙しい日常の中で、安心して新生活を始められるよう、
-          私たちはあなたに最適な引越会社を見つけるお手伝いをします。ビジネスやプライベートのどちらの引越でも、
-          信頼できる業者をスムーズかつ簡単に選べるよう、最新の情報と評価を提供しています。
-          あなたの大切な荷物を安心して任せられる引越会社を、ぜひ当サイトで見つけてください。
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            RAKU引越サービス情報サイトへようこそ。忙しい日常の中で、安心して新生活を始められるよう、
+            私たちはあなたに最適な引越会社を見つけるお手伝いをします。ビジネスやプライベートのどちらの引越でも、
+            信頼できる業者をスムーズかつ簡単に選べるよう、最新の情報と評価を提供しています。
+            あなたの大切な荷物を安心して任せられる引越会社を、ぜひ当サイトで見つけてください。
           </p>
           <div className="gallery-item gallery-item3"></div>
         </div>
@@ -125,7 +131,7 @@ function App() {
       </div>
 
       {/* 메인 페이지에서 이사 기업 보여주는거 */}
-      <CompanyShowcase/>
+      <CompanyShowcase />
     </>
   );
 }
