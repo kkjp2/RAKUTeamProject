@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MoveCompanyService {
@@ -47,22 +48,31 @@ public class MoveCompanyService {
         }
     }
 
-
     // 保存公司
     public MoveCompany saveCompany(MoveCompany company) {
         return repository.save(company);
     }
 
     // 更新公司信息 根据사업자등록번호  假如是数据库里有的사업자 등록 번호 就进行更新
-    public MoveCompany updateCompany(Integer id, MoveCompany companyDetails) {
-        MoveCompany existingCompany = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Company not found with id: " + id));
+    public MoveCompany saveOrUpdateCompany(MoveCompany company) {
+        Optional<MoveCompany> existingCompany = repository.findByBusinessNumber(company.getBusinessNumber());
 
-        existingCompany.setName(companyDetails.getName());
-        existingCompany.setAddress(companyDetails.getAddress());
-        // 其他需要更新的字段...
-
-        return repository.save(existingCompany);
+        if (existingCompany.isPresent()) {
+            MoveCompany updatedCompany = existingCompany.get();
+            // 更新现有公司信息
+//            updatedCompany.setName(company.getName());
+//            updatedCompany.setAddress(company.getAddress());
+//            updatedCompany.setPostalCode(company.getPostalCode());
+//            updatedCompany.setCeo(company.getCeo());
+//            updatedCompany.setService(company.getService());
+//            updatedCompany.setEmail(company.getEmail());
+            updatedCompany.setImg_icon(company.getImg_icon());
+//            updatedCompany.setMoveCity(company.getMoveCity());
+//            updatedCompany.setPhone(company.getPhone());
+            return repository.save(updatedCompany);  // 执行更新
+        } else {
+            return repository.save(company);  // 执行添加
+        }
     }
 
     // 删除公司

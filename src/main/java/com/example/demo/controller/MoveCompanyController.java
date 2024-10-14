@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.MoveCompany;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.MoveCompanyRepository;
 import com.example.demo.service.MoveCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -58,13 +60,21 @@ public class MoveCompanyController {
 //    }
 
 
+//    @PostMapping("/companies")
+//    //添加公司
+//    public MoveCompany addCompany(@RequestBody MoveCompany newCompany) {
+//        // 保存新公司到数据库并返回保存后的对象
+//        MoveCompany savedCompany = moveCompanyService.saveCompany(newCompany);
+//        return savedCompany;
+//    }
+
     @PostMapping("/companies")
-    //添加公司
-    public MoveCompany addCompany(@RequestBody MoveCompany newCompany) {
-        // 保存新公司到数据库并返回保存后的对象
-        MoveCompany savedCompany = moveCompanyService.saveCompany(newCompany);
-        return savedCompany;
+    // 添加或更新公司
+    public MoveCompany addOrUpdateCompany(@RequestBody MoveCompany newCompany) {
+        // 调用服务层，添加或更新公司信息
+        return moveCompanyService.saveOrUpdateCompany(newCompany);
     }
+
 
     // 根据id获取公司信息
     @GetMapping("/companies/{id}")
