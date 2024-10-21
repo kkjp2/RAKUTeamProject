@@ -4,7 +4,7 @@
     width: 100%;
     height: 89px;
     position: relative;
-    border-top: 8px solid  #7F056E;
+    border-top: 8px solid  #9F4298;
     border-bottom: 1px solid #d2d2d2;
 }
 
@@ -33,7 +33,7 @@
     }
 }
 .mainLogo{
-    color: #7F056E;
+    color: #9F4298;
     font-size: 50px;
     font-family: 'Inter';
     font-style: normal;
@@ -128,13 +128,10 @@
     margin-bottom: 5px;
 }
 .mainRecent_Img{
-    
    width: 35px;
    height:35px;
-    background: url("../png/Recent_Menu.png");
-    background-size: cover;
     margin: auto;
-    background-repeat: no-repeat;
+    color: #9F4298;
 }
 
 .mainFavorite_Menu{
@@ -157,9 +154,8 @@
 .mainFavorite_Img{
     width:35px;
     height:35px;
-     background: url("../png/Favorite_Menu.png");
-     background-size: auto;
      margin: auto;
+     color: #9F4298;
  }
 
  .mainMypage_Menu{
@@ -182,7 +178,21 @@
 .mainMypage_Img{
     width:35px;
     height:35px;
-     background: url("../png/Mypage_Menu.png");
-     background-size: auto;
      margin: auto;
+     color: #9F4298;
  }
+ .mainMypage_Admin{
+    width: 70px;
+    cursor: pointer;
+    padding-top:15px;
+ }
+
+ .mainMypage_Admin:hover{
+    background-color:#f4f4f4 ;
+}
+
+ .mainMypage_Admin p {
+    font-size:12px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}

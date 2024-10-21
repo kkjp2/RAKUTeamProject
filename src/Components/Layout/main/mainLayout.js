@@ -11,7 +11,7 @@ const Layout = (props) => {
     if (location.pathname.startsWith('/MyPage/Edit') ) {
         headerContent = <EditHeader/>;
         footerContent = <Footer/>;
-      } else if (location.pathname === '/' || location.pathname.startsWith('/MyPage')) {
+      } else if (location.pathname === '/' || location.pathname.startsWith('/MyPage') || location.pathname === '/Announcement') {
         headerContent = <MainHeader/>;
       } else {
         headerContent = <h1>Default Header</h1>;

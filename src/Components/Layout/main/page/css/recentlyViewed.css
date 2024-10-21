@@ -126,6 +126,7 @@ input.RecentlyViewed_Type_2_Checkbox_Chx:checked + label:before{
     background-color:#9F4298;
     border-color:#9F4298;
     background-image: url('../../png/check_btn.png');
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: 50%;
     }
@@ -195,6 +196,7 @@ input.RecentlyViewed_Main_Btn_Chx:checked + label:before{
     border-color:black;
     background-image: url('../../png/check_btn.png');
     background-repeat: no-repeat;
+    background-size: 100%;
     background-position: 50%;
     }
 
@@ -384,6 +386,7 @@ input.RecentlyViewed_Main_Content_1_Checkbox_Chx:checked  + label:before{
     margin-top: 100px;
     text-align: center;
     float:inherit;
+    margin-bottom: 100px;
 }
 
 .RecentlyViewed_Number p {

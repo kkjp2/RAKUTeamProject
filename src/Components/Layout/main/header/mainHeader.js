@@ -1,16 +1,70 @@
 import './mainHeader.css'
 import { Link,useNavigate } from 'react-router-dom';
+import { LuClock5 } from "react-icons/lu";
+import { IoIosStarOutline } from "react-icons/io";
+import { IoMenu } from "react-icons/io5";
+import { MdLogin } from "react-icons/md";
 
 const MainHeader = () => {
     const navigate = useNavigate();
     const goToMyPage = () => {
         navigate('/MyPage');
       };
+    const goToFavorites = () => {
+        navigate(`/MyPage/Favorites`);
+    }
+    const goToRecentlyViewed = () => {
+        navigate(`/MyPage/RecentlyViewed`);
+    }
       const goToMainPage = () => {
         navigate('/');
       };
-    const goToFavorites = () => {
-        navigate(`/MyPage/Favorites`);
+    const test = [
+        {
+        key: 1,
+        id: "abcd",
+        pwd: "qwer1234",
+        admin: 1
+        },
+        {
+            key: 1,
+            id: "abcdf",
+            pwd: "qwer",
+            admin: 0   
+        }
+
+    ]
+    const testid = (admin) =>{
+        if(admin === 0){
+        return<>
+        <div className="mainRecent_Menu" onClick={goToRecentlyViewed}>
+        <p>최근 본 물건</p>
+        <LuClock5 className="mainRecent_Img" />
+        </div>
+        <div className="mainFavorite_Menu" onClick={goToFavorites}>
+        <p>즐겨찾기</p>
+        <IoIosStarOutline className="mainFavorite_Img" />
+        </div>
+        <div className="mainMypage_Menu" onClick={goToMyPage}>
+        <p>마이메뉴</p>
+        <IoMenu className="mainMypage_Img"/>
+        </div>
+        </>
+        }else if(admin ===  1){
+            return<>
+            <div className="mainMypage_Admin" onClick={goToMyPage}>
+        <p>관리자페이지</p>
+        <IoMenu className="mainMypage_Img"/>
+        </div>
+            </>
+        }else {
+            return<>
+            <div className="mainMypage_Admin" onClick={goToMyPage}>
+            <p>Login</p>
+            <MdLogin className="mainMypage_Img"/>
+            </div>
+            </>
+        }
     }
     return <>
     <header className="mainHeader">
@@ -28,36 +82,13 @@ const MainHeader = () => {
             </div>
             </div>
             <div className="mainMy_Menu">
-            <div className="mainRecent_Menu">
-            <p>최근 본 물건</p>
-            <Link to="/MyPage/RecentlyViewed">
-            <div className="mainRecent_Img"></div>
-            </Link>
-            </div>
-            <div className="mainFavorite_Menu">
-            <p>즐겨찾기</p>
-            <div className="mainFavorite_Img" onClick={goToFavorites}></div>
-            </div>
-            <div className="mainMypage_Menu" onClick={goToMyPage}>
-            <p>마이메뉴</p>
-            <div className="mainMypage_Img"></div>
-            </div>
+            {testid(0)}
             </div>
         </div>
-
-        {/* <nav className="navigation">
-            <ul>
-                <li>
-                    메뉴1
-                </li>
-                <li>
-                    메뉴2
-                </li>
-            </ul>
-        </nav> */}
     </header>
     
     </>
 }
+
 
 export default MainHeader; 

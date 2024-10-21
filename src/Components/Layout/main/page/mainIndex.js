@@ -12,7 +12,7 @@ import MyPageAreaEdit from './myPageAreaEdit.js';
 import MyPageDeleteEdit from './myPageDelete.js';
 import RecentlyViewed from './recentlyViewed.js';
 import InquiryDetail from './inquiryDetail.js';
-import Comparison from './comparison.js';
+import Announcement from './annLayout.js';
 
 const Index = () => {
 
@@ -33,7 +33,7 @@ const Index = () => {
             <Route path='/MyPage/Edit/Delete' element={<MyPageDeleteEdit/>}/>
             <Route path='/MyPage/RecentlyViewed' element={<RecentlyViewed/>}/>
             <Route path='/MyPage/InquiryDetail' element={<InquiryDetail/>}/>
-            <Route path='/MyPage/Comparison' element={<Comparison/>}/>
+            <Route path='/Announcement' element={<Announcement/>}/>
     </Routes>
     </Layout>
     </Router>

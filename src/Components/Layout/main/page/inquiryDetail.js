@@ -10,19 +10,19 @@ import InqComponents from './components/inquiry.js'
 const InquiryDetail = () => {
     const todos = [
         {
-          id: 1,
-          name: "가나다",
-          money: 200,
-          address: "도쿄",
-          content: "내용 1"
-        },
-        {
-          id: 2,
-          name: "가나나",
-          money: 200,
-          address: "후쿠오카",
-          content: "내용 2"
-        },
+            id: 1,
+            name: "플래티 센본지 노우치 북쪽 302",
+            money: 6.1,
+            address: "교토시 카미쿄구 엔마마에초",
+            content: "1K"
+          },
+          {
+            id: 2,
+            name: "하루코 이즈미 101",
+            money: 4.35,
+            address: "쿠라요시시 후쿠야마 1082-1",
+            content: "1LDK"
+          },
         {
           id: 3,
           name: "가다다",

@@ -6,22 +6,23 @@ import { AiOutlinePicture } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import RecComponents from './components/favRecnent.js';
+import { LuClock5 } from "react-icons/lu";
 
 const RecentlyViewed = () => {
     const todos = [
         {
           id: 1,
-          name: "가나다",
-          money: 200,
-          address: "도쿄",
-          content: "내용 1"
+          name: "윈디아 야마모토 201",
+          money: 4.4,
+          address: "마쓰모토시 오자리 산변",
+          content: "3DK"
         },
         {
           id: 2,
-          name: "가나나",
-          money: 200,
-          address: "후쿠오카",
-          content: "내용 2"
+          name: "웨스트민스터 고쇼니시 402",
+          money: 7,
+          address: "요나고시 히가시후쿠하라 2가 14-21",
+          content: "2LDK"
         },
         {
           id: 3,
@@ -57,7 +58,7 @@ const RecentlyViewed = () => {
         </div>
         <div className="RecentlyViewed_Header_Title">
             <div className="RecentlyViewed_Header_Title_1">
-                <IoIosStarOutline className='RecentlyViewed_Header_Title_1_Img' />
+                <LuClock5 className='RecentlyViewed_Header_Title_1_Img' />
                 <p className="RecentlyViewed_Header_Title_1_Text">최근 본 물건</p>
             </div>
         </div>
@@ -75,11 +76,11 @@ const RecentlyViewed = () => {
         <div className="RecentlyViewed_Type_2">
             <div className="RecentlyViewed_Type_2_Checkbox">
                 <div className="RecentlyViewed_Type_2_Checkbox_1">
-                <input type="checkbox" className="RecentlyViewed_Type_2_Checkbox_Chx" id='RecentlyViewed_Type_2_Checkbox_1' checked />
+                <input type="checkbox" className="RecentlyViewed_Type_2_Checkbox_Chx" id='RecentlyViewed_Type_2_Checkbox_1'/>
                 <label for="RecentlyViewed_Type_2_Checkbox_1"><span>아파트</span></label>
                 </div>
                 <div className="RecentlyViewed_Type_2_Checkbox_2">
-                <input type="checkbox" className="RecentlyViewed_Type_2_Checkbox_Chx" id='RecentlyViewed_Type_2_Checkbox_2' checked />
+                <input type="checkbox" className="RecentlyViewed_Type_2_Checkbox_Chx" id='RecentlyViewed_Type_2_Checkbox_2'/>
                 <label for="RecentlyViewed_Type_2_Checkbox_2"><span>빌라</span></label>
                 </div>
             </div>
@@ -103,6 +104,7 @@ const RecentlyViewed = () => {
         {todos.map((v)=> {
                 return(
                     <RecComponents
+                        id={v.id}
                         name={v.name}
                         money={v.money}
                         address={v.address}

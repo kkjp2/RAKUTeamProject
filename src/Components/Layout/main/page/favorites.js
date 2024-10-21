@@ -11,17 +11,17 @@ const Favorites = () => {
     const todos = [
         {
           id: 1,
-          name: "가나다",
-          money: 200,
-          address: "도쿄",
-          content: "내용 1"
+          name: "플래티 센본지 노우치 북쪽 302",
+          money: 6.1,
+          address: "교토시 카미쿄구 엔마마에초",
+          content: "1K"
         },
         {
           id: 2,
-          name: "가나나",
-          money: 200,
-          address: "후쿠오카",
-          content: "내용 2"
+          name: "하루코 이즈미 101",
+          money: 4.35,
+          address: "쿠라요시시 후쿠야마 1082-1",
+          content: "1LDK"
         },
         {
           id: 3,
@@ -60,14 +60,6 @@ const Favorites = () => {
                 <IoIosStarOutline className='Favorites_Header_Title_1_Img' />
                 <p className="Favorites_Header_Title_1_Text">즐겨찾기</p>
             </div>
-            <div className="Favorites_Header_Title_2">
-            <Link to="/MyPage/Comparison">
-                <button className="Favorites_Header_Title_2_Btn">
-                    <HiOutlineClipboardDocumentList className="Favorites_Header_Title_2_Btn_Img" />
-                    <p className="Favorites_Header_Title_2_Btn_Text">비교표에서 보기</p>
-                </button>
-            </Link>
-            </div>
         </div>
     </div>
     <div className="Favorites_Type">
@@ -83,11 +75,11 @@ const Favorites = () => {
         <div className="Favorite_Type_2">
             <div className="Favorite_Type_2_Checkbox">
                 <div className="Favorite_Type_2_Checkbox_1">
-                <input type="checkbox" className="Favorite_Type_2_Checkbox_Chx" id='Favorite_Type_2_Checkbox_1' checked />
+                <input type="checkbox" className="Favorite_Type_2_Checkbox_Chx" id='Favorite_Type_2_Checkbox_1' />
                 <label for="Favorite_Type_2_Checkbox_1"><span>아파트</span></label>
                 </div>
                 <div className="Favorite_Type_2_Checkbox_2">
-                <input type="checkbox" className="Favorite_Type_2_Checkbox_Chx" id='Favorite_Type_2_Checkbox_2' checked />
+                <input type="checkbox" className="Favorite_Type_2_Checkbox_Chx" id='Favorite_Type_2_Checkbox_2' />
                 <label for="Favorite_Type_2_Checkbox_2"><span>빌라</span></label>
                 </div>
             </div>
@@ -111,6 +103,7 @@ const Favorites = () => {
             {todos.map((v)=> {
                 return(
                     <FavComponents
+                        id={v.id}
                         name={v.name}
                         money={v.money}
                         address={v.address}

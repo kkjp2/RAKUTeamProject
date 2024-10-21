@@ -9,6 +9,9 @@ const MyPage = () => {
     const goToEdit = () => {
         navigate(`/MyPage/Edit`);
     }
+    const goToAnnouncement = () => {
+        navigate(`/Announcement`);
+    }
     return <> 
     <div className="MyPage">
     <div className="MyPage_Title">
@@ -20,7 +23,7 @@ const MyPage = () => {
         </div>
         <div className="MyPage_Title_2">
             <p className="MyPage_Title_2_title">닉네임씨</p>
-            <div></div>
+            <div><button className="MyPage_Title_2_Btn" onClick={goToEdit}>로그아웃</button></div>
         </div>
 
     </div>
@@ -32,12 +35,10 @@ const MyPage = () => {
             </button>
         </span>
         <span className="MyPage_Main_Comparison">
-        <Link to="/MyPage/Comparison">
         <button className="MyPage_Main_Comparison_Btn">
             <div className="MyPage_Main_Comparison_Btn_Img"></div>
-            <p className="MyPage_Main_Comparison_Btn_Text">비교표</p>
+            <p className="MyPage_Main_Comparison_Btn_Text">게시판 마이페이지</p>
             </button>
-        </Link>
         </span>
         <span className="MyPage_Main_Recent">
         <Link to="/MyPage/RecentlyViewed">
@@ -63,10 +64,12 @@ const MyPage = () => {
             <div className="MyPage_Notice_Main_Img">
                 <img className="MyPage_Notice_Main_Img_I" alt='현재 사진이 없음'/>
             </div>
+            
             <div className="MyPage_Notice_Main_Text">
                 <p className="MyPage_Notice_Main_Text_Title">게시판 제목</p>
                 <p className="MyPage_Notice_Main_Text_Content">게시판 내용</p>
             </div>
+           
             </div>
             <div className="MyPage_Notice_Main_Group">
             <div className="MyPage_Notice_Main_Img">
@@ -92,18 +95,17 @@ const MyPage = () => {
     <div className="MyPage_News_Message">
             <p className="MyPage_News_Title">RAKU'S 뉴스</p>
             <div className="MyPage_News_Btn_Area">
-                <button className="MyPage_News_Btn">더 보기</button>
+                <button className="MyPage_News_Btn" onClick={goToAnnouncement}>더 보기</button>
             </div>
             
         </div>
-        <div className="MyPage_News_Content">
+        <div className="MyPage_News_Content" onClick={goToAnnouncement}>
             <p className="MyPage_News_Content_Day">
-                2024-09-19
+                2024-10-16
             </p>
             <p className="MyPage_News_Content_Title">
-                현재 만들고 있는 중입니다.
+                UI 새로 개편
             </p>
-
         </div>
     </div>
     </div>

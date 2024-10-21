@@ -1,11 +1,12 @@
 
+
 import React from 'react'
 import { IoIosStarOutline } from "react-icons/io";
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { IoStar } from "react-icons/io5";   
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
-const ToDoList = ({id,name, money, address, content}) => {
+const Announcement = ({id,name, money, address, content}) => {
     
     return (
         <div className="Favorites_Main_Content_1">
@@ -57,4 +58,4 @@ const ToDoList = ({id,name, money, address, content}) => {
     }
 }
 
-  export default ToDoList;
+  export default Announcement;

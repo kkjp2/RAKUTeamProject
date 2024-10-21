@@ -155,10 +155,10 @@ const MainPage =() => {
         </div>
         <div className="News_Main_Content">
             <p className="News_Main_Content_Day">
-                2024-09-19
+                2024-10-16
             </p>
             <p className="News_Main_Content_Title">
-                현재 만들고 있는 중입니다.
+                UI 새로 개편
             </p>
 
         </div>

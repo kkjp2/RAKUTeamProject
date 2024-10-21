@@ -356,6 +356,7 @@ input.InquiryDetail_Main_Btn_Chx:checked + label > span{
     margin-top: 100px;
     text-align: center;
     float:inherit;
+    margin-bottom: 100px;
 }
 
 .InquiryDetail_Number p {
