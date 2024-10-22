@@ -109,11 +109,11 @@ const CompanyLayout =(props) => {
             <div onClick={goToCompanyStaff}><p>직원</p></div>
             <div onClick={goToCompanyMap}><p>오시는 길</p></div>
         </div>
-        <div className="Company_Main_Nav_ManagerBtn">
+        {/* <div className="Company_Main_Nav_ManagerBtn">
             <button>매물 등록</button>
             <button>직원 등록</button>
             <button>정보 수정</button>
-            </div>    
+            </div>     */}
         </div>
         <div className="Company_Main_Content">
         {props.children}
