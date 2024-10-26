@@ -24,16 +24,10 @@ public class MoveCompanyService {
         return repository.findAll();
     }
 
-//    public List<MoveCompany> getCompaniesByCity(String moveCity) {
-//        // 使用数据库查询来动态获取公司列表
-//        return repository.findByCityContaining(moveCity);
-//    }
-
     public Page<MoveCompany> getCompaniesByCity(String moveCity, int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return repository.findByCityContaining(moveCity, pageable);
     }
-
 
     //根据id 查找公司信息
     public MoveCompany getCompanyById(Integer id) {

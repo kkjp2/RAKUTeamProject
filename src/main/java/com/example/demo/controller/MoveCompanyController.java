@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.MoveCompany;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.MoveCompanyRepository;
 import com.example.demo.service.MoveCompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/move")
 public class MoveCompanyController {
+
     @Autowired
     private MoveCompanyService moveCompanyService;
 
@@ -28,13 +27,6 @@ public class MoveCompanyController {
         return moveCompanyService.getAllCompanies();
     }
 
-//    //根据地区获取公司
-//    @GetMapping("/companies/cityFind")
-//    public ResponseEntity<List<MoveCompany>> getCompaniesByCity(@RequestParam("city") String city) {
-//        List<MoveCompany> companyList = moveCompanyService.getCompaniesByCity(city);
-//        return new ResponseEntity<>(companyList, HttpStatus.OK);
-//    }
-
     @GetMapping("/companies/cityFind")
     public ResponseEntity<Page<MoveCompany>> getCompaniesByCity(
             @RequestParam("city") String city,
@@ -43,7 +35,6 @@ public class MoveCompanyController {
         Page<MoveCompany> companyList = moveCompanyService.getCompaniesByCity(city, page, size);
         return new ResponseEntity<>(companyList, HttpStatus.OK);
     }
-
 
     @PostMapping("/companies/find")
     public ResponseEntity<MoveCompany> getCompanyByIdFromBody(@RequestBody Map<String, Integer> requestBody) {
@@ -60,14 +51,6 @@ public class MoveCompanyController {
 //    }
 
 
-//    @PostMapping("/companies")
-//    //添加公司
-//    public MoveCompany addCompany(@RequestBody MoveCompany newCompany) {
-//        // 保存新公司到数据库并返回保存后的对象
-//        MoveCompany savedCompany = moveCompanyService.saveCompany(newCompany);
-//        return savedCompany;
-//    }
-
     @PostMapping("/companies")
     // 添加或更新公司
     public MoveCompany addOrUpdateCompany(@RequestBody MoveCompany newCompany) {
@@ -75,18 +58,11 @@ public class MoveCompanyController {
         return moveCompanyService.saveOrUpdateCompany(newCompany);
     }
 
-
     // 根据id获取公司信息
     @GetMapping("/companies/{id}")
     public MoveCompany getCompanyById(@PathVariable("id") Integer id) {
         return moveCompanyService.getCompanyById(id);
     }
-
-//    @PostMapping("/company")
-//    public ResponseEntity<String> addCompany(@RequestBody Company company) {
-//        // 逻辑：保存公司信息到数据库
-//        return new ResponseEntity<>("Company added successfully", HttpStatus.OK);
-//    }
 
     //删除公司信息
     @DeleteMapping("/companies/{id}")
