@@ -16,7 +16,7 @@ const RegionFestivalBoard = () => {
         <button className="search">검색</button>
         <button className="purple-btn"
           onClick={()=>{
-            navigate(`/region_board_list/${region}`);  // 해당 지역으로 이동
+            navigate(`/notice_region_board_list/${region}`);  // 해당 지역으로 이동
           }}>지역 커뮤니티 게시판 보러가기</button>
       </div>
 
@@ -47,7 +47,7 @@ const RegionFestivalBoard = () => {
           </thead>
           <tbody>
             <tr>
-              <td>15</td>
+              <td>5</td>
               <td onClick={()=>{
                 navigate(`/view_festival`)
               }}>센다이 네부타 축제</td>
@@ -57,7 +57,7 @@ const RegionFestivalBoard = () => {
               <td>4</td>
             </tr>
             <tr>
-              <td>14</td>
+              <td>4</td>
               <td>아오모리 시의 네부타 축제</td>
               <td>관리자</td>
               <td>2024-05-21</td>
@@ -65,26 +65,26 @@ const RegionFestivalBoard = () => {
               <td>50</td>
             </tr>
             <tr>
-              <td>13</td>
+              <td>3</td>
               <td>아키타의 큰 불 축제</td>
               <td>관리자</td>
-              <td>2024-05-21</td>
+              <td>2024-05-20</td>
               <td>66</td>
               <td>25</td>
             </tr>
             <tr>
-              <td>12</td>
+              <td>2</td>
               <td>가을 불 축제</td>
               <td>관리자</td>
-              <td>2024-05-21</td>
+              <td>2024-05-19</td>
               <td>77</td>
               <td>40</td>
             </tr>
             <tr>
-              <td>11</td>
+              <td>1</td>
               <td>여름 춤 축제</td>
               <td>관리자</td>
-              <td>2024-05-21</td>
+              <td>2024-05-18</td>
               <td>111</td>
               <td>111</td>
             </tr>
@@ -94,8 +94,8 @@ const RegionFestivalBoard = () => {
             {/* 페이지네이션 */}
             <div className="pagination">
         <button className="page-btn">1</button>
-        <button className="page-btn">2</button>
-        <button className="page-btn">3</button>
+        {/* <button className="page-btn">2</button>
+        <button className="page-btn">3</button> */}
       </div>
 
       {/* 사이드 섹션 */}
@@ -103,21 +103,21 @@ const RegionFestivalBoard = () => {
         <div className="popular-posts">
           <h3>우리 지역 인기 게시글</h3>
           <ol>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+            <li>자녀 반려견이랑...</li>
+            <li>주차시설이 마땅...</li>
+            <li>동네에서 같이 산책..</li>
+            <li>00지역에 필수가 있나요?</li>
+            <li>산책로 새로 생..</li>
           </ol>
         </div>
         <div className="festivals">
           <h3>우리 지역 축제</h3>
           <ol>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
+          <li>후쿠시마 와라지 축제</li>
+            <li>모리오카 산사오도리 축제</li>
+            <li>아오모리 네부타 축제</li>
+            <li>히로사키 네부타 축제</li>
+            <li>아키타 칸토 축제</li>
           </ol>
         </div>
       </div>

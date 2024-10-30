@@ -1,7 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './view_board.css';
+import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineDislike } from "react-icons/ai";
+import { PiSirenFill } from "react-icons/pi";
 
 const ViewBoard = () => {
+  const [isOpen, setIsOpen]=useState(false);
+  const toggleModal=()=>{
+    setIsOpen(!isOpen);
+  }
   return (
     <div className="post-detail-container">
       <header className="post-header">
@@ -20,15 +27,29 @@ const ViewBoard = () => {
 
       <div className="post-reactions">
         <div className="reaction-icons">
-          <span className="reaction-item">72</span>
-          <span className="reaction-item">10</span>
+          <span className="reaction-item">조회수:72</span>
+          
         </div>
       </div>
 
       <div className="post-actions">
-        <button className="action-btn">좋아요</button>
-        <button className="action-btn">싫어요</button>
-        <button className="action-btn">신고하기</button>
+        <button className="action-btn"><AiOutlineLike color='blue'/>좋아요20</button>
+        <button className="action-btn"><AiOutlineDislike color='red' />싫어요</button>
+        <button className="review-btn" onClick={toggleModal}><PiSirenFill />신고하기</button>
+        {isOpen && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <h2 className="modal-title">신고 하기</h2>
+      <div className="review-location">
+        <span className="location-icon"></span> 
+      </div>
+
+      <button onClick={toggleModal} className="close-modal-btn">
+        닫기
+      </button>
+    </div>
+  </div>
+)}
       </div>
 
       <div className="comment-section">
@@ -38,17 +59,17 @@ const ViewBoard = () => {
         </div>
         <div className="comment-list">
           <div className="comment-item">
-            <span className="comment-author">abc123</span>
-            <span className="comment-text">좋아요!</span>
+            <span className="comment-author">21savage</span>
+            <span className="comment-text">ㅇㅅㅇ</span>
             <span className="comment-date">2024-05-28</span>
           </div>
           <div className="comment-item">
-            <span className="comment-author">iiiiii</span>
+            <span className="comment-author">kodak</span>
             <span className="comment-text">ㅋㅋㅋㅋ</span>
             <span className="comment-date">2024-05-28</span>
           </div>
           <div className="comment-item">
-            <span className="comment-author">시리우스</span>
+            <span className="comment-author">diddy</span>
             <span className="comment-text">시리요...</span>
             <span className="comment-date">2024-05-28</span>
           </div>

@@ -9,26 +9,39 @@ import MyPage from './Components/Layout/notice/main/MyPage.js';
 import WritingPage from './Components/Layout/notice/main/WritingPage.js';
 import ViewBoard from './Components/Layout/notice/main/view_board.js';
 import ViewFestival from './Components/Layout/notice/main/view_festival.js';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import LoginPage from './Components/Layout/notice/main/loginpage.js';
+
+
+
 
 
 
 function App() {
+  const [hello, setHello] = useState('')
+
+  useEffect(() => {
+      axios.get('/api/hello')
+      .then(response => setHello(response.data))
+      .catch(error => console.log(error))
+  }, []);
+
   return (
     <Layout>      
     <BrowserRouter>
     <Routes>                
-    <Route path="/" element={<MainBoard/>}/>          
-    <Route path="/MyPage" element={<MyPage/>}/>          
-    <Route path="/region_board_list/:region" element={<RegionBoardList />} />         
-         <Route path="/festival_board_list/:region" element={<FestivalBoardList/>}/>                 
-         <Route path="/WritingPage" element={<WritingPage/>}/>  
-         <Route path="/view_board"element={<ViewBoard/>}/>
-         <Route path="/view_festival" element={<ViewFestival/>}/>       
+    <Route path="/" element={<MainBoard/>}/>                  
+    <Route path="/notice_MyPage" element={<MyPage/>}/>          
+    <Route path="/notice_region_board_list/:region" element={<RegionBoardList />} />         
+         <Route path="/notice_festival_board_list/:region" element={<FestivalBoardList/>}/>                 
+         <Route path="/notice_WritingPage" element={<WritingPage/>}/>  
+         <Route path="/notice_view_board"element={<ViewBoard/>}/>
+         <Route path="/notice_view_festival" element={<ViewFestival/>}/>    
+         <Route path="/notice_login" element={<LoginPage/>}/>    
          </Routes>
         </BrowserRouter>        
-    </Layout>
-
-  
+    </Layout>  
   );
 }
 

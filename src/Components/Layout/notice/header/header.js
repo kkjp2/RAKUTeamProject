@@ -3,16 +3,6 @@ import './header.css';
 import React,{useState} from 'react';
 
 
-
-
-
-
-  
-
-
-
-
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // 메뉴의 열림
 
@@ -41,9 +31,9 @@ const Header = () => {
         <div className="dropdown-menu">
           <ul>
                       
-            <li><a href="/mypage">마이페이지</a></li>
-            <li><a href="/edit-profile">개인정보 수정</a></li>
-            <li><a href="/logout">로그아웃</a></li>
+            <li><a href="/notice_mypage">마이페이지</a></li>
+            <li><a href="/signup">회원가입</a></li>
+            <li><a href="/notice_login">로그인</a></li>
           </ul>
         </div>
       )}

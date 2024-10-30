@@ -18,7 +18,7 @@ return (
     <button className='search'>검색</button>    
     <button className="purple-btn"
     onClick={()=>{
-      navigate(`/festival_board_list/${region}`);
+      navigate(`/notice_festival_board_list/${region}`);
     }}
     >지역 축제 게시판 보러가기</button>
   </div>
@@ -37,7 +37,7 @@ return (
   <div className='toolbar1'>
   <button className='write'
    onClick={()=>{
-      navigate("/WritingPage")
+      navigate("/notice_WritingPage")
     }}
   >
     글쓰기
@@ -60,7 +60,7 @@ return (
       </thead>
       <tbody>
         <tr>
-          <td>15</td>
+          <td>5</td>
           <td>OO지역에 필수가 있나요?</td>
           <td>작성자1</td>
           <td>2024-05-22</td>
@@ -68,9 +68,9 @@ return (
           <td>1</td>
         </tr>
         <tr>
-          <td>14</td>
+          <td>4</td>
           <td onClick={()=>{
-            navigate(`/view_board`);
+            navigate(`/notice_view_board`);
           }
 
           }>동네에서 같이 산책...</td>
@@ -80,7 +80,7 @@ return (
           <td>2</td>
         </tr>
         <tr>
-          <td>13</td>
+          <td>3</td>
           <td>주차시설이 마땅...</td>
           <td>작성자3</td>
           <td>2024-05-21</td>
@@ -88,7 +88,7 @@ return (
           <td>4</td>
         </tr>
         <tr>
-          <td>12</td>
+          <td>2</td>
           <td>자녀 반려견이랑</td>
           <td>작성자4</td>
           <td>2024-05-21</td>
@@ -96,7 +96,7 @@ return (
           <td>5</td>
         </tr>
         <tr>
-          <td>11</td>
+          <td>1</td>
           <td>산책로 새로 생...</td>
           <td>작성자5</td>
           <td>2024-05-21</td>
@@ -109,28 +109,28 @@ return (
       
       <div className="pagination">
         <button className="page-btn">1</button>
-        <button className="page-btn">2</button>
-        <button className="page-btn">3</button>
+        {/* <button className="page-btn">2</button>
+        <button className="page-btn">3</button> */}
       </div>
     <div className="side-section">
       <div className="popular-posts">
         <h3>우리 지역 인기 게시글</h3>
         <ol>
-          <li>와우!</li>
-          <li>예이~</li>
-          <li>나는 정말</li>
-          <li>좋다</li>
-          <li>5</li>
+          <li>자녀 반려견이랑...</li>
+          <li>주차시설이 마땅...</li>
+          <li>동네에서 같이 산책..</li>
+          <li>00지역에 필수가 있나요?</li>
+          <li>산책로 새로 생..</li>
         </ol>
       </div>
       <div className="festivals">
         <h3>우리 지역 축제</h3>
         <ol>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
+          <li>후쿠시마 와라지 축제</li>
+          <li>모리오카 산사오도리 축제</li>
+          <li>아오모리 네부타 축제</li>
+          <li>히로사키 네부타 축제</li>
+          <li>아키타 칸토 축제</li>
         </ol>
       </div>
     </div>       

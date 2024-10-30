@@ -1,5 +1,7 @@
 import React from 'react';
 import './view_festival.css';
+import { FaEye } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
 const ViewFestival = () => {
   return (
@@ -12,8 +14,9 @@ const ViewFestival = () => {
 
       <div className="post-reactions">
         <div className="reaction-icons">
-          <span className="reaction-item">👁️ 97</span>
-          <span className="reaction-item">❤️ 50</span>
+          <span className="reaction-item"><FaEye />
+          조회수: 97</span>
+          
         </div>
       </div>
 
@@ -29,7 +32,7 @@ const ViewFestival = () => {
       </div>
 
       <div className="post-actions">
-        <button className="action-btn">추천</button>
+        <button className="action-btn"><FaStar  color='yellow'/>추천: 50</button>
         <button className="action-btn">즐겨찾기</button>
       </div>
 

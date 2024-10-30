@@ -27,7 +27,7 @@ const MainBoard = () => {
 
         
   const handleBoardClick = (region) => {
-    navigate(`/region_board_list/${region}`);
+    navigate(`/notice_region_board_list/${region}`);
   };
 
   return (
