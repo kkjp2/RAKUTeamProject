@@ -22,7 +22,7 @@ const MyPage = () => {
             </span>
         </div>
         <div className="MyPage_Title_2">
-            <p className="MyPage_Title_2_title">닉네임씨</p>
+            <p className="MyPage_Title_2_title">test씨</p>
             <div><button className="MyPage_Title_2_Btn" onClick={goToEdit}>로그아웃</button></div>
         </div>
 
