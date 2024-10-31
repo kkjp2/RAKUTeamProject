@@ -1,0 +1,14 @@
+/* ./components/layout/login/layout.css */
+
+.layout{
+    display:flex;
+    min-height: 100vh;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.main {
+    /* min-height: calc(100vh - 180px); */
+    flex: 1 1 auto;
+    width: 100%;
+}

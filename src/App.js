@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+// import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './App.css';
 import Layout from './Components/Layout/notice/layout.js';
 import MainBoard from './Components/Layout/notice/main/mainboard.js';
@@ -27,6 +27,7 @@ import ReservationForm from './Components/Layout/rental/main/rental_reservationf
 import RentalMyPage from './Components/Layout/rental/main/rental_mypage';
 import RentalChat from './Components/Layout/rental/main/rental_chat';
 import RentalReview from './Components/Layout/rental/main/rental_review';
+import Login from './Components/Layout/login/main/index.js'
 
 function App() {
   const [hello, setHello] = useState('')
