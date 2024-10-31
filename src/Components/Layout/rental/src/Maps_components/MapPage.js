@@ -1,34 +1,39 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { GoogleMap, LoadScriptNext, Marker, MarkerClusterer } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './MapPage.css';
+import { loadHouseDetails, clearLocalStorage } from '../Building details_components/components/Build_Data'; // 수정된 경로
 
 const geocodeCache = {};
+const libraries = ['places'];
 
 // 주소를 지오코딩하고 결과를 캐시에 저장하는 함수
 const geocodeAddress = async (address) => {
   if (geocodeCache[address]) {
-    return geocodeCache[address]; // 이미 캐시에 있는 경우 캐시된 좌표 반환
+    return geocodeCache[address];
   }
 
-  // 지오코딩 API 호출
-  const response = await fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=KEY_INPUT`
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=AIzaSyBJSMaDSq6mQaGfj9Z-yAzBORZoPeIMCbo`
+    );
+    const data = await response.json();
 
-  // 유효한 결과가 있으면 좌표 반환 및 캐시에 저장
-  if (data.results && data.results.length > 0) {
-    const { lat, lng } = data.results[0].geometry.location;
-    geocodeCache[address] = { lat, lng };
-    return { lat, lng };
-  } else {
-    console.error("지오코딩 오류:", data);
+    if (data.results && data.results.length > 0) {
+      const { lat, lng } = data.results[0].geometry.location;
+      geocodeCache[address] = { lat, lng };
+      return { lat, lng };
+    } else {
+      console.error("지오코딩 오류:", data);
+      return null;
+    }
+  } catch (error) {
+    console.error("Geocode fetch error:", error);
     return null;
   }
 };
 
-// 지도 컨테이너 스타일
+// 지도 스타일 설정
 const containerStyle = {
   width: '100%',
   height: '700px',
@@ -37,61 +42,71 @@ const containerStyle = {
 const MapPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [mapCenter, setMapCenter] = useState(null); // 지도 중심 상태
-  const [selectedHouse, setSelectedHouse] = useState(null); // 선택된 매물 정보 상태
-  const [houseIcon, setHouseIcon] = useState(null); // 커스텀 마커 아이콘 상태
-  const [housePositions, setHousePositions] = useState([]); // 매물의 좌표 리스트 상태
-  const [houseDetailsList, setHouseDetailsList] = useState([]); // 매물 세부 정보 리스트 상태
-  const [zoomLevel, setZoomLevel] = useState(10); // 줌 레벨 상태
-  const [mapInstance, setMapInstance] = useState(null); // 지도 인스턴스 상태
-
-  // URL 쿼리 파라미터에서 지역 ID 추출
+  const mapRef = useRef(null); // Google Map 인스턴스를 관리하기 위한 ref
+  const [mapCenter, setMapCenter] = useState(null); // 지도 중심 좌표
+  const [selectedHouse, setSelectedHouse] = useState(null); // 선택된 매물
+  const [housePositions, setHousePositions] = useState([]); // 매물 위치 리스트
+  const [houseDetailsList, setHouseDetailsList] = useState([]); // 매물 리스트
+  const [houseIcon, setHouseIcon] = useState(null); // 마커 아이콘
   const regionId = new URLSearchParams(location.search).get('region');
+
+  // Google Maps API 로드
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: 'AIzaSyBJSMaDSq6mQaGfj9Z-yAzBORZoPeIMCbo', // 실제 Google API 키로 대체
+    libraries: libraries,
+  });
 
   // 컴포넌트가 처음 렌더링될 때 로컬 스토리지에서 매물 정보를 불러옴
   useEffect(() => {
-    const storedHouses = localStorage.getItem('houseDetailsList');
-    if (storedHouses) {
-      setHouseDetailsList(JSON.parse(storedHouses)); // 로컬 스토리지에서 매물 리스트 설정
-    }
+    const storedHouses = loadHouseDetails();
+    setHouseDetailsList(storedHouses);
   }, []);
 
-  // 매물 주소들을 지오코딩하여 좌표를 가져오고, 지도에 위치 설정
+  // 매물 정보를 기반으로 좌표를 가져오는 비동기 함수
   useEffect(() => {
     const fetchCoordinates = async () => {
-      if (houseDetailsList.length === 0) return; // 매물이 없으면 실행하지 않음
+      if (houseDetailsList.length === 0) return;
 
-      const coordinatesList = await Promise.all(
-        houseDetailsList.map((house) => geocodeAddress(house.address))
-      );
-      const validCoordinates = coordinatesList.filter(coord => coord !== null);
-      
-      console.log("Valid Coordinates:", validCoordinates); // 디버깅을 위해 유효 좌표 로그 출력
-      setHousePositions(validCoordinates); // 유효한 좌표들만 저장
+      try {
+        const coordinatesList = await Promise.all(
+          houseDetailsList.map(async (house) => {
+            try {
+              return await geocodeAddress(house.address);
+            } catch (error) {
+              console.error('Geocode request failed:', error);
+              return null;
+            }
+          })
+        );
 
-      // 지역이 선택되지 않았을 경우, 첫 번째 유효한 좌표를 지도 중심으로 설정
-      if (validCoordinates.length > 0 && !regionId) {
-        setMapCenter(validCoordinates[0]);
+        const validCoordinates = coordinatesList.filter(coord => coord !== null);
+        setHousePositions(validCoordinates);
+
+        if (validCoordinates.length > 0 && !regionId) {
+          setMapCenter(validCoordinates[0]); // 첫 번째 매물의 좌표를 중심으로 설정
+        }
+      } catch (error) {
+        console.error('Error fetching coordinates:', error);
       }
     };
 
     fetchCoordinates();
   }, [houseDetailsList, regionId]);
 
-  // 마커 클릭 시 선택된 매물을 상태에 저장
+  // 마커 클릭 핸들러
   const handleMarkerClick = (house) => {
     setSelectedHouse(house);
   };
 
-  // 선택된 매물 세부 페이지로 이동
+  // 매물 상세 페이지로 이동
   const handleNavigate = () => {
     if (selectedHouse) {
       navigate(`/main-content/${selectedHouse.buildNum}`, { state: { houseData: selectedHouse } });
     }
   };
 
-  // 커스텀 마커 아이콘 로드
-  const onLoad = useCallback(() => {
+  // 마커 아이콘 설정
+  useEffect(() => {
     setHouseIcon({
       url: 'data:image/svg+xml;charset=UTF-8,' +
         encodeURIComponent(
@@ -100,14 +115,13 @@ const MapPage = () => {
             <path fill="#F76D57" d="M32 0 L0 32 H12 V62 H24 V42 H40 V62 H52 V32 H64 Z"/>
           </svg>`
         ),
-      scaledSize: new window.google.maps.Size(40, 40), // 아이콘 크기 설정
+      scaledSize: { width: 40, height: 40 },
     });
   }, []);
 
-  // 지역이 선택되었을 때 해당 지역의 중심으로 지도 설정
+  // 지역 ID가 있으면 해당 지역으로 지도 중심 이동
   useEffect(() => {
     if (regionId) {
-      // 지역별 좌표 설정
       const regionCoordinates = {
         hokkaido: { name: "Hokkaido", lat: 43.06417, lng: 141.34694 },
         aomori: { name: "Aomori", lat: 40.82444, lng: 140.74 },
@@ -158,63 +172,45 @@ const MapPage = () => {
         okinawa: { name: "Okinawa", lat: 26.2125, lng: 127.68111 }
       };
 
-      if (regionCoordinates[regionId]) {
-        setMapCenter(regionCoordinates[regionId]); // 선택된 지역의 좌표로 지도 중심 설정
+      const regionCoordinatesData = regionCoordinates[regionId];
+      if (regionCoordinatesData) {
+        setMapCenter(regionCoordinatesData);
       }
     }
   }, [regionId]);
 
   return (
     <div className="map-page">
-      <div className="map-container">
-        {mapCenter ? (
-          <>
-            <h2>매물 위치</h2>
-            <LoadScriptNext
-              googleMapsApiKey="KEY_INPUT" // 구글 맵 API 키 입력
-              libraries={['places']}
-              onLoad={onLoad} // 커스텀 아이콘 로드
-            >
-              <GoogleMap
-                mapContainerStyle={containerStyle} // 지도 스타일 설정
-                center={mapCenter} // 지도 중심 설정
-                zoom={zoomLevel} // 줌 레벨 설정
-                onLoad={(map) => setMapInstance(map)} // 맵 인스턴스 저장
-              >
-                {/* 마커 클러스터링 추가 */}
-                <MarkerClusterer>
-                  {(clusterer) =>
-                    housePositions.map((position, index) => (
-                      <Marker
-                        key={index}
-                        position={position} // 매물의 좌표 설정
-                        clusterer={clusterer} // 클러스터링 처리
-                        icon={houseIcon} // 커스텀 아이콘 적용
-                        onClick={() => handleMarkerClick(houseDetailsList[index])} // 마커 클릭 시 매물 선택
-                      />
-                    ))
-                  }
-                </MarkerClusterer>
-              </GoogleMap>
-            </LoadScriptNext>
-          </>
-        ) : (
-          <p>매물의 위치를 불러오는 중입니다...</p> // 지도 로딩 중 텍스트 표시
-        )}
-      </div>
-
-      {/* 선택된 매물 정보 표시 */}
+      {isLoaded ? (
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={mapCenter}
+          zoom={10}
+          onLoad={(map) => (mapRef.current = map)}
+        >
+          {housePositions.map((position, index) => (
+            <Marker
+              key={index}
+              position={position}
+              icon={houseIcon}
+              onClick={() => handleMarkerClick(houseDetailsList[index])}
+            />
+          ))}
+        </GoogleMap>
+      ) : (
+        <div>로딩 중...</div>
+      )}
       {selectedHouse && (
-        <div className="property-details">
-          <h3>매물 정보</h3>
+        <div className="house-details">
+          <h2>매물 간략 정보</h2>
           <p>이름: {selectedHouse.name}</p>
           <p>주소: {selectedHouse.address}</p>
-          <p>연도: {selectedHouse.ymd}</p>
-          <p>넓이: {selectedHouse.size}</p>
+          <p>면적: {selectedHouse.size}</p>
           <p>월세: {selectedHouse.rent}</p>
           <p>유형: {selectedHouse.type}</p>
           <p>층수: {selectedHouse.floors}</p>
-          <button onClick={handleNavigate}>이동하기</button> {/* 매물 세부 페이지로 이동 */}
+          <p>담당자: {selectedHouse.concierge}</p>
+          <button onClick={handleNavigate}>상세 정보 보기</button>
         </div>
       )}
     </div>
