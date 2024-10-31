@@ -36,6 +36,7 @@ const ReservationForm = () => {
         {/* 달력 (가상 달력) */}
         <div className="calendar">          
           <input type="date" onChange={setSelectedDate}  />
+          <input type="date" onChange={setSelectedDate}  />
         </div>
 
         {/* 결제 수단 */}

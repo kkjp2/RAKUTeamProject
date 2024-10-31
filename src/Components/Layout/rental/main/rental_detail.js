@@ -63,7 +63,9 @@ const RentalDetail = () => {
             }}>메시지 보내기</button>
             <p className='nedan'>가격:10,000 ¥</p>
           </div>        
-        <button className="more-reviews-btn">후기 11개 모두 보기</button>
+        <button className="more-reviews-btn" onClick={()=>{
+          navigate(`/rental_review`);
+        }}>후기 12개 모두 보기</button>
       </section>                 
         </div>
         <div className='use_user'>

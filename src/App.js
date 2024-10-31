@@ -8,8 +8,8 @@ import RentalForm from './Components/Layout/rental/main/RentalForm';
 import RentalDetail from './Components/Layout/rental/main/rental_detail';
 import ReservationForm from './Components/Layout/rental/main/rental_reservationform';
 import RentalMyPage from './Components/Layout/rental/main/rental_mypage';
-import ChatModal from './Components/Layout/rental/main/rental_chatlist';
 import RentalChat from './Components/Layout/rental/main/rental_chat';
+import RentalReview from './Components/Layout/rental/main/rental_review';
 
 function App() {
   return (
@@ -22,9 +22,9 @@ function App() {
     <Route path="/rental_write_page" element={<RentalWritePage/>}/>
     <Route path='/rentalform' element={<RentalForm/>}/>
     <Route path='/rental_details' element={<RentalDetail/>} />
-    <Route path='/rental_reservationform' element={<ReservationForm/>}/>
-    <Route path='/rental_chatlist' element={<ChatModal/>}/>
-    <Route path='rental_chat' element={<RentalChat/>}/>
+    <Route path='/rental_reservationform' element={<ReservationForm/>}/>    
+    <Route path='/rental_chat' element={<RentalChat/>}/>
+    <Route path='/rental_review'element={<RentalReview/>}/>
       </Routes>
       </BrowserRouter>
    </Layout>

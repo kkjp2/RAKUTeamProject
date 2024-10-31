@@ -9,8 +9,12 @@ import { useNavigate } from 'react-router-dom';
 
 const RentalMyPage = () => {
   const [isOpen, setIsOpen]=useState(false);
+  const [secondisOpen, setsecondisOpen]=useState(false);
   const toggleModal=()=>{
     setIsOpen(!isOpen);
+  }
+  const toggleModal2=()=>{
+    setsecondisOpen(!secondisOpen);
   }
 
   const navigate=useNavigate();
@@ -21,9 +25,41 @@ const RentalMyPage = () => {
       <div className="profile-section">
         <img src="img/ye.jpg" alt="프로필" className="profile-img" />
         <p className="greeting">ye님! 안녕하세요</p>
-        <button className="chat-btn2" onClick={()=>{
-          navigate(`/rental_chatlist`)
-        }}>나의 채팅</button>
+        <button className="chat-btn2" onClick={toggleModal2}
+          >나의 채팅</button>
+          {secondisOpen&&(
+             <div className="modal-overlay">
+             <div className="modal-content">
+               <h2>나의 채팅 목록</h2>
+               <table className="chat-table">
+                 <tbody>
+                   <tr>
+                     <td>
+                       <img
+                         src="/path_to_image/host_profile.png"
+                         alt="Host"
+                         className="profile-img"
+                       />
+                     </td>
+                     <td>
+                       <div className="chat-text">
+                         <p><strong>호스트:</strong> 감사합니다! 하나시마에 놀러가는 일정...</p>
+                       </div>
+                     </td>
+                     <td>
+                       <div className="chat-time">2024-05-02 23:15</div>
+                     </td>
+                   </tr>
+                 </tbody>
+               </table>
+   
+               <button onClick={toggleModal2} className="close-modal-btn">
+                 닫기
+               </button>
+             </div>
+           </div>
+
+          )}
       </div>
 
       <div className="content-grid">
