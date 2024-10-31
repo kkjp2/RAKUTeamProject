@@ -2,7 +2,9 @@
   .footer {
     position: relative; 
     transform: translateY(0%);
-    background-color: #69a668;
+    /* background-color: #69a668; */
+    /* background-color: #442b70; */
+    background-color: #9f4298;
     color: white;
     text-align: center;
     z-index: 1000;

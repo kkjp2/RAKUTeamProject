@@ -15,7 +15,7 @@ const Header = () => {
           <ul className="menu">
             <li><Link to='/MoveMain'>ホーム</Link></li>
             <li><a href="#pricing">料金プラン</a></li>
-            <li><a href="#testimonials">お客様の声</a></li>
+            <li><Link to='/MoveMain/UserReview'>お客様の声</Link></li>
             <li><a href="#contact">引越し会社ランキング</a></li>
             <li><Link to='/MoveMain/CompanyUP'>企業登録</Link></li>
           </ul>

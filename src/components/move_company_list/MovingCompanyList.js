@@ -24,7 +24,7 @@ const MovingCompanyList = () => {
                 params: {
                     city: region === "全地域" ? "" : region,
                     page: page - 1, // 前端页码减1，因为后端分页是从0开始的
-                    size: 9
+                    size: 12
                 }
             });
             if (response.data.content) {

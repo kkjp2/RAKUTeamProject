@@ -1,60 +1,105 @@
 import React, { useState } from 'react';
-import './MovereviewUP.css';
+import './MoveReviewUP.css';
 
-function ProductReview() {
-  const [rating, setRating] = useState(0);
-  const [tags, setTags] = useState([]);
+const UploadReview = () => {
+  const [review, setReview] = useState({
+    companyName: '',
+    serviceRating: '',
+    cost: '',
+    region: '',
+    serviceDate: '',
+    comment: '',
+  });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Rating:', rating);
-    console.log('Selected Tags:', tags);
+  const handleChange = (e) => {
+    setReview({
+      ...review,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const toggleTag = (tag) => {
-    if (tags.includes(tag)) {
-      setTags(tags.filter(t => t !== tag));
-    } else {
-      setTags([...tags, tag]);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // 这里可以加上提交逻辑，比如将评论上传到服务器
+    console.log('评论提交:', review);
   };
 
   return (
-    <div className="reviewUP_product-review">
-      <div className="reviewUP_rating">
-        <h3>総合評価</h3>
-        {[...Array(5)].map((star, index) => {
-          index += 1;
-          return (
-            <button
-              type="button"
-              key={index}
-              className={index <= rating ? 'reviewUP_on' : 'reviewUP_off'}
-              onClick={() => setRating(index)}
-            >
-              <span className="reviewUP_star">&#9733;</span>
-            </button>
-          );
-        })}
-      </div>
-      <div className="reviewUP_tags">
-        <h3>サービスの態度</h3>
-        {['親切', '迅速', 'プロフェッショナル', '丁寧'].map(tag => (
-          <button
-            key={tag}
-            className={tags.includes(tag) ? 'reviewUP_tag-selected' : 'reviewUP_tag'}
-            onClick={() => toggleTag(tag)}
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
-      <div>
-      <textarea className="reviewUP_textarea"></textarea>
-      </div>
-      <button onClick={handleSubmit} className="reviewUP_submit-button">提出</button>
+    <div className="upload-review-container">
+      <h2>レビューを投稿</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>会社名</label>
+          <input
+            type="text"
+            name="companyName"
+            value={review.companyName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>サービス評価</label>
+          <input
+            type="number"
+            name="serviceRating"
+            value={review.serviceRating}
+            onChange={handleChange}
+            min="1"
+            max="5"
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>引越し費用</label>
+          <input
+            type="text"
+            name="cost"
+            value={review.cost}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>引越し地域</label>
+          <input
+            type="text"
+            name="region"
+            value={review.region}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>サービス利用日</label>
+          <input
+            type="date"
+            name="serviceDate"
+            value={review.serviceDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>コメント</label>
+          <textarea
+            name="comment"
+            value={review.comment}
+            onChange={handleChange}
+            rows="5"
+            required
+          />
+        </div>
+
+        <button type="submit" className="submit-btn">投稿する</button>
+      </form>
     </div>
   );
-}
+};
 
-export default ProductReview;
+export default UploadReview;

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import logo from '../move_img/logo/logo4.jpg';
-import email from '../move_img/mail.png'
 import Layout from '../move_layout/MoveLayout';
-import Review from '../move_review/MoveReview';
+// import Review from '../move_review/MoveReview';
 import '../move_company_profile/MoveCompanyProfile.css'
-import { Link } from 'react-router-dom';
 import useFetchCompanies from '../move_function/move_import/MoveCompanyImport.js'
 
 function CompanyProfile() {
@@ -59,7 +56,7 @@ function CompanyProfile() {
                     </p>
                 </div>
             </div>
-            <Review />
+            {/* <Review /> */}
         </Layout>
     );
 }
