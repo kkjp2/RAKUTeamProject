@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './App.css';
 import Layout from './Components/Layout/notice/layout.js';
@@ -17,6 +16,17 @@ import LoginPage from './Components/Layout/notice/main/loginpage.js';
 
 
 
+import Layout from './Components/Layout/rental/layout';
+import RentalBoard from './Components/Layout/rental/main/rentalboard';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import RentalList from './Components/Layout/rental/main/RentalList';
+import RentalWritePage from './Components/Layout/rental/main/rental_writepage';
+import RentalForm from './Components/Layout/rental/main/RentalForm';
+import RentalDetail from './Components/Layout/rental/main/rental_detail';
+import ReservationForm from './Components/Layout/rental/main/rental_reservationform';
+import RentalMyPage from './Components/Layout/rental/main/rental_mypage';
+import RentalChat from './Components/Layout/rental/main/rental_chat';
+import RentalReview from './Components/Layout/rental/main/rental_review';
 
 function App() {
   const [hello, setHello] = useState('')
