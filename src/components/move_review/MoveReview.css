@@ -1,0 +1,209 @@
+
+.review_container{
+  /* display:block; */
+  font-family: 'Georgia', serif;
+  align-items: center;
+  margin: auto 0px;
+  /* border: rgb(166, 209, 152) solid 2px; */
+  font-family: 'Arial', sans-serif;
+}
+.review_container h1{
+  margin-top: 5%;
+  font-family: 'Georgia', serif;
+  /* border: #375437 solid 1px; */
+  padding-left: 10px;
+}
+.review_container1{
+  display: flex;
+  width: 70%;
+  margin: 10px auto;
+  /* border: rgb(159, 36, 170) solid 2px; */
+}
+.review_container2{
+  margin: 10px;
+  width: 70%;
+  /* border: rgb(170, 199, 22) solid 2px; */
+}
+.review_contentBox{
+  width: 100%;
+  margin: 15px auto;
+  align-items: center;
+  border: rgb(67, 108, 77) solid 1px;
+  border-radius: 7px;
+  /* background-image: url('../move_img/menmian3.jpg'); */
+}
+.review_icon_name{
+  display: flex;
+  width: 90%;
+  margin: 0px auto;
+  align-items: flex-start;
+  /* border: rgba(166, 209, 152, 0.4) solid 1px; */
+}
+.review_usericon{
+  width: 100px;
+}
+.review_signature{
+  margin-top: 5px;
+}
+.review_content_show{
+  width: 90%;
+  /* border: red solid 1px; */
+  margin: 0px auto;
+}
+.review_content_show p{
+  margin: 10px 20px;
+}
+.review_subheading{
+  display: flex;
+}
+.review_likeAndDisLike{
+  margin: 20px 0px 15px 80%;
+  width: 100px;
+  display: flex;
+  /* border: red solid 1px; */
+}
+.review_likeContainer {
+  margin-right: 30px;
+  display: flex;                /* 使用弹性盒布局 */
+  align-items: center;         /* 垂直居中对齐 */
+}
+
+.review_like_button {
+  background: transparent;     /* 按钮透明 */
+  border: none;                /* 去掉边框 */
+  cursor: pointer;             /* 鼠标悬停时显示为指针 */
+  padding: 0;                  /* 去掉内边距 */
+  margin-right: 8px;           /* 右边距，给数字留出空间 */
+}
+
+.review_like {
+  font-size: 24px;             /* 调整图标大小 */
+}
+
+.review_likeContainer p {
+  font-size: 16px;             /* 调整数字大小 */
+  color: black;                /* 数字颜色 */
+  margin: 0;                   /* 去掉外边距 */
+}
+
+.review_container3{
+  margin:10% 0px 10px 20px;
+  width: 25%;
+  /* border: rgb(170, 199, 22) solid 2px; */
+  /* background-color: #97d0a842; */
+  background-color: #9f42971c;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 450px;
+}
+.review_container3 h2{
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Georgia', serif;
+
+}
+.company_list {
+  margin: 10px 20px 20px 20px;
+  list-style-type: none; /* 去掉默认的列表样式 */
+  padding: 0; /* 去掉内边距 */
+}
+.company_item {
+  width: 85%;
+  font-size: 90%;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 5px auto; /* 列表项之间的间距 */
+  border-radius: 5px;
+  transition: background-color 0.3s; /* 过渡效果 */
+  white-space: nowrap; /* 防止换行 */
+  overflow: hidden; /* 隐藏溢出的内容 */
+  text-overflow: ellipsis; /* 显示省略号 */
+}
+
+.company_item:hover {
+  background-color: #375437; /* 鼠标悬停时的背景色 */
+  color: #ffffff;
+}
+
+
+
+/* .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #6a9864;
+    transform: translateX(-50%);
+    z-index: 999;
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 50%;
+    width: 50%;
+    text-align: left;
+  }
+  
+  .timeline-item:nth-child(even) {
+    padding-left: 0;
+    padding-right: 50%;
+    text-align: right;
+  }
+  
+  .timeline-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.279);
+    margin: auto 5px;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position:absolute;
+    top: 50%;
+    left: 390px;
+    width: 16px;
+    height: 16px;
+    background-color: #6a9864;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 900;
+  }
+  
+  .timeline-item:nth-child(even)::before {
+    left: auto;
+    right: 390px;
+  }
+  
+  .review-date {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .review-label {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #333;
+  }
+  
+  .review-content {
+    font-size: 16px;
+    margin: 0;
+    color: #555;
+  }
+   */
