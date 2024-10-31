@@ -1,0 +1,79 @@
+.create-building-container {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    padding: 20px;
+    gap: 20px; /* 항목 간의 간격을 추가합니다. */
+  }
+  
+  .form-container {
+    width: 40%; /* 너비를 일정하게 유지 */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* 모서리 둥글게 */
+    background-color: #f9f9f9; /* 배경색 추가 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 그림자 추가 (선택 사항) */
+  }
+  
+  .building-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .building-form label {
+    margin-bottom: 5px; /* 레이블과 입력 필드 간의 간격 조정 */
+    font-weight: bold; /* 레이블 글씨를 진하게 */
+  }
+  
+  .building-form input[type="text"],
+  .building-form input[type="number"],
+  .building-form input[type="date"],
+  .building-form textarea {
+    margin-bottom: 15px; /* 입력 필드 간의 간격 조정 */
+    padding: 10px; /* 패딩을 늘려 사용하기 편리하게 */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* 입력 필드 모서리 둥글게 */
+    font-size: 16px; /* 글꼴 크기 조정 */
+  }
+  
+  .building-form input[type="radio"],
+  .building-form input[type="checkbox"] {
+    margin-right: 5px; /* 라디오 버튼 및 체크박스 간격 조정 */
+  }
+  
+  .image-upload-btn {
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 4px; /* 버튼 모서리 둥글게 */
+    cursor: pointer;
+    transition: background-color 0.3s; /* 호버 시 색상 변화 효과 */
+  }
+  
+  .image-upload-btn:hover {
+    background-color: darkviolet; /* 호버 시 색상 변경 */
+  }
+  
+  .form-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .save-btn,
+  .cancle-btn {
+    padding: 10px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 4px; /* 버튼 모서리 둥글게 */
+    cursor: pointer;
+    width: 45%;
+    transition: background-color 0.3s; /* 호버 시 색상 변화 효과 */
+  }
+  
+  .save-btn:hover,
+  .submit-btn:hover {
+    background-color: darkviolet; /* 호버 시 색상 변경 */
+  }
+  

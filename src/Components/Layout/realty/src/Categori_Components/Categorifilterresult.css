@@ -1,0 +1,87 @@
+.search-results {
+    margin: 20px;
+  }
+  
+  .sort-options,
+  .tag-search {
+    margin-bottom: 20px;
+  }
+  
+  .sort-options label,
+  .tag-search label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .tag-search input {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .house-item {
+    display: flex;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .house-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .house-details {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .house-details table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .house-details th, .house-details td {
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .details-button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .details-button:hover {
+    background-color: #45a049;
+  }
+  
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .page-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .page-button.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .page-button:hover {
+    background-color: #ddd;
+  }
+  
