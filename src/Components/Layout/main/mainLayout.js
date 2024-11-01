@@ -8,15 +8,15 @@ const Layout = (props) => {
     const location = useLocation();
     let headerContent;
     let footerContent;
-    if (location.pathname.startsWith('/MyPage/Edit') ) {
+    if (location.pathname.startsWith('/mypage/edit') ) {
         headerContent = <EditHeader/>;
         footerContent = <Footer/>;
-      } else if (location.pathname === '/' || location.pathname.startsWith('/MyPage') || location.pathname === '/Announcement') {
+      } else if (location.pathname === '/main' || location.pathname.startsWith('/mypage')) {
         headerContent = <MainHeader/>;
       } else {
         headerContent = <h1>Default Header</h1>;
       }
-    const isTheMain = location.pathname === '/';
+    const isTheMain = location.pathname === '/main';
     
 
 

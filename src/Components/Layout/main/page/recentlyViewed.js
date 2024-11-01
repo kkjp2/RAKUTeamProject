@@ -4,11 +4,15 @@ import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { IoStar } from "react-icons/io5";   
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RecComponents from './components/favRecnent.js';
 import { LuClock5 } from "react-icons/lu";
 
 const RecentlyViewed = () => {
+    const navigate = useNavigate();
+    const goToMyPage = () => {
+        navigate(`/mypage`);
+    }
     const todos = [
         {
           id: 1,
@@ -50,9 +54,7 @@ const RecentlyViewed = () => {
     <div className="RecentlyViewed">
     <div className="RecentlyViewed_Header">
         <div className="RecentlyViewed_Header_Channel">
-        <Link to="/MyPage">
             <p className="RecentlyViewed_Header_Channel_MyPage">내페이지</p>
-        </Link>
             <p> &gt;</p>
             <p>최근 본 물건</p>
         </div>
