@@ -1,0 +1,79 @@
+.CompanyStaff{
+    padding: 20px;
+}
+
+.CompanyStaff_Title{
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+}
+
+.CompanyStaff_Title::before{
+        content: "";
+        border-left: 7px solid #9F4298;
+        border-radius: 5px;
+        margin-right: 10px;
+}
+
+.CompanyStaff_Text{
+    font-size:15px;
+    text-align: left;
+}
+
+.CompanyStaff_Content_Main{
+    border: 1px solid;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-bottom: 50px;
+    min-height: 249px;
+    
+}
+
+.CompanyStaff_Content_Main p {
+    margin: 0;
+}
+
+.CompanyStaff_Content_Img{
+    font-size: 150px;
+}
+
+.CompanyStaff_Content_Title1{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.CompanyStaff_Content_exp{
+    font-size: 15px;
+}
+
+.CompanyStaff_Content_Main_2{
+    padding: 10px;
+}
+
+.CompanyStaff_Content_Title2{
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.CompanyStaff_Content_Table{
+    width:100%;
+    margin-top: 10px;
+    background-color: #f7f3e8;
+    text-align: left;
+    padding: 20px;
+}
+
+.CompanyStaff_Content_Table tr th{
+    width:20%
+}
+
+.CompanyStaff_Content_Text{
+    padding: 20px;
+    font-size: 15px;
+    text-align: left;
+}
+
+

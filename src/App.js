@@ -28,6 +28,7 @@ import RentalMyPage from './Components/Layout/rental/main/rental_mypage';
 import RentalChat from './Components/Layout/rental/main/rental_chat';
 import RentalReview from './Components/Layout/rental/main/rental_review';
 import Login from './Components/Layout/login/main/index.js'
+import Index from './Components/Layout/company/page/index.js'
 
 function App() {
   const [hello, setHello] = useState('')
