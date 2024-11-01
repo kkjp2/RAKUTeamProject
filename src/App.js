@@ -11,11 +11,6 @@ import ViewFestival from './Components/Layout/notice/main/view_festival.js';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import LoginPage from './Components/Layout/notice/main/loginpage.js';
-
-
-
-
-
 import Layout from './Components/Layout/rental/layout';
 import RentalBoard from './Components/Layout/rental/main/rentalboard';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -57,4 +52,7 @@ function App() {
   );
 }
 
+
+//login : /login
+//realty : /realty
 export default App;

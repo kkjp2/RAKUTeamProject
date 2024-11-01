@@ -23,7 +23,7 @@ function App() {
         
         <Routes>
           {/* 기본 경로: 지방 선택 페이지 */}
-          <Route path="/" element={<RegionsPage />} />
+          <Route path="/realty/" element={<RegionsPage />} />
 
           {/* 메인 페이지 경로: MainContent + PriceCalculation */}
           <Route path="/main" element={
@@ -37,10 +37,10 @@ function App() {
           <Route path="/main-content/:buildNum" element={<MainContent />} />
 
           {/* 지역 리스트 페이지 경로 */}
-          <Route path="/regions/:regionId" element={<RegionDetailPage />} />
+          <Route path="/relaty/regions/:regionId" element={<RegionDetailPage />} />
 
           {/* 지도 페이지 경로: 구글 맵 */}
-          <Route path="/map" element={<MapPage />} />
+          <Route path="/realty/map" element={<MapPage />} />
 
           {/* 검색 결과 페이지 경로 */}
           <Route path="/search-results" element={<SearchPageResult />} /> 
