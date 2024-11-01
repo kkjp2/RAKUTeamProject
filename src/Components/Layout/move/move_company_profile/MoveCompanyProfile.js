@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../move_layout/MoveLayout';
 // import Review from '../move_review/MoveReview';
-import '../move_company_profile/MoveCompanyProfile.css'
+import './MoveCompanyProfile.css'
 import useFetchCompanies from '../move_function/move_import/MoveCompanyImport.js'
 
 function CompanyProfile() {
