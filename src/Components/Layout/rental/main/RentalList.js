@@ -33,7 +33,7 @@ const RentalList = () => {
         <button className="filter-btn"><RiArrowUpDownLine color='blue'/>최신 순</button>
         <button className="write-btn"
         onClick={()=>{
-          navigate("/rental_write_page");
+          navigate("/rental/write/page");
         }}><TfiWrite/>글쓰기</button>
       </div>
       
@@ -46,7 +46,7 @@ const RentalList = () => {
             <img src="/img/daito1.png" alt="아파트 1" className="rental-image" />
             <div className="rental-info">
               <h3 className="rental-name" onClick={()=>{
-                navigate(`/rental_details`);
+                navigate(`/rental/details`);
               }}>도쿄 다이토 구 아파트</h3>
               <span><FaRegEye color='blue'/> 552</span>
               <p>위치: 도쿄도 00구 00</p>

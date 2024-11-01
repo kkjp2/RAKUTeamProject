@@ -6,7 +6,7 @@ import { FaLine } from "react-icons/fa";
 import { FaPaypal } from "react-icons/fa";
 import { FaApplePay } from "react-icons/fa";
 
-const ReservationForm = () => {
+const RentalReservationForm = () => {
   const navigate=useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedPayment, setSelectedPayment] = useState('');
@@ -74,4 +74,4 @@ const ReservationForm = () => {
   );
 };
 
-export default ReservationForm;
+export default RentalReservationForm;

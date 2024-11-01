@@ -56,15 +56,15 @@ const RentalDetail = () => {
         
         <div className='reserve_box'>
             <button className="reservation-btn" onClick={()=>{
-                  navigate(`/rental_reservationform`)              
+                  navigate(`/rental/reservationform`)              
             }}>예약하기</button>
             <button className="chat-btn" onClick={()=>{
-              navigate(`/rental_chat`)
+              navigate(`/rental/chat`)
             }}>메시지 보내기</button>
             <p className='nedan'>가격:10,000 ¥</p>
           </div>        
         <button className="more-reviews-btn" onClick={()=>{
-          navigate(`/rental_review`);
+          navigate(`/rental/review`);
         }}>후기 12개 모두 보기</button>
       </section>                 
         </div>
