@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const DormantAuth = () => {
     const navigate = useNavigate();
     const goToDormantComplete = () => {
-        navigate('/Dormant_Auth_Complete');
+        navigate('/login/Dormant_Auth_Complete');
       };
     return<>
     <p className="title">인증 코드 입력</p>

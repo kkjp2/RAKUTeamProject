@@ -1,23 +1,16 @@
 // ./components/layout/login/header/header.js
 import './header.css';
+import { useNavigate } from 'react-router-dom';
 const header = () => {
+    const goToMainpage = () => {
+        navigate('/main');
+      };
     return<>
     <header className="header">
         <div className="content">
         <div>
-            <p className="Logo">RAKU</p>
+            <p className="Logo" onClick={goToMainpage}>RAKU</p>
             </div>
-
-        {/* <nav className="navigation">
-            <ul>
-                <li>
-                    메뉴1
-                </li>
-                <li>
-                    메뉴2
-                </li>
-            </ul>
-        </nav> */}
         </div>
     </header>
     </>
