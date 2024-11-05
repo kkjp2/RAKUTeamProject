@@ -5,9 +5,13 @@ import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { IoStar } from "react-icons/io5";   
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import FavComponents from './components/favRecnent.js';
 const Favorites = () => {
+    const navigate = useNavigate();
+    const gotoMyPage = () => {
+        navigate(`/mypage`);
+    }
     const todos = [
         {
           id: 1,
@@ -49,9 +53,7 @@ const Favorites = () => {
     <div className="Favorites">
     <div className="Favorites_Header">
         <div className="Favorites_Header_Channel">
-            <Link to="/MyPage">
-            <p className="Favoites_Header_Channel_MyPage">내페이지</p>
-            </Link>
+            <p className="Favoites_Header_Channel_MyPage" onClick={gotoMyPage}>내페이지</p>
             <p> &gt;</p>
             <p>즐겨찾기</p>
         </div>

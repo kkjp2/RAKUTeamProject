@@ -2,6 +2,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import './css/myPageDelete.css'
 
 const MyPageDelete = () => {
+    const navigate = useNavigate();
+    const deleteUser = () => {
+
+    }
+    const goToMain =() => {
+        navigate(`/main`)
+    }
+    const goToMypageEdit =() => {
+        navigate(`/mypage/edit`)
+    }
     return<>
     <div className="DeleteEdit">
     <div className="DeleteEdit_Title">계정 삭제</div>
@@ -20,10 +30,8 @@ const MyPageDelete = () => {
     </div>
 
     <div className="DeleteEdit_Btn">
-        <Link to='/'>
-        <button className="DeleteEdit_Btn_submit">계정 삭제하기</button></Link>
-        <Link to='/MyPage/Edit'>
-        <button className="DeleteEdit_Btn_cancel">뒤로</button></Link>
+        <button className="DeleteEdit_Btn_submit" onClick={deleteUser}>계정 삭제하기</button>
+        <button className="DeleteEdit_Btn_cancel" onClick={mypage/edit}>뒤로</button>
         <div className="DeleteEdit_Btn_Content">
         변경한 뒤로 전 지역의 게시판은 생성 및 수정이 불가합니다.
         </div>

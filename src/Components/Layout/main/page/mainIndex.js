@@ -9,7 +9,7 @@ import MyPageEmailEdit from './myPageEmailEdit.js';
 import MyPageEmailEditAuth from './myPageEmailEditAuth.js';
 import MyPagePasswordEdit from './myPagePasswordEdit.js';
 import MyPageAreaEdit from './myPageAreaEdit.js';
-import MyPageDeleteEdit from './myPageDelete.js';
+import MyPageDelete from './myPageDelete.js';
 import RecentlyViewed from './recentlyViewed.js';
 import InquiryDetail from './inquiryDetail.js';
 import Announcement from './annLayout.js';
@@ -21,19 +21,19 @@ const Index = () => {
     <Layout>
     <Routes>
     
-            <Route path='/' element={<MainPage/>}/>
-            <Route path='/MyPage' element={<MyPage/>}/>
-            <Route path='/MyPage/Favorites' element={<Favorites/>}/>
-            <Route path='/MyPage/Edit' element={<MyPageEdit/>}/>
-            <Route path='/MyPage/Edit/Nickname' element={<MyPageNickEdit/>}/>
-            <Route path='/MyPage/Edit/Email' element={<MyPageEmailEdit/>}/>
-            <Route path='/MyPage/Edit/Email/Auth' element={<MyPageEmailEditAuth/>}/>
-            <Route path='/MyPage/Edit/Password' element={<MyPagePasswordEdit/>}/>
-            <Route path='/MyPage/Edit/Area' element={<MyPageAreaEdit/>}/>
-            <Route path='/MyPage/Edit/Delete' element={<MyPageDeleteEdit/>}/>
-            <Route path='/MyPage/RecentlyViewed' element={<RecentlyViewed/>}/>
-            <Route path='/MyPage/InquiryDetail' element={<InquiryDetail/>}/>
-            <Route path='/Announcement' element={<Announcement/>}/>
+            <Route path='/main' element={<MainPage/>}/>
+            <Route path='/myPage' element={<MyPage/>}/>
+            <Route path='/myPage/favorites' element={<Favorites/>}/>
+            <Route path='/myPage/edit' element={<MyPageEdit/>}/>
+            <Route path='/myPage/edit/nickname' element={<MyPageNickEdit/>}/>
+            <Route path='/myPage/edit/email' element={<MyPageEmailEdit/>}/>
+            <Route path='/myPage/edit/email/Auth' element={<MyPageEmailEditAuth/>}/>
+            <Route path='/myPage/edit/password' element={<MyPagePasswordEdit/>}/>
+            <Route path='/myPage/edit/area' element={<MyPageAreaEdit/>}/>
+            <Route path='/myPage/delete' element={<MyPageDelete/>}/>
+            <Route path='/myPage/recentlyviewed' element={<RecentlyViewed/>}/>
+            <Route path='/myPage/inquirydetail' element={<InquiryDetail/>}/>
+            <Route path='/main/announcement' element={<Announcement/>}/>
     </Routes>
     </Layout>
     </Router>

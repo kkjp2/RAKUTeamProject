@@ -8,16 +8,16 @@ import { MdLogin } from "react-icons/md";
 const MainHeader = () => {
     const navigate = useNavigate();
     const goToMyPage = () => {
-        navigate('/MyPage');
+        navigate('/mypage');
       };
     const goToFavorites = () => {
-        navigate(`/MyPage/Favorites`);
+        navigate(`/myPage/favorites`);
     }
     const goToRecentlyViewed = () => {
-        navigate(`/MyPage/RecentlyViewed`);
+        navigate(`/myPage/recentlyViewed`);
     }
       const goToMainPage = () => {
-        navigate('/');
+        navigate('/main');
       };
     const test = [
         {

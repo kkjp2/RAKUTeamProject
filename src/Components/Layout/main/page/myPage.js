@@ -4,13 +4,19 @@ import { Link,useNavigate } from 'react-router-dom';
 const MyPage = () => {
     const navigate = useNavigate();
     const goToFavorites = () => {
-        navigate(`/MyPage/Favorites`);
+        navigate(`/mypage/favorites`);
     }
     const goToEdit = () => {
-        navigate(`/MyPage/Edit`);
+        navigate(`/mypage/edit`);
+    }
+    const goToRecentlyViewed = () => {
+        navigate(`/myPage/recentlyviewed`);
+    }
+    const goToInquiry = () => {
+        navigate(`/myPage/inquirydetail`);
     }
     const goToAnnouncement = () => {
-        navigate(`/Announcement`);
+        navigate(`/main/announcement`);
     }
     return <> 
     <div className="MyPage">
@@ -41,20 +47,16 @@ const MyPage = () => {
             </button>
         </span>
         <span className="MyPage_Main_Recent">
-        <Link to="/MyPage/RecentlyViewed">
-            <button className="MyPage_Main_Recent_Btn">
+            <button className="MyPage_Main_Recent_Btn" onClick={goToRecentlyViewed}>
                 <div className="MyPage_Main_Recent_Btn_Img"></div>
             <p className="MyPage_Main_Recent_Btn_Text">최근 본 물건</p>
             </button>
-        </Link>
         </span>
         <span className="MyPage_Main_inquiry">
-        <Link to="/MyPage/InquiryDetail">
-            <button className="MyPage_Main_inquiry_Btn">
+            <button className="MyPage_Main_inquiry_Btn" onClick={goToInquiry}>
                 <div className="MyPage_Main_inquiry_Btn_Img"></div>
             <p className="MyPage_Main_inquiry_Btn_Text">문의 이력</p>
             </button>
-        </Link>
         </span>
     </div>
     <div className="MyPage_Notice">

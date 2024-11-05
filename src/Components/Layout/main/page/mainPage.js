@@ -47,18 +47,6 @@ const MainPage =() => {
                 </p>
             </div>
             <div className="Realty_Main_Message_2">
-                {/* <p className="Realty_Main_Message_2_Total_M">
-                    총 등록된 매물수:
-                </p>
-                <p className="Realty_Main_Message_2_Total_Score">
-                    1000000
-                </p>
-                <p className="Realty_Main_Message_2_Today_M">
-                    오늘 등록된 매물수:
-                </p>
-                <p className="Realty_Main_Message_2_Today_Score">
-                    100000000
-                </p> */}
             </div>
         </div>
         <div className="Realty_Main_Menu">

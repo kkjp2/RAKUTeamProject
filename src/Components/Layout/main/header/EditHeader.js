@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const EditHeader = () => {
     const navigate = useNavigate();
     const goToMainPage = () => {
-        navigate('/');
+        navigate('/main');
       };
     return<>
     <header className="header">

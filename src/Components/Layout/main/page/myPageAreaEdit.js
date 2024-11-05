@@ -2,6 +2,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import './css/myPageAreaEdit.css';
 
 const MyPageAreaEdit =() => {
+    const navigate = useNavigate();
+    const goToMypage = () => {
+        navigate(`/mypage/edit`);
+    }
+    const modifyMyArea = () =>{
+
+    }
     return<>
     <div className="AreaEdit">
     <div className="AreaEdit_Title">거주 지역 변경</div>
@@ -20,11 +27,8 @@ const MyPageAreaEdit =() => {
         </select>
     </div>
     <div className="AreaEdit_Btn">
-        <Link to='/MyPage/Edit'>
-        <button className="AreaEdit_Btn_submit">지역 변경하기</button></Link>
-        <Link to='/MyPage/Edit'>
-        <button className="AreaEdit_Btn_cancel">뒤로</button></Link>
-        <div className="AreaEdit_Btn_Content">
+        <button className="AreaEdit_Btn_submit" onClick={modifyMyArea}>지역 변경하기</button>
+        <button className="AreaEdit_Btn_cancel" onCilck={goToMypage}>뒤로</button>
         변경한 뒤로 전 지역의 게시판은 생성 및 수정이 불가합니다.
         </div>
     </div>
