@@ -15,26 +15,26 @@ const CompanyLayout =(props) => {
     const location = useLocation();
     const navigate = useNavigate();
     const goToCompanyBukken = () => {
-        navigate('/Realty/Company/N01/Bukken');
+        navigate('/realty/company/N01/bukken');
       };
     const goToCompanyStaff = () => {
-        navigate('/Realty/Company/N01/Staff');
+        navigate('/realty/company/N01/staff');
     };
     const goToCompanyMap = () => {
-        navigate('/Realty/Company/N01/Map');
+        navigate('/realty/company/N01/map');
     };
     const goToCompanyMain = () => {
-        navigate('/Realty/Company/N01/Main');
+        navigate('/realty/company/N01/main');
     };
     useEffect(() => {
         InformationClick();
     }, [location]); // location이 변경될 때마다 실행
     const InformationClick = () => {
-        const pattern1 = /^\/Realty\/Company\/.*\/Main$/;
-        const pattern2 = /^\/Realty\/Company\/.*\/Bukken$/;
-        const pattern3 = /^\/Realty\/Company\/.*\/Staff$/;
-        const pattern4 = /^\/Realty\/Company\/.*\/Map$/;
-        const pattern5 = /^\/Realty\/Company\/.*\/Staff\/.*$/;
+        const pattern1 = /^\/realty\/company\/.*\/main$/;
+        const pattern2 = /^\/realty\/company\/.*\/bukken$/;
+        const pattern3 = /^\/realty\/company\/.*\/staff$/;
+        const pattern4 = /^\/realty\/company\/.*\/map$/;
+        const pattern5 = /^\/realty\/company\/.*\/staff\/.*$/;
         const parentDiv = document.getElementById("Company_Main_Nav_Normal");
         if (!parentDiv) return; // parentDiv가 없을 경우를 방어적으로 처리
         const childDivs = parentDiv.getElementsByTagName("div");

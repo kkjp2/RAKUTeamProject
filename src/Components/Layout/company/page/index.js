@@ -12,10 +12,10 @@ const Index = () => {
     <Router>
         <Layout>
             <Routes>
-                <Route path='/Realty/Company/:companyId/Main' element={<CompanyMain/>}/>
-                <Route path='/Realty/Company/:companyId/Bukken' element={<CompanyBukken/>}/>
-                <Route path='/Realty/Company/:companyId/Map' element={<CompanyMap/>}/>
-                <Route path='/Realty/Company/:companyId/Staff' element={<CompanyStaff/>}/>
+                <Route path='/realty/company/:companyId/main' element={<CompanyMain/>}/>
+                <Route path='/realty/company/:companyId/bukken' element={<CompanyBukken/>}/>
+                <Route path='/realty/company/:companyId/map' element={<CompanyMap/>}/>
+                <Route path='/realty/company/:companyId/staff' element={<CompanyStaff/>}/>
             </Routes>
 
         </Layout>
