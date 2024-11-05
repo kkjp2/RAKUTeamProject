@@ -15,12 +15,12 @@ const homepage = () => {
     <Router>
       <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/login/Dormant_Auth" element={<Dormant_Auth/>}/>
-      <Route path="/login/Dormant_Auth_Complete" element={<Dormant_Auth_Complete/>}/>
-      <Route path="/login/Register_email" element={<Register_Email/>}/>
-      <Route path="/login/Register_Auth" element={<Register_Auth/>}/>
-      <Route path="/login/Register_Area" element={<Register_Area/>}/>
-      <Route path="/login/Register_Complete" element={<Register_Complete/>}/>
+      <Route path="/login/dormant_auth" element={<Dormant_Auth/>}/>
+      <Route path="/login/dormant_auth_complete" element={<Dormant_Auth_Complete/>}/>
+      <Route path="/login/register_email" element={<Register_Email/>}/>
+      <Route path="/login/register_auth" element={<Register_Auth/>}/>
+      <Route path="/login/register_area" element={<Register_Area/>}/>
+      <Route path="/login/register_complete" element={<Register_Complete/>}/>
       </Routes>
     </Router>
     </Layout>

@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const navigate = useNavigate();
     const goToDormant = () => {
-        navigate('/Dormant_Auth');
+        navigate('/login/dormant_auth');
       };
     const goTORegister = () => {
-        navigate('/Register_Email')
+        navigate('/login/register_email')
     }
     return<>
     <div className="main">

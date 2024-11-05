@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterEmail = () => {
     const navigate = useNavigate();
     const goToAuth = () => {
-        navigate('/Register_Auth')
+        navigate('/login/register_auth')
     };
     return<>
     <div>

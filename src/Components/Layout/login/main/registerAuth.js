@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterAuth =() => {
     const navigate = useNavigate();
     const goTOArea = () => {
-        navigate('/Register_Area')
+        navigate('/login/register_area')
     }
     return <>
     <p className="title">인증 코드 입력</p>

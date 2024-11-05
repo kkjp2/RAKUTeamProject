@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const DormantComplete =() => {
     const goToMainpage = () => {
-        navigate('/');
+        navigate('/main');
       };
     return<>
     <p className="title">휴면 회원 해제</p>

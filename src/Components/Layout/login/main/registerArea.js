@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterArea = () => {
     const navigate = useNavigate();
     const goTOComplete = () => {
-        navigate('/Register_Complete')
+        navigate('/login/register_complete')
     }
     return<>
     <p className="title">거주 지역 선택</p>
