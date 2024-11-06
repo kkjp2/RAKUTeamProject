@@ -31,7 +31,7 @@ const Header = () => {
         <div className="dropdown-menu">
           <ul>
                       
-            <li><a href="/notice/MyPage">마이페이지</a></li>
+            <li><a href="/notice/mypage">마이페이지</a></li>
             <li><a href="/signup">회원가입</a></li>
             <li><a href="/notice_login">로그인</a></li>
           </ul>

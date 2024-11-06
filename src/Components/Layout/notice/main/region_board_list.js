@@ -37,7 +37,7 @@ return (
   <div className='toolbar1'>
   <button className='write'
    onClick={()=>{
-      navigate("/notice/WritingPage")
+      navigate("/notice/writingpage")
     }}
   >
     글쓰기

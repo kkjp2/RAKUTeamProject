@@ -15,10 +15,10 @@ const homepage = () => {
     return<>
     <Layout>
     <Route path="/notice" element={<MainBoard/>}/>                  
-    <Route path="/notice/MyPage" element={<MyPage/>}/>          
+    <Route path="/notice/mypage" element={<MyPage/>}/>          
     <Route path="/notice/region/board/list/:region" element={<RegionBoardList />} />         
     <Route path="/notice/festival/board/list/:region" element={<FestivalBoardList/>}/>                 
-    <Route path="/notice/WritingPage" element={<WritingPage/>}/>  
+    <Route path="/notice/writingpage" element={<WritingPage/>}/>  
     <Route path="/notice/view/board"element={<ViewBoard/>}/>
     <Route path="/notice/view/festival" element={<ViewFestival/>}/>    
     {/* <Route path="/notice/login" element={<LoginPage/>}/>*/}
