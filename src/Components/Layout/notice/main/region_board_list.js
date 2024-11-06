@@ -18,7 +18,7 @@ return (
     <button className='search'>검색</button>    
     <button className="purple-btn"
     onClick={()=>{
-      navigate(`/notice_festival_board_list/${region}`);
+      navigate(`/notice/festival/board/list/${region}`);
     }}
     >지역 축제 게시판 보러가기</button>
   </div>
@@ -37,7 +37,7 @@ return (
   <div className='toolbar1'>
   <button className='write'
    onClick={()=>{
-      navigate("/notice_WritingPage")
+      navigate("/notice/WritingPage")
     }}
   >
     글쓰기
@@ -70,7 +70,7 @@ return (
         <tr>
           <td>4</td>
           <td onClick={()=>{
-            navigate(`/notice_view_board`);
+            navigate(`/notice/view/board"`);
           }
 
           }>동네에서 같이 산책...</td>

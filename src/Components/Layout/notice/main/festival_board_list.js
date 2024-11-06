@@ -16,7 +16,7 @@ const RegionFestivalBoard = () => {
         <button className="search">검색</button>
         <button className="purple-btn"
           onClick={()=>{
-            navigate(`/notice_region_board_list/${region}`);  // 해당 지역으로 이동
+            navigate(`/notice/region/board/list/${region}`);  // 해당 지역으로 이동
           }}>지역 커뮤니티 게시판 보러가기</button>
       </div>
 
@@ -49,7 +49,7 @@ const RegionFestivalBoard = () => {
             <tr>
               <td>5</td>
               <td onClick={()=>{
-                navigate(`/view_festival`)
+                navigate(`/notice/view/festival`)
               }}>센다이 네부타 축제</td>
               <td>관리자</td>
               <td>2024-05-22</td>
