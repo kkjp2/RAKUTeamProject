@@ -12,7 +12,7 @@ const regions = ['큐슈&오키나와', '주고쿠', '시코쿠', '주부', '간
   const navigate = useNavigate();
         
   const handleBoardClick = (region) => {
-    navigate(`/rental_list/${region}`);
+    navigate(`/rental/list/${region}`);
   };
 
   return (

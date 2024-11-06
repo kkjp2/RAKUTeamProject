@@ -65,7 +65,7 @@ const RentalWritePage = () => {
           <button className="save-btn" 
           onClick=
           {()=>{
-            navigate("/rentalform")
+            navigate("/rental/rentalform")
           }}>다음</button>          
         </div>
       </div>

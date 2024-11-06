@@ -24,7 +24,7 @@ const Header = () => {
         <div className="dropdown-menu">
           <ul>
                       
-            <li><a href="/rental_mypage">마이페이지</a></li>
+            <li><a href="/rental/mypage">마이페이지</a></li>
             <li><a href="/edit-profile">개인정보 수정</a></li>
             <li><a href="/logout">로그아웃</a></li>
           </ul>
