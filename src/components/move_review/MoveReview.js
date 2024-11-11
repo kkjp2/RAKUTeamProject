@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState }, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './MoveReview.css';
 import userIcon from '../move_img/usericon.png';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";

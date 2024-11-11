@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'; 
 import Main from '../index'
-import CompanyDetail from '../move_review/MoveReview.js';
+import UserCompanyDetail from '../move_review/MoveReview.js.js';
 import MovingCompanyList from '../move_company_list/MovingCompanyList'
 import CompanyProfile from '../move_company_profile/MoveCompanyProfile.js'
 import CompanyUP from '../move_company_up/MoveCompanyUP.js'

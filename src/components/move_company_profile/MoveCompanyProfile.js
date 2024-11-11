@@ -6,6 +6,9 @@ import userIcon from '../move_img/usericon.png';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import useFetchCompanyDetails from '../move_api/MoveProfileReview'
 import UploadReview from '../move_review/MoveReviewUP';
+// import Review from '../move_review/MoveReview';
+import '../move_company_profile/MoveCompanyProfile.css'
+import useFetchCompanies from '../move_function/move_import/MoveCompanyImport.js'
 
 function CompanyProfile() {
     const {
