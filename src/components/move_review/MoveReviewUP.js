@@ -1,6 +1,6 @@
 // MoveReviewUP.js
 import React from 'react';
-import './MoveReviewUP.css';
+import '../move_review/MovereviewUP.css';
 
 const UploadReview = ({
     isModalOpen,

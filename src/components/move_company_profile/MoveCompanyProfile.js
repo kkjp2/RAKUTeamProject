@@ -4,11 +4,11 @@ import Layout from '../move_layout/MoveLayout';
 import '../move_company_profile/MoveCompanyProfile.css';
 import userIcon from '../move_img/usericon.png';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import useFetchCompanyDetails from '../move_api/MoveProfileReview'
+// import useFetchCompanyDetails from '../move_api/MoveProfileReview';
 import UploadReview from '../move_review/MoveReviewUP';
 // import Review from '../move_review/MoveReview';
 import '../move_company_profile/MoveCompanyProfile.css'
-import useFetchCompanies from '../move_function/move_import/MoveCompanyImport.js'
+import useFetchCompanies from '../move_api/MoveCompanyImport'
 
 function CompanyProfile() {
     const {
@@ -22,7 +22,7 @@ function CompanyProfile() {
         isModalOpen,
         setIsModalOpen,
         handleReviewSubmit,
-    } = useFetchCompanyDetails();
+    } = useFetchCompanies();
     console.log("Fetched company details:", company);
 
 

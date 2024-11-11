@@ -1,11 +1,7 @@
-import React, { useEffect, useState }, { useState, useEffect } from 'react';
+import React, { useEffect, useState }from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import './MoveReview.css';
-import userIcon from '../move_img/usericon.png';
-import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-import Layout from '../move_layout/MoveLayout';
 
 function CompanyDetail() {
     const { companyId } = useParams(); // 使用 useParams 获取 companyId

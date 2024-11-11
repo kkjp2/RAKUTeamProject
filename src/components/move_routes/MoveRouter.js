@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'; 
 import Main from '../index'
-import UserCompanyDetail from '../move_review/MoveReview.js.js';
 import MovingCompanyList from '../move_company_list/MovingCompanyList'
+import CompanyDetail from '../move_review/MoveReview.js';
 import CompanyProfile from '../move_company_profile/MoveCompanyProfile.js'
 import CompanyUP from '../move_company_up/MoveCompanyUP.js'
 import MoveReservation from '../move_reservation/MoveReservation.js'
@@ -17,7 +17,6 @@ function Start() {
         <Routes>  
           <Route path="/" element={<Navigate to="/MoveMain" replace />} />
           <Route path="/MoveMain" element={<Main />} />  
-          {/* <Route path="/MoveMain/UserReview/:companyId" component={CompanyDetail} element={<UserReview />} /> */}
           <Route path="/MoveMain/UserReview/:companyId" element={<CompanyDetail />} />
           <Route path='/MoveMain/MoveReviewUP' element={<MoveReviewUP/>}/>
           <Route path='/MoveMain/MovingCompanyList' element={<MovingCompanyList/>}/>

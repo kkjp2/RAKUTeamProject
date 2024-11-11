@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './MoveCompanyUP.css';
+import '../move_company_up/MoveCompanyUP.css';
 import Layout from '../move_layout/MoveLayout';
 import JapanAddressApi from '../move_api/move_japanAddressApi'
 import axios from 'axios';
