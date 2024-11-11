@@ -27,7 +27,9 @@ body,html {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(125, 153, 125, 0.5); /* 绿色背景，透明度为0.2 */
+  /* background-color: rgba(125, 153, 125, 0.5); */
+  background-color: #9470db2e;
+   /* 绿色背景，透明度为0.2 */
   z-index: 0; /* 确保伪元素位于内容之下 */
 }
 
@@ -75,7 +77,10 @@ select {
 
 .main_submit {
   padding: 10px 15px;
-  background-color: #83ab85;
+  /* background-color: #83ab85; */
+  /* background-color: #9370DB; */
+  background-color: #9f4298;
+
   color: white;
   border: none;
   border-radius: 4px;

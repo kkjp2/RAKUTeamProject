@@ -1,7 +1,9 @@
 .header {
     position: sticky;
     top: 0;
-    background-color: #69a668;
+    /* background-color: #69a668; */
+    /* background-color: #9370DB; */
+    background-color: #9f4298;
     padding: 10px 0;
     z-index: 1000;
     width: 100%;

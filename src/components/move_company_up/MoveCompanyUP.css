@@ -14,7 +14,9 @@
     font-weight: 800;
     text-align: center;
     font-size: 38px;
-    color: #69a668;
+    /* color: #69a668; */
+    color: #9f4298;
+
     margin-bottom: 20px;
     margin-top: 10px;
     font-family: 'Georgia', serif;
@@ -142,7 +144,9 @@ hr{
   }
   
   .CompanyUP_submitButton {
-    background-color: #69a668;
+    /* background-color: #69a668; */
+    background-color: #9f4298;
+
     color: #fff;
   }
 

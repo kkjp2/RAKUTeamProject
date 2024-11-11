@@ -1,60 +1,89 @@
-import React, { useState } from 'react';
-import './MovereviewUP.css';
+// MoveReviewUP.js
+import React from 'react';
+import './MoveReviewUP.css';
 
-function ProductReview() {
-  const [rating, setRating] = useState(0);
-  const [tags, setTags] = useState([]);
+const UploadReview = ({
+    isModalOpen,
+    setIsModalOpen,
+    company,
+    newReview,
+    setNewReview,
+    handleReviewSubmit
+}) => {
+    return (
+        <div className="upload_review_container">
+            {isModalOpen && (
+                <div className="profile_modal_overlay">
+                    <div className="profile_modal_content">
+                        <h2>レビューを投稿</h2>
+                        <form onSubmit={handleReviewSubmit}>
+                            <div className="review_form_group">
+                                <label>会社名</label>
+                                <input
+                                    type="text"
+                                    name="companyName"
+                                    value={company.name}
+                                    readOnly
+                                />
+                            </div>
+                            <div className="review_form_group">
+                                <label>サービス評価</label>
+                                <input
+                                    type="number"
+                                    name="serviceRating"
+                                    value={newReview.rating}
+                                    onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })}
+                                    min="1"
+                                    max="5"
+                                />
+                            </div>
+                            <div className="review_form_group">
+                                <label>引越し費用</label>
+                                <input
+                                    type="text"
+                                    name="cost"
+                                    value={newReview.cost}  // 确保绑定到正确的状态字段
+                                    onChange={(e) => setNewReview({ ...newReview, cost: e.target.value })}
+                                    required
+                                />
+                            </div>
+                            <div className="review_form_group">
+                                <label>引越し地域</label>
+                                <input
+                                    type="text"
+                                    name="region"
+                                    required
+                                    onChange={(e) => setNewReview({ ...newReview, region: e.target.value })}
+                                />
+                            </div>
+                            <div className="review_form_group">
+                                <label>サービス利用日</label>
+                                <input
+                                    type="date"
+                                    name="serviceDate"
+                                    required
+                                    onChange={(e) => setNewReview({ ...newReview, serviceDate: e.target.value })}
+                                />
+                            </div>
+                            <div className="review_form_group">
+                                <label>コメント</label>
+                                <textarea
+                                    name="comment"
+                                    value={newReview.comment}
+                                    onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                                    required
+                                />
+                            </div>
+                            <div className='reviewUP_btns_form_group'>
+                                <button type="submit" className='reviewUP_submit_btn'>提交评论</button>
+                                <button type="button" className='reviewUP_submit_btn' onClick={() => setIsModalOpen(false)}>取消</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Rating:', rating);
-    console.log('Selected Tags:', tags);
-  };
-
-  const toggleTag = (tag) => {
-    if (tags.includes(tag)) {
-      setTags(tags.filter(t => t !== tag));
-    } else {
-      setTags([...tags, tag]);
-    }
-  };
-
-  return (
-    <div className="reviewUP_product-review">
-      <div className="reviewUP_rating">
-        <h3>総合評価</h3>
-        {[...Array(5)].map((star, index) => {
-          index += 1;
-          return (
-            <button
-              type="button"
-              key={index}
-              className={index <= rating ? 'reviewUP_on' : 'reviewUP_off'}
-              onClick={() => setRating(index)}
-            >
-              <span className="reviewUP_star">&#9733;</span>
-            </button>
-          );
-        })}
-      </div>
-      <div className="reviewUP_tags">
-        <h3>サービスの態度</h3>
-        {['親切', '迅速', 'プロフェッショナル', '丁寧'].map(tag => (
-          <button
-            key={tag}
-            className={tags.includes(tag) ? 'reviewUP_tag-selected' : 'reviewUP_tag'}
-            onClick={() => toggleTag(tag)}
-          >
-            {tag}
-          </button>
-        ))}
-      </div>
-      <div>
-      <textarea className="reviewUP_textarea"></textarea>
-      </div>
-      <button onClick={handleSubmit} className="reviewUP_submit-button">提出</button>
-    </div>
-  );
-}
-
-export default ProductReview;
+export default UploadReview;

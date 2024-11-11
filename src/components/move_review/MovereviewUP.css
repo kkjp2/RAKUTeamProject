@@ -1,78 +1,62 @@
-.reviewUP_product-review {
-    width: 500px;
-    margin: auto;
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: white;
-    font-family: 'Arial', sans-serif;
-  }
+/* UploadReview.css */
+.upload_review_container {
   
-  .reviewUP_rating h3, .reviewUP_tags h3 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .reviewUP_rating button, .reviewUP_tags button {
-    margin: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .reviewUP_star {
-    color: gold;
-    font-size: 24px;
-  }
-  
-  .reviewUP_tag, .reviewUP_tag-selected {
-    padding: 5px 10px;
-    margin-right: 10px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-  }
-  
-  /* .reviewUP_tag-selected {
-    background-color: blue;
-    color: white;
-  } */
+}
 
-  .reviewUP_tag, .reviewUP_tag-selected {
-    padding: 5px 10px;
-    margin-right: 10px;
-    background-color: #e0e0e0; /* 浅灰色背景 */
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .reviewUP_tag-selected {
-    background-color: blue; /* 蓝色背景 */
-    color: white;           /* 白色文字 */
-  }
-  
-  .reviewUP_submit-button {
-    width: 100%;
-    padding: 10px;
-    background-color: blue;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  .reviewUP_submit-button :hover{
-    width: 100%;
-    padding: 10px;
-    background-color: rgb(102, 187, 79);
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-.reviewUP_textarea {
-    width: 100%;
-    height: 80px;
-    resize: none;
-  }
+.upload-review-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.review_form_group {
+  margin-bottom: 15px;
+}
+
+.review_form_group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.review_form_group input,
+.review_form_group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.review_form_group input[type="date"],
+.review_form_group input[type="number"] {
+  padding: 8px;
+}
+
+.review_form_group textarea {
+  resize: vertical;
+}
+
+.reviewUP_btns_form_group {
+  display: flex;
+  flex: 1;
+  gap: 10px; /* 设置按钮之间的间距 */
+}
+
+.reviewUP_submit_btn {
+  flex: 1; /* 每个按钮均分父容器的空间 */
+  padding: 10px;
+  background-color: #9f4298;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reviewUP_submit_btn:hover {
+  background-color: #ce82c4;
+}

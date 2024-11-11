@@ -7,22 +7,6 @@ import axios from 'axios';
 
 const CompanyForm = () => {
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setCompany(prevState => ({
-          ...prevState,
-          img_icon: reader.result // 将 base64 编码的图片数据保存到状态中
-        }));
-      };
-      reader.readAsDataURL(file); // 读取文件并转换为 base64
-    }
-  };
-
-
   const [company, setCompany] = useState({
     name: '',
     ceo: '',
@@ -32,16 +16,18 @@ const CompanyForm = () => {
     address: '',
     detailedAddress: '',
     businessNumber: '',
-    img_icon: '',
     service: '',
-    moveCity:''
+    city: '',
+    introduction: ''
   });
 
   // 从 JapanAddressApi hook 中提取数据和函数
-  const {searchValue, address, error, handleInputChange, handleSearchClick } = JapanAddressApi();
+  const { searchValue, address, error, handleInputChange, handleSearchClick } = JapanAddressApi();
   const [selectedBasicServices, setSelectedBasicServices] = useState([]);
   const [selectedOptionalServices, setSelectedOptionalServices] = useState([]);
   const [selectedRegions, setSelectedRegions] = useState([]);
+  const [selectedFiles, setSelectedFiles] = useState(null);
+  const [uploadResults, setUploadResults] = useState([]);
 
   const handleCheckboxChange = (event, setState, selectedItems) => {
     const { value } = event.target;
@@ -68,55 +54,67 @@ const CompanyForm = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleFileChange = (event) => {
+    setSelectedFiles(event.target.files);
+  };
 
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 前端验证: 检查必填字段是否为空
-    // if (!company.name || !company.ceo || !company.phone || !company.email || !company.postalCode || !company.address || !company.detailedAddress) {
-    //   alert('すべての必須フィールドを入力してください。');
-    //   return;
-    // }
+    //前端验证: 检查必填字段是否为空
+    if (!company.name || !company.ceo || !company.phone || !company.email || !company.postalCode || !company.address || !company.detailedAddress) {
+      alert('すべての必須フィールドを入力してください。');
+      return;
+    }
 
     try {
-      const requestData = {
-        name: company.name,
-        ceo: company.ceo,
-        phone: company.phone,
-        email: company.email,
-        postalCode: company.postalCode,
-        address: company.address,
-        detailedAddress: company.detailedAddress,
-        businessNumber: company.businessNumber,
-        img_icon: company.img_icon, // base64编码的图片
-        service: [...selectedBasicServices, ...selectedOptionalServices].join(','),
-        moveCity: selectedRegions.join(',')
-      };
+      // 创建 FormData 以便同时发送文件和其他表单数据
+      const formData = new FormData();
 
-      // 发送JSON数据
-      const baseURL = 'http://localhost:8080'; 
-      const response = await axios.post(`${baseURL}/move/companies`, requestData, {
+      // 添加公司信息到 FormData
+      formData.append('name', company.name);
+      formData.append('ceo', company.ceo);
+      formData.append('phone', company.phone);
+      formData.append('email', company.email);
+      formData.append('postalCode', company.postalCode);
+      formData.append('address', company.address);
+      formData.append('detailedAddress', company.detailedAddress);
+      formData.append('businessNumber', company.businessNumber);
+      formData.append('service', [...selectedBasicServices, ...selectedOptionalServices].join(','));
+      formData.append('city', selectedRegions.join(','));
+      formData.append("introduction", company.introduction);
+
+      // 添加文件到 FormData
+      if (selectedFiles) {
+        Array.from(selectedFiles).forEach(file => {
+          formData.append('uploadFiles', file);
+        });
+      }
+
+      // 发送请求到后端
+      const response = await axios.post(`/move/company/createWithFiles`, formData, {
         headers: {
-          'Content-Type': 'application/json' // 以JSON格式发送
+          'Content-Type': 'multipart/form-data'
         }
       });
-      console.log('Server Response:', response);
+
+      console.log('Server Response:', response.data);
+      setUploadResults(response.data);  // 存储上传的结果
       alert('会社登録完了しました！！！　１〜３日の審査期間があるのでお待ちください！！');
       window.location.href = 'http://localhost:3000/MoveMain'
     } catch (error) {
       console.error('Error posting company:', error);
-      alert('沒有添加公司。', error.response);
+      alert('会社登録に失敗しました。', error.response);
     }
   };
-
 
   // 基本サービスの例
   const basicServices = ['梱包サービス', '清掃サービス', '保管サービス'];
   // オプションサービスの例
   const optionalServices = ['ピアノ運搬', '家具組み立て', '安全設置'];
   // 日本対応地域のリスト
-  const japanRegions = ['全地域', '東京都', '神奈川県', '大阪府', '愛知県', '埼玉県', '千葉県', '兵庫県', '北海道', '福岡県', '静岡県', '茨城県', 
-    '広島県', '京都府', '宮城県', '新潟県', '長野県', '岐阜県', '群馬県', '栃木県', '岡山県'];
+  const japanRegions = ['全地域', '東京都', '大阪府', '愛知県', '埼玉県', '千葉県', '兵庫県', '北海道', '福岡県', '静岡県', '茨城県',
+    '広島県', '京都府', '宮城県', '新潟県', '長野県', '岐阜県', '群馬県', '栃木県', '岡山県', '神奈川県'];
 
   return (
     <Layout>
@@ -254,15 +252,15 @@ const CompanyForm = () => {
             <div className="CompanyUP_formGroup">
               <label>対応地域</label>
               <div className="CompanyUP_checkboxGroup">
-                {japanRegions.map((moveCity) => (
-                  <div key={moveCity}>
+                {japanRegions.map((city) => (
+                  <div key={city}>
                     <input
                       type="checkbox"
-                      value={moveCity}
+                      value={city}
                       name='moveCity'
                       onChange={(e) => handleCheckboxChange(e, setSelectedRegions, selectedRegions)}
                     />
-                    {moveCity}
+                    {city}
                   </div>
                 ))}
               </div>
@@ -277,13 +275,17 @@ const CompanyForm = () => {
             <label>会社LOGO</label>
             <input
               type="file"
-              accept="image/*"
-              onChange={handleImageChange} // 处理图片选择
+              onChange={handleFileChange} // 处理图片选择
             />
           </div>
           <div className="CompanyUP_formSection">
             <h3>企業情報の追加入力</h3>
-            <textarea className="CompanyUP_textarea"></textarea>
+            <textarea
+              className="CompanyUP_textarea"
+              value={company.introduction}  // 使用 company.introduction
+              name="introduction"
+              onChange={handleChange}  // 保持 handleChange 的统一处理
+            />
           </div>
           <div className="CompanyUP_buttonGroup">
             {/* <button className="CompanyUP_resetButton">初期化</button> */}
