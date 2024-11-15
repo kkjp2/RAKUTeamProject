@@ -34,7 +34,7 @@ function App() {
           } />
 
           {/* 특정 매물의 상세 페이지로 이동 (buildNum 기반) */}
-          <Route path="/main/content/:buildnum" element={<MainContent />} />
+          <Route path="/main/content/:buildNum" element={<MainContent />} />
 
           {/* 지역 리스트 페이지 경로 */}
           <Route path="/regions/:regionId" element={<RegionDetailPage />} />
