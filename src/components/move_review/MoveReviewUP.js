@@ -42,8 +42,8 @@ const UploadReview = ({
                                 <input
                                     type="text"
                                     name="cost"
-                                    value={newReview.cost}  // 确保绑定到正确的状态字段
-                                    onChange={(e) => setNewReview({ ...newReview, cost: e.target.value })}
+                                    value={newReview.price}  // 确保绑定到正确的状态字段
+                                    onChange={(e) => setNewReview({ ...newReview, price: e.target.value })}
                                     required
                                 />
                             </div>
@@ -52,7 +52,7 @@ const UploadReview = ({
                                 <input
                                     type="text"
                                     name="region"
-                                    required
+                                    value={newReview.region}
                                     onChange={(e) => setNewReview({ ...newReview, region: e.target.value })}
                                 />
                             </div>
@@ -61,7 +61,7 @@ const UploadReview = ({
                                 <input
                                     type="date"
                                     name="serviceDate"
-                                    required
+                                    value={newReview.serviceDate}
                                     onChange={(e) => setNewReview({ ...newReview, serviceDate: e.target.value })}
                                 />
                             </div>

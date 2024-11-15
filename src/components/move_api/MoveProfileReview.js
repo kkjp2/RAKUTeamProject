@@ -4,13 +4,22 @@ import { useParams } from "react-router-dom";
 import axios from "axios";  // axios をインポート
 
 function useFetchCompanyDetails() {
+
     const { companyId } = useParams(); // URL から会社 ID を取得
     const [company, setCompany] = useState(null);
     const [loading, setLoading] = useState(true);
     const [reactionValue, setReactionValue] = useState(0); // 0: 未選択, 1: いいね, -1: だめ
     const [reviews, setReviews] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [newReview, setNewReview] = useState({ comment: '', rating: '', cost: '', region: '', serviceDate: '' });
+    const [newReview, setNewReview] = useState({
+        companyId: companyId,
+        userKey: 90,       // 用户的 userKey，后续需要正确设置
+        comment: '',
+        rating: '',
+        price: '',
+        region: '',
+        serviceDate: ''
+    });
 
     useEffect(() => {
         const fetchCompanyDetails = async () => {
@@ -18,41 +27,70 @@ function useFetchCompanyDetails() {
                 // 获取公司详情
                 const companyResponse = await axios.get(`/move/company/companies/${companyId}`);
                 setCompany(companyResponse.data);
-
-                // 获取评论
-                const reviewsResponse = await axios.get(`/move/review/${companyId}/reviews`);
-                setReviews(reviewsResponse.data);
+    
+                // 获取评论基础数据
+                const reviewsResponse = await axios.get(`/move/review/${companyId}`);
+                const reviewsData = reviewsResponse.data;
+                setReviews(reviewsData);
+    
+                // 获取每条评论的点赞数量
+                const updatedReviews = await Promise.all(
+                    reviewsData.map(async (review) => {
+                        try {
+                            const reactionCountResponse = await axios.get(`/move/reactionCounts/${review.reviewId}`, {
+                                params: { userKey: newReview.userKey }
+                            });
+                            const { likeCount, reactionValue } = reactionCountResponse.data;
+                            return { ...review, likeCount, reactionValue };
+                        } catch (error) {
+                            console.error(`Error fetching like count for review ${review.reviewId}:`, error);
+                            return { ...review, likeCount: 0, reactionValue: 0 }; // 如果出错，设定默认值
+                        }
+                    })
+                );
+    
+                setReviews(updatedReviews); // 更新状态
             } catch (error) {
                 console.error('Error fetching company details:', error);
             } finally {
                 setLoading(false);
             }
         };
-
+    
         fetchCompanyDetails();
     }, [companyId]);
 
-    // MoveProfileReview.js
+    // 定义 renderStars 函数来显示星星
+    const renderStars = (rating) => {
+        const fullStars = Math.floor(rating);  // 实心星星的数量
+        const emptyStars = 5 - fullStars;      // 空心星星的数量
 
-    const handleLike = async (reviewId, companyId) => {
+        return (
+            <>
+                {Array.from({ length: fullStars }, (_, i) => (
+                    <span key={`full-${i}`} style={{ color: 'gold' }}>★</span>
+                ))}
+                {Array.from({ length: emptyStars }, (_, i) => (
+                    <span key={`empty-${i}`} style={{ color: 'lightgray' }}>☆</span>
+                ))}
+            </>
+        );
+    };
+
+    const handleLike = async (reviewId) => {
         try {
-            const token = localStorage.getItem("accessToken");
-            if (!token) {
-                alert("You need to log in to like a review.");
-                return;
-            }
-    
-            const response = await axios.post(`/move/reactions/like`, {
-                companyId: companyId,   // 将公司ID放在请求体中
-                reviewId: reviewId      // 将评论ID放在请求体中
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
+            const response = await axios.post(`/move/reactions/${reviewId}/like`, {
+                userKey: newReview.userKey
             });
-    
+
             if (response.status === 200) {
-                updateReaction(reviewId, 1);
+                const updatedCounts = response.data; // 假设后端返回更新后的计数
+                const updatedReviews = reviews.map(review =>
+                    review.reviewId === reviewId
+                        ? { ...review, likeCount: updatedCounts.likeCount, dislikeCount: updatedCounts.dislikeCount, reactionValue: 1 }
+                        : review
+                );
+                setReviews(updatedReviews); // 更新前端状态
             } else {
                 throw new Error('Failed to like review');
             }
@@ -60,82 +98,56 @@ function useFetchCompanyDetails() {
             console.error("Failed to like review:", error);
         }
     };
-    
 
-const handleDislike = async (reviewId) => {
-    try {
-        const token = localStorage.getItem("accessToken"); // 获取 token
-        if (!token) {
-            alert("You need to log in to dislike a review.");
-            return;
-        }
-        const response = await axios.post(`/move/reactions/dislike`, {
-            companyId: companyId,   // 将公司ID放在请求体中
-            reviewId: reviewId      // 将评论ID放在请求体中
-        }, {
-            headers: {
-                'Authorization': `Bearer ${token}`
+    const handleDislike = async (reviewId) => {
+        try {
+            const response = await axios.post(`/move/reactions/${reviewId}/dislike`, {
+                userKey: newReview.userKey
+            });
+
+            if (response.status === 200) {
+                const updatedCounts = response.data; // 假设后端返回更新后的计数
+                const updatedReviews = reviews.map(review =>
+                    review.reviewId === reviewId
+                        ? { ...review, likeCount: updatedCounts.likeCount, dislikeCount: updatedCounts.dislikeCount, reactionValue: -1 }
+                        : review
+                );
+                setReviews(updatedReviews); // 更新前端状态
+            } else {
+                throw new Error('Failed to dislike review');
             }
-        });
-
-        if (response.status === 200) {
-            updateReaction(reviewId, 1);
-        } else {
-            throw new Error('Failed to dislike review');
+        } catch (error) {
+            console.error("Failed to dislike review:", error);
         }
-    } catch (error) {
-        console.error("Failed to dislike review:", error);
-    }
-};
-
-    const updateReaction = (reviewId, newReactionValue) => {
-        const updatedReviews = reviews.map(review => {
-            if (review.id === reviewId) {
-                return {
-                    ...review,
-                    reactionValue: review.reactionValue === newReactionValue ? 0 : newReactionValue // 切换状态
-                };
-            }
-            return review;
-        });
-        setReviews(updatedReviews);
     };
 
     const handleReviewSubmit = async (e) => {
-        e.preventDefault();  // 阻止表单提交的默认行为
-        const token = localStorage.getItem('accessToken');
+        e.preventDefault();
 
-        if (!token) {
-            alert('You need to log in to submit a review');
+        // 确保 companyId 和 userKey 都存在
+        if (!newReview.companyId || !newReview.userKey) {
+            alert("Company ID or User Key is missing.");
             return;
         }
 
         try {
-            const response = await fetch(`/move/review/${companyId}/reviews`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`, // 添加JWT Token到请求头
-                },
-                body: JSON.stringify({
-                    comment: newReview.comment,
-                    price: newReview.cost,  // 确保与 DTO 中的字段匹配
-                    region: newReview.region,
-                    serviceDate: newReview.serviceDate,
-                }),
+            const response = await axios.post(`/move/review`, {
+                companyId: newReview.companyId,
+                userKey: newReview.userKey,
+                comment: newReview.comment,
+                price: newReview.price,
+                region: newReview.region,
+                rating: newReview.rating,
+                serviceDate: newReview.serviceDate,
             });
 
-            if (!response.ok) {
-                const errorMessage = await response.text(); // 获取后端返回的错误信息
-                throw new Error(errorMessage || 'Failed to submit review');
-            }
 
             alert('Review added successfully!');
-            setNewReview({ comment: '', rating: '', cost: '', region: '', serviceDate: '' });  // 重置表单
-            setIsModalOpen(false);  // 关闭模态框
+            setNewReview({ companyId: newReview.companyId, userKey: newReview.userKey, comment: '', rating: '', price: '', region: '', serviceDate: '' }); // 重置表单
+            setIsModalOpen(false); // 关闭模态框
         } catch (error) {
             console.error('Failed to submit review:', error);
-            alert(`Failed to submit review: ${error.message}`);
+            alert(`Failed to submit review: ${error.response?.data || error.message}`);
         }
     };
 
@@ -153,6 +165,7 @@ const handleDislike = async (reviewId) => {
         isModalOpen,
         setIsModalOpen,
         handleReviewSubmit,
+        renderStars,
     };
 }
 

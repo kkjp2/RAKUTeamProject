@@ -1,93 +1,139 @@
-import React, { useEffect, useState }from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import './MoveReview.css';
+import userIcon from '../move_img/usericon.png'
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
+import Layout from '../move_layout/MoveLayout';
+import useFetchCompanyDetails from '../move_api/MoveProfileReview';
 
-function CompanyDetail() {
-    const { companyId } = useParams(); // 使用 useParams 获取 companyId
-    const [company, setCompany] = useState({});
+function Review() {
     const [reviews, setReviews] = useState([]);
-    const [newReview, setNewReview] = useState({ content: '', rating: 1 });
-    const [reactionValue, setReactionValue] = useState(0); // 定义 reactionValue
+    const [userKey, setUserKey] = useState(12);
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/move/review/${companyId}`).then((response) => {
-            setCompany(response.data);
-        });
-        axios.get(`http://localhost:8080/move/review/${companyId}/reviews`).then((response) => {
-            setReviews(response.data);
-        });
-    }, [companyId]);
-
-    const handleReviewSubmit = (e) => {
-        e.preventDefault();
-        const userId = 1; // 简易版用户ID
-        axios.post(`http://localhost:8080/move/review/${companyId}/reviews`, {
-            ...newReview,
-            userId
-        }).then((response) => {
-            setReviews([...reviews, response.data]);
-            setNewReview({ content: '', rating: 1 });
-        }).catch((error) => {
-            console.error("Error submitting review:", error);
-            if (error.response) {
-                console.error("Error data:", error.response.data);
+        const fetchAllReviews = async () => {
+            try {
+                 // 调整为获取所有评论的API路径
+                const response = await axios.get('/move/review/reviews', {
+                    params: { userKey }
+                });
+                setReviews(response.data);
+            } catch (error) {
+                console.error('Failed to fetch reviews:', error);
             }
-        });
-    };
+        };
+        fetchAllReviews();
+    }, [userKey]);
 
-    const handleLike = () => {
-        if (reactionValue === 1) {
-            setReactionValue(0); // 取消喜欢
-        } else {
-            setReactionValue(1); // 设置为喜欢
+    const handleLike = async (reviewId) => {
+        try {
+            const response = await axios.post(`/move/reactions/${reviewId}/like`, {
+                userKey: userKey
+            });
+
+            if (response.status === 200) {
+                const updatedCounts = response.data; // 假设后端返回更新后的计数
+                const updatedReviews = reviews.map(review =>
+                    review.reviewId === reviewId
+                        ? { ...review, likeCount: updatedCounts.likeCount, dislikeCount: updatedCounts.dislikeCount, reactionValue: 1 }
+                        : review
+                );
+                setReviews(updatedReviews); // 更新前端状态
+            } else {
+                throw new Error('Failed to like review');
+            }
+        } catch (error) {
+            console.error("Failed to like review:", error);
         }
     };
 
-    const handleDislike = () => {
-        if (reactionValue === -1) {
-            setReactionValue(0); // 取消不喜欢
-        } else {
-            setReactionValue(-1); // 设置为不喜欢
+    const handleDislike = async (reviewId) => {
+        try {
+            const response = await axios.post(`/move/reactions/${reviewId}/dislike`, {
+                userKey: userKey
+            });
+
+            if (response.status === 200) {
+                const updatedCounts = response.data; // 假设后端返回更新后的计数
+                const updatedReviews = reviews.map(review =>
+                    review.reviewId === reviewId
+                        ? { ...review, likeCount: updatedCounts.likeCount, dislikeCount: updatedCounts.dislikeCount, reactionValue: -1 }
+                        : review
+                );
+                setReviews(updatedReviews); // 更新前端状态
+            } else {
+                throw new Error('Failed to dislike review');
+            }
+        } catch (error) {
+            console.error("Failed to dislike review:", error);
         }
     };
+
+    const {
+        newReview,
+        renderStars,
+    } = useFetchCompanyDetails();
 
     return (
-        <div>
-            
-            <h1></h1>
-            <p>{company.description}</p>
-            <h2>Reviews</h2>
-            <ul>
-                {reviews.map((review) => (
-                    <li key={review.id}>
-                        <strong>Rating:</strong> {review.rating}/5<br/>
-                        <strong>Comment:</strong> {review.content}
-                    </li>
-                ))}
-            </ul>
-            <form onSubmit={handleReviewSubmit}>
-                <label>
-                    Rating:
-                    <input
-                        type="number"
-                        value={newReview.rating}
-                        onChange={(e) => setNewReview({ ...newReview, rating: e.target.value })}
-                        min="1"
-                        max="5"
-                    />
-                </label>
-                <label>
-                    Comment:
-                    <textarea
-                        value={newReview.content}
-                        onChange={(e) => setNewReview({ ...newReview, content: e.target.value })}
-                    />
-                </label>
-                <button type="submit">Submit Review</button>
-            </form>
-        </div>
+        <Layout>
+            <div className='review_container'>
+                <div className='review_container1'>
+                    <div className='review_container2'>
+                        <h1>Review</h1>
+                        <div className=''>
+                            {reviews.map((review) => (
+                                <div className='review_contentBox' key={review.reviewId}>
+                                    <div className='review_icon_name'>
+                                        <img
+                                            src={review.companyLogo || userIcon} // 显示公司 Logo 或默认用户图标
+                                            alt="会社のロゴ"
+                                            className='review_usericon'
+                                        />
+                                        <div>
+                                            <h3>会社名: {review.companyName}レビューID: {review.reviewId}</h3>
+                                            <p className='review_signature'>サービス評価 : {renderStars(review.rating)}</p>
+                                        </div>
+                                    </div>
+                                    <div className='review_content_show'>
+                                        <div className='review_subheading'>
+                                            <p>引越し費用: {review.price}</p>
+                                            <p>引越し地域: {review.region}</p>
+                                            <p>サービス利用日: {review.serviceDate}</p>
+                                        </div>
+                                        <hr />
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}</p>
+                                        <div className='review_likeAndDisLike'>
+                                            <div className='review_likeContainer'>
+                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId, newReview.userKey)}>
+                                                    <AiOutlineLike className='review_like' color={review.reactionValue === 1 ? 'red' : 'black'} />
+                                                </button>
+                                                <p>{review.likeCount || 0}</p> {/* 显示点赞数量 */}
+                                            </div>
+                                            <div className='review_likeContainer'>
+                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId, newReview.userKey)}>
+                                                    <AiOutlineDislike className='review_like' color={review.reactionValue === -1 ? 'blue' : 'black'} />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <div className='review_container3'>
+                        <h2>人気会社レビュー</h2>
+                        <ul className='company_list'>
+                            {companies.map((company, index) => (
+                                <li key={index} className='company_item'>
+                                    {company}
+                                </li>
+                            ))}
+                        </ul>
+                    </div> */}
+
+        </Layout>
     );
 }
-
-export default CompanyDetail;
+export default Review;

@@ -4,11 +4,10 @@ import Layout from '../move_layout/MoveLayout';
 import '../move_company_profile/MoveCompanyProfile.css';
 import userIcon from '../move_img/usericon.png';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
-// import useFetchCompanyDetails from '../move_api/MoveProfileReview';
 import UploadReview from '../move_review/MoveReviewUP';
-// import Review from '../move_review/MoveReview';
 import '../move_company_profile/MoveCompanyProfile.css'
-import useFetchCompanies from '../move_api/MoveCompanyImport'
+import useFetchCompanyDetails from '../move_api/MoveProfileReview'
+import '../move_review/MoveReview.css'
 
 function CompanyProfile() {
     const {
@@ -22,9 +21,9 @@ function CompanyProfile() {
         isModalOpen,
         setIsModalOpen,
         handleReviewSubmit,
-    } = useFetchCompanies();
+        renderStars,
+    } = useFetchCompanyDetails();
     console.log("Fetched company details:", company);
-
 
     if (loading) {
         return <div>Loading company details...</div>;
@@ -38,7 +37,7 @@ function CompanyProfile() {
         <Layout>
             <div className="profile-container">
                 <div className="profile-header">
-                    <img src={company.img_icon || 'default_image.png'} alt={`${company.name} logo`} className="profile-logo" />
+                    <img src={company.imgUrl} className="profile-logo" />
                     <div className="profile-company-info">
                         <h1>{company.name}</h1>
                         <p>{company.description}</p>
@@ -77,9 +76,9 @@ function CompanyProfile() {
                                     <div className='review_icon_name'>
                                         <img src={userIcon} alt='ユーザーアイコン' className='review_usericon'></img>
                                         <div>
-                                            <h3>会社名：{company.name}</h3>
+                                            <h3>会社名：{company.name}评论id:{review.reviewId}</h3>
                                             <p className='review_signature'>
-                                                サービス評価 :{Array.from({ length: review.rating }, (_, i) => "★").join("")}
+                                                サービス評価 : {renderStars(review.rating)}
                                             </p>
                                         </div>
                                     </div>
@@ -93,13 +92,13 @@ function CompanyProfile() {
                                         <p>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}</p>
                                         <div className='review_likeAndDisLike'>
                                             <div className='review_likeContainer'>
-                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId)}>
+                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId, newReview.userKey)}>
                                                     <AiOutlineLike className='review_like' color={review.reactionValue === 1 ? 'red' : 'black'} />
                                                 </button>
-                                                <p>99+</p>
+                                                <p>{review.likeCount || 0}</p> {/* 显示点赞数量 */}
                                             </div>
                                             <div className='review_likeContainer'>
-                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId)}>
+                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId, newReview.userKey)}>
                                                     <AiOutlineDislike className='review_like' color={review.reactionValue === -1 ? 'blue' : 'black'} />
                                                 </button>
                                             </div>

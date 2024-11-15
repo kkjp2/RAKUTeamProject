@@ -68,7 +68,7 @@ const MovingCompanyList = () => {
                     {companies.length > 0 ? companies.map((company) => (
                         <div className="comList_card" key={company.id}>
                             <div className='comList_logoandname'>
-                                <img src={company.imgUrl || `http://localhost:8080/uploads/${folderPath}/${uuid}_${fileName}`} alt="会社のロゴ" className="comList_profile_logo" />
+                                <img src={company.imgUrl || `/uploads/${folderPath}/${uuid}_${fileName}`} alt="会社のロゴ" className="comList_profile_logo" />
                                 <h3 className="comList_name">{company.name}</h3>
                             </div>
                             <div className="comList_info">

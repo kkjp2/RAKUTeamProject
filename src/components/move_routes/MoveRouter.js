@@ -9,6 +9,7 @@ import MoveReservation from '../move_reservation/MoveReservation.js'
 import MoveReservationCheck from '../move_reservation/MoveReservationCheck.js'
 import MoveReviewUP from '../move_review/MoveReviewUP.js'
 import Login from '../Login.js'
+import UserReview from '../move_review/MoveReview.js'
 
 function Start() {
   return (
@@ -25,6 +26,7 @@ function Start() {
           <Route path='/MoveMain/MoveReservation' element={<MoveReservation/>}/>
           <Route path='/MoveMain/MoveReservationCheck' element={<MoveReservationCheck/>}/>
           <Route path='/MoveMain/Login' element={<Login/>}/>
+          <Route path="/MoveMain/UserReview" element={<UserReview />} />
         </Routes>
       </div>
     </Router>
