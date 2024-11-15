@@ -34,7 +34,7 @@ function App() {
           } />
 
           {/* 특정 매물의 상세 페이지로 이동 (buildNum 기반) */}
-          <Route path="/main-content/:buildNum" element={<MainContent />} />
+          <Route path="/main/content/:buildnum" element={<MainContent />} />
 
           {/* 지역 리스트 페이지 경로 */}
           <Route path="/regions/:regionId" element={<RegionDetailPage />} />
@@ -43,19 +43,19 @@ function App() {
           <Route path="/map" element={<MapPage />} />
 
           {/* 검색 결과 페이지 경로 */}
-          <Route path="/search-results" element={<SearchPageResult />} /> 
+          <Route path="/search/results" element={<SearchPageResult />} /> 
 
           {/* 카테고리 필터 페이지 경로 */}
-          <Route path="/CategoriFilter" element={<CategoriFilter />} /> 
+          <Route path="/categoriFilter" element={<CategoriFilter />} /> 
 
           {/* 카테고리 필터 결과 페이지 경로 */}
           <Route path="/categorifilterresult" element={<Categorifilterresult />} /> 
 
           {/* 추가: 건물 생성 페이지 경로 */}
-          <Route path="/Create_building_page" element={<CreateBuildingPage />} /> {/* 경로 추가 */}
+          <Route path="/create/building/page" element={<CreateBuildingPage />} /> {/* 경로 추가 */}
 
-          <Route path="/Modify_building_page" element={<ModifyBulidingPage />} />
-          <Route path="/Delete_building_page" element={<DeleteBuildingPage/>} />
+          <Route path="/modify/building/page" element={<ModifyBulidingPage />} />
+          <Route path="/delete/building/page" element={<DeleteBuildingPage/>} />
         </Routes>
 
         <Footer_Popup />
