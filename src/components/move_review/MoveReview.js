@@ -8,7 +8,7 @@ import useFetchCompanyDetails from '../move_api/MoveProfileReview';
 
 function Review() {
     const [reviews, setReviews] = useState([]);
-    const [userKey, setUserKey] = useState(12);
+    const [userKey, setUserKey] = useState(10);
 
     useEffect(() => {
         const fetchAllReviews = async () => {
@@ -27,47 +27,75 @@ function Review() {
 
     const handleLike = async (reviewId) => {
         try {
-            const response = await axios.post(`/move/reactions/${reviewId}/like`, {
-                userKey: userKey
-            });
-
+            let response;
+            if (reviews.find(review => review.reviewId === reviewId).reactionValue === 1) {
+                // 如果当前是点赞状态，则取消点赞
+                response = await axios.post(`/move/reactions/${reviewId}/cancel`, {
+                    userKey
+                });
+            } else {
+                // 否则执行点赞操作
+                response = await axios.post(`/move/reactions/${reviewId}/like`, {
+                    userKey
+                });
+            }
+    
             if (response.status === 200) {
-                const updatedCounts = response.data; // 假设后端返回更新后的计数
+                const updatedCounts = response.data;
                 const updatedReviews = reviews.map(review =>
                     review.reviewId === reviewId
-                        ? { ...review, likeCount: updatedCounts.likeCount, dislikeCount: updatedCounts.dislikeCount, reactionValue: 1 }
+                        ? {
+                            ...review,
+                            likeCount: updatedCounts.likeCount,
+                            dislikeCount: updatedCounts.dislikeCount,
+                            reactionValue: review.reactionValue === 1 ? 0 : 1 // 如果已点赞则重置为0，否则设为1
+                        }
                         : review
                 );
-                setReviews(updatedReviews); // 更新前端状态
+                setReviews(updatedReviews);
             } else {
-                throw new Error('Failed to like review');
+                throw new Error('Failed to like or cancel like');
             }
         } catch (error) {
-            console.error("Failed to like review:", error);
+            console.error("Failed to like or cancel like:", error);
         }
     };
-
+    
     const handleDislike = async (reviewId) => {
         try {
-            const response = await axios.post(`/move/reactions/${reviewId}/dislike`, {
-                userKey: userKey
-            });
-
+            let response;
+            if (reviews.find(review => review.reviewId === reviewId).reactionValue === -1) {
+                // 如果当前是点踩状态，则取消点踩
+                response = await axios.post(`/move/reactions/${reviewId}/cancel`, {
+                    userKey
+                });
+            } else {
+                // 否则执行点踩操作
+                response = await axios.post(`/move/reactions/${reviewId}/dislike`, {
+                    userKey
+                });
+            }
+    
             if (response.status === 200) {
-                const updatedCounts = response.data; // 假设后端返回更新后的计数
+                const updatedCounts = response.data;
                 const updatedReviews = reviews.map(review =>
                     review.reviewId === reviewId
-                        ? { ...review, likeCount: updatedCounts.likeCount, dislikeCount: updatedCounts.dislikeCount, reactionValue: -1 }
+                        ? {
+                            ...review,
+                            likeCount: updatedCounts.likeCount,
+                            dislikeCount: updatedCounts.dislikeCount,
+                            reactionValue: review.reactionValue === -1 ? 0 : -1 // 如果已点踩则重置为0，否则设为-1
+                        }
                         : review
                 );
-                setReviews(updatedReviews); // 更新前端状态
+                setReviews(updatedReviews);
             } else {
-                throw new Error('Failed to dislike review');
+                throw new Error('Failed to dislike or cancel dislike');
             }
         } catch (error) {
-            console.error("Failed to dislike review:", error);
+            console.error("Failed to dislike or cancel dislike:", error);
         }
-    };
+    };    
 
     const {
         newReview,
