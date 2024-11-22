@@ -1,6 +1,8 @@
 import './css/registerComplete.css';
+import { useNavigate } from 'react-router-dom';
 
-const registerComplete = () => {
+const RegisterComplete = () => {
+    const navigate = useNavigate();
     const goToMainpage = () => {
         navigate('/main');
       };
@@ -12,4 +14,4 @@ const registerComplete = () => {
     </>
 }
 
-export default registerComplete;
+export default RegisterComplete;

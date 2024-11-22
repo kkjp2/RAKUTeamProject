@@ -2,6 +2,7 @@ import './css/dormantComplete.css';
 import { useNavigate } from 'react-router-dom';
 
 const DormantComplete =() => {
+    const navigate = useNavigate();
     const goToMainpage = () => {
         navigate('/main');
       };

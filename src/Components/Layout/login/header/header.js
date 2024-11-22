@@ -1,7 +1,8 @@
 // ./components/layout/login/header/header.js
 import './header.css';
 import { useNavigate } from 'react-router-dom';
-const header = () => {
+const Header = () => {
+    const navigate = useNavigate();
     const goToMainpage = () => {
         navigate('/main');
       };
@@ -15,4 +16,4 @@ const header = () => {
     </header>
     </>
 }
-export default header;
+export default Header;

@@ -10,10 +10,10 @@ const MyPage = () => {
         navigate(`/mypage/edit`);
     }
     const goToRecentlyViewed = () => {
-        navigate(`/myPage/recentlyviewed`);
+        navigate(`/mypage/recentlyviewed`);
     }
     const goToInquiry = () => {
-        navigate(`/myPage/inquirydetail`);
+        navigate(`/mypage/inquirydetail`);
     }
     const goToAnnouncement = () => {
         navigate(`/main/announcement`);

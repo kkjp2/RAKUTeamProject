@@ -12,9 +12,8 @@ import Register_Complete from './registerComplete.js';
 const homepage = () => {
     return<>
     <Layout>
-    <Router>
       <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login/>} />
       <Route path="/login/dormant_auth" element={<Dormant_Auth/>}/>
       <Route path="/login/dormant_auth_complete" element={<Dormant_Auth_Complete/>}/>
       <Route path="/login/register_email" element={<Register_Email/>}/>
@@ -22,7 +21,6 @@ const homepage = () => {
       <Route path="/login/register_area" element={<Register_Area/>}/>
       <Route path="/login/register_complete" element={<Register_Complete/>}/>
       </Routes>
-    </Router>
     </Layout>
     </>
 }
