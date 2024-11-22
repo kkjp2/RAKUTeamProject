@@ -1,0 +1,86 @@
+.modal-overlay {
+    position: fixed;
+    bottom: 20px;  /* 화면 하단에 고정 */
+    right: 20px;  /* 화면 우측에 고정 */
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .image-upload-list {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+  
+  .image-upload-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .image-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .InnerFrame, .OuterFrame {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center; /* 텍스트 중앙 정렬 */
+  }
+  
+  
+  
+  input[type="file"] {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .close-btn, .generate-btn {
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  .close-btn:hover, .generate-btn:hover {
+    background-color: darkviolet;
+  }
+  
+  .prev-btn, .next-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  

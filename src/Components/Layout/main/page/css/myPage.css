@@ -1,0 +1,315 @@
+.MyPage{
+    width: 1010px;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.MyPage_Title{
+    margin: 0 auto;
+    margin-top: 50px;
+    width:60%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+.MyPage_Title_1{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.MyPage_Title_1_Maintitle{
+    font-size: 50px;
+    margin: 0;
+    /* color:#462679; */
+    font-weight: bold;
+    text-align: left;
+}
+
+.MyPage_Title_1_Btn{
+    font-size: 25px;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #d2d2d2;
+    border : 1px solid #ebebeb;
+    border-radius: 5px;
+    cursor: pointer;
+    /* float:left; */
+    height: 100%;
+    width: 50%;
+    float: right;
+    font-weight: bold;
+}
+
+.MyPage_Title_2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.MyPage_Title_2_title{
+    font-size: 25px;
+    text-align: left;
+}
+
+.MyPage_Title_2_Btn{
+    margin-top: 10px;
+    font-size: 25px;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #d2d2d2;
+    border : 1px solid #ebebeb;
+    border-radius: 5px;
+    cursor: pointer;
+    /* float:left; */
+    height: 60%;
+    width: 50%;
+    float: right;
+}
+
+
+.MyPage_Main{
+    margin: 0 auto;
+    margin-top: 50px;
+    width:60%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.MyPage_Main span{
+    height: 180px;
+}
+
+.MyPage_Main span button{
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #d2d2d2;
+    border : 1px solid #ebebeb;
+    border-radius: 5px;
+    cursor: pointer;
+    width:90%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.MyPage_Main span button:hover{
+    border : 1px solid  #9F4298;
+    box-shadow: none;
+}
+
+.MyPage_Main_Favorites_Btn{
+    float: left;
+}
+
+
+.MyPage_Main_Favorites_Btn_Img{
+    width:50px;
+    height:50px;
+    background: url("../../png/Favorite_50.png");
+    margin: 0 auto;
+
+}
+
+.MyPage_Main_Favorites_Btn_Text{
+    color: #9F4298;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.MyPage_Main_Comparison_Btn{
+    float: right;
+}
+
+.MyPage_Main_Comparison_Btn_Img{
+    width:50px;
+    height:50px;
+    background: url("../../png/Comparison_50.png");
+    margin: 0 auto;
+
+}
+
+.MyPage_Main_Comparison_Btn_Text{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+    color: #9F4298;
+}
+
+.MyPage_Main_Recent_Btn{
+    float: left;
+}
+
+.MyPage_Main_Recent_Btn_Img{
+    width:50px;
+    height:50px;
+    background: url("../../png/Recent_50.png");
+    margin: 0 auto;
+
+}
+
+.MyPage_Main_Recent_Btn_Text{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+    color: #9F4298;
+}
+
+.MyPage_Main_inquiry_Btn{
+    float: right;
+}
+
+.MyPage_Main_inquiry_Btn_Img{
+    width:50px;
+    height:50px;
+    background: url("../../png/inquiry_50.png");
+    margin: 0 auto;
+
+}
+
+.MyPage_Main_inquiry_Btn_Text{
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0;
+    margin-top: 10px;
+    color: #9F4298;
+}
+
+.MyPage_Notice{
+    margin: 0 auto;
+    margin-top: 50px;
+    width:60%;
+}
+
+.MyPage_Notice_Title{
+    font-size: 40px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.MyPage_Notice_Main{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.MyPage_Notice_Main_Group{
+    display: grid;
+    grid-template-columns: 1fr  3fr;
+    margin-top: 20px;
+}
+
+.MyPage_Notice_Main_Img{
+    width: 200px;
+    height: 124px;
+    border: 1px solid #dad7d7;
+}
+
+.MyPage_Notice_Main_Img_I{
+    width: 200px;
+    height: 124px;
+}
+
+.MyPage_Notice_Main_Text{
+    text-align: left;
+    padding-left: 15px;
+    height: 124px;
+}
+
+.MyPage_Notice_Main_Text_Title{
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.MyPage_Notice_Main_Text_Content{
+    font-size: 20px;
+    margin: 0;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.MyPage_Notice_Main_Text_Content:hover{
+    color: #9F4298;
+}
+
+.MyPage_News{
+    
+    width: 60%;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.MyPage_News_Message{
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.MyPage_News_Title{
+    font-size: 40px;
+    font-weight: bold;
+    color:#393939;
+    text-align: left;
+    margin: 0;
+}
+
+.MyPage_News_Btn_Area{
+    position: relative;
+}
+
+.MyPage_News_Btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    border: none;
+    box-shadow: 2px 2px 2px 2px #d2d2d2;
+    border : 1px solid #ebebeb;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.MyPage_News_Btn:hover{
+    box-shadow : none;
+    background-color: #eee;
+    
+}
+
+
+.MyPage_News_Content{
+    margin-top: 30px;
+    box-shadow: 0 2px 1px 0 #d2d2d2;
+    border : 1px solid #ebebeb;
+    text-align: left;
+    padding: 20px;
+    margin-bottom: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.MyPage_News_Content:hover{
+    box-shadow : none;
+    background-color: #eee;
+}
+
+.MyPage_News_Content p {
+    text-decoration: none;  
+    margin: 0;
+}
+
+.MyPage_News_Content_Day{
+    font-size: 15px;
+    
+}
+
+.MyPage_News_Content_Title{
+    font-size: 18px;
+    
+}

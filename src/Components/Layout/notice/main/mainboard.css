@@ -1,0 +1,151 @@
+/* 메인보드 스타일 */
+
+
+.back-color{
+  background-color: #ffffff;
+}
+.map-container {
+  position: relative; /* 자식 요소들의 기준을 설정하기 위해 relative */
+  width: 100%;
+  height: 600px;
+  background-color: #ffffff;
+  margin-bottom: 50px;
+  
+}
+
+.map-image {
+
+  width: 100%; /* 원하는 크기로 설정 */
+  height: 100%;
+  
+}
+.main-board {    
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+.region-button {
+  
+  position: absolute; /* 각 버튼을 절대적으로 배치 */
+  padding: 5px;
+  background-color: #4CAF50;
+  color: black;
+  border-color: black;
+  cursor: pointer;
+  font-size: 12px;
+}
+.region-button:hover{
+  transform: scale(2);
+  transition-duration: 0.5s;
+}
+.region-0 {
+  top: 450px;
+  left: 50px;    
+}
+.region-1 {
+  top: 380px;
+  left: 120px;    
+}
+.region-2 {
+  top: 430px;
+  left: 150px;    
+}
+.region-3 {
+  top: 350px;
+  left: 320px;    
+}
+
+.region-4 {
+  top: 390px;
+  left: 240px;    
+}
+.region-5 {
+  top: 330px;
+  left: 400px;    
+}
+.region-6 {
+  top: 230px;
+  left: 430px;    
+}
+.region-7 {
+  top: 60px;
+  left: 510px;    
+}
+
+
+  
+  .board-selection {
+    margin-top: 20px;
+  }
+  
+  .board-selection h2 {
+    margin-bottom: 10px;
+  }
+  
+  .board-selection button {
+    border-color: black;
+    padding: 4px 4px;
+    margin: 5px;    
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    
+  }
+  
+  .board-selection button.active {
+    background-color: #8bc34a;
+    color: white;
+  }
+  
+  .recommendation-section {
+    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+  }
+  
+  .recommendation-list {
+    
+    width: 48%;
+  }
+  
+  
+  
+  .recommendation-list h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .recommendation-item {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  
+  .recommendation-item .rank {
+    font-size: 20px;
+    margin-right: 15px;
+    color: #5a54a3;
+  }
+  
+  .recommendation-item .content {
+    flex: 1;
+    background-color: white;
+    border-color: 10px solid black;    
+    height: 50px;    
+    text-align: center;
+    line-height: 50px;
+  }
+  
+  
+  
+  

@@ -1,0 +1,364 @@
+.CompanyMain{
+    width: 1010px;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+.Company_Title{
+    margin: 0 auto;
+    margin-top: 80px;
+    width: 90%;
+    border: 1px solid #CFCFCF;
+    box-shadow: 2px solid #d2d2d2;
+    border-top: 7px solid  #9F4298;
+    border-radius: 5px;
+    padding: 30px;
+    box-sizing: border-box; /* padding과 border가 width 안에 포함됨 */
+    display:grid;
+    grid-template-columns: 1fr;
+    background-color: white;
+}
+
+.Company_Title p {
+    margin: 0;
+}
+
+.Company_Title_1{
+    float: left;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.Company_Title_Under{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.Company_Title_2{
+    float: left;
+}
+
+
+.Company_Title_Btn{
+    float:right;
+    border: 1px solid #a3a3a3 ;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none; 
+    color: black; 
+    background-color: #f7fafa;
+    font-size: 15px;
+
+}
+
+
+
+.Company_Title_Btn_Img{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.Company_Main{
+    margin: 0 auto;
+    margin-top: 30px;
+    width:90%;
+    
+}
+
+.Company_Main_Nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Company_Main_Nav_Normal{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.Company_Main_Nav_Normal div{
+    font-size: 15px;
+    font-weight: bold;
+    
+
+}
+
+.Company_Main_Nav_ManagerBtn button{
+   margin-right: 20px;
+   float: right;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 10px;
+   color: white;
+   border-radius: 5px;
+   border-color: #f7fafa;
+}
+
+.Company_Main_Nav_ManagerBtn button:nth-child(n+2){
+    background-color: #565555;
+    
+}
+
+.Company_Main_Nav_ManagerBtn button:nth-child(1){
+    background-color: #0052E8;
+}
+
+.Company_Main_Content{
+    width:100%;
+    border: 1px solid #565555;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.Company_Main_Content_Btn{
+    width: 50%;
+    height: 120px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+    border: none;
+    position: relative;
+}
+
+.Company_Main_Content_Btn:hover {
+    background: rgb(6,14,131);
+    background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
+ 
+ }
+ 
+.Company_Main_Content_Btn_Img{
+    font-size: 100px;
+    position: absolute;
+    left: 10%;
+    top:10%;
+}
+
+.Company_Main_Content_Btn p{
+
+}
+
+.Company_Main_Content_Btn_Content_1{
+    font-size: 20px;
+    position: absolute;
+    left: 32%;
+    top:8%;
+}
+.Company_Main_Content_Btn_Content_2{
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    left: 32%;
+    top:18%;
+}
+
+.Company_Footer{
+    width:90%;
+    border: 1px solid #CFCFCF;
+    margin: 0 auto;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    padding-bottom: px;
+}
+
+.Company_Footer_Title{
+    padding : 13px;
+    padding-left: 20px;
+    width:100%;
+    background-color: #ecf1f1;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.Company_Footer_Title p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Company_Footer_Main{
+    padding-left: 20px;
+    width:100%;
+    margin-top: 20px;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.Company_Footer_Main_Title{
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Company_Footer_Main_1{
+    border: 1px solid;
+    float: left;
+    padding: 10px;
+    height: 151px;
+    box-sizing: border-box;
+
+}
+
+.Company_Footer_Main_1 p {
+    text-align: left;
+    
+}
+
+.Company_Footer_Main_1_Title{
+    margin: 0;
+    font-size: 17px;
+    margin-bottom: 30px;
+    width:200px;
+    text-align: left;
+    
+}
+
+.Company_Footer_Main_1_Title_Img{
+    font-size: 30px;
+    margin-right: 10px;
+    float:left;
+}
+
+
+
+.Company_Footer_Main_1_Phone_Img{
+    font-size: 25px;
+    margin-right: 10px;
+    float: left;
+}
+
+
+
+.Company_Footer_Main_1_Phone_1{
+    font-size: 25px;
+    margin: 0;
+    display: flex;
+    position: relative;
+}
+
+.Company_Footer_Main_1_Phone_2{
+    font-size: 15px;
+    margin: 0;
+    display: flex;  
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.Company_Footer_Main_1_Content{
+    font-size: 13px;
+}
+
+.Company_Footer_Main_1_Number{
+    border-collapse: collapse;
+    width:100%;
+    
+}
+
+.Company_Footer_Main_1_Number_1{
+        font-size: 25px;
+        margin: 0;
+        border: 2px solid #9F4298;
+        float:left;
+        font-weight: bold;
+        
+}
+
+
+.Company_Footer_Main_1_Number tr td:nth-child(1){
+    background-color: #9F4298;
+    color:white;
+}
+
+.Company_Footer_Main_1_Number tr td:nth-child(2){
+    width: 60%;
+    text-align: center;
+}
+
+.Company_Footer_Main_1_Final_Img{
+    font-size: 45px;
+    margin-right: 10px;
+    float: left;
+}
+
+.Company_Footer_Main_1_Final_Content{
+    width:90%;
+    font-size: 15px;
+    text-align: left;
+}
+
+.Company_Footer_Main_Arrow{
+    float:left;
+    font-size: 50px;
+    color:#9F4298;
+}
+
+.Company_Footer_Main_2{
+    border: 1px solid;
+    float: left;
+    padding: 10px;
+    width: 220px;
+    height: 151px;
+    box-sizing: border-box;
+}
+
+.Company_Footer_Main_3{
+    border: 1px solid;
+    float: left;
+    padding: 10px;
+    width: 220px;
+    height: 151px;
+    box-sizing: border-box;
+}
+
+.Company_Footer_Final{
+    margin-top: 50px;
+    padding-left: 20px;
+    float: left;
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+
+.Company_Footer_Final_Title{
+    font-size: 20px;
+    margin: 0;
+    width: 200px;
+    position: absolute;
+    left: 0;
+    top: 15%;
+}
+
+.Company_Footer_Final_Phone_Img{
+    font-size: 30px;
+    position: absolute;
+    left: 23%;
+    top: 18%;
+}
+
+.Company_Footer_Final_Content{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
+    left: 28%;
+    top:12%;
+}

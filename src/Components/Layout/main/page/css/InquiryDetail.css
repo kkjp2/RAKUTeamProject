@@ -1,0 +1,380 @@
+.InquiryDetail{
+    width:1010px;
+    margin: 0 auto;
+}
+
+.InquiryDetail_Header{
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.InquiryDetail_Header_Channel{
+    width:27%;
+    float: left;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 100%;
+}
+
+
+.InquiryDetail_Header_Channel_MyPage{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.InquiryDetail_Header_Title{
+    margin-top: 50px;
+}
+
+.InquiryDetail_Header_Title_1{
+    text-align: left;
+}
+
+.InquiryDetail_Header_Title_1_Img{
+    float:left;
+    font-size: 80px;
+    color: #9F4298;
+}
+.InquiryDetail_Header_Title_1_Text{
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.InquiryDetail_Header_Title_2{
+    position: relative;
+}
+
+.InquiryDetail_Header_Title_2_Btn{
+    position: absolute;
+    width:30%;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}
+
+.InquiryDetail_Header_Title_2_Btn{
+    background-color: white;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #d2d2d2;
+    border : 1px solid #ebebeb;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40%;
+    font-weight: bold;
+}
+
+.InquiryDetail_Header_Title_2_Btn:hover{
+    box-shadow: none;
+    border: 1px solid #9F4298;
+}
+
+.InquiryDetail_Header_Title_2_Btn_Img{
+    float:left;
+    font-size: 60px;
+    color: #9F4298;
+}
+
+.InquiryDetail_Header_Title_2_Btn_Text{
+    text-align: left;
+    margin: 0;
+    color: #9F4298;
+    font-size: 25px;
+}
+
+.InquiryDetail_Type{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 50px;
+}
+
+.InquiryDetail_Type_1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid #d2d2d2;
+}
+
+.InquiryDetail_Type_1_con{
+    padding-left: 20px;
+}
+
+.InquiryDetail_Type_1_con p{
+    margin: 0;
+    font-size: 25px;
+    float:left;
+    cursor: pointer;
+}
+
+.InquiryDetail_Type_1_con_1{
+    font-weight: bold;
+    border-bottom: 4px solid #9F4298;
+}
+
+.InquiryDetail_Type_1_con_2{
+    padding-left: 40px;
+    opacity: 0.5;
+}
+
+.InquiryDetail_Type_1_Text p{
+    margin: 0;
+    float: right;
+    font-size: 25px;
+}
+
+.InquiryDetail_Type_2{
+    border-bottom: 2px solid #d2d2d2;
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
+
+.InquiryDetail_Type_2_Checkbox{
+    padding-left: 20px;
+}
+
+input.InquiryDetail_Type_2_Checkbox_Chx{
+    display:none;
+    }
+
+input.InquiryDetail_Type_2_Checkbox_Chx + label{
+    
+        cursor:pointer;
+   }
+
+   input.InquiryDetail_Type_2_Checkbox_Chx + label > span{
+    vertical-align: middle;
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: 700;
+   }
+
+input.InquiryDetail_Type_2_Checkbox_Chx + label:before{
+    content:"";
+    display:inline-block;
+    width:30px;
+    height:30px;
+    border:2px solid #9F4298;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+
+input.InquiryDetail_Type_2_Checkbox_Chx:checked + label:before{
+    content:"";
+    background-color:#9F4298;
+    border-color:#9F4298;
+    background-image: url('../../png/check_btn.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    }
+
+.InquiryDetail_Type_2_Checkbox_1{
+    float:left;
+}
+
+.InquiryDetail_Type_2_Checkbox_2{
+    margin-left: 20px;
+    float:left;
+}
+
+.InquiryDetail_Main_Btn{
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.InquiryDetail_Main_Btn_1{
+    width: 30%;
+    padding:10px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #d2d2d2;
+    border : 1px solid #ebebeb;
+    cursor: pointer;
+}
+
+.InquiryDetail_Main{
+    padding-top: 50px;
+}
+
+
+
+input.InquiryDetail_Main_Btn_Chx{
+    display:none;
+    
+    }
+
+input.InquiryDetail_Main_Btn_Chx + label{
+        cursor:pointer;
+   }
+
+   input.InquiryDetail_Main_Btn_Chx + label > span{
+    vertical-align: middle;
+    opacity: 0.5;
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: 700;
+   }
+
+input.InquiryDetail_Main_Btn_Chx + label:before{
+    content:"";
+    display:inline-block;
+    width:30px;
+    height:30px;
+    border:2px solid ;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+
+input.InquiryDetail_Main_Btn_Chx:checked + label:before{
+    content:"";
+    background-color:black;
+    border-color:black;
+    background-image: url('../../png/check_btn.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    }
+
+input.InquiryDetail_Main_Btn_Chx:checked + label > span{
+    opacity: 1;
+}
+
+.InquiryDetail_Main_Btn_2{
+    position: relative;
+}
+
+.InquiryDetail_Main_Btn_2_select{
+    width:30%;
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    font-size: 20px;
+}
+
+.InquiryDetail_Main_Content{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+
+.InquiryDetail_Main_Content_1{
+    margin-top: 50px;
+}
+
+.InquiryDetail_Main_Content_1_Box{
+    position: relative;
+    height: 200px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #d2d2d2;
+    border : 1px solid #ebebeb;
+    cursor: pointer;
+}
+
+.InquiryDetail_Main_Content_1_Box:hover{
+    box-shadow: none;
+    border : 2px solid #9F4298;
+}
+
+.InquiryDetail_Main_Content_1_Main_Title_1{
+    position: absolute;
+    top: 10%;
+    left:10%;
+    font-size: 20px;
+    margin: 0;
+}
+
+.InquiryDetail_Main_Content_1_Main_Title_2{
+    position: absolute;
+    top: 10%;
+    left: 19%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.InquiryDetail_Main_Content_1_Main_Img{
+    position: absolute;
+    top: 25%;
+    left:9%;
+    font-size: 110px;
+    opacity: 0.8;
+}
+
+.InquiryDetail_Main_Content_1_Main_Rent{
+    position: absolute;
+    top: 30%;
+    left:20%;
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color:#9F4298;
+}
+
+.InquiryDetail_Main_Content_1_Main_Location{
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    font-size: 17px;
+}
+
+.InquiryDetail_Main_Content_1_Text{
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    font-size: 17px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.InquiryDetail_Main_Content_1_Text p {
+    margin: 5px;
+}
+
+.InquiryDetail_Main_Content_1_Btn{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    
+}
+
+.InquiryDetail_Main_Content_1_Btn1{
+    margin: 0;
+    color: black;
+    font-size: 35px;
+    padding-left: 20px;
+}
+
+.InquiryDetail_Main_Content_1_Btn1_Img{
+    font-size: 50px;
+    padding-right: 5px;
+    float: left;
+}
+
+.InquiryDetail_Number{
+    margin-top: 100px;
+    text-align: center;
+    float:inherit;
+    margin-bottom: 100px;
+}
+
+.InquiryDetail_Number p {
+    display: inline-block;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.InquiryDetail_Number_1{
+    border: 1px solid #9F4298;
+    padding : 5px;
+    background-color: #9F4298;
+    color: white;
+
+}
+
+.InquiryDetail_Number_2{
+    border: 1px solid ;
+    padding : 5px;
+    cursor: pointer;
+}

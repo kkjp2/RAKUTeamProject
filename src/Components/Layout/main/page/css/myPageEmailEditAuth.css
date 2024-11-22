@@ -1,0 +1,83 @@
+.EmailEditAuth{
+    width:728px;
+    margin: 0 auto;
+}
+
+.EmailEditAuth_Title{
+    margin: 0 auto;
+    font-size: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+.EmailEditAuth_Content{
+    margin: 0 auto;
+    font-size: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.EmailEditAuth_Form{
+    /* height: 400px; */
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 70%;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+
+.EmailEditAuth_Write{
+    margin: 0;
+    text-align: left;
+    font-size: 20px;
+    display: block;
+}
+
+.EmailEditAuth_Input{
+    padding: 10px; /* 내부 패딩을 10px로 설정 */
+    font-size: 16px; /* 글꼴 크기를 20px로 설정 */
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+}
+
+.EmailEditAuth_Btn{
+    width: 100%;
+    margin-top: 100px;
+    padding: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #462679;
+    cursor: pointer;
+}
+
+.EmailEditAuth_Btn_cancel{
+    width: 100%;
+    padding: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.EmailEditAuth_Resend_Write{
+    margin-top: 40px;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    cursor:pointer;
+}

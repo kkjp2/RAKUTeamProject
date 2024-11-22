@@ -1,0 +1,11 @@
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 页面最小高度为视口高度 */
+  }
+  
+  .main {
+    flex: 1; /* 让main部分填满页面的剩余空间 */
+  }
+  
