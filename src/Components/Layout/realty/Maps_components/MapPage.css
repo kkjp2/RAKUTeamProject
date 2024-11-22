@@ -1,0 +1,48 @@
+/* 전체 레이아웃 설정 */
+.map-page {
+    display: flex;
+  }
+  
+  .map-container {
+    flex: 1;
+    position: relative;
+    width: 70%; /* 지도의 너비 */
+  }
+  
+  .property-details {
+    flex: 0.3; /* 우측 팝업의 너비 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-left: 1px solid #ddd;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  .property-details h3 {
+    margin-bottom: 15px;
+  }
+  
+  .property-details p {
+    margin: 5px 0;
+  }
+  
+  .property-details button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* 버튼의 모서리를 둥글게 */
+  }
+  
+  .property-details button:hover {
+    background-color: #45a049;
+  }
+  
+  /* 지도 크기 설정 */
+  .google-map {
+    width: 100%;
+    height: 700px;
+  }
+  

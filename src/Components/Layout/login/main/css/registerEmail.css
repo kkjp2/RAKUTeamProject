@@ -1,0 +1,98 @@
+/*  ./Components/Layout/login/main/css/registerEmail.css */
+
+.title{
+    margin: 0 auto;
+    font-size: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Register_Email_Form{
+    /* height: 400px; */
+    width: 100%;
+    padding-right: 24px;
+    overflow: hidden;
+}
+.Register_Id__Write{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+}
+.Register_Pass__Write{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 30px;
+    display: block;
+}
+
+.Register_Id__Input{
+    padding: 10px; /* 내부 패딩을 10px로 설정 */
+    font-size: 16px; /* 글꼴 크기를 20px로 설정 */
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+}
+
+.Register_Pass__Input{
+    padding: 10px; /* 내부 패딩을 10px로 설정 */
+    font-size: 16px; /* 글꼴 크기를 20px로 설정 */
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #d8d8d8;
+    margin-bottom: 30px;
+}
+
+.Register_Email__Btn{
+    width: 100%;
+    padding: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #462679;
+    margin-top: 152px;
+  
+}
+input.Register_Email_checkbox{
+
+    display:none;
+    }
+
+input.Register_Email_checkbox + label{
+    
+        cursor:pointer;
+   }
+
+   input.Register_Email_checkbox + label > span{
+    vertical-align: middle;
+    padding-left: 5px;
+    font-size: 20px;
+    font-weight: 700;
+   }
+
+input.Register_Email_checkbox + label:before{
+    content:"";
+    display:inline-block;
+    width:40px;
+    height:40px;
+    border:2px solid #D9D9D9;
+    border-radius: 4px;
+    vertical-align:middle;
+}
+
+input.Register_Email_checkbox:checked + label:before{
+    content:"";
+    background-color:#D9D9D9;
+    border-color:#D9D9D9;
+    background-image: url('../../png/check_btn.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    }

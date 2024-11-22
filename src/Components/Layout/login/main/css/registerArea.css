@@ -1,0 +1,54 @@
+.Area_Message{
+    margin-top: 50px;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 700;
+    display: block;
+}
+.Area_Form{
+    margin-top: 50px;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.area_select{
+    width:400px;
+    height: 60px;
+    appearance: none;
+    text-align: center;
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 30px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    font-weight: bold;
+    background: url('../../png/select_arrow.png') no-repeat right 10px center;
+    background-size: 30px; /* 화살표 크기 조정 */
+}
+
+.area_select:focus{
+    border: 1px solid #9B51E0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: 3px solid #F8E4FF;
+    border-radius: 10px;
+}
+
+
+
+.area_option{
+    background-color: white;
+    font-weight: bold;
+}
+.Register_Area__Btn{
+    width: 100%;
+    padding: 20px 5px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #462679;
+    margin-top: 152px;
+}

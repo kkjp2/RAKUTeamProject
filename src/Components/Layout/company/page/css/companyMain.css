@@ -1,0 +1,285 @@
+.Company_Main_Content_Main{
+    padding-bottom: 80px; 
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+.Company_Main_Content_Main_1_Img{
+    font-size: 300px;
+    
+}
+
+.Company_Main_Content_Main_1{
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.Company_Main_Content_Main_1_Content{
+
+}
+
+.Company_Main_Content_Main_1_Content_Title::before{
+    content: "";
+    border-left: 7px solid #9F4298;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.Company_Main_Content_Main_1_Content_Title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.Company_Main_Content_Main_1_Content_Text{
+    font-size: 15px;
+    
+}
+
+.Company_Main_Content_Main_1_Content_Table{
+    margin-top: 50px ;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.Company_Main_Content_Main_1_Content_Table tr{
+    
+    border: 1px solid;
+    height: 60px;
+}
+
+.Company_Main_Content_Main_1_Content_Table tr th{
+    padding-left: 10px;
+    border: 1px solid;
+    width: 100px;
+    background-color: #ecf1f1;
+}
+
+.Company_Main_Content_Main_1_Content_Table tr td{
+    padding-left: 10px;
+}
+
+.Company_Main_Content_Main_2{
+    padding-top: 20px;
+}
+
+.Company_Main_Content_Main_2_Title{
+    font-size: 30px;
+    font-weight: bold;
+    color: #9F4298;
+}
+
+.Company_Main_Content_Main_2_Box{
+    margin: 0 auto;
+    width: 80%;
+    border: 1px solid #CFCFCF;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.Company_Main_Content_Main_2_Box1{
+    text-align: left;
+    padding: 10px;
+    background-color: #ecf1f1;
+}
+.Company_Main_Content_Main_2_Table{
+    font-size: 15px;
+    
+}
+
+.Company_Main_Content_Main_2_Table tr td{
+    padding-left: 10px;
+}
+
+.Company_Main_Content_Main_2_Table tr{
+    height: 30px;
+    
+}
+
+.Company_Main_Content_Main_2_Box2{
+    margin-top: 20px;
+}
+
+.Company_Main_Content_Main_2_Box2_Btn{
+    width: 80%;
+    height: 80px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+    border: none;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.Company_Main_Content_Main_2_Box2_Btn:hover {
+    background: rgb(6,14,131);
+    background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
+ 
+ }
+ 
+.Company_Main_Content_Main_2_Box2_Btn_Img{
+    font-size: 60px;
+    position: absolute;
+    left: 10%;
+    top:10%;
+}
+
+.Company_Main_Content_Main_2_Box2_Btn p{
+
+}
+
+.Company_Main_Content_Main_2_Box2_Btn_Content_1{
+    font-size: 10px;
+    position: absolute;
+    left: 35%;
+    top:8%;
+}
+.Company_Main_Content_Main_2_Box2_Btn_Content_2{
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 35%;
+    top:18%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1{
+    height: 220px;
+    border: 1px solid #CFCFCF;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1 p{
+    margin: 0;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1_Title{
+    width: 80%;
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    color: #9F4298;
+    border-bottom: 3px solid #9F4298;
+    left: 10%;
+    top: 10%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1_Img{
+    font-size: 22px;
+    color: #9F4298;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1_Number1{
+    font-size: 18px;
+    font-weight: bold;
+    color: #9F4298;
+    position: absolute;
+    left: 23%;
+    top: 30%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1_Number2{
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    color: #9F4298;
+    position: absolute;
+    left: 10%;
+    top: 42%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1_Text1{
+    width: 80%;
+    font-size: 10px;
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    top: 65%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content1_Text2{
+    width: 80%;
+    font-size: 10px;
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    top: 80%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2{
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2 p{
+    margin: 0;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Text{
+    position: absolute;
+    font-size: 14px;
+    top: 10%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Title1{
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    top:25%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Img1{
+    position: absolute;
+    font-size: 20px;
+    top: 38%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Number1{
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    top: 38%;
+    left: 15%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Title2{
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    top:58%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Img2{
+    position: absolute;
+    font-size: 30px;
+    top: 71%;
+}
+
+.Company_Main_Content_Main_2_Box2_Content2_Number2{
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    top: 73%;
+    left: 15%;
+}

@@ -1,0 +1,19 @@
+.image-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 20px 0;
+}
+
+.carousel-control {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.carousel-image {
+  max-width: 100%;
+  height: auto;
+}
