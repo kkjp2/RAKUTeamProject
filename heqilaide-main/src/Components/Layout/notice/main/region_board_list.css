@@ -1,0 +1,143 @@
+
+*{
+  background-color: white;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    color: #6e5daf;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .toolbar .search{
+    position: relative;
+    border: 0;    
+    display: inline-block;
+    text-align: center;
+    color: white;  
+    background-color: #BA8CB5;    
+    margin-right: 5px;
+  }
+  .toolbar .purple-btn{
+    position: relative;
+    border: 0;    
+    display: inline-block;
+    text-align: center;
+    color: white;  
+    background-color: #BA8CB5;
+
+  }
+  .blue-btn, .purple-btn {
+    
+    background-color: #5dafff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
+  
+  .search-bar {
+    flex-grow: 1;
+    margin: 0 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .keyword-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .keywords span {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  .table-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .board-table {
+    width: 70%;
+    border-collapse: collapse;
+  }
+  
+  .board-table th, .board-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .board-table th {
+    background-color: #f0f0f0;
+  }
+  .toolbar1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .write {
+    margin-left: auto;
+    background-color: #c9d4e3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .side-section {
+    
+    position: relative;
+  }
+  .side-section H3 {
+    background-color: #a63fa6;
+    position: relative;
+  }
+  
+  .popular-posts, .festivals {
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .popular-posts h3, .festivals h3 {
+    text-align: center;
+    color: #f5f5f5;
+  }
+  
+  .popular-posts ol, .festivals ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+  

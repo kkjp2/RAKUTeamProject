@@ -1,0 +1,42 @@
+.CompanyMap{
+    padding: 20px;
+}
+
+.CompanyMap_Title{
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.CompanyMap_Title::before{
+        content: "";
+        border-left: 7px solid #9F4298;
+        border-radius: 5px;
+        margin-right: 10px;
+}
+
+.CompanyMap_Map{
+    border: 1px solid #CFCFCF;
+    width: 100%;
+    border-radius: 5px 5px 0px 0px;
+    box-sizing: border-box;
+    
+}
+
+.CompanyMap_Img{
+    font-size: 300px;
+}
+
+.CompanyMap_Table{
+    border-collapse : collapse;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.CompanyMap_Table tr th{
+    border: 1px solid #CFCFCF;
+    height: 50px;
+}
+.CompanyMap_Table tr {
+    border: 1px solid #CFCFCF;
+}

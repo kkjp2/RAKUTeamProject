@@ -1,0 +1,114 @@
+.MyPage_Edit{
+    width:728px;
+    margin: 0 auto;
+}
+
+.MyPage_Edit_Title{
+    margin-top: 20px;
+    
+}
+.MyPage_Edit_Title p {
+    margin: 0 auto;
+    font-size: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.MyPage_Edit_Data{
+    margin-top: 50px;
+    
+}
+
+.MyPage_Edit_Data_Title{
+    padding-left: 20px;
+    border-left: 7px solid #462679;
+}
+
+.MyPage_Edit_Data_Title p{
+    font-size: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+}
+
+.MyPage_Edit_Data_Main{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.MyPage_Edit_Data_Main p{
+    text-align: left;
+    
+}
+
+.MyPage_Edit_Data_Main_Title{
+    font-weight: bold;
+}
+
+.MyPage_Edit_Data_Main_Main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+
+.MyPage_Edit_Data_Main_Main_Content{
+    border: 1px solid;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-left: 15px;
+    font-weight: normal;
+}
+
+.MyPage_Edit_Data_Main_Main_Content p{
+    margin: 0;
+
+}
+
+.MyPage_Edit_Data_Main_Main_Btn button{
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    float: right;
+    background-color: white;
+    color: #462679;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.MyPage_Edit_MainPageBtn{
+    margin-top: 50px;
+}
+
+.MyPage_Edit_MainPageBtn_Btn{
+    width: 70%;
+    font-size: 40px;
+    color: #462679;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 10px 20px 10px;
+    cursor: pointer;
+}
+
+.MyPage_Edit_Delete{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.MyPage_Edit_Delete_Content{
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+.MyPage_Edit_Delete_Click{
+    margin-top: 50px;
+    font-size: 30px;
+    color: #462679;
+    cursor: pointer;
+    text-decoration: underline;
+}

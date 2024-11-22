@@ -1,0 +1,132 @@
+/* 전체 컨테이너 */
+.mypage-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* 헤더 섹션 */
+.mypage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.mypage-header h1 {
+  font-size: 24px;
+  color: #a64ca6;
+}
+
+
+
+.edit-button:hover {
+  background-color: #b066b0;
+}
+
+/* 프로필 섹션 */
+.profile-section  {
+  display: flex;
+  margin-right: 800px;
+  text-align: center;
+  margin-bottom: 20px;    
+  align-items: center; /* 자식 요소를 세로(수직) 기준으로 가운데 정렬시킴 */
+  
+}
+
+
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile-section p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* 그리드 레이아웃 */
+.grid-container {    
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  gap: 20px;
+}  
+.mew{
+  width: 200px;
+  height: 200px;
+  margin-right: 10px; 
+}
+.profile-name{    
+  margin-left: 50px;
+  
+  font-size: 18px;    
+  white-space: nowrap;     
+  vertical-align: middle;
+}
+
+.grid-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.grid-item h3 {
+  font-size: 18px;
+  color: #333;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+
+.grid-item p {
+  background-color: #f9f9f9;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.more-btn {
+  background-color: #f3c623;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.more-btn:hover {
+  background-color: #e0a620;
+}
+
+/* 내가 등록한 지역 */
+.location-btn {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.location-btn:hover {
+  background-color: #357ab8;
+}
+
+.add-location-btn {
+  background-color: #ddd;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.add-location-btn:hover {
+  background-color: #ccc;
+}

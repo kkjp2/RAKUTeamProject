@@ -1,0 +1,178 @@
+/* 전체 컨테이너 */
+.rental-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    
+    
+  }
+  
+  /* 상단 헤더 */
+  .rental-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .rental-title {
+    font-size: 24px;
+    color: #4a90e2;
+  }
+  
+  .search-container {
+    display: flex;
+    margin-right: 26%;
+    
+  }
+  
+  .search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;    
+  }
+  
+  .search-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .user-info {
+    font-size: 16px;
+  }
+  
+  /* 필터 버튼 섹션 */
+  .rental-filters {    
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-btn {    
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .write-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;        
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute; /* 절대 위치 */
+    margin-left: 600px;                
+  }
+  
+  .write-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* 렌탈 리스트 섹션 */
+  .rental-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .rental-list {
+    flex: 3;
+  }
+  
+  .rental-item {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .rental-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;    
+  }
+ 
+  
+  .rental-info {
+    padding: 10px;
+  }
+  
+  .rental-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .rental-icons {
+    margin-top: 10px;
+  }
+  
+  /* 최근 본 게시글 섹션 */
+  .recent-posts {
+    flex: 1;
+    margin-left: 20px;
+    
+  }
+  
+  .recent-posts h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .recent-posts ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .recent-posts li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+  }
+  
+  .recent-posts img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+    
+  }
+  .user-text{
+    position: absolute;    
+    right: 16%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+  
+  /* 페이지네이션 */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .page-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .page-btn:hover {
+    background-color: #e0e0e0;
+  }
+  
