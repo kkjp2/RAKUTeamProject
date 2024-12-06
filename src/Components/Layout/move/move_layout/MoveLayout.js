@@ -1,5 +1,5 @@
 import Header from '../move_header/MoveHeader';
-import Footer from '../move_footer/MoveFooter'; 
+// import Footer from '../move_footer/MoveFooter'; 
 import './MoveLayout.css';
 const Layout = (props) => {
     return (
@@ -8,7 +8,7 @@ const Layout = (props) => {
             <main className="main">
                 {props.children}
             </main>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     );
 }

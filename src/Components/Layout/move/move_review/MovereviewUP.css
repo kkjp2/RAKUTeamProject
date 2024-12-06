@@ -1,11 +1,6 @@
 /* UploadReview.css */
-.upload-review-container {
-  background-color: #f4f7f6;
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px;
-  margin: 20px auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.upload_review_container {
+  
 }
 
 .upload-review-container h2 {
@@ -14,19 +9,19 @@
   color: #333;
 }
 
-.form-group {
+.review_form_group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.review_form_group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
   color: #555;
 }
 
-.form-group input,
-.form-group textarea {
+.review_form_group input,
+.review_form_group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -35,28 +30,33 @@
   box-sizing: border-box;
 }
 
-.form-group input[type="date"],
-.form-group input[type="number"] {
+.review_form_group input[type="date"],
+.review_form_group input[type="number"] {
   padding: 8px;
 }
 
-.form-group textarea {
+.review_form_group textarea {
   resize: vertical;
 }
 
-.submit-btn {
-  width: 100%;
+.reviewUP_btns_form_group {
+  display: flex;
+  flex: 1;
+  gap: 10px; /* 设置按钮之间的间距 */
+}
+
+.reviewUP_submit_btn {
+  flex: 1; /* 每个按钮均分父容器的空间 */
   padding: 10px;
-  /* background-color: #4CAF50; */
   background-color: #9f4298;
   border: none;
   border-radius: 5px;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.submit-btn:hover {
-  background-color: #45a049;
+.reviewUP_submit_btn:hover {
+  background-color: #ce82c4;
 }

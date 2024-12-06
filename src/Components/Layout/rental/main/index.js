@@ -1,16 +1,16 @@
-import Layout from './Components/Layout/rental/layout';
-import RentalBoard from './Components/Layout/rental/main/rentalboard';
+import Layout from '../layout';
+import RentalBoard from './rentalboard';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import RentalList from './Components/Layout/rental/main/RentalList';
-import RentalWritePage from './Components/Layout/rental/main/rental_writepage';
-import RentalForm from './Components/Layout/rental/main/RentalForm';
-import RentalDetail from './Components/Layout/rental/main/rental_detail';
-import ReservationForm from './Components/Layout/rental/main/rental_reservationform';
-import RentalMyPage from './Components/Layout/rental/main/rental_mypage';
-import RentalChat from './Components/Layout/rental/main/rental_chat';
-import RentalReview from './Components/Layout/rental/main/rental_review';
-import Login from './Components/Layout/login/main/index.js'
-import Index from './Components/Layout/company/page/index.js'
+import RentalList from './RentalList';
+import RentalWritePage from './rental_writepage';
+import RentalForm from './RentalForm';
+import RentalDetail from './rental_detail';
+import ReservationForm from './rental_reservationform';
+import RentalMyPage from './rental_mypage';
+import RentalChat from './rental_chat';
+import RentalReview from './rental_review';
+// import Login from './main/index.js'
+// import Index from './index.js'
 import RentalReservationForm from './rental_reservationform.js';
 
 const homepage = () => {

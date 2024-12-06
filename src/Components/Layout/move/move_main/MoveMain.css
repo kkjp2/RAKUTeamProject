@@ -39,7 +39,7 @@ body,html {
   position: absolute;
   top: 100px;
   /* 距离页面顶部 100px */
-  left: 900px;
+  left: 70%;
   /* 距离页面左侧 200px */
   background: rgb(255, 255, 255, 0.6);
   padding: 20px;

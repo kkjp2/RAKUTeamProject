@@ -31,7 +31,7 @@ const MyPageDelete = () => {
 
     <div className="DeleteEdit_Btn">
         <button className="DeleteEdit_Btn_submit" onClick={deleteUser}>계정 삭제하기</button>
-        <button className="DeleteEdit_Btn_cancel" onClick={mypage/edit}>뒤로</button>
+        <button className="DeleteEdit_Btn_cancel" onClick={goToMypageEdit}>뒤로</button>
         <div className="DeleteEdit_Btn_Content">
         변경한 뒤로 전 지역의 게시판은 생성 및 수정이 불가합니다.
         </div>

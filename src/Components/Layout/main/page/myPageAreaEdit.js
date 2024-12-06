@@ -31,8 +31,6 @@ const MyPageAreaEdit =() => {
         <button className="AreaEdit_Btn_cancel" onCilck={goToMypage}>뒤로</button>
         변경한 뒤로 전 지역의 게시판은 생성 및 수정이 불가합니다.
         </div>
-    </div>
-    
     </form>
     </div>
     </>

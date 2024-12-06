@@ -1,67 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//MoveReview.js
+import React from 'react';
 import './MoveReview.css';
-import userIcon from '../move_img/usericon.png'
-import { AiOutlineLike,AiOutlineDislike } from "react-icons/ai";
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import Layout from '../move_layout/MoveLayout';
+import useFetchReviews from '../move_api/MoveProfileReview'; // 引入自定义 Hook
 
-const Review = () => {
+function Review() {
+    // 不传递 companyId，默认获取所有评论
+    const { renderStars, reviews, loading, error, handleLike, handleDislike } = useFetchReviews();
 
-    // 状态用于跟踪反应值：0（无反应），1（喜欢），-1（不喜欢）
-    const [reactionValue, setReactionValue] = useState(0);
+    console.log('Review - reviews:', reviews); // 添加这行来调试
 
-    useEffect(() => {
-        // 组件挂载时获取用户对该评论的现有反应
-        const fetchReaction = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8080/move/reactions${userId}`);///${moveReviewId}
-                setReactionValue(response.data.reactionValue || 0);
-            } catch (error) {
-                console.error('获取反应时出错：', error);
-            }
-        };
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-        fetchReaction();
-    }, [userId, moveReviewId]);
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
 
-    const handleLike = async () => {
-        // 如果已经喜欢，取消喜欢
-        if (reactionValue === 1) {
-            setReactionValue(0); // 重置为无反应
-            await axios.delete(`/api/reactions/cancel`, { data: { userId, moveReviewId, type: 'like' } });
-            return;
-        }
-
-        // 如果不喜欢，改为喜欢
-        if (reactionValue === -1) {
-            setReactionValue(0); // 首先重置反应
-            await axios.delete(`/api/reactions/cancel`, { data: { userId, moveReviewId, type: 'dislike' } });
-        }
-
-        // 设置为喜欢
-        await axios.post(`http://localhost:8080/move/reactions/like`, { userId, moveReviewId });
-        setReactionValue(1);
-    };
-
-    const handleDislike = async () => {
-        // 如果已经不喜欢，取消不喜欢
-        if (reactionValue === -1) {
-            setReactionValue(0); // 重置为无反应
-            await axios.delete(`http://localhost:8080/move/reactions/cancel`, { data: { userId, moveReviewId, type: 'dislike' } });
-            return;
-        }
-
-        // 如果喜欢，改为不喜欢
-        if (reactionValue === 1) {
-            setReactionValue(0); // 首先重置反应
-            await axios.delete(`http://localhost:8080/move/reactions/cancel`, { data: { userId, moveReviewId, type: 'like' } });
-        }
-
-        // 设置为不喜欢
-        await axios.post(`http://localhost:8080/move/reactions/dislike`, { userId, moveReviewId });
-        setReactionValue(-1);
-    };
-
+    const getLogoUrl = (review) => {
+        return `http://localhost:8080/uploads/${review.folderPath}/${review.uuid}_${review.fileName}`;
+    }
 
     return (
         <Layout>
@@ -69,47 +29,50 @@ const Review = () => {
                 <div className='review_container1'>
                     <div className='review_container2'>
                         <h1>Review</h1>
-                        <div className='review_contentBox'>
-                            <div className='review_icon_name'>
-                                <img src={userIcon} alt='유저 아이콘' className='review_usericon'></img>
-                                <div className=''>
-                                    <h3>会社名：東京スマート引越し株式会社</h3>
-                                    <pre className='review_signature'>サービス評価 : ★★★★☆ 4.0</pre>
-                                </div>
-                            </div>
-                            <div className='review_content_show'>
-                                <div className='review_subheading'>
-                                    <p>引越し費用: [10万円]</p>
-                                    <p>引越し地域: [東京都]</p>
-                                    <p>サービス利用日: [2024年10月10日]</p>
-                                </div>
-                                <hr></hr>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    先日は大変お世話になりました。○○引越し会社さんのサービスには本当に感謝しています。スタッフの皆さんは非常にプロフェッショナルで、
-                                    作業開始から終了まで終始丁寧に対応してくださいました。特に、家具や荷物の取り扱いがとても慎重で、壊れやすいものも無事に運んでいただけました。
-                                    事前の打ち合わせでも細かい要望に対応していただき、引越し当日も時間通りに来てスムーズに作業が進みました。スタッフの皆さんは礼儀正しく、
-                                    作業の進行も効率的で安心感がありました。また、引越し後に確認したところ、荷物に傷や汚れが一切なく、完璧な状態で新居に届けてくださったことに驚きました。
-                                    料金面でも非常にリーズナブルで、コストパフォーマンスの高いサービスだと感じました。もし次回引越しをすることがあれば、またぜひお願いしたいと思います。本当にありがとうございました。
-                                </p>
-                                <div className='review_likeAndDisLike'>
-                                    <div className='review_likeContainer'>
-                                        <button className='review_like_button'>
-                                            <AiOutlineLike className='review_like' color={reactionValue === 1 ? 'red' : 'black'} onClick={handleLike}/>
-                                            <span>{reactionValue === 1 ? 'Remove Like' : 'Like'}</span>
-                                        </button>
-                                        <p>99+</p>
+                        <div className=''>
+                            {reviews.map((review) => (
+                                <div className='review_contentBox' key={review.reviewId}>
+                                    <div className='review_icon_name'>
+                                        <img
+                                            src={getLogoUrl(review)}
+                                            alt="会社のロゴ"
+                                            className='review_usericon'
+                                        // onError={(e) => { e.target.onerror = null; e.target.src = {userIcon}; }}
+                                        />
+                                        <div>
+                                            <h3>会社名: {review.companyName}レビューID: {review.reviewId}</h3>
+                                            <p className='review_signature'>サービス評価 : {renderStars(review.rating)}</p>
+                                        </div>
                                     </div>
-                                    <div className='review_likeContainer'>
-                                        <button className='review_like_button'>
-                                            <AiOutlineDislike className='review_like' onClick={handleDislike}/>
-                                            <span>{reactionValue === -1 ? 'Remove Dislike' : 'Dislike'}</span>
-                                        </button>
+                                    <div className='review_content_show'>
+                                        <div className='review_subheading'>
+                                            <p>引越し費用: {review.price}</p>
+                                            <p>引越し地域: {review.region}</p>
+                                            <p>サービス利用日: {review.serviceDate}</p>
+                                        </div>
+                                        <hr />
+                                        <p>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}</p>
+                                        <div className='review_likeAndDisLike'>
+                                            <div className='review_likeContainer'>
+                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId)}>
+                                                    <AiOutlineLike className='review_like' color={review.reactionValue === 1 ? 'red' : 'black'} />
+                                                </button>
+                                                <p>{review.likeCount || 0}</p> {/* 显示点赞数量 */}
+                                            </div>
+                                            <div className='review_likeContainer'>
+                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId)}>
+                                                    <AiOutlineDislike className='review_like' color={review.reactionValue === -1 ? 'blue' : 'black'} />
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                    <div className='review_container3'>
+                </div>
+            </div>
+            {/* <div className='review_container3'>
                         <h2>人気会社レビュー</h2>
                         <ul className='company_list'>
                             {companies.map((company, index) => (
@@ -118,10 +81,9 @@ const Review = () => {
                                 </li>
                             ))}
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </Layout>
+                    </div> */}
+
+        </Layout >
     );
 }
 export default Review;

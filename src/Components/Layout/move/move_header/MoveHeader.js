@@ -5,7 +5,7 @@ import { Link} from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className="move_header">
       <div className="container">
         <div className="logo-container">
         <Link to='/MoveMain'><Logo className="logo-image" /></Link>

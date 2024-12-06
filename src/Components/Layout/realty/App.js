@@ -23,10 +23,10 @@ function App() {
         
         <Routes>
           {/* 기본 경로: 지방 선택 페이지 */}
-          <Route path="/" element={<RegionsPage />} />
+          <Route path="/realty" element={<RegionsPage />} />
 
           {/* 메인 페이지 경로: MainContent + PriceCalculation */}
-          <Route path="/main" element={
+          <Route path="/realty/main" element={
             <>
               <MainContent />
               <PriceCalculation />
@@ -34,28 +34,28 @@ function App() {
           } />
 
           {/* 특정 매물의 상세 페이지로 이동 (buildNum 기반) */}
-          <Route path="/main/content/:buildNum" element={<MainContent />} />
+          <Route path="/realty/main/content/:buildNum" element={<MainContent />} />
 
           {/* 지역 리스트 페이지 경로 */}
-          <Route path="/regions/:regionId" element={<RegionDetailPage />} />
+          <Route path="/realty/regions/:regionId" element={<RegionDetailPage />} />
 
           {/* 지도 페이지 경로: 구글 맵 */}
-          <Route path="/map" element={<MapPage />} />
+          <Route path="/realty/map" element={<MapPage />} />
 
           {/* 검색 결과 페이지 경로 */}
-          <Route path="/search/results" element={<SearchPageResult />} /> 
+          <Route path="/realty/search/results" element={<SearchPageResult />} /> 
 
           {/* 카테고리 필터 페이지 경로 */}
-          <Route path="/categoriFilter" element={<CategoriFilter />} /> 
+          <Route path="/realty/categoriFilter" element={<CategoriFilter />} /> 
 
           {/* 카테고리 필터 결과 페이지 경로 */}
-          <Route path="/categorifilterresult" element={<Categorifilterresult />} /> 
+          <Route path="/realty/categorifilterresult" element={<Categorifilterresult />} /> 
 
           {/* 추가: 건물 생성 페이지 경로 */}
-          <Route path="/create/building/page" element={<CreateBuildingPage />} /> {/* 경로 추가 */}
+          <Route path="/realty/create/building/page" element={<CreateBuildingPage />} /> {/* 경로 추가 */}
 
-          <Route path="/modify/building/page" element={<ModifyBulidingPage />} />
-          <Route path="/delete/building/page" element={<DeleteBuildingPage/>} />
+          <Route path="/realty/modify/building/page" element={<ModifyBulidingPage />} />
+          <Route path="/realty/delete/building/page" element={<DeleteBuildingPage/>} />
         </Routes>
 
         <Footer_Popup />

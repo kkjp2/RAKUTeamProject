@@ -27,7 +27,7 @@
 }
 
 .profile-company-info h1 {
-  margin: 0;
+  margin-left: 30px;
   color: #333;
 }
 
@@ -93,3 +93,54 @@
   width: 40px; /* 图标宽度 */
   height: auto; /* 图标高度 */
 }
+
+.profile_modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.profile_modal_content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.review_form_group label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* 按钮样式 */
+.review_submit_btn {
+  position: fixed; /* 让按钮固定在视口中 */
+  right: 20px; /* 右侧距离 */
+  bottom: 20px; /* 底部距离 */
+  background: linear-gradient(135deg, #a0619b, #9f4298, #7c1c74); /* 紫色渐变 */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 按钮阴影 */
+}
+
+.review_submit_btn:hover {
+  transform: translateY(-2px); /* 悬停时轻微上移 */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* 悬停时加深阴影 */
+}
+
+.review_submit_btn:active {
+  transform: translateY(0); /* 按下时复位 */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* 按下时阴影稍浅 */
+}
+
