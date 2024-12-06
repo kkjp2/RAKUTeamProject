@@ -41,7 +41,9 @@
 }
 .review_usericon{
   width: 100px;
+  margin: 5px 15px 0px 0px;
 }
+
 .review_signature{
   margin-top: 5px;
   font-size: small;

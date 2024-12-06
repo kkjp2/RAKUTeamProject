@@ -1,106 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//MoveReview.js
+import React from 'react';
 import './MoveReview.css';
-import userIcon from '../move_img/usericon.png'
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import Layout from '../move_layout/MoveLayout';
-import useFetchCompanyDetails from '../move_api/MoveProfileReview';
+import useFetchReviews from '../move_api/MoveProfileReview'; // 引入自定义 Hook
 
 function Review() {
-    const [reviews, setReviews] = useState([]);
-    const [userKey, setUserKey] = useState(10);
+    // 不传递 companyId，默认获取所有评论
+    const { renderStars, reviews, loading, error, handleLike, handleDislike } = useFetchReviews();
 
-    useEffect(() => {
-        const fetchAllReviews = async () => {
-            try {
-                 // 调整为获取所有评论的API路径
-                const response = await axios.get('/move/review/reviews', {
-                    params: { userKey }
-                });
-                setReviews(response.data);
-            } catch (error) {
-                console.error('Failed to fetch reviews:', error);
-            }
-        };
-        fetchAllReviews();
-    }, [userKey]);
+    console.log('Review - reviews:', reviews); // 添加这行来调试
 
-    const handleLike = async (reviewId) => {
-        try {
-            let response;
-            if (reviews.find(review => review.reviewId === reviewId).reactionValue === 1) {
-                // 如果当前是点赞状态，则取消点赞
-                response = await axios.post(`/move/reactions/${reviewId}/cancel`, {
-                    userKey
-                });
-            } else {
-                // 否则执行点赞操作
-                response = await axios.post(`/move/reactions/${reviewId}/like`, {
-                    userKey
-                });
-            }
-    
-            if (response.status === 200) {
-                const updatedCounts = response.data;
-                const updatedReviews = reviews.map(review =>
-                    review.reviewId === reviewId
-                        ? {
-                            ...review,
-                            likeCount: updatedCounts.likeCount,
-                            dislikeCount: updatedCounts.dislikeCount,
-                            reactionValue: review.reactionValue === 1 ? 0 : 1 // 如果已点赞则重置为0，否则设为1
-                        }
-                        : review
-                );
-                setReviews(updatedReviews);
-            } else {
-                throw new Error('Failed to like or cancel like');
-            }
-        } catch (error) {
-            console.error("Failed to like or cancel like:", error);
-        }
-    };
-    
-    const handleDislike = async (reviewId) => {
-        try {
-            let response;
-            if (reviews.find(review => review.reviewId === reviewId).reactionValue === -1) {
-                // 如果当前是点踩状态，则取消点踩
-                response = await axios.post(`/move/reactions/${reviewId}/cancel`, {
-                    userKey
-                });
-            } else {
-                // 否则执行点踩操作
-                response = await axios.post(`/move/reactions/${reviewId}/dislike`, {
-                    userKey
-                });
-            }
-    
-            if (response.status === 200) {
-                const updatedCounts = response.data;
-                const updatedReviews = reviews.map(review =>
-                    review.reviewId === reviewId
-                        ? {
-                            ...review,
-                            likeCount: updatedCounts.likeCount,
-                            dislikeCount: updatedCounts.dislikeCount,
-                            reactionValue: review.reactionValue === -1 ? 0 : -1 // 如果已点踩则重置为0，否则设为-1
-                        }
-                        : review
-                );
-                setReviews(updatedReviews);
-            } else {
-                throw new Error('Failed to dislike or cancel dislike');
-            }
-        } catch (error) {
-            console.error("Failed to dislike or cancel dislike:", error);
-        }
-    };    
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    const {
-        newReview,
-        renderStars,
-    } = useFetchCompanyDetails();
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    const getLogoUrl = (review) => {
+        return `http://localhost:8080/uploads/${review.folderPath}/${review.uuid}_${review.fileName}`;
+    }
 
     return (
         <Layout>
@@ -113,9 +34,10 @@ function Review() {
                                 <div className='review_contentBox' key={review.reviewId}>
                                     <div className='review_icon_name'>
                                         <img
-                                            src={review.companyLogo || userIcon} // 显示公司 Logo 或默认用户图标
+                                            src={getLogoUrl(review)}
                                             alt="会社のロゴ"
                                             className='review_usericon'
+                                        // onError={(e) => { e.target.onerror = null; e.target.src = {userIcon}; }}
                                         />
                                         <div>
                                             <h3>会社名: {review.companyName}レビューID: {review.reviewId}</h3>
@@ -132,13 +54,13 @@ function Review() {
                                         <p>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}</p>
                                         <div className='review_likeAndDisLike'>
                                             <div className='review_likeContainer'>
-                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId, newReview.userKey)}>
+                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId)}>
                                                     <AiOutlineLike className='review_like' color={review.reactionValue === 1 ? 'red' : 'black'} />
                                                 </button>
                                                 <p>{review.likeCount || 0}</p> {/* 显示点赞数量 */}
                                             </div>
                                             <div className='review_likeContainer'>
-                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId, newReview.userKey)}>
+                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId)}>
                                                     <AiOutlineDislike className='review_like' color={review.reactionValue === -1 ? 'blue' : 'black'} />
                                                 </button>
                                             </div>
@@ -161,7 +83,7 @@ function Review() {
                         </ul>
                     </div> */}
 
-        </Layout>
+        </Layout >
     );
 }
 export default Review;

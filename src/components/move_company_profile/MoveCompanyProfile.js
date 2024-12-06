@@ -6,24 +6,28 @@ import userIcon from '../move_img/usericon.png';
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 import UploadReview from '../move_review/MoveReviewUP';
 import '../move_company_profile/MoveCompanyProfile.css'
-import useFetchCompanyDetails from '../move_api/MoveProfileReview'
+import useFetchReviews from '../move_api/MoveProfileReview'
 import '../move_review/MoveReview.css'
+import { useParams } from 'react-router-dom';
 
 function CompanyProfile() {
+    const { companyId } = useParams();
     const {
         company,
         loading,
+        reviews,
         handleLike,
         handleDislike,
-        reviews,
-        newReview,
-        setNewReview,
+        renderStars,
         isModalOpen,
         setIsModalOpen,
+        newReview,
+        setNewReview,
         handleReviewSubmit,
-        renderStars,
-    } = useFetchCompanyDetails();
+    } = useFetchReviews(companyId);
     console.log("Fetched company details:", company);
+    console.log('CompanyProfile - companyId:', companyId); // 添加这行来调试
+    console.log('CompanyProfile - reviews:', reviews); // 添加这行来调试
 
     if (loading) {
         return <div>Loading company details...</div>;
@@ -36,8 +40,13 @@ function CompanyProfile() {
     return (
         <Layout>
             <div className="profile-container">
+                {/* 公司信息展示 */}
                 <div className="profile-header">
-                    <img src={company.imgUrl} className="profile-logo" />
+                    <img
+                        src={company.imgUrl} // 或者 companyImage
+                        alt={company.name}
+                        className="company_logo"
+                    />
                     <div className="profile-company-info">
                         <h1>{company.name}</h1>
                         <p>{company.description}</p>
@@ -69,12 +78,13 @@ function CompanyProfile() {
             <div className='review_container'>
                 <div className='review_container1'>
                     <div className='review_container2'>
+                        {/* 评论列表 */}
                         <h1>Review</h1>
                         <div className=''>
-                            {reviews.map((review) => (
+                            {reviews.length > 0 ? (reviews.map((review) => (
                                 <div className='review_contentBox' key={review.reviewId}>
                                     <div className='review_icon_name'>
-                                        <img src={userIcon} alt='ユーザーアイコン' className='review_usericon'></img>
+                                        <img src={userIcon || company.imgUrl} alt='ユーザーアイコン' className='review_usericon'></img>
                                         <div>
                                             <h3>会社名：{company.name}评论id:{review.reviewId}</h3>
                                             <p className='review_signature'>
@@ -92,20 +102,23 @@ function CompanyProfile() {
                                         <p>&nbsp;&nbsp;&nbsp;&nbsp;{review.comment}</p>
                                         <div className='review_likeAndDisLike'>
                                             <div className='review_likeContainer'>
-                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId, newReview.userKey)}>
+                                                <button className='review_like_button' onClick={() => handleLike(review.reviewId)}>
                                                     <AiOutlineLike className='review_like' color={review.reactionValue === 1 ? 'red' : 'black'} />
                                                 </button>
                                                 <p>{review.likeCount || 0}</p> {/* 显示点赞数量 */}
                                             </div>
                                             <div className='review_likeContainer'>
-                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId, newReview.userKey)}>
+                                                <button className='review_like_button' onClick={() => handleDislike(review.reviewId)}>
                                                     <AiOutlineDislike className='review_like' color={review.reactionValue === -1 ? 'blue' : 'black'} />
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            ))
+                            ) : (
+                                <p>No reviews yet for this company.</p>
+                            )}
                         </div>
                     </div>
                 </div>

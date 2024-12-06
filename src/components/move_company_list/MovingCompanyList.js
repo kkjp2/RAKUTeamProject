@@ -3,7 +3,6 @@ import axios from 'axios';
 import './MovingComList.css';
 import Layout from '../move_layout/MoveLayout';
 import { Link } from 'react-router-dom';
-// import imgIcon from '../move_img/logo/logo1.png';
 
 const MovingCompanyList = () => {
     const regions = ["全地域", "東京都", "大阪府", "愛知県", "埼玉県", "千葉県", "兵庫県", "北海道", "福岡県",
@@ -68,7 +67,7 @@ const MovingCompanyList = () => {
                     {companies.length > 0 ? companies.map((company) => (
                         <div className="comList_card" key={company.id}>
                             <div className='comList_logoandname'>
-                                <img src={company.imgUrl || `/uploads/${folderPath}/${uuid}_${fileName}`} alt="会社のロゴ" className="comList_profile_logo" />
+                                <img src={company.imgUrl} alt="会社のロゴ" className="comList_profile_logo" />
                                 <h3 className="comList_name">{company.name}</h3>
                             </div>
                             <div className="comList_info">
