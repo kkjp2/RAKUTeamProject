@@ -382,7 +382,7 @@ input.Favorite_Main_Content_1_Checkbox_Chx:checked  + label:before{
 }
 
 .Favorites_Main_Content_1_Btn1_Img{
-    font-size: 35px;
+    /* font-size: 35px; */
     padding-right: 5px;
     float: left;
 }

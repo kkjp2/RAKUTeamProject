@@ -1,12 +1,12 @@
 /*  ./Components/Layout/login/main/css/login.css */
-.main{
+.login_main{
     width: 728px;
     padding: 28px 0 40px;
     margin: 0 auto;
     overflow: hidden;
 }
 
-.title{
+.login_title{
     margin: 0 auto;
     font-size: 40px;
     font-family: 'Inter';

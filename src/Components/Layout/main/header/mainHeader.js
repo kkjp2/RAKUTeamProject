@@ -11,10 +11,10 @@ const MainHeader = () => {
         navigate('/mypage');
       };
     const goToFavorites = () => {
-        navigate(`/myPage/favorites`);
+        navigate(`/mypage/favorites`);
     }
     const goToRecentlyViewed = () => {
-        navigate(`/myPage/recentlyViewed`);
+        navigate(`/mypage/recentlyViewed`);
     }
       const goToMainPage = () => {
         navigate('/main');

@@ -34,7 +34,7 @@ function PriceCalculation() {
           <input type="number" id="additionalCost" value="${additionalCost}" /><br/>
 
           <h3>초기 견적 계산하기</h3>
-          <button onclick="calculateTotal()">계산하기</button>
+          <button onclick="calculateTotal()" className='price-calculation-button'>계산하기</button>
           <p id="totalCost">초기 견적: </p>
 
           <script>
@@ -57,7 +57,7 @@ function PriceCalculation() {
   return (
     <div className="price-calculation">
       
-      <button onClick={handleCalculate}>계산하기</button>
+      <button onClick={handleCalculate} className='price-calculation-button'>계산하기</button>
     </div>
   );
 }

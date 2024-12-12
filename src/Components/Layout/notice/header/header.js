@@ -11,17 +11,10 @@ const Header = () => {
     const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen); // 현재 상태의 반대로 변경
     };
-
-
-
-
-
-    
-  
   
   return (
     <header className="header">
-      <h1 className="main_header"><a href='/'>RAKU</a></h1> 
+      <h1 className="main_header"><a href='/notice'>RAKU</a></h1> 
       <div className="user-id">유우키님! 안녕하세요!</div>            
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
