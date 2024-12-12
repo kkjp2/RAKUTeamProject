@@ -41,7 +41,7 @@ const MyPageEdit =() => {
             console.log(response.data); // 응답 데이터 확인
             setNick(response.data.nick);
             setEmail(response.data.id);
-            setAddress(response.data.address);
+            setAddress(response.data.address);  
           } catch (error) {
             // 실패 시
             console.error(error);
