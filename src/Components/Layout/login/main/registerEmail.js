@@ -9,11 +9,11 @@ const RegisterEmail = () => {
         navigate('/login/register_auth')
     };
     return<>
-    <div>
+    <div className='login_main'>
     <p className="title">신규 가입</p>
     <section className="Register_Email_Form">
                 <form className="Register_Email">
-                    <p className="Register_Id__Write">로그인</p>
+                    <p className="Register_Id__Write">이메일</p>
                     <input type='text' className="Register_Id__Input"></input>
                     <p className="Register_Pass__Write">비밀번호</p>
                     <input type="password" className="Register_Pass__Input"></input>

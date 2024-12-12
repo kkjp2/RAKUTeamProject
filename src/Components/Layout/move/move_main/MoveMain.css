@@ -1,15 +1,6 @@
 .page-aaa * {
   box-sizing: border-box;
 }
-body,html {
-  font-family: 'Arial', sans-serif;
-  /* height: 100%; */
-  /* 确保html和body元素完全覆盖屏幕 */
-  margin: 0;
-  /* 去掉默认的边距 */
-  padding: 0;
-  /* 去掉默认的填充 */
-}
 .container-back {
   background-image: url('../move_img/mian_background.jpg'); 
   background-size: cover;

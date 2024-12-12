@@ -11,7 +11,7 @@ const RegionBoardList=()=>{
 //     setSelectedBoard(festival);  
 // };
 return (
-  <div className="container">      
+  <div className="festival-board">      
   <div className="toolbar">
     <button className="blue-btn">{region}</button>
     <input type="text" placeholder="키워드를 입력하세요" className="search-bar" />

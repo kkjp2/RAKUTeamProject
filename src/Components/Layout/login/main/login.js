@@ -45,8 +45,8 @@ const Login = () => {
           };     
 
     return<>
-    <div className="main">
-    <p className="title">로그인</p>
+    <div className="login_main">
+    <p className="login_title">로그인</p>
         <div className="Signin__Inner">
             <section className="Signin__Form">
                 <form className="Signin">

@@ -16,6 +16,7 @@ import RentalReservationForm from './rental_reservationform.js';
 const homepage = () => {
     return<>
     <Layout>
+    <Routes>
     <Route path="/rental" element={<RentalBoard/>}/>                  
     <Route path="/rental/mypage" element={<RentalMyPage/>}/>          
     <Route path="/rental/list/:region" element={<RentalList/>}/> 
@@ -25,7 +26,7 @@ const homepage = () => {
     <Route path="/rental/reservationform" element={<RentalReservationForm/>}/>
     <Route path="/rental/chat" element={<RentalChat/>}/>
     <Route path="/rental/review" element={<RentalReview/>}/>
-    
+    </Routes>
     
     </Layout>
      </>

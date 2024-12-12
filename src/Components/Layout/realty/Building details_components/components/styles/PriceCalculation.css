@@ -11,7 +11,7 @@
     margin-left: 10px;
   }
   
-  button {
+  .price-calculation-button{
     background-color: #462679;
     color: white;
     border: none;

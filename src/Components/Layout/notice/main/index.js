@@ -14,6 +14,7 @@ import axios from 'axios';
 const homepage = () => {
     return<>
     <Layout>
+    <Routes>
     <Route path="/notice" element={<MainBoard/>}/>                  
     <Route path="/notice/mypage" element={<MyPage/>}/>          
     <Route path="/notice/region/board/list/:region" element={<RegionBoardList />} />         
@@ -22,6 +23,7 @@ const homepage = () => {
     <Route path="/notice/view/board"element={<ViewBoard/>}/>
     <Route path="/notice/view/festival" element={<ViewFestival/>}/>    
     {/* <Route path="/notice/login" element={<LoginPage/>}/>*/}
+    </Routes>
     </Layout>
      </>
 }
