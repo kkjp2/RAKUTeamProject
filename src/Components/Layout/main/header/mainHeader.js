@@ -19,21 +19,19 @@ const MainHeader = () => {
       const goToMainPage = () => {
         navigate('/main');
       };
-    const test = [
-        {
-        key: 1,
-        id: "abcd",
-        pwd: "qwer1234",
-        admin: 1
-        },
-        {
-            key: 1,
-            id: "abcdf",
-            pwd: "qwer",
-            admin: 0   
+    const goToLogin = () => {
+        navigate('/login');
+    }
+    const Login = window.localStorage.getItem('accesstoken');
+    const isLogin = () => {
+        if(Login == null){
+            console.log("에러");
+            return testid(2);
+        } else{
+            console.log("완료");
+            return testid(0);
         }
-
-    ]
+    }
     const testid = (admin) =>{
         if(admin === 0){
         return<>
@@ -59,7 +57,7 @@ const MainHeader = () => {
             </>
         }else {
             return<>
-            <div className="mainMypage_Admin" onClick={goToMyPage}>
+            <div className="mainMypage_Admin" onClick={goToLogin}>
             <p>Login</p>
             <MdLogin className="mainMypage_Img"/>
             </div>
@@ -82,7 +80,7 @@ const MainHeader = () => {
             </div>
             </div>
             <div className="mainMy_Menu">
-            {testid(0)}
+            {isLogin()}
             </div>
         </div>
     </header>

@@ -17,7 +17,6 @@ import Announcement from './annLayout.js';
 const Index = () => {
 
     return<>
-    <Router>
     <Layout>
     <Routes>
     
@@ -36,7 +35,6 @@ const Index = () => {
             <Route path='/main/announcement' element={<Announcement/>}/>
     </Routes>
     </Layout>
-    </Router>
     </>
 
 

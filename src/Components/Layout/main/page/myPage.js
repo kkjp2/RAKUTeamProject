@@ -1,8 +1,11 @@
 import './css/myPage.css';
 import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 const MyPage = () => {
     const navigate = useNavigate();
+    const [id, setid] = useState("");
     const goToFavorites = () => {
         navigate(`/mypage/favorites`);
     }
@@ -18,6 +21,30 @@ const MyPage = () => {
     const goToAnnouncement = () => {
         navigate(`/main/announcement`);
     }
+
+    const logout =() => {
+        window.localStorage.removeItem('accesstoken');
+        navigate(`/main`);
+    }
+    async function userId() {
+        const accessToken = window.localStorage.getItem('accesstoken');
+        try {
+            const response = await axios.get('http://localhost:8080/api/mypage', { 
+              headers : {
+                Authorization: `Bearer ${accessToken}`
+              }
+            });
+            // 성공 시
+            console.log(response.data); // 응답 데이터 확인
+            setid(response.data.nick);
+          } catch (error) {
+            // 실패 시
+            console.error(error);
+          }
+    }
+    useEffect(() => {
+        userId();
+    }, []); // 빈 배열 []은 컴포넌트 마운트 시 한 번만 실행됨
     return <> 
     <div className="MyPage">
     <div className="MyPage_Title">
@@ -28,8 +55,8 @@ const MyPage = () => {
             </span>
         </div>
         <div className="MyPage_Title_2">
-            <p className="MyPage_Title_2_title">test씨</p>
-            <div><button className="MyPage_Title_2_Btn" onClick={goToEdit}>로그아웃</button></div>
+            <p className="MyPage_Title_2_title">{id}씨</p>
+            <div><button className="MyPage_Title_2_Btn" onClick={logout}>로그아웃</button></div>
         </div>
 
     </div>

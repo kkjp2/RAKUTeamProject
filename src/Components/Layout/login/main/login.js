@@ -36,7 +36,7 @@ const Login = () => {
               window.localStorage.setItem('accesstoken', response.data.accessToken);
               window.localStorage.setItem('refreshToken', response.data.refreshToken);
               window.alert("환영합니다");
-              window.alert(window.localStorage.getItem('token'));
+              window.alert(window.localStorage.getItem('accesstoken'));
               document.location.href = "/main";
             } catch (error) {
               // 실패 시

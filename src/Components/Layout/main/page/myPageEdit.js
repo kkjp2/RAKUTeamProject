@@ -1,8 +1,13 @@
 import './css/myPageEdit.css'
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 const MyPageEdit =() => {
     const navigate = useNavigate();
+    const [nick, setNick] = useState("");
+    const [email, setEmail] = useState("");
+    const [address, setAddress] = useState(""); 
     const goToMainPage = () => {
         navigate(`/main`);
     }
@@ -24,6 +29,48 @@ const MyPageEdit =() => {
     const goToMypageDelete = () => {
         navigate(`/mypage/delete`);
     }
+    async function userIo() {
+        const accessToken = window.localStorage.getItem('accesstoken');
+        try {
+            const response = await axios.get('http://localhost:8080/api/mypage', { 
+              headers : {
+                Authorization: `Bearer ${accessToken}`
+              }
+            });
+            // 성공 시
+            console.log(response.data); // 응답 데이터 확인
+            setNick(response.data.nick);
+            setEmail(response.data.id);
+            setAddress(response.data.address);
+          } catch (error) {
+            // 실패 시
+            console.error(error);
+          }
+    }
+
+    const whatAdress = () => {
+        if(address === 1){
+            return "큐슈";
+        } else if(address === 2){
+            return "주코쿠";
+        }else if(address === 3){
+            return "시코쿠";
+        }else if(address === 4){
+            return "주부";
+        }else if(address === 5){
+            return "간사이";
+        }else if(address === 6){
+            return "간토";
+        }else if(address === 7){
+            return "도호쿠";
+        }else if(address === 8){
+            return "훗카이도";
+        }
+    }
+
+    useEffect(() => {
+        userIo();
+    }, []); // 빈 배열 []은 컴포넌트 마운트 시 한 번만 실행됨
     return<>
     <div className="MyPage_Edit">
         <div className="MyPage_Edit_Title">
@@ -37,7 +84,7 @@ const MyPageEdit =() => {
                     <p className="MyPage_Edit_Data_Main_Title">닉네임</p>
                     <div className="MyPage_Edit_Data_Main_Main">
                         <span className="MyPage_Edit_Data_Main_Main_Content">
-                            <p>test</p>
+                            <p>{nick}</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
                             <button onClick={goToMypageEditNick}>변경</button>
@@ -47,7 +94,7 @@ const MyPageEdit =() => {
                 <p className="MyPage_Edit_Data_Main_Title">이메일</p>
                     <div className="MyPage_Edit_Data_Main_Main">
                         <span className="MyPage_Edit_Data_Main_Main_Content">
-                            <p>test@gmail.com</p>
+                            <p>{email}</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
                             <button onClick={goToMypageEditEmail}>변경</button>
@@ -69,7 +116,7 @@ const MyPageEdit =() => {
                 <p className="MyPage_Edit_Data_Main_Title">지역</p>
                     <div className="MyPage_Edit_Data_Main_Main">
                         <span className="MyPage_Edit_Data_Main_Main_Content">
-                            <p>규슈</p>
+                            <p>{whatAdress()}</p>
                         </span>
                         <span className="MyPage_Edit_Data_Main_Main_Btn">
                             <button onClick={goToMypageEditArea}>변경</button>
