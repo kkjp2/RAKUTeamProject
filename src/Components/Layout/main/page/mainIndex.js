@@ -19,7 +19,6 @@ const Index = () => {
     return<>
     <Layout>
     <Routes>
-    
             <Route path='/main' element={<MainPage/>}/>
             <Route path='/myPage' element={<MyPage/>}/>
             <Route path='/myPage/favorites' element={<Favorites/>}/>

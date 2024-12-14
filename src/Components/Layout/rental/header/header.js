@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <h1 className="main_header"><a href='/'>RAKU</a></h1>           
+      <h1 className="main_header"><a href='/rental'>RAKU</a></h1>           
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
       </div>

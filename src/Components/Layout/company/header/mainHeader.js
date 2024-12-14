@@ -4,13 +4,13 @@ import { Link,useNavigate } from 'react-router-dom';
 const MainHeader = () => {
     const navigate = useNavigate();
     const goToMyPage = () => {
-        navigate('/MyPage');
+        navigate('/mypage');
       };
       const goToMainPage = () => {
         navigate('/');
       };
     const goToFavorites = () => {
-        navigate(`/MyPage/Favorites`);
+        navigate(`/mypage/Favorites`);
     }
     return <>
     <header className="mainHeader">
@@ -30,7 +30,7 @@ const MainHeader = () => {
             <div className="mainMy_Menu">
             <div className="mainRecent_Menu">
             <p>최근 본 물건</p>
-            <Link to="/MyPage/RecentlyViewed">
+            <Link to="/mypage/RecentlyViewed">
             <div className="mainRecent_Img"></div>
             </Link>
             </div>
