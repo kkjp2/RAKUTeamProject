@@ -35,12 +35,11 @@ const Login = () => {
               console.log(response.data); // 응답 데이터 확인
               window.localStorage.setItem('accesstoken', response.data.accessToken);
               window.localStorage.setItem('refreshToken', response.data.refreshToken);
-              window.alert("환영합니다");
-              window.alert(window.localStorage.getItem('accesstoken'));
               document.location.href = "/main";
             } catch (error) {
               // 실패 시
               console.error(error);
+              window.alert("로그인 정보가 틀립니다.");
             }
           };     
 
