@@ -11,10 +11,10 @@ const MainHeader = () => {
         navigate('/mypage');
       };
     const goToFavorites = () => {
-        navigate(`/mypage/favorites`);
+        navigate(`/myPage/favorites`);
     }
     const goToRecentlyViewed = () => {
-        navigate(`/mypage/recentlyViewed`);
+        navigate(`/myPage/recentlyViewed`);
     }
       const goToMainPage = () => {
         navigate('/main');
@@ -47,7 +47,7 @@ const MainHeader = () => {
         <p>마이메뉴</p>
         <IoMenu className="mainMypage_Img"/>
         </div>
-        </>
+        </> 
         }else if(admin ===  1){
             return<>
             <div className="mainMypage_Admin" onClick={goToMyPage}>

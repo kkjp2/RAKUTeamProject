@@ -26,6 +26,9 @@ const MainPage =() => {
         };
     }, []);
     
+    
+
+
     return<>
     <div className="Mainpage_Realty">
     <div className="Mainpage_filiter">
