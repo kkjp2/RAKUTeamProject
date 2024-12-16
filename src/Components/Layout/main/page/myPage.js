@@ -23,11 +23,12 @@ const MyPage = () => {
     }
 
     const logout =() => {
-        window.localStorage.removeItem('accesstoken');
+        window.sessionStorage.removeItem('accesstoken');
+        window.sessionStorage.removeItem('refreshtoken');
         navigate(`/main`);
     }
     async function userId() {
-        const accessToken = window.localStorage.getItem('accesstoken');
+        const accessToken = window.sessionStorage.getItem('accesstoken');
         try {
             const response = await axios.get('http://localhost:8080/api/mypage', { 
               headers : {

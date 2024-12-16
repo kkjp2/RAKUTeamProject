@@ -29,6 +29,7 @@ const RegisterEmail = () => {
             } catch (error) {
               // 실패 시
               console.error(error);
+              window.alert("이메일이 중복됩니다.")
             }
           };
           const goToAuth = () => {
