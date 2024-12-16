@@ -25,7 +25,7 @@ const Index = () => {
             <Route path='/myPage/edit' element={<MyPageEdit/>}/>
             <Route path='/myPage/edit/nickname' element={<MyPageNickEdit/>}/>
             <Route path='/myPage/edit/email' element={<MyPageEmailEdit/>}/>
-            <Route path='/myPage/edit/email/Auth' element={<MyPageEmailEditAuth/>}/>
+            <Route path='/myPage/edit/email/auth' element={<MyPageEmailEditAuth/>}/>
             <Route path='/myPage/edit/password' element={<MyPagePasswordEdit/>}/>
             <Route path='/myPage/edit/area' element={<MyPageAreaEdit/>}/>
             <Route path='/myPage/delete' element={<MyPageDelete/>}/>

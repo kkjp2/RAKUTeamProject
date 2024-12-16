@@ -8,7 +8,6 @@ import { useState, useEffect, useRef } from 'react';
 const RegisterAuth =() => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [code, setCode] = useState("");
     const [authNum, setAuthNum] = useState("");
     const { id, pwd } = location.state || {};
     const goTOArea = () => {
@@ -26,7 +25,6 @@ const RegisterAuth =() => {
             });
             // 성공 시
             console.log(response.data); // 응답 데이터 확인
-            setCode(response.data.code);
           } catch (error) {
             // 실패 시
             console.error(error);

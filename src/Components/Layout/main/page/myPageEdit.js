@@ -30,7 +30,7 @@ const MyPageEdit =() => {
         navigate(`/mypage/delete`);
     }
     async function userIo() {
-        const accessToken = window.localStorage.getItem('accesstoken');
+        const accessToken = window.sessionStorage.getItem('accesstoken');
         try {
             const response = await axios.get('http://localhost:8080/api/mypage', { 
               headers : {
@@ -47,6 +47,7 @@ const MyPageEdit =() => {
             console.error(error);
           }
     }
+
 
     const whatAdress = () => {
         if(address === 1){

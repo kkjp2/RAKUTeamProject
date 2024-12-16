@@ -33,8 +33,8 @@ const Login = () => {
               });
               // 성공 시
               console.log(response.data); // 응답 데이터 확인
-              window.localStorage.setItem('accesstoken', response.data.accessToken);
-              window.localStorage.setItem('refreshToken', response.data.refreshToken);
+              window.sessionStorage.setItem('accesstoken', response.data.accessToken);
+              window.sessionStorage.setItem('refreshToken', response.data.refreshToken);
               document.location.href = "/main";
             } catch (error) {
               // 실패 시

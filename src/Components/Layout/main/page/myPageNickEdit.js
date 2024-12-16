@@ -19,7 +19,7 @@ const MyPageNickEdit =() => {
           };
 
     async function EditNick(nick) {
-        const accessToken = window.localStorage.getItem('accesstoken');
+        const accessToken = window.sessionStorage.getItem('accesstoken');
         console.log(nick);
         console.log(accessToken);
             try {

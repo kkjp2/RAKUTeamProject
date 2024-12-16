@@ -1,17 +1,34 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './css/myPageDelete.css'
+import axios from 'axios';
 
 const MyPageDelete = () => {
     const navigate = useNavigate();
-    const deleteUser = () => {
-
-    }
     const goToMain =() => {
         navigate(`/main`)
     }
     const goToMypageEdit =() => {
         navigate(`/mypage/edit`)
     }
+    async function DeleteUser() {
+        const accessToken = window.sessionStorage.getItem('accesstoken');
+        try {
+          const response = await axios.delete('http://localhost:8080/api/mypage/deleteuser', 
+            {
+                headers : {
+                    Authorization: `Bearer ${accessToken}`
+                  }
+          });
+          // 성공 시
+          console.log(response.data); // 응답 데이터 확인
+          window.alert("계정이 삭제되었습니다.");
+          goToMain();
+        } catch (error) {
+          // 실패 시
+          console.error(error);
+        }
+      };
+
     return<>
     <div className="DeleteEdit">
     <div className="DeleteEdit_Title">계정 삭제</div>
@@ -30,7 +47,7 @@ const MyPageDelete = () => {
     </div>
 
     <div className="DeleteEdit_Btn">
-        <button className="DeleteEdit_Btn_submit" onClick={deleteUser}>계정 삭제하기</button>
+        <button className="DeleteEdit_Btn_submit" type="button" onClick={DeleteUser}>계정 삭제하기</button>
         <button className="DeleteEdit_Btn_cancel" onClick={goToMypageEdit}>뒤로</button>
         <div className="DeleteEdit_Btn_Content">
         변경한 뒤로 전 지역의 게시판은 생성 및 수정이 불가합니다.

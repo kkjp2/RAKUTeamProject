@@ -22,10 +22,9 @@ const MainHeader = () => {
     const goToLogin = () => {
         navigate('/login');
     }
-    const Login = window.localStorage.getItem('accesstoken');
+    const Login = window.sessionStorage.getItem('accesstoken');
     const isLogin = () => {
         if(Login == null){
-            console.log("에러");
             return testid(2);
         } else{
             console.log("완료");
