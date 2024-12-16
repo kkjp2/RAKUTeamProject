@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles/FooterPopup.css';
+import '../../main/styles/FooterPopup.css'; // 올바른 경로로 수정
 
 function Footer_Popup() {
   const [recentProperty, setRecentProperty] = useState(null);
@@ -18,7 +18,7 @@ function Footer_Popup() {
   // 해당 건축물 확인 버튼 클릭 시 MainContent 페이지로 이동
   const handleViewProperty = () => {
     if (recentProperty && recentProperty.buildNum) {
-      navigate(`/main-content/${recentProperty.buildNum}`); // buildNum을 경로로 사용
+      navigate(`/realty/main/map/main-content/${recentProperty.buildNum}`); // buildNum을 경로로 사용
     }
   };
 
@@ -35,7 +35,7 @@ function Footer_Popup() {
             <p>이전 건축물 간략정보</p>
             {recentProperty ? (
               <>
-                <p>이름: {recentProperty.name || '정보 없음'}</p> 
+                <p>이름: {recentProperty.name || '정보 없음'}</p>
                 {recentProperty.image && (
                   <img src={recentProperty.image} alt="최근 매물 사진" className="recent-image" />
                 )}

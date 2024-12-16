@@ -6,7 +6,7 @@ const SearchPageResult = () => {
   const searchResults = JSON.parse(localStorage.getItem('searchResults')) || [];
 
   const handleNavigateToDetail = (buildNum) => {
-    navigate(`/main-content/${buildNum}`); // 상세 페이지로 이동
+    navigate(`realty/main/main-content/${buildNum}`); // 상세 페이지로 이동
   };
 
   return (
