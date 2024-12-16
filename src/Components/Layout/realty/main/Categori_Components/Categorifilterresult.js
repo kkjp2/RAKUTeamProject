@@ -1,28 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { loadHouseDetails } from '../../Building details_components/components/Build_Data'; // 수정된 경로
-import './Categorifilterresult.css';
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { loadHouseDetails } from "../../Building details_components/components/Build_Data";
+import "./Categorifilterresult.css";
 
 const Categorifilterresult = () => {
   const location = useLocation();
   const { filters } = location.state || {};
 
   const [allHouses, setAllHouses] = useState([]);
-  const [sortOption, setSortOption] = useState('기본');
-  const [sortOrder, setSortOrder] = useState('상위순');
+  const [sortOption, setSortOption] = useState("기본");
+  const [sortOrder, setSortOrder] = useState("상위순");
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTag, setSearchTag] = useState('');
+  const [searchTag, setSearchTag] = useState("");
   const itemsPerPage = 4;
 
   useEffect(() => {
-    const houses = loadHouseDetails();
-    setAllHouses(houses);
+    const fetchHouses = async () => {
+      const houses = await loadHouseDetails(); // API 호출
+      setAllHouses(houses);
+    };
+    fetchHouses();
   }, []);
 
   // 필터링 로직
   const filteredHouses = allHouses.filter((house) => {
-    const matchesPrice = house.rent.replace('万', '') >= filters.price[0];
-    const matchesSize = parseInt(house.size.replace('㎡', ''), 10) >= filters.size[0];
+    const matchesPrice = house.rent.replace("万", "") >= filters.price[0];
+    const matchesSize = parseInt(house.size.replace("㎡", ""), 10) >= filters.size[0];
     const matchesType = filters.type ? house.type.includes(filters.type) : false;
     const matchesRegion = filters.region ? house.address.includes(filters.region) : false;
     const matchesFloor = filters.floor ? house.floors.includes(filters.floor) : false;
@@ -35,36 +38,36 @@ const Categorifilterresult = () => {
 
   // 정렬 로직
   const sortedHouses = filteredHouses.sort((a, b) => {
-    const rentA = parseFloat(a.rent.replace('万', ''));
-    const rentB = parseFloat(b.rent.replace('万', ''));
-    const sizeA = parseInt(a.size.replace('㎡', ''), 10);
-    const sizeB = parseInt(b.size.replace('㎡', ''), 10);
+    const rentA = parseFloat(a.rent.replace("万", ""));
+    const rentB = parseFloat(b.rent.replace("万", ""));
+    const sizeA = parseInt(a.size.replace("㎡", ""), 10);
+    const sizeB = parseInt(b.size.replace("㎡", ""), 10);
     const viewsA = a.views;
     const viewsB = b.views;
-    const floorA = parseInt(a.floors.replace(/[^0-9]/g, ''), 10);
-    const floorB = parseInt(b.floors.replace(/[^0-9]/g, ''), 10);
+    const floorA = parseInt(a.floors.replace(/[^0-9]/g, ""), 10);
+    const floorB = parseInt(b.floors.replace(/[^0-9]/g, ""), 10);
 
     let comparison = 0;
     switch (sortOption) {
-      case '가격':
+      case "가격":
         comparison = rentA - rentB;
         break;
-      case '넓이':
+      case "넓이":
         comparison = sizeB - sizeA;
         break;
-      case '지역':
+      case "지역":
         comparison = a.address.localeCompare(b.address);
         break;
-      case '조회수':
+      case "조회수":
         comparison = viewsB - viewsA;
         break;
-      case '층수':
+      case "층수":
         comparison = floorB - floorA;
         break;
-      case '건축물 유형':
+      case "건축물 유형":
         comparison = a.type.localeCompare(b.type);
         break;
-      case '기본':
+      case "기본":
       default:
         if (rentA !== rentB) comparison = rentA - rentB;
         else if (sizeA !== sizeB) comparison = sizeB - sizeA;
@@ -75,7 +78,7 @@ const Categorifilterresult = () => {
         break;
     }
 
-    return sortOrder === '상위순' ? comparison : -comparison;
+    return sortOrder === "상위순" ? comparison : -comparison;
   });
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -94,11 +97,7 @@ const Categorifilterresult = () => {
 
       <div className="sort-options">
         <label htmlFor="sort">정렬 기준:</label>
-        <select
-          id="sort"
-          value={sortOption}
-          onChange={(e) => setSortOption(e.target.value)}
-        >
+        <select id="sort" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
           <option value="기본">기본</option>
           <option value="가격">가격</option>
           <option value="넓이">넓이</option>
@@ -110,14 +109,14 @@ const Categorifilterresult = () => {
 
         <div className="sort-order">
           <button
-            className={`order-button ${sortOrder === '상위순' ? 'active' : ''}`}
-            onClick={() => setSortOrder('상위순')}
+            className={`order-button ${sortOrder === "상위순" ? "active" : ""}`}
+            onClick={() => setSortOrder("상위순")}
           >
             상위순
           </button>
           <button
-            className={`order-button ${sortOrder === '하위순' ? 'active' : ''}`}
-            onClick={() => setSortOrder('하위순')}
+            className={`order-button ${sortOrder === "하위순" ? "active" : ""}`}
+            onClick={() => setSortOrder("하위순")}
           >
             하위순
           </button>
@@ -140,10 +139,7 @@ const Categorifilterresult = () => {
           <div key={index} className="house-item">
             <div className="house-info">
               <div className="house-image">
-                <img
-                  src={house.image}
-                  alt="건축물 사진"
-                />
+                <img src={house.image} alt="건축물 사진" />
               </div>
               <div className="house-details">
                 <table>
@@ -196,7 +192,7 @@ const Categorifilterresult = () => {
           {[...Array(totalPages)].map((_, pageIndex) => (
             <button
               key={pageIndex}
-              className={`page-button ${currentPage === pageIndex + 1 ? 'active' : ''}`}
+              className={`page-button ${currentPage === pageIndex + 1 ? "active" : ""}`}
               onClick={() => handlePageChange(pageIndex + 1)}
             >
               {pageIndex + 1}

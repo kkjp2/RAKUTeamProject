@@ -1,28 +1,34 @@
-import axios from 'axios';
+const API_BASE_URL = "http://localhost:8080/api/houses";
 
-// API URL 설정
-const API_URL = "http://localhost:8080/api/houses";
-
-export const fetchHouses = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
-};
-
-export const searchHouses = async (keyword) => {
-  const response = await axios.get(`${API_URL}/search?keyword=${keyword}`);
-  return response.data;
+export const getHouses = async () => {
+  const response = await fetch(API_BASE_URL);
+  return response.json();
 };
 
 export const createHouse = async (house) => {
-  const response = await axios.post(API_URL, house);
-  return response.data;
+  const response = await fetch(API_BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(house),
+  });
+  return response.json();
 };
 
 export const updateHouse = async (id, house) => {
-  const response = await axios.put(`${API_URL}/${id}`, house);
-  return response.data;
+  const response = await fetch(`${API_BASE_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(house),
+  });
+  return response.json();
 };
 
 export const deleteHouse = async (id) => {
-  await axios.delete(`${API_URL}/${id}`);
+  await fetch(`${API_BASE_URL}/${id}`, {
+    method: "DELETE",
+  });
 };
