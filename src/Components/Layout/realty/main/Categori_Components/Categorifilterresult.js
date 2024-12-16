@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { loadHouseDetails } from '../Building details_components/components/Build_Data';
+import { loadHouseDetails } from '../../Building details_components/components/Build_Data'; // 수정된 경로
 import './Categorifilterresult.css';
-
-// 이미지 import
-import image1 from '../Building details_components/components/images/image1.jpg';
-import image2 from '../Building details_components/components/images/image2.jpg';
-import image3 from '../Building details_components/components/images/image3.jpg';
 
 const Categorifilterresult = () => {
   const location = useLocation();
@@ -145,15 +140,8 @@ const Categorifilterresult = () => {
           <div key={index} className="house-item">
             <div className="house-info">
               <div className="house-image">
-                {/* 동적으로 이미지 불러오기 */}
                 <img
-                  src={
-                    index === 0
-                      ? image1
-                      : index === 1
-                      ? image2
-                      : image3
-                  }
+                  src={house.image}
                   alt="건축물 사진"
                 />
               </div>

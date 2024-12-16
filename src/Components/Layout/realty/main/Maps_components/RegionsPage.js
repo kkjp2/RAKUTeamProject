@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 // 일본의 지방 리스트
 const regions = {
   hokkaido: '홋카이도',
@@ -19,8 +18,8 @@ const RegionsPage = () => {
   const navigate = useNavigate();
 
   const handleRegionClick = (regionId) => {
-    // 지방 선택 시 해당 지방의 지역 리스트 페이지로 이동
-    navigate(`/regions/${regionId}`);
+    // 절대경로로 이동하도록 수정
+    navigate(`/realty/main/regions/${regionId}`);
   };
 
   return (

@@ -76,7 +76,7 @@ const RegionDetailPage = () => {
 
   // 지역 클릭 시 지도 페이지로 이동
   const handleRegionClick = (region) => {
-    navigate(`/map?region=${region.id}&lat=${region.lat}&lng=${region.lng}`);
+    navigate(`/realty/main/map?region=${region.id}&lat=${region.lat}&lng=${region.lng}`);
   };
 
   return (

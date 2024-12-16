@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './styles/ImageCarousel.css';
-import './styles/MainContent.css';
+import '../../main/styles/ImageCarousel.css';
+import '../../main/styles/MainContent.css';
+import PriceCalculation from './PriceCalculation'; // PriceCalculation 컴포넌트 임포트
 import image1 from './images/image1.jpg'; 
 import image2 from './images/image2.jpg';
 import image3 from './images/image3.jpg'; 
@@ -33,6 +34,10 @@ function MainContent() {
   const [details, setDetails] = useState(null);
   const navigate = useNavigate();
 
+  // 월세와 관리비 상태 추가
+  const [rent, setRent] = useState(0);
+  const [additionalCost, setAdditionalCost] = useState(0);
+
   useEffect(() => {
     const fetchPropertyDetails = () => {
       const storedDetailsList = JSON.parse(localStorage.getItem('houseDetailsList'));
@@ -40,10 +45,13 @@ function MainContent() {
         const propertyDetails = storedDetailsList.find(item => String(item.buildNum) === String(buildNum));
         setDetails(propertyDetails || null);
         
-        // 최근 본 매물 정보 업데이트
+        // 월세와 관리비 값을 받아오기
         if (propertyDetails) {
+          setRent(propertyDetails.rent || 0);
+          setAdditionalCost(propertyDetails.additionalCost || 3000); // 기본 관리비는 3000으로 설정
+          
+          // 최근 본 매물 정보 업데이트
           const propertyData = {
-
             name: propertyDetails.name,
             image: propertyDetails.image,
             rent: propertyDetails.rent,
@@ -118,6 +126,8 @@ function MainContent() {
           <button id="detailinfo" onClick={openPopup}>상세보기</button>
         </div>
       </div>
+      {/* PriceCalculation 컴포넌트를 여기서 호출 */}
+      <PriceCalculation rent={rent} additionalCost={additionalCost} />
     </div>
   );
 }

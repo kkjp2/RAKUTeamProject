@@ -1,8 +1,7 @@
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
-import './styles/Header.css';
-import Search from '../../Search_components/Search'; // 경로를 실제 위치에 맞게 수정
-
+import '../../main/styles/Build_Header.css';
+import Search from '../../main/Search_components/Search'; // 경로를 실제 위치에 맞게 수정
 
 function Header() {
   const navigate = useNavigate();
@@ -10,7 +9,7 @@ function Header() {
 
   // 메인 페이지로 이동
   const navigateToMain = () => {
-    navigate('/'); // '/'로 이동하여 메인 페이지로 리다이렉트
+    navigate('/realty/main'); // '/'로 이동하여 메인 페이지로 리다이렉트
   };
 
   // 검색 버튼 클릭 시 호출되는 함수
@@ -20,7 +19,7 @@ function Header() {
 
       if (filteredResults.length > 0) {
         localStorage.setItem('searchResults', JSON.stringify(filteredResults)); // 검색 결과 저장
-        navigate('/search-results'); // 검색 결과 페이지로 이동
+        navigate('/realty/main/search/results'); // 검색 결과 페이지로 이동
       } else {
         alert('검색 결과가 없습니다.'); // 검색 결과가 없는 경우 알림
       }
