@@ -34,7 +34,7 @@ const Login = () => {
               // 성공 시
               console.log(response.data); // 응답 데이터 확인
               window.sessionStorage.setItem('accesstoken', response.data.accessToken);
-              window.sessionStorage.setItem('refreshToken', response.data.refreshToken);
+              window.sessionStorage.setItem('refreshtoken', response.data.refreshToken);
               document.location.href = "/main";
             } catch (error) {
               // 실패 시
