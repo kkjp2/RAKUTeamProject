@@ -26,6 +26,7 @@ const MyPage = () => {
         window.sessionStorage.removeItem('accesstoken');
         window.sessionStorage.removeItem('refreshtoken');
         navigate(`/main`);
+        window.location.reload();
     }
     async function userId() {
         const accessToken = window.sessionStorage.getItem('accesstoken');

@@ -58,7 +58,7 @@ const MainHeader = () => {
     }, [Login]); // Login 변경 시 실행
 
     const testid = () =>{
-        if(role === "USER"){
+        if(role === "USER" || role === "MANAGER"){
         return<>
         <div className="mainRecent_Menu" onClick={goToRecentlyViewed}>
         <p>최근 본 물건</p>
