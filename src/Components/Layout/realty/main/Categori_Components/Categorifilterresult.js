@@ -1,205 +1,88 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { loadHouseDetails } from "../../Building details_components/components/Build_Data";
-import "./Categorifilterresult.css";
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { loadHouseDetails } from '../../Building details_components/components/Build_Data';
+import './Categorifilterresult.css';
 
 const Categorifilterresult = () => {
   const location = useLocation();
-  const { filters } = location.state || {};
-
+  const { filters, sortOption } = location.state || {};
   const [allHouses, setAllHouses] = useState([]);
-  const [sortOption, setSortOption] = useState("기본");
-  const [sortOrder, setSortOrder] = useState("상위순");
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTag, setSearchTag] = useState("");
   const itemsPerPage = 4;
 
   useEffect(() => {
     const fetchHouses = async () => {
-      const houses = await loadHouseDetails(); // API 호출
+      const houses = await loadHouseDetails();
+      console.log('전체 매물 데이터:', houses);
       setAllHouses(houses);
     };
     fetchHouses();
+
+    console.log('적용된 필터:', filters);
   }, []);
 
-  // 필터링 로직
   const filteredHouses = allHouses.filter((house) => {
-    const matchesPrice = house.rent.replace("万", "") >= filters.price[0];
-    const matchesSize = parseInt(house.size.replace("㎡", ""), 10) >= filters.size[0];
-    const matchesType = filters.type ? house.type.includes(filters.type) : false;
-    const matchesRegion = filters.region ? house.address.includes(filters.region) : false;
-    const matchesFloor = filters.floor ? house.floors.includes(filters.floor) : false;
-    const matchesTag = searchTag
-      ? house.name.includes(searchTag) || house.address.includes(searchTag) || house.type.includes(searchTag)
+    const matchesRegion = filters?.region
+      ? house.address.includes(filters.region) ||
+        house.fullAddress.includes(filters.region) ||
+        house.prefecture.includes(filters.region)
       : true;
 
-    return matchesPrice || matchesSize || matchesType || matchesRegion || matchesFloor || matchesTag;
+    const rentValue = house.rentPrice ? parseFloat(house.rentPrice.replace(" 엔", "").replace(",", "")) : null;
+    const matchesPrice = filters?.price && filters.price[0] !== 1000 && filters.price[1] !== 1000
+      ? rentValue >= filters.price[0] && rentValue <= filters.price[1]
+      : true;
+
+    const sizeValue = house.buildingSize ? parseFloat(house.buildingSize.replace("㎥", "")) : null;
+    const matchesSize = filters?.size && filters.size[0] !== 1000 && filters.size[1] !== 1000
+      ? sizeValue >= filters.size[0] && sizeValue <= filters.size[1]
+      : true;
+
+    const matchesRoom = filters?.selectedRoom
+      ? house.roomType?.includes(filters.selectedRoom)
+      : true;
+
+    return matchesRegion && matchesPrice && matchesSize && matchesRoom;
   });
 
-  // 정렬 로직
   const sortedHouses = filteredHouses.sort((a, b) => {
-    const rentA = parseFloat(a.rent.replace("万", ""));
-    const rentB = parseFloat(b.rent.replace("万", ""));
-    const sizeA = parseInt(a.size.replace("㎡", ""), 10);
-    const sizeB = parseInt(b.size.replace("㎡", ""), 10);
-    const viewsA = a.views;
-    const viewsB = b.views;
-    const floorA = parseInt(a.floors.replace(/[^0-9]/g, ""), 10);
-    const floorB = parseInt(b.floors.replace(/[^0-9]/g, ""), 10);
-
-    let comparison = 0;
-    switch (sortOption) {
-      case "가격":
-        comparison = rentA - rentB;
-        break;
-      case "넓이":
-        comparison = sizeB - sizeA;
-        break;
-      case "지역":
-        comparison = a.address.localeCompare(b.address);
-        break;
-      case "조회수":
-        comparison = viewsB - viewsA;
-        break;
-      case "층수":
-        comparison = floorB - floorA;
-        break;
-      case "건축물 유형":
-        comparison = a.type.localeCompare(b.type);
-        break;
-      case "기본":
-      default:
-        if (rentA !== rentB) comparison = rentA - rentB;
-        else if (sizeA !== sizeB) comparison = sizeB - sizeA;
-        else if (a.address !== b.address) comparison = a.address.localeCompare(b.address);
-        else if (viewsA !== viewsB) comparison = viewsB - viewsA;
-        else if (floorA !== floorB) comparison = floorB - floorA;
-        else comparison = a.type.localeCompare(b.type);
-        break;
+    if (filters?.region && !filters.price && !filters.size && !filters.selectedRoom) {
+      return a.name.localeCompare(b.name);
     }
-
-    return sortOrder === "상위순" ? comparison : -comparison;
+    return 0;
   });
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentHouses = sortedHouses.slice(indexOfFirstItem, indexOfLastItem);
-
   const totalPages = Math.ceil(sortedHouses.length / itemsPerPage);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   return (
     <div className="search-results">
       <h2>검색 결과</h2>
-
-      <div className="sort-options">
-        <label htmlFor="sort">정렬 기준:</label>
-        <select id="sort" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
-          <option value="기본">기본</option>
-          <option value="가격">가격</option>
-          <option value="넓이">넓이</option>
-          <option value="지역">지역</option>
-          <option value="조회수">조회수</option>
-          <option value="층수">층수</option>
-          <option value="건축물 유형">건축물 유형</option>
-        </select>
-
-        <div className="sort-order">
-          <button
-            className={`order-button ${sortOrder === "상위순" ? "active" : ""}`}
-            onClick={() => setSortOrder("상위순")}
-          >
-            상위순
-          </button>
-          <button
-            className={`order-button ${sortOrder === "하위순" ? "active" : ""}`}
-            onClick={() => setSortOrder("하위순")}
-          >
-            하위순
-          </button>
-        </div>
-      </div>
-
-      <div className="tag-search">
-        <label htmlFor="tag-search">태그 검색:</label>
-        <input
-          type="text"
-          id="tag-search"
-          value={searchTag}
-          onChange={(e) => setSearchTag(e.target.value)}
-          placeholder="태그 검색"
-        />
-      </div>
-
-      {currentHouses.length > 0 ? (
+      {filteredHouses.length === 0 ? (
+        <p>조건에 맞는 매물이 없습니다.</p>
+      ) : (
         currentHouses.map((house, index) => (
           <div key={index} className="house-item">
-            <div className="house-info">
-              <div className="house-image">
-                <img src={house.image} alt="건축물 사진" />
-              </div>
-              <div className="house-details">
-                <table>
-                  <tbody>
-                    <tr>
-                      <th>매물 명</th>
-                      <td>{house.name}</td>
-                    </tr>
-                    <tr>
-                      <th>주소</th>
-                      <td>{house.address}</td>
-                    </tr>
-                    <tr>
-                      <th>구조</th>
-                      <td>{house.type}</td>
-                    </tr>
-                    <tr>
-                      <th>가격</th>
-                      <td>{house.rent}</td>
-                    </tr>
-                    <tr>
-                      <th>크기</th>
-                      <td>{house.size}</td>
-                    </tr>
-                    <tr>
-                      <th>층수</th>
-                      <td>{house.floors}</td>
-                    </tr>
-                    <tr>
-                      <th>조회수</th>
-                      <td>{house.views}</td>
-                    </tr>
-                    <tr>
-                      <th>추천수</th>
-                      <td>{house.recommendations}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <button className="details-button">상세보기</button>
-              </div>
-            </div>
+            <h3>{house.name}</h3>
+            <p>주소: {house.address}</p>
+            <p>가격: {house.rentPrice}</p>
+            <p>크기: {house.buildingSize}</p>
           </div>
         ))
-      ) : (
-        <p>결과가 없습니다.</p>
       )}
-
-      {sortedHouses.length > itemsPerPage && (
-        <div className="pagination">
-          {[...Array(totalPages)].map((_, pageIndex) => (
-            <button
-              key={pageIndex}
-              className={`page-button ${currentPage === pageIndex + 1 ? "active" : ""}`}
-              onClick={() => handlePageChange(pageIndex + 1)}
-            >
-              {pageIndex + 1}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={currentPage === i + 1 ? 'active' : ''}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
