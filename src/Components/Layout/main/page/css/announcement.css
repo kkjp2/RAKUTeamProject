@@ -16,8 +16,17 @@
 .Ann_Header_1{
     margin: 0;
     position: absolute;
+    text-align: center;
     left: 35%;
     top: 50%;
     font-size: 30px;
 
+}
+
+.Ann_Header_2{
+    margin: 0;
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    font-size: 20px;
 }

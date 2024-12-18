@@ -3,7 +3,7 @@ import Login from './Components/Layout/login/main/index.js';
 import Main from './Components/Layout/main/page/mainIndex.js';
 import Move from './Components/Layout/move/move_routes/MoveRouter.js'
 import Notice from './Components/Layout/notice/main/index.js'
-import Realty from './Components/Layout/realty/App.js'
+import Realty from './Components/Layout/realty/main/RealtyRouter.js'
 import Rental from './Components/Layout/rental/main/index.js'
 import Company from './Components/Layout/company/page/index.js'
 import { useLocation, BrowserRouter as Router } from 'react-router-dom';

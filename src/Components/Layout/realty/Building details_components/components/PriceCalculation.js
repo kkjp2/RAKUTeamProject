@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import './styles/PriceCalculation.css';
+import '../../main/styles/PriceCalculation.css';
 
 function PriceCalculation() {
-  const [rent, setRent] = useState(49000); // 기본 월세
-  const [additionalCost, setAdditionalCost] = useState(3000); // 기본 관리비 3000엔
+  const [rent, setRent] = useState(0); // 기본 월세
+  const [additionalCost, setAdditionalCost] = useState(0); // 기본 관리비 3000엔
   const [finalCost, setFinalCost] = useState(rent + additionalCost);
 
-  // 관리비 값이 변경되면 최종 비용을 업데이트
+  // 월세 또는 관리비 값이 변경될 때마다 최종 비용을 계산
   useEffect(() => {
-    setFinalCost(rent + (additionalCost || 3000)); // 관리비가 없으면 3000엔 기본값
+    setFinalCost(Number(rent) + Number(additionalCost)); // 덧셈 방식으로 계산
   }, [additionalCost, rent]);
+
+  // 관리비 입력값 처리
+  const handleAdditionalCostChange = (e) => {
+    setAdditionalCost(e.target.value);
+  };
+
+  // 월세 입력값 처리
+  const handleRentChange = (e) => {
+    setRent(e.target.value);
+  };
 
   // 새 창을 열어 계산기를 표시하는 함수
   const handleCalculate = () => {
@@ -56,8 +66,31 @@ function PriceCalculation() {
 
   return (
     <div className="price-calculation">
+      <div>
+        <label>월세: </label>
+        <input 
+          type="number" 
+          value={rent} 
+          onChange={handleRentChange} 
+        />
+      </div>
       
-      <button onClick={handleCalculate} className='price-calculation-button'>계산하기</button>
+      <div>
+        <label>관리비: </label>
+        <input 
+          type="number" 
+          value={additionalCost} 
+          onChange={handleAdditionalCostChange}
+        />
+      </div>
+
+      <div>
+        <p>최종 비용: {finalCost} 엔</p>
+      </div>
+
+      <button onClick={handleCalculate} className='price-calculation-button'>
+        계산하기
+      </button>
     </div>
   );
 }

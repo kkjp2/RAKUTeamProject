@@ -25,11 +25,11 @@ const RegisterEmail = () => {
               });
               // 성공 시
               console.log(response.data); // 응답 데이터 확인
-              window.alert("닉네임확인 완료"+response.data);
               goToAuth();
             } catch (error) {
               // 실패 시
               console.error(error);
+              window.alert("이메일이 중복됩니다.")
             }
           };
           const goToAuth = () => {
