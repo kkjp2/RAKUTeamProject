@@ -20,23 +20,20 @@ const Login = () => {
         //입력 값 정합성 체크 후 login API 요청
             if (id === "" || pwd === "") {
               window.alert("아이디와 비밀번호를 입력해주세요.");
-            }else if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(id)){
-              handleLogin(id, pwd);
             }else{
-              window.alert("이메일 형식이 아닙니다.");
+              handleLogin(id, pwd);
             }
           };
 
     async function handleLogin(id, pwd) {
             try {
-              const response = await axios.post('http://localhost:8080/api/users', {
+              const response = await axios.post('http://localhost:8080/api/users/companyusers', {
                 id: id,
                 pwd: pwd,
               });
               // 성공 시
               console.log(response.data); // 응답 데이터 확인
-              window.sessionStorage.setItem('accesstoken', response.data.accessToken);
-              window.sessionStorage.setItem('refreshtoken', response.data.refreshToken);
+              window.alert("로그인성공!");
               document.location.href = "/main";
             } catch (error) {
               // 실패 시
@@ -63,9 +60,6 @@ const Login = () => {
                 </form>
             </section>
             <div className="Register__Form">
-                <p className="Write1">신규 가입이 필요한 분</p>
-                <p className="Write2">가입시 게시판 작성과 즐겨찾기 기능을 이용할 수 있습니다.</p>
-                <button className="Register__Btn" onClick={goTORegister}>신규 등록</button>
             </div>
         </div>
     </div>

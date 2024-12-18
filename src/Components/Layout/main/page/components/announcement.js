@@ -6,7 +6,7 @@ import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { IoStar } from "react-icons/io5";   
 import { AiOutlinePicture } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
-const Announcement = ({id,name, money, address, content}) => {
+const Announcement = ({title, img, content, date}) => {
     
     return (
         <div className="Favorites_Main_Content_1">
@@ -16,18 +16,18 @@ const Announcement = ({id,name, money, address, content}) => {
             <IoStar className='Favorites_Main_Content_1_Star2' id='Favorites_Main_Content_1_Star2' onClick={BtnClick}/>
             </div>
             <div className="Favorites_Main_Content_1_Checkbox">
-                <input type="checkbox" className="Favorite_Main_Content_1_Checkbox_Chx" id={id} />
-                <label for={id}/>
+                <input type="checkbox" className="Favorite_Main_Content_1_Checkbox_Chx" id={title} />
+                <label for={title}/>
             </div>
             <div className="Favorites_Main_Content_1_Main">
                 <p className="Favorites_Main_Content_1_Main_Title_1">아파트</p>
-                <p className="Favorites_Main_Content_1_Main_Title_2">{name}</p>
+                <p className="Favorites_Main_Content_1_Main_Title_2">{img}</p>
                 {/* <img className="Favorites_Main_Content_1_Main_Img"/>
                  */}
                  {<AiOutlinePicture  className="Favorites_Main_Content_1_Main_Img"/>}
 
-                <p className="Favorites_Main_Content_1_Main_Rent">{money}만엔</p>
-                <p className="Favorites_Main_Content_1_Main_Location">{address}</p>
+                <p className="Favorites_Main_Content_1_Main_Rent">{date}만엔</p>
+                <p className="Favorites_Main_Content_1_Main_Location"></p>
             </div>
             <div className="Favorites_Main_Content_1_Text">
                 <p className="Favorites_Main_Content_1_Text_Arrangement_1">배치</p>

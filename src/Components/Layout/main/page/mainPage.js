@@ -1,7 +1,9 @@
+import { Navigate, useNavigate } from 'react-router-dom';
 import'./css/mainPage.css';
 import { useEffect } from 'react';
 
 const MainPage =() => {
+    const navigate = useNavigate();
     useEffect(() => {
         const input = document.getElementById('myInput');
         const form = document.getElementById('myForm');
@@ -25,8 +27,18 @@ const MainPage =() => {
             input.removeEventListener('blur', handleBlur);
         };
     }, []);
-    
-    
+        const goToMove = () => {
+            navigate('/MoveMain');
+        }
+        const goToNotice = () => {
+            navigate('/notice');
+        }
+        const goToRental = () => {
+            navigate('/rental');
+        }
+        const goToAnn =() => {
+            navigate('/main/announcement');
+        }
 
 
     return<>
@@ -74,7 +86,7 @@ const MainPage =() => {
         <p className="Various_Main_Title">다양한 서비스</p>
         <div className="Various_Main_Menu">
             <div className="Various_Main_Menu_Move">
-                <div className="Various_Main_Menu_Zone">
+                <div className="Various_Main_Menu_Zone"  onClick={goToMove}>
                     <div className="Various_Main_Menu_1">
                         <p className="Various_Main_Menu_1_Title">
                             이사 도우미
@@ -93,8 +105,8 @@ const MainPage =() => {
                     </div>
                 </div>
             </div>
-            <div className="Various_Main_Menu_Area">
-            <div className="Various_Main_Menu_Zone">
+            <div className="Various_Main_Menu_Area" >
+            <div className="Various_Main_Menu_Zone" onClick={goToNotice}>
                     <div className="Various_Main_Menu_1">
                     <p className="Various_Main_Menu_1_Title">
                             지역 게시판
@@ -115,7 +127,7 @@ const MainPage =() => {
 
             </div>
             <div className="Various_Main_Menu_Rental">
-            <div className="Various_Main_Menu_Zone">
+            <div className="Various_Main_Menu_Zone" onClick={goToRental}>
                     <div className="Various_Main_Menu_1">
                     <p className="Various_Main_Menu_1_Title">
                             렌탈 게시판
@@ -140,11 +152,11 @@ const MainPage =() => {
         <div className="News_Main_Message">
             <p className="News_Main_Title">RAKU'S 뉴스</p>
             <div className="News_Main_Btn_Area">
-                <button className="News_Main_Btn">더 보기</button>
+                <button className="News_Main_Btn" onClick={goToAnn}>더 보기</button>
             </div>
             
         </div>
-        <div className="News_Main_Content">
+        <div className="News_Main_Content" onClick={goToAnn}>
             <p className="News_Main_Content_Day">
                 2024-10-16
             </p>
