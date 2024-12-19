@@ -5,9 +5,24 @@ import { LuMapPin } from "react-icons/lu";
 
 
 
+
 const MainBoard = () => {
-  const [selectedBoard, setSelectedBoard] = useState('큐슈지방');
+  const [selectedBoard, setSelectedBoard] = useState('');
   const regions = ['큐슈&오키나와', '주고쿠', '시코쿠', '주부', '간사이', '간토', '도호쿠', '홋카이도'];
+  const regionCategoryMap = {
+    '큐슈&오키나와': 1,
+    '주고쿠': 2,
+    '시코쿠': 3,
+    '주부': 4,
+    '간사이': 5,
+    '간토': 6,
+    '도호쿠': 7,
+    '홋카이도': 8,
+  };
+  
+
+
+  
   
   const navigate = useNavigate();
   const recommendedPosts = [
@@ -26,8 +41,12 @@ const MainBoard = () => {
   ];
 
         
+  
   const handleBoardClick = (region) => {
-    navigate(`/notice/region/board/list/${region}`);
+    const category = regionCategoryMap[region];
+    if (category) {
+      navigate(`/notice/region/board/list/${category}`);
+    }
   };
 
   return (

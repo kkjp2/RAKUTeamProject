@@ -19,7 +19,7 @@ const homepage = () => {
     <Route path="/notice/mypage" element={<MyPage/>}/>          
     <Route path="/notice/region/board/list/:region" element={<RegionBoardList />} />         
     <Route path="/notice/festival/board/list/:region" element={<FestivalBoardList/>}/>                 
-    <Route path="/notice/writingpage" element={<WritingPage/>}/>  
+    <Route path="/notice/writingpage/:region" element={<WritingPage/>}/>  
     <Route path="/notice/view/board"element={<ViewBoard/>}/>
     <Route path="/notice/view/festival" element={<ViewFestival/>}/>    
     {/* <Route path="/notice/login" element={<LoginPage/>}/>*/}
