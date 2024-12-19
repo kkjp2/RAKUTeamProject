@@ -1,44 +1,45 @@
-.header {
+.build-header {
   background-color: #462679;
   color: white;
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; /* 상대 위치 지정 */
+  position: relative;
 }
 
-.header .logo {
+.build-logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-.header .logo img {
+.build-logo img {
   width: 40px;
   margin-right: 10px;
 }
 
-.header .logo span {
+.build-logo span {
   font-size: 22px;
   font-weight: bold;
 }
 
-/* 검색창을 제일 우측으로 배치 */
-.header .search-bar {
-  position: absolute; /* 절대 위치 지정 */
-  right: 0; /* 완전히 우측 끝으로 배치 */
-  top: 50%; /* 상단에서 중앙으로 배치 */
-  transform: translateY(-50%); /* 정확히 중앙 정렬 */
+/* 검색창 */
+.build-search-bar {
+  position: absolute;
+  right: 20px; /* 검색창을 오른쪽 끝에 배치 */
+  top: 50%; /* 중앙에 정렬 */
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
 }
 
-.header .search-bar input {
+.build-search-bar input {
   padding: 5px;
   font-size: 16px;
 }
 
-.header .search-bar button {
+.build-search-bar button {
   background-color: #462679;
   color: white;
   border: none;
@@ -46,9 +47,3 @@
   margin-left: 10px;
   cursor: pointer;
 }
-
-.header .header-stats span {
-  margin-left: 20px;
-  font-size: 14px;
-}
-

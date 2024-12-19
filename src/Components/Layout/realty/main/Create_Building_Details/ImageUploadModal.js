@@ -1,75 +1,46 @@
-import React, { useState } from 'react';
-import './ImageUploadModal.css';
-import defaultImage from './Image_InputNull_Image.PNG'; // 기본 이미지 불러오기
+import React, { useState } from "react";
+import "./ImageUploadModal.css";
+import defaultImage from './Image_InputNull_Image.PNG';
 
-const ImageUploadModal = ({ onClose }) => {
+const ImageUploadModal = ({ isOpen, onClose, onUpload }) => {
   const [images, setImages] = useState({
     inner: null,
     outer: null,
   });
 
-  const handleImageChange = (event, type) => {
-    const file = event.target.files[0];
+  const handleImageChange = (e, type) => {
+    const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImages((prevState) => ({
-          ...prevState,
-          [type]: reader.result,
-        }));
+        setImages((prevState) => ({ ...prevState, [type]: reader.result }));
       };
       reader.readAsDataURL(file);
     }
   };
 
+  const handleAttach = () => {
+    onUpload(images);
+  };
+
+  if (!isOpen) return null;
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <h2>등록시 이미지 첨부</h2>
-        <div className="image-upload-list">
-
-          {/* 내부 이미지 */}
-          <div className="image-upload-row">
-            <button className="prev-btn">◀</button>
-            <div className="image-info">
-              <text className="InnerFrame">내부</text>
-              <img 
-                src={images.inner || defaultImage} 
-                alt="내부 이미지" 
-                className="image-preview" 
-              />
-              <input 
-                type="file" 
-                accept="image/*" 
-                onChange={(e) => handleImageChange(e, 'inner')} 
-              />
-            </div>
-            <button className="next-btn">▶</button>
-          </div>
-
-          {/* 외부 이미지 */}
-          <div className="image-upload-row">
-            <button className="prev-btn">◀</button>
-            <div className="image-info">
-              <text className="OuterFrame">외부</text>
-              <img 
-                src={images.outer || defaultImage} 
-                alt="외부 이미지" 
-                className="image-preview" 
-              />
-              <input 
-                type="file" 
-                accept="image/*" 
-                onChange={(e) => handleImageChange(e, 'outer')} 
-              />
-            </div>
-            <button className="next-btn">▶</button>
-          </div>
-
+        <h3>이미지 업로드</h3>
+        <div>
+          <label>내부 이미지:</label>
+          <img src={images.inner || defaultImage} alt="내부 이미지" />
+          <input type="file" onChange={(e) => handleImageChange(e, "inner")} />
         </div>
-
-        <button className="generate-btn">첨부하기</button>
-        <button className="close-btn" onClick={onClose}>닫기</button>
+        <div>
+          <label>외부 이미지:</label>
+          <img src={images.outer || defaultImage} alt="외부 이미지" />
+          <input type="file" onChange={(e) => handleImageChange(e, "outer")} />
+        </div>
+        <button onClick={handleAttach}>저장</button>
+        <button onClick={onClose}>닫기</button>
       </div>
     </div>
   );
