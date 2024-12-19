@@ -1,4 +1,4 @@
-.price-calculation {
+.build-price-calculation {
     margin-top: 20px;
     background-color: #fff;
     padding: 20px;
@@ -6,12 +6,12 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .price-calculation input {
+  .build-price-calculation input {
     width: 100px;
     margin-left: 10px;
   }
   
-  .price-calculation-button{
+  .build-price-calculation-button{
     background-color: #462679;
     color: white;
     border: none;

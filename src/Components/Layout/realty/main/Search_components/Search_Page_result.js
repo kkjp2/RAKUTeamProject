@@ -1,32 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Search_Page_result.css';
 
-const SearchPageResult = () => {
+const Search_Page_result = () => {
   const navigate = useNavigate();
-  const searchResults = JSON.parse(localStorage.getItem('searchResults')) || [];
+  const [results, setResults] = useState([]);
 
-  const handleNavigateToDetail = (buildNum) => {
-    navigate(`realty/main/main-content/${buildNum}`); // 상세 페이지로 이동
+  useEffect(() => {
+    const searchResults = JSON.parse(localStorage.getItem('searchResults'));
+    if (searchResults) {
+      setResults(searchResults);
+    } else {
+      alert('검색 결과가 없습니다.');
+    }
+  }, []);
+
+  const handleNavigate = (buildNumber) => {
+    navigate(`/realty/main/categorifilter/main-content/${buildNumber}`, {
+      state: { buildNumber },
+    });
   };
 
   return (
-    <div>
+    <div className="build-search-results">
       <h2>검색 결과</h2>
-      {searchResults.length > 0 ? (
-        <ul>
-          {searchResults.map((property) => (
-            <li key={property.buildNum}>
-              <h3>{property.name}</h3>
-              <p>{property.address}</p>
-              <button onClick={() => handleNavigateToDetail(property.buildNum)}>상세보기</button>
-            </li>
-          ))}
-        </ul>
+      {results.length === 0 ? (
+        <p>조건에 맞는 매물이 없습니다.</p>
       ) : (
-        <p>검색 결과가 없습니다.</p>
+        results.map((house, index) => (
+          <div key={index} className="build-house-item">
+            <h3>{house.name}</h3>
+            <p>주소: {house.address}</p>
+            <p>가격: {house.rentPrice}</p>
+            <p>크기: {house.buildingSize}</p>
+            <button
+              className="build-navigate-button"
+              onClick={() => handleNavigate(house.buildNumber)}
+            >
+              이동하기
+            </button>
+          </div>
+        ))
       )}
     </div>
   );
 };
 
-export default SearchPageResult;
+export default Search_Page_result;

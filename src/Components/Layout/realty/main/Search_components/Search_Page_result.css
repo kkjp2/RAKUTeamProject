@@ -1,0 +1,18 @@
+.build-search-results {
+    padding: 20px;
+  }
+  
+  .build-house-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .build-navigate-button {
+    background-color: #462679;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  

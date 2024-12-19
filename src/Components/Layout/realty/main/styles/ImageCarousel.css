@@ -1,4 +1,4 @@
-.image-carousel {
+.build-image-carousel {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,14 +6,14 @@
   margin: 20px 0;
 }
 
-.carousel-control {
+.build-carousel-control {
   background-color: transparent;
   border: none;
   font-size: 2rem;
   cursor: pointer;
 }
 
-.carousel-image {
+.build-carousel-image {
   max-width: 100%;
   height: auto;
 }

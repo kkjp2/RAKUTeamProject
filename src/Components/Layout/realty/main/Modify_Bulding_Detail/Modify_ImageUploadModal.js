@@ -30,55 +30,55 @@ const ModifyImageUploadModal = ({ onClose }) => {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-content">
+    <div className="build-modal-overlay">
+      <div className="build-modal-content">
         <h2>선택 이미지 첨부 및 수정</h2>
-        <div className="image-upload-list">
+        <div className="build-image-upload-list">
 
           {/* 내부 이미지 */}
-          <div className="image-upload-row">
-            <button className="prev-btn">◀</button>
-            <div className="image-info">
-              <text className="InnerFrame">내부</text>
+          <div className="build-image-upload-row">
+            <button className="build-prev-btn">◀</button>
+            <div className="build-image-info">
+              <span className="build-InnerFrame">내부</span>
               <img 
                 src={images.inner || defaultImage} 
                 alt="내부 이미지" 
-                className="image-preview" 
+                className="build-image-preview" 
               />
               <input 
                 type="file" 
                 accept="image/*" 
                 onChange={(e) => handleImageChange(e, 'inner')} 
               />
-              <button className="delete-btn" onClick={() => handleDeleteImage('inner')}>삭제</button>
+              <button className="build-close-btn" onClick={() => handleDeleteImage('inner')}>삭제</button>
             </div>
-            <button className="next-btn">▶</button>
+            <button className="build-next-btn">▶</button>
           </div>
 
           {/* 외부 이미지 */}
-          <div className="image-upload-row">
-            <button className="prev-btn">◀</button>
-            <div className="image-info">
-              <text className="OuterFrame">외부</text>
+          <div className="build-image-upload-row">
+            <button className="build-prev-btn">◀</button>
+            <div className="build-image-info">
+              <span className="build-OuterFrame">외부</span>
               <img 
                 src={images.outer || defaultImage} 
                 alt="외부 이미지" 
-                className="image-preview" 
+                className="build-image-preview" 
               />
               <input 
                 type="file" 
                 accept="image/*" 
                 onChange={(e) => handleImageChange(e, 'outer')} 
               />
-              <button className="delete-btn" onClick={() => handleDeleteImage('outer')}>삭제</button>
+              <button className="build-close-btn" onClick={() => handleDeleteImage('outer')}>삭제</button>
             </div>
-            <button className="next-btn">▶</button>
+            <button className="build-next-btn">▶</button>
           </div>
 
         </div>
 
-        <button className="generate-btn">수정하기</button>
-        <button className="close-btn" onClick={onClose}>닫기</button>
+        <button className="build-generate-btn">수정하기</button>
+        <button className="build-close-btn" onClick={onClose}>닫기</button>
       </div>
     </div>
   );

@@ -8,7 +8,8 @@ function PropertyDetail({ property }) {
         image: property.image,
         rent: property.rent,
         area: property.area,
-        tag: property.tag
+        tag: property.tag,
+        buildNum: property.buildNum // buildNum 추가
       }));
     }
   }, [property]);
