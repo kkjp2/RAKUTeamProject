@@ -26,7 +26,52 @@
 .Ann_Header_2{
     margin: 0;
     position: absolute;
-    left: 35%;
-    top: 50%;
+    left: 31%;
+    top: 60%;
     font-size: 20px;
+}
+
+.Announcement_Main_Content_1{
+    margin-top: 50px;
+}
+
+.Announcement_Main_Content_1_Box{
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #d2d2d2;
+    border : 1px solid #ebebeb;
+}
+
+.Announcement_Main_Content_1_title{
+    font-size: 30px;
+    position: absolute;
+    left: 10px;
+}
+
+.Announcement_Main_Content_1_img{
+    size: cover;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    width: 400px;
+}
+
+.Announcement_Main_Content_1_content{
+    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    top: 70px;
+}
+
+.Announcement_Main_Content_1_date{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.Ann_Main{
+    margin-bottom: 100px;
 }
