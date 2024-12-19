@@ -20,15 +20,15 @@ function AdminPage() {
                 <h1>RAKU</h1>
                 <hr></hr>
                 <ul>
-                    <li><div className='adminManagement_imgicon1'></div> 사이트로 바로 가기</li>
+                    <li><Link to='/main'><div className='adminManagement_imgicon1'></div> 사이트로 바로 가기</Link></li>
                     <li><div className='adminManagement_imgicon2'></div> 대시보드</li>
                     <li onClick={toggleUserMenu}><div className='adminManagement_imgicon3'></div> 사용자 관리</li>
                     {isUserMenuOpen && (
                         <div className="adminManagement_dropdown_content">
                             <ul>
-                                <li><Link to='/MoveMain/AdminManagement'>개인 회원 관리</Link></li>
-                                <li><Link to='/MoveMain/AdminMembershipManagement'>기업 회원 관리</Link></li>
-                                <li><Link to='/MoveMain/AdminRealManagement'>부동산 회원 관리</Link></li>
+                                <li><Link to='/admin/AdminManagement'>개인 회원 관리</Link></li>
+                                <li><Link to='/admin/AdminMembershipManagement'>기업 회원 관리</Link></li>
+                                <li><Link to='/admin/AdminRealManagement'>부동산 회원 관리</Link></li>
                             </ul>
                         </div>
                     )}
@@ -36,13 +36,13 @@ function AdminPage() {
                     {boardOpen && (
                         <div className="adminManagement_dropdown_content">
                             <ul>
-                                <li><Link to='/MoveMain/AdminBoardManaging'>게시판 내용 관리</Link></li>
+                                <li><Link to='/admin/AdminBoardManaging'>게시판 내용 관리</Link></li>
                                 <li>신고 누적 게시판</li>
                                 <li>공지사항 관리</li>
                             </ul>
                         </div>
                     )}
-                    <li><div className='adminManagement_imgicon5'></div> <Link to='/MoveMain/AdminSetting'>환경설정</Link></li>
+                    <li><div className='adminManagement_imgicon5'></div> <Link to='/admin/AdminSetting'>환경설정</Link></li>
                 </ul>
             </aside>
         </div>

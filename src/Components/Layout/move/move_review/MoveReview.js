@@ -7,7 +7,7 @@ import useFetchReviews from '../move_api/MoveProfileReview'; // 引入自定义 
 
 function Review() {
     // 不传递 companyId，默认获取所有评论
-    const { renderStars, reviews, loading, error, handleLike, handleDislike } = useFetchReviews();
+    const { renderStars, reviews, loading, error, handleLike, handleDislike ,company} = useFetchReviews();
 
     console.log('Review - reviews:', reviews); // 添加这行来调试
 
@@ -72,17 +72,6 @@ function Review() {
                     </div>
                 </div>
             </div>
-            {/* <div className='review_container3'>
-                        <h2>人気会社レビュー</h2>
-                        <ul className='company_list'>
-                            {companies.map((company, index) => (
-                                <li key={index} className='company_item'>
-                                    {company}
-                                </li>
-                            ))}
-                        </ul>
-                    </div> */}
-
         </Layout >
     );
 }

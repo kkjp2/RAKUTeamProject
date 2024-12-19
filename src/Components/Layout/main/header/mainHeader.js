@@ -15,16 +15,25 @@ const MainHeader = () => {
         navigate('/mypage');
       };
     const goToFavorites = () => {
-        navigate(`/myPage/favorites`);
+        navigate(`/mypage/favorites`);
     }
     const goToRecentlyViewed = () => {
-        navigate(`/myPage/recentlyViewed`);
+        navigate(`/mypage/recentlyviewed`);
     }
       const goToMainPage = () => {
         navigate('/main');
       };
     const goToLogin = () => {
         navigate('/login');
+    }
+    const goToAdmin =() => {
+        navigate('/admin/AdminManagement');
+    }
+    const goToMap = () => {
+        navigate('/realty/main/regions');
+    }
+    const goToCategory = () => {
+        navigate('/realty/main/categoriFilter');
     }
     const Login = window.sessionStorage.getItem('accesstoken');
     async function checkUser() {
@@ -75,7 +84,7 @@ const MainHeader = () => {
         </> 
         }else if(role === "ADMIN"){
             return<>
-            <div className="mainMypage_Admin" onClick={goToMyPage}>
+            <div className="mainMypage_Admin" onClick={goToAdmin}>
         <p>관리자페이지</p>
         <IoMenu className="mainMypage_Img"/>
         </div>
@@ -94,10 +103,10 @@ const MainHeader = () => {
         <div className="mainContent">
             <p className="mainLogo" onClick={goToMainPage}>RAKU</p>
             <div className="mainRealty_Menu">
-            <div className="mainCategory_Menu">
+            <div className="mainCategory_Menu" onClick={goToCategory}>
             <p> 카테고리 검색</p>
             </div>
-            <div className="mainMap_Menu" >
+            <div className="mainMap_Menu" onClick={goToMap}>
             <p > 지도 검색</p>
             </div>
             <div className="mainSell_Menu">

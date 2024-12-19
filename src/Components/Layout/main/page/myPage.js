@@ -21,6 +21,9 @@ const MyPage = () => {
     const goToAnnouncement = () => {
         navigate(`/main/announcement`);
     }
+    const goToNoticeMy = () => {
+        navigate(`/notice/mypage`);
+    }
 
     const logout =() => {
         window.sessionStorage.removeItem('accesstoken');
@@ -70,8 +73,8 @@ const MyPage = () => {
             </button>
         </span>
         <span className="MyPage_Main_Comparison">
-        <button className="MyPage_Main_Comparison_Btn">
-            <div className="MyPage_Main_Comparison_Btn_Img"></div>
+        <button className="MyPage_Main_Comparison_Btn" onClick={goToNoticeMy}>
+            <div className="MyPage_Main_Comparison_Btn_Img" ></div>
             <p className="MyPage_Main_Comparison_Btn_Text">게시판 마이페이지</p>
             </button>
         </span>

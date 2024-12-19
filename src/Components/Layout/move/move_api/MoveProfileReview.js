@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const useFetchReviews = (companyId) => {
 
     const [companyImage, setCompanyImage] = useState(null);
@@ -23,14 +24,14 @@ const useFetchReviews = (companyId) => {
 
     const fetchCompanyDetails = async (companyId) => {
         try {
-            setLoading(true); // 开始加载
-            const response = await axios.get(`/move/company/companies/${companyId}`);
-            setCompany(response.data); // 保存到状态中
+            setLoading(true);
+            const response = await axios.get(`http://localhost:8080/move/company/companies/${companyId}`);
+            setCompany(response.data);
         } catch (error) {
             console.error('회사 세부 정보를 가져오는 동안 오류가 발생했습니다:', error);
             setError('회사 정보를 불러올 수 없습니다');
         } finally {
-            setLoading(false); // 确保加载完成后设置为 false
+            setLoading(false);
         }
     };
 
@@ -42,7 +43,7 @@ const useFetchReviews = (companyId) => {
 
     const fetchImage = async (uuid) => {
         try {
-            const response = await axios.get(`/move/company/getImage`, {
+            const response = await axios.get(`http://localhost:8080/move/company/getImage`, {
                 params: { uuid },
                 responseType: 'arraybuffer',
             });
@@ -55,12 +56,12 @@ const useFetchReviews = (companyId) => {
 
     useEffect(() => {
         if (company && company.logoUuid) {
-            fetchImage(company.logoUuid); // 假设后端返回的 logo UUID 字段为 logoUuid
+            fetchImage(company.logoUuid);
         }
     }, [company]);
 
     const loadCompanyImage = async () => {
-        const imageSrc = await fetchImage(company.uuid); // 传入公司 UUID
+        const imageSrc = await fetchImage(company.uuid);
         setCompanyImage(imageSrc);
     };
 
@@ -72,7 +73,7 @@ const useFetchReviews = (companyId) => {
 
     const fetchReviewsWithLogos = async () => {
         try {
-            const response = await axios.get(`/move/review/logo`);
+            const response = await axios.get(`http://localhost:8080/move/review/logo`);
             setReviews(response.data);
         } catch (error) {
             console.error('로고/리뷰를 가져오는 동안 오류가 발생했습니다:', error);
@@ -87,23 +88,23 @@ const useFetchReviews = (companyId) => {
     const fetchReviews = async () => {
         try {
             if (companyId) {
-                const response = await axios.get(`/move/review/${companyId}`); // 请求特定公司评论
+                const response = await axios.get(`http://localhost:8080/move/review/${companyId}`); // 请求特定公司评论
                 setReviews(response.data);
             }
         } catch (error) {
-            console.error('评论加载失败:', error);
-            setError('无法加载评论数据');
+            console.error('コメントの読み込みに失敗しました:', error);
+            setError('コメントデータをロードできません');
         }
     };
 
     useEffect(() => {
         fetchReviews();
-    }, [companyId]); // 在 companyId 变化时重新加载评论
+    }, [companyId]);
 
-    // 定义 renderStars 函数来显示星星
+    // 별을 나타내기 위한 renderStars 함수 
     const renderStars = (rating) => {
-        const fullStars = Math.floor(rating);  // 实心星星的数量
-        const emptyStars = 5 - fullStars;      // 空心星星的数量
+        const fullStars = Math.floor(rating);
+        const emptyStars = 5 - fullStars;
 
         return (
             <>
@@ -119,7 +120,7 @@ const useFetchReviews = (companyId) => {
 
     const fetchReactionCounts = async (reviewId) => {
         try {
-            const response = await axios.get(`/move/reactionCounts/${reviewId}`);
+            const response = await axios.get(`http://localhost:8080/move/reactionCounts/${reviewId}`);
             return response.data; // 返回 { likeCount, dislikeCount }
         } catch (error) {
             console.error(`Failed to fetch reaction counts for review ${reviewId}:`, error);
@@ -129,14 +130,14 @@ const useFetchReviews = (companyId) => {
 
     const fetchReviewsWithReactions = async () => {
         try {
-            // 如果 `companyId` 存在，加载特定公司的评论；否则加载所有评论
+            //`companyId`가 존재하면 특정 회사의 코멘트를 로딩하고, 그렇지 않으면 모든 코멘트를 로딩
             const reviewsResponse = companyId
-                ? await axios.get(`/move/review/${companyId}`) // 请求特定公司评论
-                : await axios.get('/move/review/logo'); // 请求所有评论
-    
+                ? await axios.get(`http://localhost:8080/move/review/${companyId}`) // 특정 회사
+                : await axios.get('http://localhost:8080/move/review/logo'); // 모든 코멘트
+
             const reviews = reviewsResponse.data;
-    
-            // 为每条评论加载点赞和点踩计数
+
+            //  댓글마다 좋아요와 밟기 횟수를 기록
             const updatedReviews = await Promise.all(
                 reviews.map(async (review) => {
                     const reactionCounts = await fetchReactionCounts(review.reviewId);
@@ -144,65 +145,82 @@ const useFetchReviews = (companyId) => {
                         ...review,
                         likeCount: reactionCounts.likeCount,
                         dislikeCount: reactionCounts.dislikeCount,
-                        reactionValue: 0, // 默认状态为 0
+                        reactionValue: 0, // 초기 0
                     };
                 })
             );
-    
-            setReviews(updatedReviews); // 更新评论状态
+
+            setReviews(updatedReviews); // 리뷰 상태 업데이트
         } catch (error) {
             console.error('Failed to fetch reviews with reactions:', error);
-            setError('评论加载失败');
+            setError('コメントの読み込みに失敗しました');
         } finally {
             setLoading(false);
         }
-    };    
+    };
 
     useEffect(() => {
         fetchReviewsWithReactions();
-    }, [companyId]); // 确保在 companyId 变化时重新加载评论
-
+    }, [companyId]);
 
     const handleReaction = async (reviewId, reactionType) => {
+        const accessToken = window.sessionStorage.getItem('accesstoken');
+        console.log(accessToken);
         try {
-            const response = await axios.post(`/move/reactions/${reviewId}`, null, {
-                params: { reactionType },
-            });
+            const response = await axios.post(
+                `http://localhost:8080/move/reactions/${reviewId}`,
+                null,
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+
+                    },
+                    params: { reactionType }
+                }
+            );
 
             if (response.status === 200) {
-                console.log('Reaction updated successfully.');
+                console.log('反応が正常に更新されました。');
 
-                const updatedReviews = reviews.map((review) =>
-                    review.reviewId === reviewId
-                        ? {
-                            ...review,
-                            reactionValue:
-                                reactionType === 'like'
-                                    ? review.reactionValue === 1
-                                        ? 0 // 如果已点赞，则取消
-                                        : 1 // 设置为点赞
-                                    : review.reactionValue === -1
-                                        ? 0 // 如果已点踩，则取消
-                                        : -1, // 设置为点踩
-                            likeCount:
-                                reactionType === 'like'
-                                    ? review.reactionValue === 1
-                                        ? review.likeCount - 1
-                                        : review.likeCount + 1
-                                    : review.likeCount,
-                            dislikeCount:
-                                reactionType === 'dislike'
-                                    ? review.reactionValue === -1
-                                        ? review.dislikeCount - 1
-                                        : review.dislikeCount + 1
-                                    : review.dislikeCount,
+                setReviews((prevReviews) => {
+                    return prevReviews.map((review) => {
+                        if (review.reviewId === reviewId) {
+                            let newReactionValue = review.reactionValue;
+
+                            // 현재 reactionValue를 판단하고 클릭 reactionType에 따라 업데이트
+                            if (newReactionValue === 1) { 
+                                newReactionValue = reactionType === 'like' ? 0 : -1; // 点赞取消或改为点踩
+                            } else if (newReactionValue === -1) { // 如果当前是点踩
+                                newReactionValue = reactionType === 'dislike' ? 0 : 1; // 点踩取消或改为点赞
+                            } else { // 如果当前没有反应
+                                newReactionValue = reactionType === 'like' ? 1 : -1; // 默认设置为点赞或点踩
+                            }
+
+                            // 更新评论反应
+                            const newLikeCount = newReactionValue === 1
+                                ? review.likeCount + 1
+                                : review.reactionValue === 1
+                                    ? review.likeCount - 1
+                                    : review.likeCount;
+
+                            const newDislikeCount = newReactionValue === -1
+                                ? review.dislikeCount + 1
+                                : review.reactionValue === -1
+                                    ? review.dislikeCount - 1
+                                    : review.dislikeCount;
+
+                            return {
+                                ...review,
+                                reactionValue: newReactionValue,
+                                likeCount: newLikeCount,
+                                dislikeCount: newDislikeCount,
+                            };
                         }
-                        : review
-                );
-
-                setReviews(updatedReviews);
+                        return review;
+                    });
+                });
             } else {
-                throw new Error('Failed to update reaction.');
+                throw new Error('反応の更新に失敗しました。');
             }
         } catch (error) {
             console.error(`Failed to ${reactionType} review:`, error);
@@ -222,30 +240,28 @@ const useFetchReviews = (companyId) => {
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
 
-        // 确保 companyId 和 userKey 都存在
-        if (!newReview.companyId || !newReview.userKey) {
-            alert("Company ID or User Key is missing.");
-            return;
-        }
-
         try {
-            const response = await axios.post(`/move/review/register`, {
-                companyId: newReview.companyId,
-                userKey: newReview.userKey,
-                comment: newReview.comment,
-                price: newReview.price,
-                region: newReview.region,
-                rating: newReview.rating,
-                serviceDate: newReview.serviceDate,
+            const accessToken = window.sessionStorage.getItem('accesstoken');
+            if (!accessToken) {
+                alert("토큰이 누락되었습니다!");
+                return;
+            }
+
+            console.log(accessToken);
+            const response = await axios.post(`http://localhost:8080/move/review/register`, newReview, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
             });
 
+            console.log(response.data);
 
-            alert('Review added successfully!');
-            setNewReview({ companyId: newReview.companyId, userKey: newReview.userKey, comment: '', rating: '', price: '', region: '', serviceDate: '' }); // 重置表单
-            setIsModalOpen(false); // 关闭模态框
+            alert('리뷰가 성공적으로 추가되었습니다!');
+            setNewReview({ companyId: newReview.companyId, userKey: newReview.userKey, comment: '', rating: '', price: '', region: '', serviceDate: '' }); // Reset form
+            setIsModalOpen(false); // Close the modal // 关闭模态框
         } catch (error) {
-            console.error('Failed to submit review:', error);
-            alert(`Failed to submit review: ${error.response?.data || error.message}`);
+            console.error('리뷰 제출 실패:', error);
+            alert(`리뷰 제출 실패: ${error.response?.data || error.message}`);
         }
     };
 

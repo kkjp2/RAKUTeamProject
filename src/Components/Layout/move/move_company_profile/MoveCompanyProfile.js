@@ -1,5 +1,5 @@
 //MoveCompanyProfile.js
-import React from 'react';
+import {React, useEffect} from 'react';
 import Layout from '../move_layout/MoveLayout';
 import './MoveCompanyProfile.css';
 import userIcon from '../move_img/usericon.png';
@@ -8,9 +8,13 @@ import UploadReview from '../move_review/MoveReviewUP';
 import './MoveCompanyProfile.css'
 import useFetchReviews from '../move_api/MoveProfileReview'
 import '../move_review/MoveReview.css'
-import { useParams } from 'react-router-dom';
+import { useParams , useNavigate} from 'react-router-dom';
 
 function CompanyProfile() {
+    useEffect(() => {
+        window.scrollTo(0, 0); // 滚动到页面顶部
+      }, []);
+      
     const { companyId } = useParams();
     const {
         company,
@@ -29,6 +33,23 @@ function CompanyProfile() {
     console.log('CompanyProfile - companyId:', companyId); // 添加这行来调试
     console.log('CompanyProfile - reviews:', reviews); // 添加这行来调试
 
+      const navigate = useNavigate();
+    
+      const handleLinkClick = (event) => {
+        const token = localStorage.getItem('token'); // 检查 token
+    
+        if (!token) {
+          event.preventDefault(); // 阻止默认跳转行为
+    
+          const userWantsToLogin = window.confirm('ログインが必要です。ログインしますか？');
+          if (userWantsToLogin) {
+            navigate('/login'); // 用户选择“是”后跳转到登录页面
+          }
+          return; 
+        }
+        setIsModalOpen(true);
+      };
+
     if (loading) {
         return <div>Loading company details...</div>;
     }
@@ -45,7 +66,7 @@ function CompanyProfile() {
                     <img
                         src={company.imgUrl} // 或者 companyImage
                         alt={company.name}
-                        className="company_logo"
+                        className="profile-logo"
                     />
                     <div className="profile-company-info">
                         <h1>{company.name}</h1>
@@ -126,8 +147,8 @@ function CompanyProfile() {
 
             <div>
                 {/* 进行评论按钮 */}
-                <div className='review_button_container'>
-                    <button className='review_submit_btn' onClick={() => setIsModalOpen(true)}>
+                <div className='review_button_container' >
+                    <button className='review_submit_btn' onClick={handleLinkClick}>
                         レビューを投稿
                     </button>
                 </div>

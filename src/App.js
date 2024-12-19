@@ -6,6 +6,7 @@ import Notice from './Components/Layout/notice/main/index.js'
 import Realty from './Components/Layout/realty/main/RealtyRouter.js'
 import Rental from './Components/Layout/rental/main/index.js'
 import Company from './Components/Layout/company/page/index.js'
+import Admin from './Components/Layout/admin/AdminRouter.js';
 import { useLocation, BrowserRouter as Router } from 'react-router-dom';
 
 
@@ -36,6 +37,8 @@ function Content() {
     nowContent = <Rental/>;
   }else if (location.pathname.startsWith('/realty')){
     nowContent = <Realty/>;
+  }else if (location.pathname.startsWith('/admin')){
+    nowContent = <Admin/>;
   }
 
   return <div>{nowContent}</div>;

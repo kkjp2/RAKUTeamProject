@@ -40,11 +40,11 @@ a {
     margin-top: 55px;
 }
 
-.adminManagement_imgicon1{background-image: url('../admin//img/이동.png');}
-.adminManagement_imgicon2{background-image: url('../admin//img/대시보드.png');}
-.adminManagement_imgicon3{background-image: url('../admin//img/사용자.png');}
-.adminManagement_imgicon4{background-image: url('../admin//img/게시판.png');}
-.adminManagement_imgicon5{background-image: url('../admin//img/환경설정1.png');}
+.adminManagement_imgicon1{background-image: url('../admin/img/move.png');}
+.adminManagement_imgicon2{background-image: url('../admin//img/dashboard.png');}
+.adminManagement_imgicon3{background-image: url('../admin//img/user.png');}
+.adminManagement_imgicon4{background-image: url('../admin//img/notice.png');}
+.adminManagement_imgicon5{background-image: url('../admin//img/option1.png');}
 
 .adminManagement_sidebar li div{
     width: 24px;    /* 设置宽度，确保图片大小适当 */

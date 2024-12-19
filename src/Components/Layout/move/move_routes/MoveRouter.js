@@ -18,7 +18,7 @@ function Start() {
           <Route path="/MoveMain" element={<Main />} />  
           <Route path="/MoveMain/UserReview/:companyId" element={<CompanyDetail />} />
           <Route path='/MoveMain/MoveReviewUP' element={<MoveReviewUP/>}/>
-          <Route path='/MoveMain/MovingCompanyList' element={<MovingCompanyList/>}/>
+          <Route path='/MoveMain/MovingCompanyList/' element={<MovingCompanyList/>}/>
           <Route path='/MoveMain/CompanyProfile/:companyId' element={<CompanyProfile/>}/>
           <Route path='/MoveMain/CompanyUP' element={<CompanyUP/>}/>
           <Route path='/MoveMain/MoveReservation' element={<MoveReservation/>}/>
