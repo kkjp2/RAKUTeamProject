@@ -45,7 +45,7 @@ function CompanyProfile() {
                     <img
                         src={company.imgUrl} // 或者 companyImage
                         alt={company.name}
-                        className="company_logo"
+                        className="profile-logo"
                     />
                     <div className="profile-company-info">
                         <h1>{company.name}</h1>

@@ -8,7 +8,7 @@ const Header = () => {
     <header className="move_header">
       <div className="container">
         <div className="logo-container">
-        <Link to='/MoveMain'><Logo className="logo-image" /></Link>
+        <Link to='/main'><Logo className="logo-image" /></Link>
         <div className="logo-text">RAKU</div>
         </div>
         <nav>
