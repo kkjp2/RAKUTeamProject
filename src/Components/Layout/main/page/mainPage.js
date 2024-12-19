@@ -39,7 +39,12 @@ const MainPage =() => {
         const goToAnn =() => {
             navigate('/main/announcement');
         }
-
+        const goToMap = () => {
+            navigate('/realty/main/regions');
+        }
+        const goToCategory = () => {
+            navigate('/realty/main/categoriFilter');
+        }
 
     return<>
     <div className="Mainpage_Realty">
@@ -66,12 +71,12 @@ const MainPage =() => {
         </div>
         <div className="Realty_Main_Menu">
             <div className="Realty_Main_Menu_Choice">
-                <button className="Realty_Main_Menu_Choice_MapImg"></button>
+                <button className="Realty_Main_Menu_Choice_MapImg" onClick={goToMap}></button>
                 <p className="Realty_Main_Menu_Choice_MapM">
                     지도로 간편하게!<br/>
                     원하는 지역으로 정확하게!
                 </p>
-                <button className="Realty_Main_Menu_Choice_TagImg"></button>
+                <button className="Realty_Main_Menu_Choice_TagImg" onClick={goToCategory}></button>
                 <p className="Realty_Main_Menu_Choice_TagM">
                 검색 키워드로 <br/>
                 원하는 매물을 다양하게!

@@ -22,7 +22,6 @@ function RealtyRouter() {
 
       <Routes>
         {/* 기본 경로: 지방 선택 페이지 */}
-        
         <Route
           path="/main"
           element={
@@ -37,13 +36,16 @@ function RealtyRouter() {
         <Route path="/realty/main/regions" element={<RegionsPage />} />
 
         {/* 특정 매물의 상세 페이지로 이동 (buildNum 기반) */}
+        <Route path="/realty/main/main-content/:buildNum" element={<MainContent />} />
+
+        {/* 기존 navigate 경로와의 호환성 */}
         <Route path="/realty/main/map/main-content/:buildNum" element={<MainContent />} />
 
         {/* 지역 리스트 페이지 경로 */}
         <Route path="/realty/main/regions/:regionId" element={<RegionDetailPage />} />
 
         {/* 지도 페이지 경로: 구글 맵 */}
-        <Route path="/realty/main/map?" element={<MapPage />} />
+        <Route path="/realty/main/map" element={<MapPage />} />
 
         {/* 검색 결과 페이지 경로 */}
         <Route path="/realty/main/search/results" element={<SearchPageResult />} />
@@ -58,7 +60,7 @@ function RealtyRouter() {
         <Route path="/realty/main/create/building/page" element={<CreateBuildingPage />} />
 
         {/* 건물 수정 및 삭제 페이지 경로 */}
-        <Route path="/realty/main/modify/building/page" element={<ModifyBulidingPage />} />
+        <Route path="/realty/main/modify/building/page/:buildNum" element={<ModifyBulidingPage />} />
         <Route path="/realty/main/delete/building/page" element={<DeleteBuildingPage />} />
       </Routes>
 

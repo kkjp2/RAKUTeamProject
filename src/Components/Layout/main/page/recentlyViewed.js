@@ -54,7 +54,7 @@ const RecentlyViewed = () => {
     <div className="RecentlyViewed">
     <div className="RecentlyViewed_Header">
         <div className="RecentlyViewed_Header_Channel">
-            <p className="RecentlyViewed_Header_Channel_MyPage">내페이지</p>
+            <p className="RecentlyViewed_Header_Channel_MyPage" onClick={goToMyPage}>내페이지</p>
             <p> &gt;</p>
             <p>최근 본 물건</p>
         </div>
