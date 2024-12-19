@@ -1,11 +1,11 @@
-.modal-overlay {
+.build-modal-overlay {
   position: fixed;
-  bottom: 20px;  /* 화면 하단에 고정 */
-  right: 20px;  /* 화면 우측에 고정 */
+  bottom: 20px;
+  right: 20px;
   z-index: 1000;
 }
 
-.modal-content {
+.build-modal-content {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -16,25 +16,25 @@
   justify-content: space-between;
 }
 
-.image-upload-list {
+.build-image-upload-list {
   display: flex;
   flex-direction: column;
   margin: 20px 0;
 }
 
-.image-upload-row {
+.build-image-upload-row {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.image-info {
+.build-image-info {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.image-preview {
+.build-image-preview {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -43,7 +43,7 @@
   border-radius: 5px;
 }
 
-.InnerFrame, .OuterFrame {
+.build-InnerFrame, .build-OuterFrame {
   background-color: purple;
   color: white;
   border: none;
@@ -52,17 +52,15 @@
   margin-bottom: 10px;
   border-radius: 5px;
   width: 100%;
-  text-align: center; /* 텍스트 중앙 정렬 */
+  text-align: center;
 }
 
-
-
-input[type="file"] {
+.build-input[type="file"] {
   display: block;
   margin-top: 10px;
 }
 
-.close-btn, .generate-btn {
+.build-close-btn, .build-generate-btn {
   background-color: purple;
   color: white;
   border: none;
@@ -73,11 +71,11 @@ input[type="file"] {
   border-radius: 5px;
 }
 
-.close-btn:hover, .generate-btn:hover {
+.build-close-btn:hover, .build-generate-btn:hover {
   background-color: darkviolet;
 }
 
-.prev-btn, .next-btn {
+.build-prev-btn, .build-next-btn {
   background-color: transparent;
   border: none;
   font-size: 20px;

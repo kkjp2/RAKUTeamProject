@@ -1,25 +1,25 @@
-.search-results {
+.build-search-results {
     margin: 20px;
   }
   
-  .sort-options,
-  .tag-search {
+  .build-sort-options,
+  .build-tag-search {
     margin-bottom: 20px;
   }
   
-  .sort-options label,
-  .tag-search label {
+  .build-sort-options label,
+  .build-tag-search label {
     margin-right: 10px;
     font-weight: bold;
   }
   
-  .tag-search input {
+  .build-tag-search input {
     padding: 5px;
     border-radius: 4px;
     border: 1px solid #ddd;
   }
   
-  .house-item {
+  .build-house-item {
     display: flex;
     border: 1px solid #ddd;
     margin-bottom: 20px;
@@ -27,29 +27,29 @@
     border-radius: 5px;
   }
   
-  .house-image img {
+  .build-house-image img {
     width: 150px;
     height: 150px;
     object-fit: cover;
   }
   
-  .house-details {
+  .build-house-details {
     flex-grow: 1;
     margin-left: 20px;
   }
   
-  .house-details table {
+  .build-house-details table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  .house-details th, .house-details td {
+  .build-ouse-details th, .house-details td {
     text-align: left;
     padding: 5px;
     border-bottom: 1px solid #ddd;
   }
   
-  .details-button {
+  .build-details-button {
     margin-top: 10px;
     padding: 10px;
     background-color: #4CAF50;
@@ -59,16 +59,16 @@
     border-radius: 5px;
   }
   
-  .details-button:hover {
+  .build-details-button:hover {
     background-color: #45a049;
   }
   
-  .pagination {
+  .build-pagination {
     text-align: center;
     margin-top: 20px;
   }
   
-  .page-button {
+  .build-page-button {
     margin: 0 5px;
     padding: 5px 10px;
     border: 1px solid #ddd;
@@ -76,12 +76,12 @@
     cursor: pointer;
   }
   
-  .page-button.active {
+  .build-page-button.active {
     background-color: #4CAF50;
     color: white;
   }
   
-  .page-button:hover {
+  .build-page-button:hover {
     background-color: #ddd;
   }
   

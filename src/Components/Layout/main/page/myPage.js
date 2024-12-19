@@ -47,8 +47,22 @@ const MyPage = () => {
             console.error(error);
           }
     }
+    const [ann, setAnn] = useState([]);
+    async function AnnInfo() {
+        try {
+            const response = await axios.get('http://localhost:8080/api/ann/view');
+            // 성공 시
+            console.log(response.data); // 응답 데이터 확인
+            setAnn(response.data.announcements);
+            console.log(ann);
+          } catch (error) {
+            // 실패 시
+            console.error(error);
+          }
+    }
     useEffect(() => {
         userId();
+        AnnInfo();
     }, []); // 빈 배열 []은 컴포넌트 마운트 시 한 번만 실행됨
     return <> 
     <div className="MyPage">
@@ -135,10 +149,10 @@ const MyPage = () => {
         </div>
         <div className="MyPage_News_Content" onClick={goToAnnouncement}>
             <p className="MyPage_News_Content_Day">
-                2024-10-16
+            {ann[ann.length - 1]?.borndate || "No date available"}
             </p>
             <p className="MyPage_News_Content_Title">
-                UI 새로 개편
+            {ann[ann.length-1]?.title || "No title available"}
             </p>
         </div>
     </div>

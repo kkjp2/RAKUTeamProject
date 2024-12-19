@@ -3,21 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import './CategoriFilter.css';
 
 const CategoriFilter = () => {
-  const [price, setPrice] = useState([1, 1000]);
-  const [size, setSize] = useState([10, 1000]);
-  const [selectedRoom, setSelectedRoom] = useState('');
-  const [region, setRegion] = useState('');
-  const [floor, setFloor] = useState('');
-  const [rentalType, setRentalType] = useState('');
+  const [price, setPrice] = useState([1, 1000]); // 가격 범위 상태
+  const [size, setSize] = useState([10, 1000]); // 면적 범위 상태
+  const [selectedRoom, setSelectedRoom] = useState(''); // 선택된 방 종류
+  const [region, setRegion] = useState(''); // 선택된 지역
+  const [floor, setFloor] = useState(''); // 선택된 층
+  const [rentalType, setRentalType] = useState(''); // 임대 유형 상태
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // 페이지 이동을 위한 navigate 훅
 
+  // 필터 제출 함수
   const handleFilterSubmit = () => {
     const filters = { price, size, selectedRoom, region, floor, rentalType };
-    console.log('Filters being sent:', filters); // 디버깅용
-    navigate('/realty/main/categorifilterresult', { state: { filters } });
+    console.log('전송될 필터:', filters); // 디버깅용 로그
+    navigate('/realty/main/categorifilterresult', { state: { filters } }); // 필터 결과 페이지로 이동
   };
 
+  // 방 종류와 지역 목록
   const roomTypes = ['1R', '1LDK', '1DK', '2R', '2LDK', '2DK', '3R', '3LDK', '3DK', '3R+', '3LDK+', '3DK+'];
   const regions = [
     '北海道', '青森', '岩手', '宮城', '秋田', '山形', '福島',
@@ -30,13 +32,13 @@ const CategoriFilter = () => {
   ];
 
   return (
-    <div className="filter-container">
-      <h3>지역</h3>
-      <div className="region-types">
+    <div className="build-filter-container">
+      <h3 className="build-h3">지역</h3>
+      <div className="build-region-types">
         {regions.map((area, index) => (
           <button
             key={index}
-            className={`regions-button ${region === area ? 'active' : ''}`}
+            className={`build-regionss-button ${region === area ? 'active' : ''}`}
             onClick={() => setRegion(area)}
           >
             {area}
@@ -44,12 +46,12 @@ const CategoriFilter = () => {
         ))}
       </div>
 
-      <h3>방 종류</h3>
+      <h3 className="build-h3">방 종류</h3>
       <div className="room-types">
         {roomTypes.map((room, index) => (
           <button
             key={index}
-            className={`room-button ${selectedRoom === room ? 'active' : ''}`}
+            className={`build-room-button ${selectedRoom === room ? 'active' : ''}`}
             onClick={() => setSelectedRoom(room)}
           >
             {room}
@@ -57,7 +59,7 @@ const CategoriFilter = () => {
         ))}
       </div>
 
-      <h3>가격 (기준: 만엔)</h3>
+      <h3 className="build-h3">가격 (기준: 만엔)</h3>
       <input
         type="range"
         min={1}
@@ -67,7 +69,7 @@ const CategoriFilter = () => {
       />
       <span>{price[0] === 1000 ? '1000+ 만엔' : `${price[0]}만엔`}</span>
 
-      <h3>면적 (기준: m²)</h3>
+      <h3 className="build-h3">면적 (기준: m²)</h3>
       <input
         type="range"
         min={10}
@@ -77,7 +79,7 @@ const CategoriFilter = () => {
       />
       <span>{size[0] === 1000 ? '1000+ m²' : `${size[0]}m²`}</span>
 
-      <button className="submit-button" onClick={handleFilterSubmit}>
+      <button className="build-submit-button" onClick={handleFilterSubmit}>
         검색
       </button>
     </div>

@@ -14,6 +14,8 @@ import CreateBuildingPage from './Create_Building_Details/Create_building_page';
 import ModifyBulidingPage from './Modify_Bulding_Detail/Modify_building_page';
 import DeleteBuildingPage from './Delete_building_Detail/Delete_building_page';
 import './styles/RealtyRouter.css'; // CSS 경로 수정
+import FPPage from '../Building details_components/components/Footer_Popup'; // FPPage의 경로를 정확히 지정해 주세요.
+
 
 function RealtyRouter() {
   return (
@@ -41,6 +43,14 @@ function RealtyRouter() {
         {/* 기존 navigate 경로와의 호환성 */}
         <Route path="/realty/main/map/main-content/:buildNum" element={<MainContent />} />
 
+        {/* 기존 navigate 경로와의 호환성 */}
+        <Route path="/realty/main/categorifilter/main-content/:buildNum" element={<MainContent />} />
+
+        <Route path="/realty/main/fp/:buildNum" element={<FPPage />} /> {/* FPPage 경로 수정 */}
+
+        {/* 기존 navigate 경로와의 호환성 */}
+        <Route path="/realty/search/main-content/:buildNum" element={<MainContent />} />
+
         {/* 지역 리스트 페이지 경로 */}
         <Route path="/realty/main/regions/:regionId" element={<RegionDetailPage />} />
 
@@ -61,7 +71,7 @@ function RealtyRouter() {
 
         {/* 건물 수정 및 삭제 페이지 경로 */}
         <Route path="/realty/main/modify/building/page/:buildNum" element={<ModifyBulidingPage />} />
-        <Route path="/realty/main/delete/building/page" element={<DeleteBuildingPage />} />
+        <Route path="/realty/main/delete/building/page/:buildNum" element={<DeleteBuildingPage />} />
       </Routes>
 
       <Footer_Popup />

@@ -1,98 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getHouseDetailByBuildNumber, updateHouseDetail } from '../../Building details_components/components/Build_Data';
-import './Modify_building_page.css';
+import './Modify_building_page.css'; // 스타일
 
 const ModifyBuildingPage = () => {
   const { buildNum } = useParams(); // URL에서 buildNum 추출
-  const navigate = useNavigate(); // 페이지 이동에 사용
+  const navigate = useNavigate(); // 페이지 이동
   const [formData, setFormData] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const prefectureOptions = [
-    '홋카이도',
-    '도호쿠',
-    '간토',
-    '주부',
-    '긴키',
-    '주고쿠',
-    '시코쿠',
-    '큐슈',
-    '오키나와',
-  ];
+  const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태
 
   useEffect(() => {
-    console.log('buildNum:', buildNum); // 디버깅용
-    if (!buildNum) {
-      setErrorMessage('매물 ID가 유효하지 않습니다.');
-      return;
-    }
-
-    const loadData = async () => {
+    const fetchData = async () => {
       try {
         const data = await getHouseDetailByBuildNumber(buildNum);
         if (data) {
-          setFormData({
-            buildNumber: data.buildNumber,
-            name: data.name || '',
-            buildingType: data.buildingType || '',
-            floors: data.floors || 0,
-            roomType: data.roomType || '',
-            saleType: data.saleType || '월세',
-            rentPrice: data.rentPrice || '',
-            salePrice: data.salePrice || '',
-            isDuplex: data.isDuplex || false,
-            prefecture: data.prefecture || '',
-            deposit: data.deposit || '',
-            previousUse: data.previousUse || '',
-            tags: data.tags || '',
-            realtyMemberKey: data.realtyMemberKey || '',
-          });
+          setFormData(data);
         } else {
           setErrorMessage('해당 매물을 찾을 수 없습니다.');
         }
       } catch (error) {
         console.error('데이터 로드 실패:', error);
-        setErrorMessage('데이터를 가져오는 중 문제가 발생했습니다.');
+        setErrorMessage('데이터를 불러오는 중 문제가 발생했습니다.');
       }
     };
 
-    loadData();
+    if (buildNum) {
+      fetchData();
+    } else {
+      setErrorMessage('유효하지 않은 매물 ID입니다.');
+    }
   }, [buildNum]);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: newValue,
+      [name]: value,
     }));
     setErrorMessage('');
   };
 
   const handleSave = async () => {
-    if (!formData) {
-      setErrorMessage('데이터를 로드 중입니다. 잠시만 기다려 주세요.');
-      return;
-    }
-
-    try {
-      const response = await updateHouseDetail(buildNum, formData);
-      if (response) {
+    const confirmSave = window.confirm('수정 사항을 저장하시겠습니까?');
+    if (confirmSave) {
+      try {
+        await updateHouseDetail(buildNum, formData);
         alert('수정이 완료되었습니다!');
-        navigate('/realty/main'); // 수정 후 메인 페이지로 이동
+        navigate('/realty/main'); // 저장 후 메인 페이지로 이동
+      } catch (error) {
+        console.error('데이터 수정 실패:', error);
+        setErrorMessage('데이터 수정에 실패했습니다. 다시 시도해 주세요.');
       }
-    } catch (error) {
-      console.error('데이터 수정 실패:', error);
-      setErrorMessage('데이터 수정에 실패했습니다. 다시 시도해 주세요.');
     }
   };
 
-  if (!buildNum) {
+  if (errorMessage) {
     return (
       <div>
-        <p>매물 ID가 제공되지 않았습니다. URL을 확인하세요.</p>
-        <button onClick={() => navigate('/realty/main')}>메인으로 이동</button>
+        <p>{errorMessage}</p>
+        <button onClick={() => navigate('/main')}>메인으로 이동</button>
       </div>
     );
   }
@@ -102,71 +68,80 @@ const ModifyBuildingPage = () => {
   }
 
   return (
-    <div className="create-building-container">
-      <div className="form-container">
-        <form className="building-form" onSubmit={(e) => e.preventDefault()}>
-          <label>매물명: <span>*필수</span></label>
-          <input 
-            type="text" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleChange} 
-            required 
-          />
+    <div className="build-create-building-container">
+      <div className="build-form-container">
+        <h2>건축물 수정</h2>
+        <form className="build-building-form" onSubmit={(e) => e.preventDefault()}>
+          <label>매물 번호:</label>
+          <input type="text" value={formData.buildNumber} readOnly />
 
-          <label>건축물종류: <span>*필수</span></label>
-          <input 
-            type="text" 
-            name="buildingType" 
-            value={formData.buildingType} 
-            onChange={handleChange} 
-            required 
-          />
+          <label>매물명:</label>
+          <input type="text" value={formData.name} readOnly />
 
-          <label>건축층수: <span>*필수</span></label>
-          <input 
-            type="number" 
-            name="floors" 
-            value={formData.floors} 
-            onChange={handleChange} 
-            required 
-          />
+          <label>건축물종류:</label>
+          <input type="text" value={formData.buildingType} readOnly />
 
-          <label>지방: <span>*필수</span></label>
+          <label>건축층수:</label>
+          <input type="number" value={formData.floors} readOnly />
+
+          <label>지방:</label>
+          <input type="text" value={formData.prefecture} readOnly />
+
+          <label>매매/월세:</label>
           <select 
-            name="prefecture" 
-            value={formData.prefecture} 
-            onChange={handleChange} 
-            required
+            name="saleType" 
+            value={formData.saleType} 
+            onChange={handleChange}
           >
-            <option value="">지방 선택</option>
-            {prefectureOptions.map((pref, index) => (
-              <option key={index} value={pref}>{pref}</option>
-            ))}
+            <option value="월세">월세</option>
+            <option value="매매">매매</option>
           </select>
 
-          <label>태그: <span>선택 사항</span></label>
+          <label>월세:</label>
           <input 
             type="text" 
-            name="tags" 
-            value={formData.tags} 
+            name="rentPrice" 
+            value={formData.rentPrice} 
             onChange={handleChange} 
           />
 
-          <label>담당직원 키: <span>*필수</span></label>
+          <label>매매:</label>
+          <input 
+            type="text" 
+            name="salePrice" 
+            value={formData.salePrice} 
+            onChange={handleChange} 
+          />
+
+          <label>시키킹:</label>
+          <input 
+            type="text" 
+            name="deposit" 
+            value={formData.deposit} 
+            onChange={handleChange} 
+          />
+
+          <label>이전 사용처:</label>
+          <input 
+            type="text" 
+            name="previousUse" 
+            value={formData.previousUse} 
+            onChange={handleChange} 
+          />
+
+          <label>담당직원 키:</label>
           <input 
             type="number" 
             name="realtyMemberKey" 
             value={formData.realtyMemberKey} 
             onChange={handleChange} 
-            required 
           />
 
           {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <div className="form-buttons">
-            <button className="cancle-btn" onClick={() => navigate('/realty/main')}>돌아가기</button>
-            <button className="save-btn" onClick={handleSave}>수정하기</button>
+          <div className="build-form-buttons">
+            <button className="build-cancle-btn" onClick={() => navigate('/realty/main')}>돌아가기</button>
+            <button className="build-save-btn" onClick={handleSave}>저장하기</button>
           </div>
         </form>
       </div>

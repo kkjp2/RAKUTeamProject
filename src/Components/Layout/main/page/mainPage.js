@@ -1,13 +1,27 @@
 import { Navigate, useNavigate } from 'react-router-dom';
 import'./css/mainPage.css';
-import { useEffect } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 const MainPage =() => {
     const navigate = useNavigate();
+    const [ann, setAnn] = useState([]);
+    async function AnnInfo() {
+        try {
+            const response = await axios.get('http://localhost:8080/api/ann/view');
+            // 성공 시
+            console.log(response.data); // 응답 데이터 확인
+            setAnn(response.data.announcements);
+            console.log(ann);
+          } catch (error) {
+            // 실패 시
+            console.error(error);
+          }
+    }
     useEffect(() => {
         const input = document.getElementById('myInput');
         const form = document.getElementById('myForm');
-
+        AnnInfo();
         // input이 focus되면 form에 클래스 추가
         const handleFocus = () => {
             form.classList.add('focused');
@@ -163,10 +177,10 @@ const MainPage =() => {
         </div>
         <div className="News_Main_Content" onClick={goToAnn}>
             <p className="News_Main_Content_Day">
-                2024-10-16
+                {ann[ann.length - 1]?.borndate || "No date available"}
             </p>
             <p className="News_Main_Content_Title">
-                UI 새로 개편
+                {ann[ann.length-1]?.title || "No title available"}
             </p>
 
         </div>

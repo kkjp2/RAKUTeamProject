@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import ImageUploadModal from "./ImageUploadModal";
-import "./Create_building_page.css";
+import './Create_building_page.css';
 
 const API_URL = "http://localhost:8080/api/houses";
 
@@ -10,26 +10,25 @@ const CreateBuildingPage = () => {
   const [saleType, setSaleType] = useState("월세");
   const [errorMessage, setErrorMessage] = useState("");
 
-  // 폼 상태
   const [formData, setFormData] = useState({
     name: "",
     buildingType: "",
     floors: "",
     roomType: "",
-    isNew: true, // 신축 여부
+    isNew: true,
     saleType: "월세",
     rentPrice: "",
     salePrice: "",
-    isDuplex: false, // 단층 여부
+    isDuplex: false,
     prefecture: "",
     address: "",
     detailedAddress: "",
-    deposit: "", // 보증금
-    previousUse: "", // 이전 사용처
-    constructionDate: "", // 건축년월
-    tags: "", // 태그
-    buildingSize: "", // 건축물 크기
-    comments: "", // 담당자 코멘트
+    deposit: "",
+    previousUse: "",
+    constructionDate: "",
+    tags: "",
+    buildingSize: "",
+    comments: "",
   });
 
   const prefectureOptions = [
@@ -47,7 +46,7 @@ const CreateBuildingPage = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    setErrorMessage(""); // 입력 시 에러 메시지 초기화
+    setErrorMessage("");
   };
 
   const handleSaleTypeChange = (e) => {
@@ -71,7 +70,6 @@ const CreateBuildingPage = () => {
   };
 
   const handleSave = async () => {
-    // 필수 필드 체크
     const requiredFields = [
       { field: "name", label: "매물명" },
       { field: "buildingType", label: "건축물종류" },
@@ -138,10 +136,12 @@ const CreateBuildingPage = () => {
   };
 
   return (
-    <div className="create-building-container">
-      <div className="form-container">
-        <form className="building-form" onSubmit={(e) => e.preventDefault()}>
-          {/* 매물명 */}
+    <div className="Cbuild-create-building-container">
+      <div className="Cbuild-form-container">
+        <form
+          className="Cbuild-building-form"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <label>매물명: <span>*필수</span></label>
           <input
             type="text"
@@ -150,7 +150,6 @@ const CreateBuildingPage = () => {
             onChange={handleInputChange}
             required
           />
-          {/* 건축물 종류 */}
           <label>건축물종류: <span>*필수</span></label>
           <input
             type="text"
@@ -159,7 +158,6 @@ const CreateBuildingPage = () => {
             onChange={handleInputChange}
             required
           />
-          {/* 층수 */}
           <label>건축층수: <span>*필수</span></label>
           <input
             type="number"
@@ -168,7 +166,6 @@ const CreateBuildingPage = () => {
             onChange={handleInputChange}
             required
           />
-          {/* 방 구분 */}
           <label>방 구분: <span>*필수</span></label>
           <input
             type="text"
@@ -177,7 +174,6 @@ const CreateBuildingPage = () => {
             onChange={handleInputChange}
             required
           />
-          {/* 구/신축 */}
           <label>신축 여부: <span>*필수</span></label>
           <div>
             <input
@@ -195,7 +191,6 @@ const CreateBuildingPage = () => {
               onChange={() => setFormData({ ...formData, isNew: false })}
             /> 구축
           </div>
-          {/* 단층/복층 */}
           <label>단층/복층: <span>*필수</span></label>
           <div>
             <input
@@ -213,66 +208,36 @@ const CreateBuildingPage = () => {
               onChange={() => setFormData({ ...formData, isDuplex: true })}
             /> 복층
           </div>
-          {/* 매매 타입 */}
-          <label>월세/매매: <span>*필수</span></label>
-          <div>
-            <input
-              type="radio"
-              name="saleType"
-              value="월세"
-              checked={saleType === "월세"}
-              onChange={handleSaleTypeChange}
-            /> 월세
-            <input
-              type="radio"
-              name="saleType"
-              value="매매"
-              checked={saleType === "매매"}
-              onChange={handleSaleTypeChange}
-            /> 매매
-            <input
-              type="radio"
-              name="saleType"
-              value="월세 + 매매"
-              checked={saleType === "월세 + 매매"}
-              onChange={handleSaleTypeChange}
-            /> 월세 + 매매
-          </div>
-          {/* 월세 값 */}
-          <label>월세: <span>선택 사항</span></label>
+          <label>월세</label>
           <input
-            type="text"
+            type="number"
             name="rentPrice"
             value={formData.rentPrice}
             onChange={handleInputChange}
-            disabled={saleType === "매매"}
           />
-          {/* 매매 값 */}
-          <label>매매: <span>선택 사항</span></label>
+          <label>매매가</label>
           <input
-            type="text"
+            type="number"
             name="salePrice"
             value={formData.salePrice}
             onChange={handleInputChange}
-            disabled={saleType === "월세"}
           />
-          {/* 지방 */}
-          <label>지방: <span>*필수</span></label>
+          <label>지방</label>
           <select
             name="prefecture"
             value={formData.prefecture}
             onChange={handleInputChange}
             required
           >
-            <option value="">지방 선택</option>
-            {prefectureOptions.map((pref, index) => (
-              <option key={index} value={pref}>
-                {pref}
+            <option value="">선택하세요</option>
+            {prefectureOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
               </option>
             ))}
           </select>
-          {/* 주소 */}
-          <label>주소: <span>*필수</span></label>
+
+          <label>주소</label>
           <input
             type="text"
             name="address"
@@ -280,8 +245,8 @@ const CreateBuildingPage = () => {
             onChange={handleInputChange}
             required
           />
-          {/* 상세 주소 */}
-          <label>상세주소: <span>*필수</span></label>
+
+          <label>상세주소</label>
           <input
             type="text"
             name="detailedAddress"
@@ -289,75 +254,61 @@ const CreateBuildingPage = () => {
             onChange={handleInputChange}
             required
           />
-          {/* 건축년월 */}
-          <label>건축년월: <span>*필수</span></label>
+          <label>건축년월</label>
           <input
-            type="date"
+            type="month"
             name="constructionDate"
             value={formData.constructionDate}
             onChange={handleInputChange}
             required
           />
-          {/* 보증금 */}
-          <label>보증금: <span>선택 사항</span></label>
-          <input
-            type="text"
-            name="deposit"
-            value={formData.deposit}
-            onChange={handleInputChange}
-          />
-          {/* 이전 사용처 */}
-          <label>이전 사용처: <span>선택 사항</span></label>
-          <input
-            type="text"
-            name="previousUse"
-            value={formData.previousUse}
-            onChange={handleInputChange}
-          />
-          {/* 건축물 크기 */}
-          <label>건축물 크기: <span>*필수</span></label>
-          <input
-            type="text"
-            name="buildingSize"
-            value={formData.buildingSize}
-            onChange={handleInputChange}
-            required
-          />
-          {/* 태그 */}
-          <label>태그: <span>선택 사항</span></label>
-          <input
-            type="text"
-            name="tags"
-            value={formData.tags}
-            onChange={handleInputChange}
-          />
-          {/* 담당 직원 코멘트 */}
-          <label>담당직원 코멘트: <span>*필수</span></label>
+          <label>담당자 코멘트</label>
           <textarea
             name="comments"
             value={formData.comments}
             onChange={handleInputChange}
             required
-          ></textarea>
+          />
+
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
+
+          <div className="Cbuild-form-buttons">
+            <button
+              type="button"
+              className="Cbuild-save-btn"
+              onClick={handleSave}
+            >
+              저장
+            </button>
+            <button
+              type="button"
+              className="Cbuild-cancle-btn"
+              onClick={() => setFormData({
+                name: "",
+                buildingType: "",
+                floors: "",
+                roomType: "",
+                isNew: true,
+                saleType: "월세",
+                rentPrice: "",
+                salePrice: "",
+                isDuplex: false,
+                prefecture: "",
+                address: "",
+                detailedAddress: "",
+                deposit: "",
+                previousUse: "",
+                constructionDate: "",
+                tags: "",
+                buildingSize: "",
+                comments: "",
+              })}
+            >
+              취소
+            </button>
+          </div>
         </form>
-
-        {/* 에러 메시지 */}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-        {/* 버튼 */}
-        <div className="form-buttons">
-          <button className="cancel-btn">돌아가기</button>
-          <button className="save-btn" onClick={handleSave}>
-            생성하기
-          </button>
-          <button className="upload-image-btn" onClick={handleOpenModal}>
-            이미지 업로드
-          </button>
-        </div>
       </div>
-
-      {/* 이미지 업로드 모달 */}
-      {isModalOpen && <ImageUploadModal onClose={handleCloseModal} />}
     </div>
   );
 };

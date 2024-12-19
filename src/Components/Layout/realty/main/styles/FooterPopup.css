@@ -1,4 +1,4 @@
-.footer-container {
+.build-footer-container {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -6,37 +6,39 @@
   z-index: 1000; /* 다른 요소들 위에 있도록 */
 }
 
-.footer-container.closed {
+.build-footer-container.closed {
   transform: translateY(100%); /* 화면에서 숨김 */
 }
 
-.footer-container.open {
+.build-footer-container.open {
   transform: translateY(0); /* 화면에 표시 */
 }
 
-.footer {
+.build-footer {
   padding: 20px;
   background-color: #f1f1f1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  color: black; /* 푸터 텍스트 색을 검은색으로 설정 */
 }
 
-.recent-property {
+.build-recent-property {
   display: flex;
   align-items: center; /* 이미지와 텍스트를 수평으로 나란히 */
   flex: 1; /* 남은 공간을 차지 */
 }
 
-.recent-info {
+.build-recent-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* 텍스트 왼쪽 정렬 */
   margin-left: 15px; /* 이미지와 텍스트 간격 */
+  color: black; /* 글자 색을 검은색으로 설정 */
 }
 
-.recent-image {
+.build-recent-image {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -44,12 +46,12 @@
   margin-right: 15px; /* 이미지와 텍스트 사이의 간격 */
 }
 
-.footer-buttons {
+.build-footer-buttons {
   display: flex;
   gap: 10px; /* 버튼 간의 간격 */
 }
 
-.footer-btn {
+.build-footer-btn {
   padding: 10px 20px;
   background-color: #4b129b;
   color: white;
@@ -59,18 +61,18 @@
   transition: background-color 0.3s;
 }
 
-.footer-btn:hover {
+.build-footer-btn:hover {
   background-color: #4b129b;
 }
 
 /* 비활성화된 버튼 스타일 */
-.footer-btn:disabled {
+.build-footer-btn:disabled {
   background-color: #ccc;
   cursor: not-allowed;
   color: #666;
 }
 
-.toggle-btn {
+.build-toggle-btn {
   position: absolute;
   top: -40px; /* 버튼을 푸터 위에 배치 */
   right: 20px;
@@ -83,6 +85,6 @@
   z-index: 1001;
 }
 
-.toggle-btn:hover {
+.build-toggle-btn:hover {
   background-color: #4f1380fd;
 }
