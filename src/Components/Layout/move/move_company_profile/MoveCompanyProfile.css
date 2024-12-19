@@ -43,7 +43,7 @@
 }
 
 .profile-main h2 {
-  color: #45a34e;
+  color: #9f4298;
   text-align: center;
 }
 
@@ -76,7 +76,7 @@
   position: absolute; /* 绝对定位 */
   top: 25px; /* 距顶部10px */
   right: 10px; /* 距右侧10px */
-  background-color: #45a34e; /* 蓝色背景 */
+  background-color: #9f4298; /* 蓝色背景 */
   border: none; /* 无边框 */
   color: white; 
   padding: 10px 20px; /* 内边距 */

@@ -8,12 +8,14 @@ import Register_Email from './registerEmail.js';
 import Register_Auth from './registerAuth.js';
 import Register_Area from './registerArea.js';
 import Register_Complete from './registerComplete.js';
+import CompanyLogin from './companyLogin.js';
 
 const homepage = () => {
     return<>
     <Layout>
       <Routes>
       <Route path="/login" element={<Login/>} />
+      <Route path="/login/companylogin" element={<CompanyLogin/>}/>
       <Route path="/login/dormant_auth" element={<Dormant_Auth/>}/>
       <Route path="/login/dormant_auth_complete" element={<Dormant_Auth_Complete/>}/>
       <Route path="/login/register_email" element={<Register_Email/>}/>

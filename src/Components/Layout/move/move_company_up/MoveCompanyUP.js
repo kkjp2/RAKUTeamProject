@@ -17,7 +17,7 @@ const CompanyForm = () => {
     detailedAddress: '',
     businessNumber: '',
     service: '',
-    city: '',
+    moveCity: '',
     introduction: ''
   });
 
@@ -62,12 +62,13 @@ const CompanyForm = () => {
     e.preventDefault();
 
     //前端验证: 检查必填字段是否为空
-    if (!company.name || !company.ceo || !company.phone || !company.email || !company.postalCode || !company.address || !company.detailedAddress) {
-      alert('すべての必須フィールドを入力してください。');
-      return;
-    }
+    // if (!company.name || !company.ceo || !company.phone || !company.email || !company.postalCode || !company.address || !company.detailedAddress) {
+    //   alert('すべての必須フィールドを入力してください。');
+    //   return;
+    // }
 
     try {
+      const accessToken = window.sessionStorage.getItem('accesstoken');
       // 创建 FormData 以便同时发送文件和其他表单数据
       const formData = new FormData();
 
@@ -81,27 +82,30 @@ const CompanyForm = () => {
       formData.append('detailedAddress', company.detailedAddress);
       formData.append('businessNumber', company.businessNumber);
       formData.append('service', [...selectedBasicServices, ...selectedOptionalServices].join(','));
-      formData.append('city', selectedRegions.join(','));
+      formData.append('moveCity', selectedRegions.join(','));
       formData.append("introduction", company.introduction);
 
       // 添加文件到 FormData
       if (selectedFiles) {
         Array.from(selectedFiles).forEach(file => {
-          formData.append('uploadFiles', file);
+          formData.append('uploadFile', file);  // 如果只允许上传单个文件，请修改为 formData.append('uploadFile', file);
         });
       }
 
       // 发送请求到后端
-      const response = await axios.post(`/move/company/createWithFiles`, formData, {
+      const response = await axios.post(`http://localhost:8080/move/company/create`, formData, {
         headers: {
+          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'multipart/form-data'
-        }
+      }
       });
 
+      console.log(accessToken);
+      console.log(response.data);
       console.log('Server Response:', response.data);
       setUploadResults(response.data);  // 存储上传的结果
       alert('会社登録完了しました！！！　１〜３日の審査期間があるのでお待ちください！！');
-      window.location.href = 'http://localhost:3000/MoveMain'
+      window.location.href = '/MoveMain';
     } catch (error) {
       console.error('Error posting company:', error);
       alert('会社登録に失敗しました。', error.response);
@@ -180,14 +184,14 @@ const CompanyForm = () => {
               <div className="CompanyUP_postalcode">
                 <label>郵便番号</label>
                 <input
-                  className="search"
+                  className="postalCodesearch"
                   name="postalCode"
                   type="text"
                   placeholder="郵便番号を入力"
                   value={searchValue} // 这里保持与 JapanAddressApi 的状态同步
                   onChange={handleInputChange}
                 />
-                <button className="search-btn" type="button" onClick={handleSearchClick}>
+                <button className="search_btn" type="button" onClick={handleSearchClick}>
                   郵便番号検索
                 </button>
                 {error && <p className="error-message">{error}</p>}
@@ -252,15 +256,15 @@ const CompanyForm = () => {
             <div className="CompanyUP_formGroup">
               <label>対応地域</label>
               <div className="CompanyUP_checkboxGroup">
-                {japanRegions.map((city) => (
-                  <div key={city}>
+                {japanRegions.map((moveCity) => (
+                  <div key={moveCity}>
                     <input
                       type="checkbox"
-                      value={city}
+                      value={moveCity}
                       name='moveCity'
                       onChange={(e) => handleCheckboxChange(e, setSelectedRegions, selectedRegions)}
                     />
-                    {city}
+                    {moveCity}
                   </div>
                 ))}
               </div>

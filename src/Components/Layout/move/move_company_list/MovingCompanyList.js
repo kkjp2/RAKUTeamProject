@@ -3,7 +3,6 @@ import axios from 'axios';
 import './MovingComList.css';
 import Layout from '../move_layout/MoveLayout';
 import { Link } from 'react-router-dom';
-// import imgIcon from '../move_img/logo/logo1.png';
 
 const MovingCompanyList = () => {
     const regions = ["全地域", "東京都", "大阪府", "愛知県", "埼玉県", "千葉県", "兵庫県", "北海道", "福岡県",
@@ -12,8 +11,20 @@ const MovingCompanyList = () => {
     const [companies, setCompanies] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-
     const [error, setError] = useState('');
+
+    useEffect(() => {
+        const fetchCompanies = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/move/company/companies/${id}');
+                setCompanies(response.data); // 响应中包含公司数据，以及通过 `fileUrl` 获取文件 URL
+            } catch (err) {
+                setError('无法加载公司列表');
+            }
+        };
+        fetchCompanies();
+    }, []);
+
 
     useEffect(() => {
         fetchCompaniesByRegion(selectedRegion, currentPage);
@@ -22,13 +33,15 @@ const MovingCompanyList = () => {
     // 获取公司列表
     const fetchCompaniesByRegion = async (region, page) => {
         try {
-            const response = await axios.get(`/move/company/companies/cityFind`, {
+            const response = await axios.get(`http://localhost:8080/move/company/companies/cityFind`, {
                 params: {
-                    city: region === "全地域" ? "" : region,
+                    moveCity: region === "全地域" ? "" : region,
                     page: page - 1, // 后端分页从0开始，前端从1开始
                     size: 12
                 }
             });
+            console.log(response.data);
+
             if (response.data.content) {
                 setCompanies(response.data.content);
                 setTotalPages(response.data.totalPages);
@@ -68,8 +81,8 @@ const MovingCompanyList = () => {
                     {companies.length > 0 ? companies.map((company) => (
                         <div className="comList_card" key={company.id}>
                             <div className='comList_logoandname'>
-                                <img src={company.imgUrl} alt="会社のロゴ" className="comList_profile_logo" />
-                                <h3 className="comList_name">{company.name}</h3>
+                                <img src={company.imgUrl} alt="Company Logo" className="comList_profile_logo" />
+                                <h3 className="comList_name">{company.name}{company.id}</h3>
                             </div>
                             <div className="comList_info">
                                 <p className='comList_companyService'>提供するサービス：<br />{company.service}</p>

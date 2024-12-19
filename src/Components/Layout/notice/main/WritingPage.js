@@ -1,99 +1,16 @@
-// import React, { useState,useRef } from 'react';
-// import './WritingPage.css';
-// import axios from 'axios';
-
-// const WritingPage = () => {
-//   const [title, setTitle] = useState('');
-//   const [content, setContent] = useState('');
-//   const [imgFile, setImgFile]=useState("");
-//   const imgRef=useRef();
-//   const saveImg=()=>{
-//     const file=imgRef.current.files[0];
-//     const reader= new FileReader();
-//     reader.readAsDataURL(file);
-//     reader.onloadend=()=>{
-//       setImgFile(reader.result);
-//     }
-//   }
-
-//   const handleSave = () => {
-//     // 임시 저장 기능 (콘솔로 출력 또는 로컬 스토리지에 저장 가능)
-//     console.log("임시 저장: ", { title, content });
-//   };
-
-//   const handleSubmit = () => {
-//     // 등록 기능 (실제로 서버로 전송하거나 추가 작업 처리)
-//     console.log("등록 완료: ", { title, content });
-//   };
-//   async function submit(id, pwd) {
-//     try {
-//       const response = await axios.post('http://localhost:8080/board/', {
-//         id: id,
-//         pwd: pwd,
-//       });
-//       // 성공 시
-//       console.log(response.data); // 응답 데이터 확인
-//       window.sessionStorage.setItem('accesstoken', response.data.accessToken);
-//       window.sessionStorage.setItem('refreshtoken', response.data.refreshToken);
-//       document.location.href = "/main";
-//     } catch (error) {
-//       // 실패 시
-//       console.error(error);
-//       window.alert("로그인 정보가 틀립니다.");
-//     }
-//   };  
-
-//   return (
-//     <div className="writing-container">
-      
-      
-//       <div className="writing-form">
-//         <input 
-//           type="text" 
-//           placeholder="대충 제목 입니다" 
-//           className="title-input"
-//           value={title}
-//           onChange={(e) => setTitle(e.target.value)} 
-//         />
-//         <textarea 
-//           placeholder="대충 내용" 
-//           className="content-input"
-//           value={content}
-//           onChange={(e) => setContent(e.target.value)}          
-//         />
-        
-
-
-     
-//         <div className="button-group">
-//         <input type="file"
-//         accept='image/*'
-//         id="contentImg"
-//         onChange={saveImg}
-//         ref={imgRef}/>
-//           <button className="save-btn" onClick={handleSave}>임시 저장</button>
-//           <button className="submit-btn" onClick={handleSubmit}>등록</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default WritingPage;
-
 import React, { useState, useRef } from 'react';
-import axios from 'axios'; // axios import
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import './WritingPage.css';
 
 const WritingPage = () => {
+  const { category } = useParams(); // URL에서 카테고리 파라미터를 받아옴
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const[category,setCategory]=useState('');
-  const [imgFile, setImgFile] = useState(null);  // 이미지 파일을 상태로 저장
-
+  const [imgFile, setImgFile] = useState(null);
   const imgRef = useRef();
 
-  // 이미지 파일 선택 후 상태에 저장
+  // 이미지 파일을 선택하면 상태에 파일을 저장
   const saveImg = () => {
     const file = imgRef.current.files[0];
     setImgFile(file);
@@ -102,23 +19,45 @@ const WritingPage = () => {
   // 글 등록 처리 함수
   const handleSubmit = async () => {
     try {
+      if (!title || !content) {
+        alert('제목과 내용을 모두 입력해주세요!');
+        return;
+      }
+
+      // JWT 토큰을 localStorage에서 가져오기
+      const token = localStorage.getItem('refreshToken');
+      if (!token) {
+        alert('로그인이 필요합니다.');
+        return;
+      }
+
+      // FormData 객체로 데이터를 서버로 전송
       const formData = new FormData();
       formData.append('title', title);
       formData.append('content', content);
-      formData.append('category',category);
-      if (imgFile) formData.append('image', imgFile);  // 이미지가 있으면 formData에 추가
+      formData.append('category', category); // 카테고리 값 추가
+      if (imgFile) formData.append('image', imgFile);
 
-      // axios로 서버에 POST 요청
-      const response = await axios.post('http://localhost:8080/board', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(
+        `http://localhost:8080/board`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`, // JWT 토큰을 Authorization 헤더에 추가
+          },
+        }
+      );
 
-      console.log('글 등록 완료:', response.data); // 서버 응답 출력
-      // 성공 후 추가 동작 (예: 페이지 리디렉션, 메시지 표시 등)
+      console.log('글 등록 완료:', response.data);
+      alert('글이 성공적으로 등록되었습니다!');
+      setTitle('');
+      setContent('');
+      setImgFile(null);
+      if (imgRef.current) imgRef.current.value = '';
     } catch (error) {
-      console.error('등록 실패:', error); // 에러 출력
+      console.error('등록 실패:', error.response?.data || error.message);
+      alert('글 등록 중 오류가 발생했습니다.');
     }
   };
 
@@ -127,27 +66,28 @@ const WritingPage = () => {
       <div className="writing-form">
         <input
           type="text"
-          placeholder="대충 제목 입니다"
+          placeholder="제목을 입력하세요"
           className="title-input"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}  // 제목 변경
+          onChange={(e) => setTitle(e.target.value)}
         />
-    
         <textarea
-          placeholder="대충 내용"
+          placeholder="내용을 입력하세요"
           className="content-input"
           value={content}
-          onChange={(e) => setContent(e.target.value)}  // 내용 변경
+          onChange={(e) => setContent(e.target.value)}
         />
         <div className="button-group">
           <input
             type="file"
             accept="image/*"
             id="contentImg"
-            onChange={saveImg}  // 이미지 파일 선택 시 saveImg 호출
+            onChange={saveImg}
             ref={imgRef}
           />
-          <button className="submit-btn" onClick={handleSubmit}>등록</button>
+          <button className="submit-btn" onClick={handleSubmit}>
+            등록
+          </button>
         </div>
       </div>
     </div>

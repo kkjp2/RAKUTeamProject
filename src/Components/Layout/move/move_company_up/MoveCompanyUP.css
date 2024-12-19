@@ -9,6 +9,11 @@
     border-radius: 8px;
     background-color: #f9f9f9;
   }
+
+  .search_btn{
+    background-color: #9f4298;
+    color: #ffffff;
+  }
   
   .CompanyUP_title {
     font-weight: 800;
