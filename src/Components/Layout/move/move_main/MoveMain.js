@@ -4,6 +4,9 @@ import CompanyShowcase from './MoveCompanyShowcase.js';
 import { Link } from 'react-router-dom';
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // 滚动到页面顶部
+  }, []);
 
   useEffect(() => {
     document.body.classList.add('page-aaa');

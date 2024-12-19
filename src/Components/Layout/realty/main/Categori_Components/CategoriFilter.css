@@ -19,7 +19,7 @@ h3 {
   justify-content: space-between; /* 버튼 간격 자동 조정 */
 }
 
-button {
+.filter-container button {
   padding: 10px 15px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
@@ -30,11 +30,11 @@ button {
   box-sizing: border-box; /* 패딩 포함한 크기 계산 */
 }
 
-button:hover {
+.filter-container button:hover {
   background-color: #e0e0e0;
 }
 
-button.active {
+.filter-container button.active {
   background-color: #9c27b0;
   color: white;
   border-color: #9c27b0;

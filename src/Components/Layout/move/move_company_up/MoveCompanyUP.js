@@ -105,6 +105,7 @@ const CompanyForm = () => {
       console.log('Server Response:', response.data);
       setUploadResults(response.data);  // 存储上传的结果
       alert('会社登録完了しました！！！　１〜３日の審査期間があるのでお待ちください！！');
+      window.location.href = '/MoveMain';
     } catch (error) {
       console.error('Error posting company:', error);
       alert('会社登録に失敗しました。', error.response);
@@ -183,14 +184,14 @@ const CompanyForm = () => {
               <div className="CompanyUP_postalcode">
                 <label>郵便番号</label>
                 <input
-                  className="search"
+                  className="postalCodesearch"
                   name="postalCode"
                   type="text"
                   placeholder="郵便番号を入力"
                   value={searchValue} // 这里保持与 JapanAddressApi 的状态同步
                   onChange={handleInputChange}
                 />
-                <button className="search-btn" type="button" onClick={handleSearchClick}>
+                <button className="search_btn" type="button" onClick={handleSearchClick}>
                   郵便番号検索
                 </button>
                 {error && <p className="error-message">{error}</p>}

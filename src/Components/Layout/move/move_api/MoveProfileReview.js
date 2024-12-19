@@ -153,7 +153,7 @@ const useFetchReviews = (companyId) => {
             setReviews(updatedReviews); // 리뷰 상태 업데이트
         } catch (error) {
             console.error('Failed to fetch reviews with reactions:', error);
-            setError('评论加载失败');
+            setError('コメントの読み込みに失敗しました');
         } finally {
             setLoading(false);
         }
@@ -187,8 +187,8 @@ const useFetchReviews = (companyId) => {
                         if (review.reviewId === reviewId) {
                             let newReactionValue = review.reactionValue;
 
-                            // 判断当前的 reactionValue，并根据点击的 reactionType 更新
-                            if (newReactionValue === 1) { // 如果当前是点赞
+                            // 현재 reactionValue를 판단하고 클릭 reactionType에 따라 업데이트
+                            if (newReactionValue === 1) { 
                                 newReactionValue = reactionType === 'like' ? 0 : -1; // 点赞取消或改为点踩
                             } else if (newReactionValue === -1) { // 如果当前是点踩
                                 newReactionValue = reactionType === 'dislike' ? 0 : 1; // 点踩取消或改为点赞
