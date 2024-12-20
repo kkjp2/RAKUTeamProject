@@ -70,7 +70,7 @@ const RegionBoardList = () => {
             {posts.map((post, index) => (
               <tr key={post.id}>
                 <td>{index + 1}</td>
-                <td onClick={() => navigate(`/notice/view/board/${post.id}`)}>
+                <td onClick={() => navigate(`/notice/view/board/${post.n_id}`)}>
                 {post.title}
               </td>
                 <td>{post.userKey}</td>

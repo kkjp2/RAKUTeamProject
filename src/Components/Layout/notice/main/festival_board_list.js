@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import './festival_board_list.css';
 import { useNavigate ,useParams } from "react-router-dom";
+import axios from 'axios';
 
 const RegionFestivalBoard = () => {
   const navigate = useNavigate();
   const { region } = useParams();  
+  const [posts,setPosts]=useState([]);
+
+  useEffect(()=>{
+    const fetchPosts=async ()=>{
+      try{
+        const response=await axios.get(`http://localhost:8080/festival/category/${region}`);
+         if (response.data.length === 0) {
+          console.log('No posts found for this region');
+        } else {
+          setPosts(response.data);
+        }
+      } catch (error) {
+        console.error('게시글 데이터를 가져오는 중 에러 발생:', error);
+      }
+      };
+      fetchPosts();
+    },[region]);
+
 
   
   return (
@@ -46,48 +65,19 @@ const RegionFestivalBoard = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>5</td>
-              <td onClick={()=>{
-                navigate(`/notice/view/festival`)
-              }}>센다이 네부타 축제</td>
-              <td>관리자</td>
-              <td>2024-05-22</td>
-              <td>44</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>아오모리 시의 네부타 축제</td>
-              <td>관리자</td>
-              <td>2024-05-21</td>
-              <td>97</td>
-              <td>50</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>아키타의 큰 불 축제</td>
-              <td>관리자</td>
-              <td>2024-05-20</td>
-              <td>66</td>
-              <td>25</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>가을 불 축제</td>
-              <td>관리자</td>
-              <td>2024-05-19</td>
-              <td>77</td>
-              <td>40</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>여름 춤 축제</td>
-              <td>관리자</td>
-              <td>2024-05-18</td>
-              <td>111</td>
-              <td>111</td>
-            </tr>
+          {posts.map((post, index) => (
+              <tr key={post.id}>
+                <td>{index + 1}</td>
+                <td onClick={() => navigate(`/notice/view/festival/${post.n_id}`)}>
+                {post.title}
+              </td>
+                <td>{post.userKey}</td>
+                <td>{post.createdDate}</td>
+                <td>{post.viewCnt}</td>
+                <td>{post.likeCnt}</td>
+              </tr>
+            ))}
+       
           </tbody>
         </table>
       </div>

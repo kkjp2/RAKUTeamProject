@@ -1,21 +1,60 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import './view_festival.css';
 import { FaEye } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ViewFestival = () => {
+  const { id }=useParams();
+  const [post,setPost]=useState({});
+  const [comment, setComment]=useState([]);
+  const [newComment, setNewComment] = useState(""); // 새 댓글 입력 상태
+  
+  useEffect(()=>{
+    const fetchPostAndComments=async ()=>{
+      try{
+        const postResponse=await axios.get(`http://localhost:8080/festival/${id}`);
+        setPost(postResponse.data);
+        const commentsResponse=await axios.get(`http://localhost:8080/festivals/${id}`);
+        setComment(commentsResponse.data);
+        console.log(commentsResponse.data)
+      }catch(error){
+        console.error('게시글 또는 댓글 조회 중 오류 발생:', error);
+      }
+    };
+    fetchPostAndComments();
+  }, [id]);
+  const token = window.sessionStorage.getItem('accesstoken'); // 액세스 토큰을 세션에서 가져오기
+
+  // const handleCommentSubmit=async(e)=>{
+  //   e.preventDefault();
+  //   try {
+  //     await axios.post(
+  //       `http://localhost:8080/festivals/${id}/comments`, 
+  //       { commentText: newComment }, // 요청 바디에 댓글 내용만
+  //       { headers: { Authorization: `Bearer ${token}` } } // Authorization 헤더 추가
+  //     );
+  //     setNewComment(""); // 댓글 입력 초기화
+
+
+  //   } catch (error) {
+  //     console.error('댓글 등록 중 오류 발생:', error);
+  //   }
+    
+  // };
   return (
     <div className="festival-post-container">
       <header className="post-header">
         <div className="region-tag">도호쿠 지방</div>
-        <h1 className="post-title">아오모리시의 네부타 축제!</h1>
-        <div className="post-date">2024-05-28 17:00</div>
+        <h1 className="post-title">{post.title}</h1>
+        <div className="post-date">{post.createdDate}</div>
       </header>
 
       <div className="post-reactions">
         <div className="reaction-icons">
           <span className="reaction-item"><FaEye />
-          조회수: 97</span>
+          {post.viewCnt}</span>
           
         </div>
       </div>
@@ -27,12 +66,12 @@ const ViewFestival = () => {
           alt="네부타 축제"
         />
         <p>
-          가장 즐거운 축제는 전국의 사람들이 모인 네부타 대축제입니다. 아오모리시는 국내외 관광객들로 북적이며, 그 기회로 참가할 수 있는 독특한 경험을 선사합니다. 이 축제는 여러 가지 퍼포먼스와 이벤트로 가득 차 있습니다.
+          {post.content}
         </p>
       </div>
 
       <div className="post-actions">
-        <button className="action-btn"><FaStar  color='yellow'/>추천: 50</button>
+        <button className="action-btn"><FaStar  color='yellow'/>추천: {post.likeCnt}</button>
         <button className="action-btn">즐겨찾기</button>
       </div>
 

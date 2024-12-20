@@ -117,13 +117,14 @@
     margin-top: 20px;
   }
   
+  
   .comment-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    background-color: white;  /* 배경색이 흰색인지 확인 */
+    color: black;  /* 글자색이 검은색인지 확인 */
+    padding: 10px; /* 패딩 설정 */
+    border-bottom: 1px solid #ddd; /* 아래쪽에 구분선 추가 */
   }
+  
   
   .comment-author {
     font-weight: bold;
@@ -131,8 +132,9 @@
   }
   
   .comment-text {
-    flex: 1;
-    margin-right: 10px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.5;
   }
   
   .comment-date {

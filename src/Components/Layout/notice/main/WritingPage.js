@@ -1,19 +1,26 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './WritingPage.css';
 
 const WritingPage = () => {
-  const { category } = useParams(); // URL에서 카테고리 파라미터를 받아옴
+  const { region } = useParams(); // URL에서 카테고리 번호를 가져옴
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [imgFile, setImgFile] = useState(null);
   const imgRef = useRef();
 
-  // 이미지 파일을 선택하면 상태에 파일을 저장
+  useEffect(() => {
+    console.log("Received category (region):", region); // 디버깅용
+  }, [region]);
+
+  // 이미지 파일 선택 핸들러
   const saveImg = () => {
     const file = imgRef.current.files[0];
-    setImgFile(file);
+    if (file) {
+      console.log("Selected image:", file.name);
+      setImgFile(file);
+    }
   };
 
   // 글 등록 처리 함수
@@ -24,36 +31,43 @@ const WritingPage = () => {
         return;
       }
 
-      // JWT 토큰을 localStorage에서 가져오기
-      const token = localStorage.getItem('refreshToken');
+      // JWT 토큰 가져오기
+      const token = window.sessionStorage.getItem('accesstoken');
       if (!token) {
         alert('로그인이 필요합니다.');
         return;
       }
+      console.log("Sending FormData:");
+      console.log("Token:", token);
+      console.log("Region (Category):", region);
 
-      // FormData 객체로 데이터를 서버로 전송
+      // FormData 객체 생성
       const formData = new FormData();
       formData.append('title', title);
       formData.append('content', content);
-      formData.append('category', category); // 카테고리 값 추가
-      if (imgFile) formData.append('image', imgFile);
+      formData.append('category', region); // 서버가 'category'로 받는 경우
+      if (imgFile) {
+        formData.append('image', imgFile);
+      }
 
       const response = await axios.post(
         `http://localhost:8080/board`,
-        formData,
+          formData,
         {
           headers: {
-            'Content-Type': 'multipart/form-data',
-            'Authorization': `Bearer ${token}`, // JWT 토큰을 Authorization 헤더에 추가
+            'Content-Type': "application/json",
+            'Authorization': `Bearer ${token}`
           },
+          withCredentials: true,
         }
       );
-
-      console.log('글 등록 완료:', response.data);
-      alert('글이 성공적으로 등록되었습니다!');
       setTitle('');
       setContent('');
       setImgFile(null);
+
+      console.log('글 등록 완료:', response.data);
+      alert('글이 성공적으로 등록되었습니다!');
+     
       if (imgRef.current) imgRef.current.value = '';
     } catch (error) {
       console.error('등록 실패:', error.response?.data || error.message);
